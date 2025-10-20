@@ -38,7 +38,7 @@ const platformFeatures = [
   },
 ];
 
-const PlatformFeatureCard = ({ feature, index }: { feature: typeof platformFeatures[0]; index: number }) => {
+const PlatformFeatureCard = ({ feature }: { feature: typeof platformFeatures[0] }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   
   // Truncate description to approximately 100 characters for mobile
