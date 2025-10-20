@@ -118,7 +118,7 @@ const PlatformFeatures = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {platformFeatures.map((feature, index) => (
-            <PlatformFeatureCard key={index} feature={feature} index={index} />
+            <PlatformFeatureCard key={index} feature={feature} />
           ))}
         </div>
 
