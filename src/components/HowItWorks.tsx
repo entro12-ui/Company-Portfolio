@@ -1,40 +1,39 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 const platformFeatures = [
   {
     number: "01",
-    title: "Real-Time Monitoring & Alerts",
-    subtitle: "See Everything, As It Happens",
+    title: "Real-Time Monitoring & Automated Alerts",
+    subtitle: "Stay Informed, Always",
     description:
-      "Monitor the status of every door, lock, and device in real-time. Get instant SMS or email alerts for forced doors, offline devices, or unauthorized access attempts.",
+      "Monitor all system activities in real-time across Access Control, Healthcare Management, and Car Service Management. Get instant SMS or email alerts for critical events, service reminders, and system notifications. Track everything from door access to patient appointments to vehicle service schedules.",
     icon: "📊",
   },
   {
     number: "02",
     title: "Advanced User & Role Management",
-    subtitle: "Granular Control Over Permissions",
+    subtitle: "Granular Control Across All Systems",
     description:
-      "Define roles like System Admin, Manager, and Standard User. Easily control who has access to what, and when, protecting your most sensitive areas effortlessly.",
+      "Comprehensive role-based access control across all our solutions. Define roles like System Admin, Doctors, Lab Techs, Service Managers, and Standard Users. Control permissions, access levels, and data visibility for Access Control, Healthcare Management, and Car Service Management platforms.",
     icon: "👥",
   },
   {
     number: "03",
-    title: "Automated Booking System Integration",
-    subtitle: "Access That Syncs with Your Schedule",
+    title: "AI-Powered Intelligence & Automation",
+    subtitle: "Smart Solutions for Modern Businesses",
     description:
-      "Automatically grant and revoke access based on reservations. Perfect for meeting rooms, hotel check-ins, co-working spaces, and equipment rentals. Booking confirmed = access granted.",
-    icon: "📅",
+      "Leverage AI capabilities across our platforms: AI Clinical Decision Support in MediCare AI, automated service scheduling in Car Service Management, and intelligent access control. Automated booking integration, appointment scheduling, and predictive analytics help streamline operations.",
+    icon: "🤖",
   },
   {
     number: "04",
-    title: "Unbreakable Reliability & Security",
-    subtitle: "Engineered for 24/7 Uptime",
+    title: "Comprehensive Data Management & Reporting",
+    subtitle: "Insights That Drive Decisions",
     description:
-      "Heartbeat Monitoring: Continuous device health checks with instant failure alerts. Comprehensive Audit Trail: A tamper-proof log of every access attempt and system change. Industrial-Grade Hardware: Built to withstand power surges, dust, and harsh conditions.",
-    icon: "🛡️",
+      "Complete data management with detailed reporting and analytics across all solutions. Track access logs, patient records, service history, inventory, and financial data. Generate comprehensive reports for business intelligence, compliance, and operational insights. Secure, HIPAA-compliant data handling where required.",
+    icon: "📈",
   },
 ];
 
@@ -109,39 +108,17 @@ const PlatformFeatures = () => {
             Powerful Platform Features
           </h2>
           <h3 className="text-2xl sm:text-3xl font-semibold text-teal-700 mb-6">
-            The Brains Behind the Operation
+            Advanced Capabilities Across All Our Solutions
           </h3>
           <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
-            Our powerful software platform gives you unparalleled control and insight
+            Our software platforms provide powerful features including real-time monitoring, AI-powered insights, automated notifications, and comprehensive management tools across all our solutions
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {platformFeatures.map((feature, index) => (
             <PlatformFeatureCard key={index} feature={feature} />
           ))}
-        </div>
-
-        {/* Product Image Section */}
-        <div className="mt-16 relative">
-          <div className="relative h-[400px] sm:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
-            <Image
-              src="/product.jpg"
-              alt="SMART Access Control Hardware"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-              <div className="p-8 sm:p-12 text-white">
-                <h3 className="text-3xl sm:text-4xl font-bold mb-4">
-                  Professional Hardware Solutions
-                </h3>
-                <p className="text-lg sm:text-xl max-w-2xl">
-                  Our custom-built hardware integrates seamlessly with the software platform, providing reliable and secure access control in any environment.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

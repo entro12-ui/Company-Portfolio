@@ -37,6 +37,12 @@ const Navbar = () => {
               About Us
             </Link>
             <Link
+              href="#products"
+              className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
+            >
+              Products
+            </Link>
+            <Link
               href="#access-methods"
               className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
             >
@@ -140,6 +146,13 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               About Us
+            </Link>
+            <Link
+              href="#products"
+              className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Products
             </Link>
             <Link
               href="#access-methods"

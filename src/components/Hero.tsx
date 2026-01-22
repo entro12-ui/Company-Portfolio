@@ -16,27 +16,27 @@ const Hero = () => {
         <div className="text-center">
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-gradient-to-r from-slate-700 to-teal-700 text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 animate-fade-in-up shadow-lg">
-            <span className="text-lg">🔒</span>
+            <span className="text-lg">🚀</span>
             <span>Trusted, Scalable, Locally Engineered Solutions</span>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-6 font-poppins leading-tight animate-fade-in-up animation-delay-200">
-            SMART Access Control Solutions
+            Complete Software Solutions
             <span className="block bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mt-2">for Modern Businesses</span>
           </h1>
           
           <p className="text-lg sm:text-xl text-gray-700 mb-4 max-w-4xl mx-auto animate-fade-in-up animation-delay-400 leading-relaxed">
-            Secure, automate, and manage access with <span className="font-semibold text-teal-700">NFC, keypad, web, and IoT-based technology</span>.
+            We provide comprehensive software solutions including <span className="font-semibold text-teal-700">Access Control Systems, Healthcare Management, Car Service Management, and Custom Software Development</span>.
           </p>
           
           <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-in-up animation-delay-600">
-            Our SMART Access Control System is a fully integrated hardware and software solution that allows businesses to secure and manage doors, equipment, facilities, and digital services using automated control methods.
+            Entro Ethiopia delivers innovative, locally-developed software and hardware solutions that transform businesses through automation, AI-powered systems, and intelligent management platforms.
           </p>
 
           {/* Key tagline */}
           <div className="flex items-center justify-center gap-2 mb-8 text-gray-700 font-medium animate-fade-in-up animation-delay-800">
             <span className="text-teal-600 text-2xl">→</span>
-            <span className="text-lg sm:text-xl">Smart Security. Smart Control. Smart Future.</span>
+            <span className="text-lg sm:text-xl">Innovation. Excellence. Local Expertise.</span>
           </div>
 
           <div className="flex justify-center gap-4 flex-col sm:flex-row animate-fade-in-up animation-delay-1000">

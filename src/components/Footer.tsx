@@ -26,8 +26,8 @@ const Footer = () => {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#access-methods" className="hover:text-gray-300">
-                    Access Methods
+                  <a href="#products" className="hover:text-gray-300">
+                    Our Products
                   </a>
                 </li>
                 <li>
@@ -70,18 +70,18 @@ const Footer = () => {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#access-methods" className="hover:text-gray-300">
-                    NFC Access Control
+                  <a href="#products" className="hover:text-gray-300">
+                    Access Control System
                   </a>
                 </li>
                 <li>
-                  <a href="#access-methods" className="hover:text-gray-300">
-                    Keypad Systems
+                  <a href="#products" className="hover:text-gray-300">
+                    MediCare AI
                   </a>
                 </li>
                 <li>
-                  <a href="#access-methods" className="hover:text-gray-300">
-                    IoT Integration
+                  <a href="#products" className="hover:text-gray-300">
+                    Car Service Management
                   </a>
                 </li>
               </ul>
@@ -204,8 +204,9 @@ const Footer = () => {
         {/* Description */}
         <div className="max-w-2xl text-center text-sm text-gray-400 mb-4 px-4">
           Entro Ethiopia Software and Hardware Development PLC is a local tech company 
-          specializing in smart access control and automation systems. We empower Ethiopian 
-          and African businesses through innovative security solutions.
+          providing comprehensive software solutions including Access Control Systems, Healthcare 
+          Management (MediCare AI), Car Service Management, and Custom Software Development. 
+          We empower Ethiopian and African businesses through innovative technology solutions.
         </div>
         {/* Copyright */}
         <div className="text-center text-sm bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent font-semibold">

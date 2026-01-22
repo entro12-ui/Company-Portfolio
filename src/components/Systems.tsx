@@ -23,7 +23,7 @@ const industries = [
     icon: "🏥",
     title: "Hospitals & Clinics",
     description:
-      "Control entry to sensitive areas like pharmacies, labs, and records rooms.",
+      "MediCare AI for complete hospital management, plus access control for sensitive areas like pharmacies, labs, and records rooms.",
   },
   {
     icon: "🏭",
@@ -49,6 +49,24 @@ const industries = [
     description:
       "High-security access control with comprehensive audit trails and monitoring.",
   },
+  {
+    icon: "🔧",
+    title: "Auto Service Centers & Garages",
+    description:
+      "Car Service Management System for complete garage operations. Manage customers, vehicles, appointments, service history, inventory, and automated mileage-based service alerts.",
+  },
+  {
+    icon: "🚗",
+    title: "Car Service & Maintenance Shops",
+    description:
+      "Streamline operations with our Car Service Management System. Track service records, manage appointments, handle billing, and send automated SMS/email notifications for next service mileage.",
+  },
+  {
+    icon: "⚙️",
+    title: "Auto Repair & Maintenance Facilities",
+    description:
+      "Complete digital management for repair shops. Manage customer vehicles, service history, parts inventory, loyalty programs, and generate comprehensive business reports.",
+  },
 ];
 
 const Industries = () => {
@@ -60,7 +78,7 @@ const Industries = () => {
             Industries We Serve
           </h2>
           <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
-            Our Smart Access and Booking Solutions are ideal for:
+            Our comprehensive software solutions - including Access Control Systems, Healthcare Management (MediCare AI), Car Service Management, and Custom Software Development - serve diverse industries:
           </p>
         </div>
 
@@ -85,11 +103,23 @@ const Industries = () => {
           <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
             Tailored Solutions for Your Sector
           </h3>
-          <p className="text-lg sm:text-xl text-center max-w-4xl mx-auto leading-relaxed">
-            Our flexible system adapts to the unique security and operational needs of your industry. 
-            Whether you need simple door control or complex multi-site management, we provide 
-            scalable solutions that grow with your business.
+          <p className="text-lg sm:text-xl text-center max-w-4xl mx-auto leading-relaxed mb-6">
+            Our comprehensive software solutions adapt to the unique needs of your industry. Whether you need Access Control Systems for security, Healthcare Management (MediCare AI) for hospitals, Car Service Management for auto centers, or Custom Software Development, we provide scalable solutions that grow with your business.
           </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+            <div className="bg-gradient-to-br from-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 border border-teal-500/20">
+              <h4 className="text-xl font-bold mb-3 text-teal-400">Access Control</h4>
+              <p className="text-gray-300 text-sm">Secure facilities with NFC, keypad, web-based, and IoT access control solutions</p>
+            </div>
+            <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 border border-blue-500/20">
+              <h4 className="text-xl font-bold mb-3 text-blue-400">Healthcare Management</h4>
+              <p className="text-gray-300 text-sm">AI-powered hospital management with patient care, lab, pharmacy, and AI assistance</p>
+            </div>
+            <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 backdrop-blur-sm rounded-xl p-6 border border-orange-500/20">
+              <h4 className="text-xl font-bold mb-3 text-orange-400">Car Service Management</h4>
+              <p className="text-gray-300 text-sm">Complete digital solutions for auto service centers with automated notifications</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

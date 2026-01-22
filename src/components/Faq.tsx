@@ -52,44 +52,54 @@ const FaqItem = ({ question, answer }: FaqItemProps) => {
 const Faq = () => {
   const faqItems = [
     {
-      question: "Can the system work offline without internet?",
+      question: "What software solutions do you provide?",
+      answer:
+        "We provide three main software solutions: SMART Access Control System for secure facility access, MediCare AI for comprehensive healthcare management with AI-powered features, and Car Service Management System for auto service centers. We also offer custom software development tailored to your specific business needs.",
+    },
+    {
+      question: "Can the Access Control System work offline without internet?",
       answer:
         "Yes! Our SMART Access Control System supports offline operation. Keypad and NFC access methods continue working even when internet connection is lost. The system will sync data once connectivity is restored. However, remote web control and real-time monitoring require internet connection.",
     },
     {
-      question: "What happens if the power goes out?",
+      question: "What is MediCare AI and what does it offer?",
       answer:
-        "Our hardware is designed with power failure protection. The system maintains access logs in non-volatile memory and can operate on backup power if configured. Emergency override options ensure you never get locked out during power outages.",
+        "MediCare AI is our intelligent healthcare management platform that combines traditional hospital operations with AI-powered features. It includes patient management, laboratory and pharmacy modules, bed management, billing, and AI features like Clinical Decision Support, Patient Chatbot (24/7), Multi-LLM AI Assistant, and AI Voice Assistant. It helps reduce administrative workload by 60% and improves diagnostic accuracy.",
     },
     {
-      question: "How do I manage multiple doors and locations?",
+      question: "How does the Car Service Management System help auto service centers?",
       answer:
-        "Our web-based platform allows you to manage unlimited doors, devices, and locations from a single dashboard. You can monitor all access points in real-time, generate reports, and control permissions across your entire organization remotely.",
+        "Our Car Service Management System streamlines all operations for auto service centers. It manages customers, vehicles, appointments, service history, parts inventory, and loyalty programs. The system automatically sends SMS and email notifications to customers when their vehicle reaches the next service mileage requirement, helping you maintain customer relationships and increase repeat business.",
     },
     {
-      question: "Can I customize access times and schedules?",
+      question: "Do your systems support cloud or local deployment?",
       answer:
-        "Absolutely! You can create custom access schedules for different users, grant temporary access, set recurring time slots, and define access rules based on days, hours, or specific dates. Perfect for shift-based operations, meeting room bookings, and visitor management.",
+        "Yes! All our software solutions support both cloud and local deployment options. You can choose cloud-connected systems for remote access and scalability, or local server installation for enhanced data control. Our Access Control System works online and offline seamlessly, while Healthcare and Car Service Management systems can be deployed based on your infrastructure preferences.",
     },
     {
-      question: "What types of access credentials are supported?",
+      question: "How secure are your systems and is patient data protected?",
       answer:
-        "Our system supports multiple credential types: NFC cards/tags, PIN codes, web-based remote unlock, Shelly IoT buttons, and automated booking system integration. You can use one or combine multiple methods based on your security needs.",
+        "Security is our top priority across all solutions. Our systems feature encrypted communication, comprehensive audit trails, role-based access control, and continuous monitoring. MediCare AI is HIPAA-compliant with secure patient data handling. All systems include tamper-proof logging and can trigger instant alerts for suspicious activity or unauthorized access.",
     },
     {
-      question: "How secure is the system against hacking?",
+      question: "Can I get automated notifications and alerts?",
       answer:
-        "Security is our top priority. The system features encrypted communication, comprehensive audit trails, tamper-proof logging, role-based access control, and continuous device health monitoring. All access attempts are logged and can trigger instant alerts for suspicious activity.",
+        "Absolutely! All our systems support automated notifications via SMS and email. Access Control sends alerts for unauthorized access attempts. MediCare AI sends appointment reminders and test result notifications. Car Service Management automatically alerts customers when their vehicle reaches the next service mileage requirement, helping you maintain customer relationships.",
     },
     {
-      question: "Do you provide installation and training?",
+      question: "Do you provide installation, training, and support?",
       answer:
-        "Yes! We provide complete installation services, system configuration, user training, and ongoing technical support. Our local Ethiopian team is available 24/7 to assist with setup, troubleshooting, and maintenance.",
+        "Yes! We provide complete installation services, system configuration, user training, and ongoing technical support for all our solutions. Our local Ethiopian team is available 24/7 to assist with setup, troubleshooting, and maintenance. We ensure your team is fully trained and comfortable using the systems before we consider the implementation complete.",
     },
     {
-      question: "Can the system integrate with existing door locks?",
+      question: "Can the Car Service Management System track service history and send reminders?",
       answer:
-        "Our hardware is designed to integrate with most standard electric locks, magnetic locks, and door strikes. We can also provide complete smart lock solutions as part of the installation. Our team will assess your existing setup and recommend the best integration approach.",
+        "Yes! The Car Service Management System maintains complete service history for each vehicle, tracks all service types (Basic, Major, Brake, Tire, AC, General), and automatically calculates when the next service is due based on mileage. The system sends SMS and email notifications to customers when their vehicle reaches the service mileage requirement, ensuring timely maintenance and customer retention.",
+    },
+    {
+      question: "How does MediCare AI's AI features help healthcare providers?",
+      answer:
+        "MediCare AI's AI features significantly enhance healthcare delivery. The AI Clinical Decision Support helps doctors with disease analysis, diagnostic assistance, and treatment recommendations. The 24/7 AI Patient Chatbot answers patient questions based on their medical history. The Multi-LLM AI Assistant (GPT-4, Gemini, Claude, Llama) provides clinical consultation support. These features help reduce administrative workload by 60% and improve diagnostic accuracy.",
     },
   ];
 
@@ -101,7 +111,7 @@ const Faq = () => {
             Frequently Asked Questions
           </h2>
           <p className="text-lg sm:text-xl text-gray-600">
-            Everything you need to know about our SMART Access Control System
+            Everything you need to know about our software solutions and services
           </p>
         </div>
         <div className="bg-white rounded-lg">
@@ -115,10 +125,10 @@ const Faq = () => {
         </div>
         <div className="mt-10 sm:mt-16 text-center">
           <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">
-            Ready to Upgrade Your Security?
+            Ready to Transform Your Business?
           </h3>
           <p className="text-gray-600 mb-6 text-base sm:text-lg max-w-2xl mx-auto">
-            For any additional inquiries or assistance, please contact us. Our team is ready to help you implement the perfect access control solution for your business.
+            For any additional inquiries or assistance, please contact us. Our team is ready to help you implement the perfect software solution for your business - whether it's Access Control, Healthcare Management, Car Service Management, or custom software development.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
