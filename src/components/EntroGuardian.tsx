@@ -80,7 +80,7 @@ const AboutUs = () => {
             Why Choose Entro Ethiopia?
           </h3>
           <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
-            We provide comprehensive software solutions including Access Control Systems, Healthcare Management (MediCare AI), Car Service Management, and Custom Software Development. Here's why businesses trust us:
+            We provide comprehensive software solutions including Access Control Systems, Healthcare Management (MediCare AI), Car Service Management, and Custom Software Development. Here&apos;s why businesses trust us:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             <div className="bg-gradient-to-br from-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 hover:from-teal-500/20 hover:to-cyan-500/20 transition-all border border-teal-500/20 hover:border-teal-500/40">

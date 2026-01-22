@@ -128,7 +128,7 @@ const Faq = () => {
             Ready to Transform Your Business?
           </h3>
           <p className="text-gray-600 mb-6 text-base sm:text-lg max-w-2xl mx-auto">
-            For any additional inquiries or assistance, please contact us. Our team is ready to help you implement the perfect software solution for your business - whether it's Access Control, Healthcare Management, Car Service Management, or custom software development.
+            For any additional inquiries or assistance, please contact us. Our team is ready to help you implement the perfect software solution for your business - whether it&apos;s Access Control, Healthcare Management, Car Service Management, or custom software development.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
