@@ -40,7 +40,10 @@ const organizationSchema = {
     telephone: "+251 979 113 638",
     contactType: "sales",
   },
-  sameAs: ["[FACEBOOK_URL]", "[LINKEDIN_URL]"],
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=61574279425487",
+    "[LINKEDIN_URL]",
+  ],
 };
 
 const faqSchema = {

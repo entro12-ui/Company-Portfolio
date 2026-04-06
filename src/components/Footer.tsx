@@ -156,6 +156,16 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
+                    href="https://www.facebook.com/profile.php?id=61574279425487"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition hover:text-white"
+                  >
+                    Facebook Page
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="tel:+251979113638"
                     className="transition hover:text-white"
                   >

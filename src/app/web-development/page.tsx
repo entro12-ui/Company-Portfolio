@@ -44,48 +44,52 @@ export default function WebDevelopmentPage() {
               Web Development Company in Ethiopia
             </h1>
             <p className="max-w-4xl text-lg leading-relaxed text-gray-700">
-              Entro Ethiopia is a web development company in Ethiopia creating
-              fast, modern, and conversion-focused websites for businesses,
-              NGOs, clinics, and institutions. We build websites and web
-              applications that strengthen credibility, improve user experience,
-              and help organizations generate enquiries, manage services, and
-              support growth online.
+              Modern websites and web applications that work on any device.
+              Entro Ethiopia designs and develops professional websites and web
+              apps for businesses and organizations in Addis Ababa and Ethiopia.
             </p>
           </header>
 
           <div className="grid gap-8 md:grid-cols-2">
             <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                Why choose a web development company in Ethiopia
+                Services
               </h2>
-              <p className="text-gray-700">
-                A local development partner understands market context,
-                communication needs, audience expectations, and the practical
-                goals behind your digital presence. That leads to better
-                structure, better messaging, and better results.
-              </p>
+              <ul className="space-y-3 text-gray-700">
+                {[
+                  "Business websites",
+                  "E-commerce websites",
+                  "Web applications (portals, dashboards)",
+                  "Website redesign and optimization",
+                  "Domain, hosting and maintenance",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 leading-relaxed">
+                    <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-teal-100 text-sm font-bold text-teal-700">
+                      ✓
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </section>
 
             <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                What we deliver
+                Features of our websites
               </h2>
               <ul className="space-y-3 text-gray-700">
                 {[
-                  "Corporate websites and landing pages",
-                  "Service websites for clinics, NGOs, and SMEs",
-                  "Customer portals and internal web platforms",
-                  "Responsive user experiences for mobile and desktop",
-                  "SEO-ready technical structure and content layout",
+                  "Mobile-friendly (works on phone, tablet, desktop)",
+                  "Fast loading",
+                  "Easy to update (admin panel)",
+                  "Secure (SSL, backups)",
+                  "SEO ready structure",
                 ].map((item) => (
-                  <li
-                    key={item}
-                    className="group flex items-start gap-3 rounded-2xl px-4 py-3 transition duration-300 hover:bg-teal-50"
-                  >
-                    <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-teal-100 text-teal-700 transition duration-300 group-hover:bg-teal-700 group-hover:text-white">
+                  <li key={item} className="flex items-start gap-3 leading-relaxed">
+                    <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-cyan-100 text-sm font-bold text-cyan-700">
                       ✓
                     </span>
-                    <span className="leading-relaxed">{item}</span>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -93,22 +97,95 @@ export default function WebDevelopmentPage() {
 
             <section className="rounded-3xl border border-slate-200 bg-slate-50 p-8 shadow-sm">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                What your website should achieve
+                Technologies
               </h2>
               <p className="text-gray-700">
-                A strong website should clearly explain your offer, build trust,
-                guide users to action, and support marketing, operations, or
-                customer service. We design around those outcomes from day one.
+                We build with modern frameworks like React that are fast,
+                scalable, and well suited for professional websites and web
+                applications.
               </p>
             </section>
 
-            <section className="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 text-white shadow-sm">
-              <h2 className="mb-4 text-2xl font-bold">Build for visibility and growth</h2>
-              <p className="text-gray-200">
-                From homepage messaging to technical implementation, our web
-                development work supports search visibility, credibility, and
-                conversions without sacrificing speed or usability.
-              </p>
+            <section className="rounded-3xl border border-slate-200 bg-slate-950 p-8 text-white shadow-sm">
+              <h2 className="mb-4 text-2xl font-bold">Our process</h2>
+              <ol className="space-y-3 text-slate-200">
+                {[
+                  "Plan - we define goals, pages, content",
+                  "Design - you approve the look before coding",
+                  "Develop - we build and test",
+                  "Launch & Train - we launch and show you how to update",
+                ].map((item, index) => (
+                  <li key={item} className="flex items-start gap-3 leading-relaxed">
+                    <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-white text-sm font-bold text-slate-950">
+                      {index + 1}
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          </div>
+
+          <div className="mt-8 grid gap-8 md:grid-cols-2">
+            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+                Who we work with
+              </h2>
+              <ul className="space-y-3 text-gray-700">
+                {[
+                  "SMEs (company websites, service pages)",
+                  "NGOs (project sites, donation pages)",
+                  "Clinics (appointment pages, service info)",
+                  "Government (information portals)",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3 leading-relaxed">
+                    <span className="mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-teal-600" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+                Frequently asked questions
+              </h2>
+              <div className="space-y-5 text-gray-700">
+                <div>
+                  <h3 className="font-semibold text-gray-900">
+                    How much does a website cost in Ethiopia?
+                  </h3>
+                  <p>
+                    Depends on pages and features. Basic business website starts
+                    from [TADE PRICE], e-commerce and web apps are quoted after
+                    requirements.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">
+                    Can I update the website myself?
+                  </h3>
+                  <p>
+                    Yes. We provide an easy admin panel to change text, images,
+                    and add pages.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">
+                    Do you provide hosting?
+                  </h3>
+                  <p>Yes. We can host, or deploy on your server.</p>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">
+                    Will my website appear on Google?
+                  </h3>
+                  <p>
+                    Yes. We build with SEO structure including titles, headings,
+                    and sitemap support, and we can submit the site to Google.
+                  </p>
+                </div>
+              </div>
             </section>
           </div>
 
@@ -123,7 +200,7 @@ export default function WebDevelopmentPage() {
                 href="/contact"
                 className="rounded-xl bg-white px-5 py-3 font-semibold text-teal-700 transition hover:bg-slate-100"
               >
-                Request a Consultation
+                Get a Website Quote
               </Link>
               <Link
                 href="/ai-solutions"
