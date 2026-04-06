@@ -3,9 +3,12 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const sectionHref = (id: string) => (pathname === "/" ? `#${id}` : `/#${id}`);
 
   return (
     <nav className="bg-white fixed w-full z-50 text-base sm:text-lg">
@@ -13,61 +16,59 @@ const Navbar = () => {
         <div className="flex justify-between h-16 sm:h-20">
           <div className="flex items-center">
             <Link href="/" className="flex items-center gap-2 sm:gap-3">
-              <div className="relative w-10 h-10 sm:w-12 sm:h-12 transform hover:scale-105 transition-transform duration-200">
+              <div className="relative flex h-10 w-14 sm:h-12 sm:w-16 items-center justify-center overflow-hidden rounded-md transform hover:scale-105 transition-transform duration-200">
                 <Image
                   src="/logo.png"
-                  alt="Entro Logo"
+                  alt="Entro Ethiopia company logo"
                   fill
-                  style={{ objectFit: "contain" }}
+                  className="object-contain object-center"
+                  sizes="(min-width: 640px) 64px, 56px"
                   priority
                 />
               </div>
-              <span className="text-xl sm:text-2xl font-bold text-[#010808]">
-                Entro
-              </span>
             </Link>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
             <Link
-              href="#about"
+              href="/about"
               className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
             >
               About Us
             </Link>
             <Link
-              href="#products"
+              href={sectionHref("products")}
               className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
             >
               Products
             </Link>
             <Link
-              href="#access-methods"
+              href={sectionHref("access-methods")}
               className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
             >
               Access Methods
             </Link>
             <Link
-              href="#features"
+              href={sectionHref("features")}
               className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
             >
               Platform Features
             </Link>
             <Link
-              href="#industries"
+              href={sectionHref("industries")}
               className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
             >
               Industries
             </Link>
             <Link
-              href="#faq"
+              href={sectionHref("faq")}
               className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
             >
               FAQ
             </Link>
             <Link
-              href="#contact"
+              href="/contact"
               className="bg-gradient-to-r from-slate-700 to-teal-700 text-white px-4 py-2 rounded-lg hover:from-slate-800 hover:to-teal-800 transition duration-300 shadow-lg"
             >
               Contact Us
@@ -141,49 +142,49 @@ const Navbar = () => {
           <div className="px-4 pt-4 pb-6 space-y-1 sm:px-6">
             {/* Menu items with enhanced hover effects */}
             <Link
-              href="#about"
+              href="/about"
               className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               About Us
             </Link>
             <Link
-              href="#products"
+              href={sectionHref("products")}
               className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               Products
             </Link>
             <Link
-              href="#access-methods"
+              href={sectionHref("access-methods")}
               className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               Access Methods
             </Link>
             <Link
-              href="#features"
+              href={sectionHref("features")}
               className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               Platform Features
             </Link>
             <Link
-              href="#industries"
+              href={sectionHref("industries")}
               className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               Industries
             </Link>
             <Link
-              href="#faq"
+              href={sectionHref("faq")}
               className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
               onClick={() => setIsMenuOpen(false)}
             >
               FAQ
             </Link>
             <Link
-              href="#contact"
+              href="/contact"
               className="block px-4 py-3 bg-gradient-to-r from-slate-700 to-teal-700 text-white rounded-lg transition-all duration-300 ease-out hover:from-slate-800 hover:to-teal-800 hover:shadow-lg text-center font-semibold"
               onClick={() => setIsMenuOpen(false)}
             >

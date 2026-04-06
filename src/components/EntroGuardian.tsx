@@ -1,5 +1,3 @@
-"use client";
-
 const AboutUs = () => {
   const highlights = [
     {
@@ -29,7 +27,7 @@ const AboutUs = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-gray-900">
-            About Us
+            Why Choose Our Software Company in Ethiopia
           </h2>
           <h3 className="text-2xl sm:text-3xl font-semibold text-teal-700 mb-6">
             Who We Are

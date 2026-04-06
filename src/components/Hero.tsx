@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 
 const Hero = () => {
@@ -21,12 +19,21 @@ const Hero = () => {
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-gray-900 mb-6 font-poppins leading-tight animate-fade-in-up animation-delay-200">
-            Complete Software Solutions
-            <span className="block bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mt-2">for Modern Businesses</span>
+            Custom Software Development
+            <span className="block bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent mt-2">
+              Company in Ethiopia
+            </span>
           </h1>
           
           <p className="text-lg sm:text-xl text-gray-700 mb-4 max-w-4xl mx-auto animate-fade-in-up animation-delay-400 leading-relaxed">
-            We provide comprehensive software solutions including <span className="font-semibold text-teal-700">Access Control Systems, Healthcare Management, Car Service Management, and Custom Software Development</span>.
+            As a leading software company in Ethiopia, Entro Ethiopia provides
+            comprehensive digital solutions including{" "}
+            <span className="font-semibold text-teal-700">
+              custom software development, web platforms, AI solutions, ERP
+              systems, access control systems, healthcare management, and car
+              service management
+            </span>
+            .
           </p>
           
           <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-in-up animation-delay-600">

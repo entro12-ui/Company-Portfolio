@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 
 type Product = {
@@ -25,33 +23,6 @@ type Product = {
 
 const products: Product[] = [
   {
-    id: "smart-access",
-    icon: "🔒",
-    title: "SMART Access Control System",
-    description: "Complete hardware and software solution for secure access control. Supports NFC, keypad, web-based, and IoT integration for doors, equipment, and facilities.",
-    highlights: [
-      "NFC & Keypad Access",
-      "Web-Based Remote Control",
-      "Real-Time Monitoring",
-      "IoT Integration",
-      "Offline Operation",
-      "Multi-Location Support"
-    ],
-    cta: {
-      primary: "Get a Demo",
-      contact: "entro12@entroethiopia.com"
-    },
-    colorScheme: {
-      headerBg: "bg-gradient-to-r from-slate-700 to-teal-700",
-      textColor: "text-teal-700",
-      borderColor: "border-teal-600",
-      hoverBorder: "hover:border-teal-300",
-      accentColor: "text-teal-600",
-      buttonBg: "bg-gradient-to-r from-slate-700 to-teal-700",
-      buttonBorder: "border-teal-600"
-    }
-  },
-  {
     id: "medicare-ai",
     icon: "🏥",
     title: "MediCare AI",
@@ -76,6 +47,33 @@ const products: Product[] = [
       accentColor: "text-blue-600",
       buttonBg: "bg-gradient-to-r from-blue-700 to-cyan-700",
       buttonBorder: "border-blue-600"
+    }
+  },
+  {
+    id: "smart-access",
+    icon: "🔒",
+    title: "SMART Access Control System",
+    description: "Complete hardware and software solution for secure access control. Supports NFC, keypad, web-based, and IoT integration for doors, equipment, and facilities.",
+    highlights: [
+      "NFC & Keypad Access",
+      "Web-Based Remote Control",
+      "Real-Time Monitoring",
+      "IoT Integration",
+      "Offline Operation",
+      "Multi-Location Support"
+    ],
+    cta: {
+      primary: "Get a Demo",
+      contact: "entro12@entroethiopia.com"
+    },
+    colorScheme: {
+      headerBg: "bg-gradient-to-r from-slate-700 to-teal-700",
+      textColor: "text-teal-700",
+      borderColor: "border-teal-600",
+      hoverBorder: "hover:border-teal-300",
+      accentColor: "text-teal-600",
+      buttonBg: "bg-gradient-to-r from-slate-700 to-teal-700",
+      buttonBorder: "border-teal-600"
     }
   },
   {

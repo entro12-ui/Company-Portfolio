@@ -1,100 +1,155 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 const Footer = () => {
+  const pathname = usePathname();
+  const sectionHref = (id: string) => (pathname === "/" ? `#${id}` : `/#${id}`);
+
   return (
     <footer
-      className="bg-black text-white pt-10 sm:pt-16 pb-6 sm:pb-8"
+      className="border-t border-slate-800 bg-slate-950 text-white"
       id="contact"
     >
-      <div className="flex flex-col items-center w-full">
-        {/* Logo and Navigation side by side */}
-        <div className="w-full max-w-6xl flex flex-col md:flex-row items-center justify-between mb-8 sm:mb-10 px-4">
-          {/* Logo */}
-          <div className="mb-4 sm:mb-6 md:mb-0 md:mr-10 flex-shrink-0 flex items-center justify-center">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-white flex items-center justify-center">
-              <span className="text-white text-xl sm:text-2xl font-bold">
-                E
-              </span>
+      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_1.8fr]">
+          <div>
+            <div className="mb-5 flex items-center gap-4">
+              <div className="flex h-11 w-11 items-center justify-center rounded-md border border-white/20 bg-slate-900">
+                <span className="text-lg font-bold text-white">E</span>
+              </div>
+              <div>
+                <h2 className="text-xl font-bold text-white">Entro Ethiopia</h2>
+                <p className="text-sm text-slate-400">
+                  Software &amp; Hardware Development PLC
+                </p>
+              </div>
+            </div>
+
+            <p className="max-w-md text-sm leading-7 text-slate-400">
+              Entro Ethiopia builds practical digital solutions for businesses,
+              NGOs, clinics, and institutions across Ethiopia, including custom
+              software, web platforms, AI solutions, and ERP systems.
+            </p>
+
+            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+              <a
+                href="tel:+251979113638"
+                className="rounded-2xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-sm transition hover:border-teal-500/40 hover:bg-slate-900"
+              >
+                <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Phone
+                </span>
+                <span className="font-medium text-white">+251 979 113 638</span>
+              </a>
+              <a
+                href="mailto:entro12@entroethiopia.com"
+                className="rounded-2xl border border-slate-800 bg-slate-900/60 px-4 py-3 text-sm transition hover:border-teal-500/40 hover:bg-slate-900"
+              >
+                <span className="mb-1 block text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Email
+                </span>
+                <span className="font-medium text-white">
+                  entro12@entroethiopia.com
+                </span>
+              </a>
+            </div>
+
+            <div className="mt-5 text-sm leading-7 text-slate-400">
+              <p>Megnagna, Hibret Bldg, Office No. H7-702</p>
+              <p>Addis Ababa, Ethiopia</p>
+              <p className="mt-2">TIN: 0095875999</p>
             </div>
           </div>
 
-          {/* Navigation */}
-          <div className="w-full md:w-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 text-center md:text-left">
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
-              <h3 className="text-sm font-medium text-gray-400 uppercase mb-4">
-                SOLUTIONS
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Solutions
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-3 text-sm text-slate-300">
                 <li>
-                  <a href="#products" className="hover:text-gray-300">
+                  <Link href={sectionHref("products")} className="transition hover:text-white">
                     Our Products
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#features" className="hover:text-gray-300">
+                  <Link href={sectionHref("features")} className="transition hover:text-white">
                     Platform Features
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#industries" className="hover:text-gray-300">
+                  <Link href={sectionHref("industries")} className="transition hover:text-white">
                     Industries
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
+
             <div>
-              <h3 className="text-sm font-medium text-gray-400 uppercase mb-4">
-                COMPANY
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Company
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-3 text-sm text-slate-300">
                 <li>
-                  <a href="#about" className="hover:text-gray-300">
+                  <Link href="/about" className="transition hover:text-white">
                     About Us
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#faq" className="hover:text-gray-300">
+                  <Link href={sectionHref("faq")} className="transition hover:text-white">
                     FAQ
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#contact" className="hover:text-gray-300">
+                  <Link href="/contact" className="transition hover:text-white">
                     Contact
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
+
             <div>
-              <h3 className="text-sm font-medium text-gray-400 uppercase mb-4">
-                PRODUCTS
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Services
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-3 text-sm text-slate-300">
                 <li>
-                  <a href="#products" className="hover:text-gray-300">
-                    Access Control System
-                  </a>
+                  <Link
+                    href="/custom-software-development"
+                    className="transition hover:text-white"
+                  >
+                    Custom Software
+                  </Link>
                 </li>
                 <li>
-                  <a href="#products" className="hover:text-gray-300">
-                    MediCare AI
-                  </a>
+                  <Link href="/web-development" className="transition hover:text-white">
+                    Web Development
+                  </Link>
                 </li>
                 <li>
-                  <a href="#products" className="hover:text-gray-300">
-                    Car Service Management
-                  </a>
+                  <Link href="/ai-solutions" className="transition hover:text-white">
+                    AI Solutions
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/erp-systems" className="transition hover:text-white">
+                    ERP Systems
+                  </Link>
                 </li>
               </ul>
             </div>
+
             <div>
-              <h3 className="text-sm font-medium text-gray-400 uppercase mb-4">
-                SUPPORT
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Support
               </h3>
-              <ul className="space-y-2">
+              <ul className="space-y-3 text-sm text-slate-300">
                 <li>
                   <a
                     href="mailto:entro12@entroethiopia.com"
-                    className="hover:text-gray-300"
+                    className="transition hover:text-white"
                   >
                     Email Support
                   </a>
@@ -102,115 +157,24 @@ const Footer = () => {
                 <li>
                   <a
                     href="tel:+251979113638"
-                    className="hover:text-gray-300"
+                    className="transition hover:text-white"
                   >
                     Call Us
                   </a>
                 </li>
                 <li>
-                  <a href="#faq" className="hover:text-gray-300">
-                    FAQ
-                  </a>
+                  <Link href="/contact" className="transition hover:text-white">
+                    Project Enquiry
+                  </Link>
                 </li>
               </ul>
             </div>
           </div>
         </div>
 
-        {/* Big ENTRO below links */}
-        <div className="w-full flex justify-center my-6 sm:my-8">
-          <span className="text-[10vw] sm:text-[18vw] font-bold text-gray-800 opacity-60 leading-none tracking-tighter select-none pointer-events-none">
-            ENTRO
-          </span>
-        </div>
-
-        {/* Social Media Links */}
-        {/* <div className="flex justify-center items-center gap-6 mb-6">
-          <a
-            href="#"
-            className="text-gray-400 hover:text-gray-300 transition-colors"
-            aria-label="Facebook"
-          >
-            <div className="w-10 h-10 relative">
-              <Image
-                src="/facebook.svg"
-                alt="Facebook"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </a>
-          <a
-            href="#"
-            className="text-gray-400 hover:text-gray-300 transition-colors"
-            aria-label="Telegram"
-          >
-            <div className="w-10 h-10 relative">
-              <Image
-                src="/telegram.svg"
-                alt="Telegram"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </a>
-          <a
-            href="#"
-            className="text-gray-400 hover:text-gray-300 transition-colors"
-            aria-label="LinkedIn"
-          >
-            <div className="w-10 h-10 relative">
-              <Image
-                src="/linkedin.svg"
-                alt="LinkedIn"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </a>
-        </div> */}
-
-        {/* Contact Information */}
-        <div className="max-w-4xl text-center mb-8 px-4">
-          <h3 className="text-2xl font-bold text-white mb-6">Contact Us</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-300">
-            <div className="flex flex-col items-center">
-              <span className="text-3xl mb-2">📞</span>
-              <p className="font-semibold">Phone</p>
-              <a href="tel:+251979113638" className="hover:text-white transition">
-                +251 979 113 638
-              </a>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-3xl mb-2">📧</span>
-              <p className="font-semibold">Email</p>
-              <a href="mailto:entro12@entroethiopia.com" className="hover:text-white transition">
-                entro12@entroethiopia.com
-              </a>
-            </div>
-            <div className="flex flex-col items-center">
-              <span className="text-3xl mb-2">📍</span>
-              <p className="font-semibold">Address</p>
-              <p className="text-sm">Megnagna, Hibret Bldg</p>
-              <p className="text-sm">Office No. H7-702</p>
-              <p className="text-sm">Addis Ababa, Ethiopia</p>
-            </div>
-          </div>
-          <div className="mt-6 text-sm text-gray-400">
-            <p>TIN: 0095875999</p>
-          </div>
-        </div>
-
-        {/* Description */}
-        <div className="max-w-2xl text-center text-sm text-gray-400 mb-4 px-4">
-          Entro Ethiopia Software and Hardware Development PLC is a local tech company 
-          providing comprehensive software solutions including Access Control Systems, Healthcare 
-          Management (MediCare AI), Car Service Management, and Custom Software Development. 
-          We empower Ethiopian and African businesses through innovative technology solutions.
-        </div>
-        {/* Copyright */}
-        <div className="text-center text-sm bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent font-semibold">
-          © COPYRIGHT ENTRO ETHIOPIA {new Date().getFullYear()}. All Rights Reserved.
+        <div className="mt-10 flex flex-col gap-3 border-t border-slate-800 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© {new Date().getFullYear()} Entro Ethiopia. All rights reserved.</p>
+          <p>Built for businesses across Addis Ababa and Ethiopia.</p>
         </div>
       </div>
     </footer>

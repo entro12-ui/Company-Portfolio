@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 
 const BusinessCard = () => {
@@ -61,13 +59,13 @@ const BusinessCard = () => {
             {/* Logo/Company Name Section */}
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <div className="relative w-14 h-14 flex items-center justify-center bg-white rounded-lg shadow-md p-1">
+                <div className="relative flex h-14 w-20 shrink-0 items-center justify-center overflow-hidden rounded-lg bg-white shadow-md px-2 py-1">
                   <Image
                     src="/logo.png"
-                    alt="Entro Logo"
-                    width={52}
-                    height={52}
-                    className="object-contain"
+                    alt="Entro Ethiopia company logo on business card"
+                    fill
+                    className="object-contain object-center"
+                    sizes="80px"
                     priority
                   />
                 </div>
