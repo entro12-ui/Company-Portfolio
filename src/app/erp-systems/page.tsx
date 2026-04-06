@@ -30,13 +30,53 @@ const serviceSchema = {
   url: "https://www.entroethiopia.com/erp-systems",
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Can we start with one module?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. Most clients start with Inventory and Sales, then add HR or Payroll later.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How long to implement?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "2-6 weeks depending on modules and data migration.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you migrate our Excel data?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We migrate your existing data.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is training included?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We train admins and users.",
+      },
+    },
+  ],
+};
+
 export default function ErpSystemsPage() {
   return (
-    <PageShell>
-      <JsonLd data={serviceSchema} />
-      <article className="px-4 pb-16 sm:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">
+    <>
+      <PageShell>
+        <JsonLd data={serviceSchema} />
+        <article className="px-4 pb-16 sm:pb-24">
+          <div className="mx-auto max-w-6xl">
+            <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
               ERP software Ethiopia
             </p>
@@ -182,7 +222,7 @@ export default function ErpSystemsPage() {
             </section>
           </div>
 
-          <section className="mt-10 rounded-3xl bg-gradient-to-r from-teal-600 to-cyan-600 p-8 text-white shadow-lg sm:p-10">
+            <section className="mt-10 rounded-3xl bg-gradient-to-r from-teal-600 to-cyan-600 p-8 text-white shadow-lg sm:p-10">
             <h2 className="mb-4 text-3xl font-bold">
               Improve business control with the right system
             </h2>
@@ -204,9 +244,11 @@ export default function ErpSystemsPage() {
                 Explore Custom Software
               </Link>
             </div>
-          </section>
-        </div>
-      </article>
-    </PageShell>
+            </section>
+          </div>
+        </article>
+      </PageShell>
+      <JsonLd data={faqSchema} />
+    </>
   );
 }

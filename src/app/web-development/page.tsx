@@ -30,13 +30,53 @@ const serviceSchema = {
   url: "https://www.entroethiopia.com/web-development",
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How much does a website cost in Ethiopia?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Depends on pages and features. Basic business website starts from [TADE PRICE], e-commerce and web apps are quoted after requirements.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can I update the website myself?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We provide an easy admin panel to change text, images, and add pages.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you provide hosting?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We can host, or deploy on your server.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Will my website appear on Google?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We build with SEO structure including titles, headings, and sitemap support, and we can submit the site to Google.",
+      },
+    },
+  ],
+};
+
 export default function WebDevelopmentPage() {
   return (
-    <PageShell>
-      <JsonLd data={serviceSchema} />
-      <article className="px-4 pb-16 sm:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">
+    <>
+      <PageShell>
+        <JsonLd data={serviceSchema} />
+        <article className="px-4 pb-16 sm:pb-24">
+          <div className="mx-auto max-w-6xl">
+            <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
               Web development company Ethiopia
             </p>
@@ -189,7 +229,7 @@ export default function WebDevelopmentPage() {
             </section>
           </div>
 
-          <section className="mt-10 rounded-3xl bg-gradient-to-r from-teal-600 to-cyan-600 p-8 text-white shadow-lg sm:p-10">
+            <section className="mt-10 rounded-3xl bg-gradient-to-r from-teal-600 to-cyan-600 p-8 text-white shadow-lg sm:p-10">
             <h2 className="mb-4 text-3xl font-bold">Start your next website project</h2>
             <p className="mb-6 max-w-3xl text-white/90">
               Talk to Entro Ethiopia about a new website, a redesign, or a
@@ -209,9 +249,11 @@ export default function WebDevelopmentPage() {
                 Explore AI Solutions
               </Link>
             </div>
-          </section>
-        </div>
-      </article>
-    </PageShell>
+            </section>
+          </div>
+        </article>
+      </PageShell>
+      <JsonLd data={faqSchema} />
+    </>
   );
 }

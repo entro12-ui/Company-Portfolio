@@ -18,25 +18,65 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
   serviceType: "Custom Software Development",
-  name: "Custom Software Development in Ethiopia",
-  description:
-    "Entro Ethiopia provides custom software development in Ethiopia for SMEs, NGOs, clinics, and institutions that need software tailored to their operations.",
   provider: {
     "@type": "Organization",
     name: "Entro Ethiopia",
-    url: "https://www.entroethiopia.com/",
   },
-  areaServed: "Ethiopia",
-  url: "https://www.entroethiopia.com/custom-software-development",
+  areaServed: {
+    "@type": "Country",
+    name: "Ethiopia",
+  },
+  description:
+    "Custom software development for SMEs, NGOs, clinics and government in Ethiopia",
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "How long does custom software take to build?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Most business applications take 4-12 weeks depending on complexity. We deliver in phases so you start using core features early.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you provide training?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We train your team and provide documentation. Support is available after launch.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can you integrate with our existing system?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We integrate with accounting software, payroll, Excel, and other tools you already use.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is my data secure?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We implement role-based access, data encryption, and can deploy on-premise or in the cloud based on your requirement.",
+      },
+    },
+  ],
 };
 
 export default function CustomSoftwareDevelopmentPage() {
   return (
-    <PageShell>
-      <JsonLd data={serviceSchema} />
-      <article className="px-4 pb-16 sm:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">
+    <>
+      <PageShell>
+        <JsonLd data={serviceSchema} />
+        <article className="px-4 pb-16 sm:pb-24">
+          <div className="mx-auto max-w-6xl">
+            <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
               Custom software development Ethiopia
             </p>
@@ -194,7 +234,7 @@ export default function CustomSoftwareDevelopmentPage() {
             </section>
           </div>
 
-          <section className="mt-10 rounded-3xl bg-gradient-to-r from-teal-600 to-cyan-600 p-8 text-white shadow-lg sm:p-10">
+            <section className="mt-10 rounded-3xl bg-gradient-to-r from-teal-600 to-cyan-600 p-8 text-white shadow-lg sm:p-10">
             <h2 className="mb-4 text-3xl font-bold">
               Plan your software project with Entro Ethiopia
             </h2>
@@ -217,9 +257,11 @@ export default function CustomSoftwareDevelopmentPage() {
                 Explore Web Development
               </Link>
             </div>
-          </section>
-        </div>
-      </article>
-    </PageShell>
+            </section>
+          </div>
+        </article>
+      </PageShell>
+      <JsonLd data={faqSchema} />
+    </>
   );
 }

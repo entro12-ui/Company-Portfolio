@@ -30,13 +30,53 @@ const serviceSchema = {
   url: "https://www.entroethiopia.com/ai-solutions",
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Do I need expensive hardware for AI?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. Our solutions run on standard servers or cloud infrastructure, and we optimize them for local conditions.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is MediCare AI only for big hospitals?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. It works for small clinics, medium hospitals, and health centers.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can AI work offline?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Core functions work offline. AI features require internet connection.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Do you train staff on AI tools?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes. We provide full training and support.",
+      },
+    },
+  ],
+};
+
 export default function AiSolutionsPage() {
   return (
-    <PageShell>
-      <JsonLd data={serviceSchema} />
-      <article className="px-4 pb-16 sm:pb-24">
-        <div className="mx-auto max-w-6xl">
-          <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">
+    <>
+      <PageShell>
+        <JsonLd data={serviceSchema} />
+        <article className="px-4 pb-16 sm:pb-24">
+          <div className="mx-auto max-w-6xl">
+            <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
               AI solutions company Ethiopia
             </p>
@@ -179,7 +219,7 @@ export default function AiSolutionsPage() {
             </section>
           </div>
 
-          <section className="mt-10 rounded-3xl bg-gradient-to-r from-teal-600 to-cyan-600 p-8 text-white shadow-lg sm:p-10">
+            <section className="mt-10 rounded-3xl bg-gradient-to-r from-teal-600 to-cyan-600 p-8 text-white shadow-lg sm:p-10">
             <h2 className="mb-4 text-3xl font-bold">
               Bring AI into your operations with clarity
             </h2>
@@ -201,9 +241,11 @@ export default function AiSolutionsPage() {
                 Explore ERP Systems
               </Link>
             </div>
-          </section>
-        </div>
-      </article>
-    </PageShell>
+            </section>
+          </div>
+        </article>
+      </PageShell>
+      <JsonLd data={faqSchema} />
+    </>
   );
 }
