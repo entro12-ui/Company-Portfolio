@@ -5,9 +5,9 @@ import PageShell from "@/components/PageShell";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "About Entro Ethiopia | Software Company in Ethiopia",
+  title: "About Entro Ethiopia | Local Software Company in Addis Ababa",
   description:
-    "Learn about Entro Ethiopia, a software company in Addis Ababa delivering custom software, web development, AI solutions, ERP systems, and support.",
+    "Entro Ethiopia is a local software company in Addis Ababa building custom software, websites, AI and ERP systems for SMEs, NGOs, clinics and government.",
   alternates: {
     canonical: "https://www.entroethiopia.com/about",
   },
@@ -26,117 +26,132 @@ export default function AboutPage() {
               About Entro Ethiopia
             </h1>
             <p className="max-w-4xl text-lg leading-relaxed text-gray-700">
-              If you want to learn about Entro Ethiopia, this page explains who
-              we are, what we build, and how we help organizations across Addis
-              Ababa and Ethiopia grow with practical technology. Entro Ethiopia
-              is a local software company delivering custom software, web
-              platforms, AI solutions, ERP systems, and integrated business
-              tools designed for real operational needs.
+              We are a local software company based in Addis Ababa, Ethiopia.
+              Entro Ethiopia designs and builds practical software solutions for
+              organizations that need systems that actually work in local
+              conditions, not imported complexity.
             </p>
           </header>
 
           <div className="grid gap-8 lg:grid-cols-2">
             <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                About Entro Ethiopia: local expertise with practical delivery
+                What we do
               </h2>
-              <p className="mb-4 text-gray-700">
-                We combine software strategy, product design, development, and
-                long-term support to build systems that solve measurable
-                business problems. Our team focuses on solutions that are easy
-                to use, scalable over time, and aligned with the realities of
-                Ethiopian organizations.
-              </p>
-              <p className="text-gray-700">
-                Instead of one-size-fits-all tools, we create platforms that
-                match your workflow, reporting requirements, approval process,
-                and growth plans.
-              </p>
+              <div className="space-y-3 text-gray-700">
+                {[
+                  "Custom Software Development",
+                  "Web Development & Web Applications",
+                  "AI Solutions (including MediCare AI)",
+                  "ERP & Business Management Systems",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3 leading-relaxed">
+                    <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-teal-100 text-sm font-bold text-teal-700">
+                      ✓
+                    </span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </section>
 
             <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                What we build
+                Who we serve
               </h2>
-              <ul className="space-y-3 text-gray-700">
-                <li>Custom business software for operations and automation</li>
-                <li>Modern websites and web applications</li>
-                <li>AI-enabled tools for service delivery and decision support</li>
-                <li>ERP and business systems for multi-team coordination</li>
-                <li>Integrated software and hardware solutions where needed</li>
-              </ul>
+              <div className="space-y-3 text-gray-700">
+                {[
+                  "SMEs (small and medium businesses)",
+                  "NGOs",
+                  "Clinics and Hospitals",
+                  "Government institutions",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3 leading-relaxed">
+                    <span className="mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-slate-800" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </section>
 
             <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 to-slate-800 p-8 text-white shadow-sm">
               <h2 className="mb-4 text-2xl font-bold">
-                Why organizations choose Entro Ethiopia
+                Why local matters
               </h2>
-              <ul className="space-y-3 text-gray-200">
-                <li>Local understanding of business, NGO, clinic, and public-sector workflows</li>
-                <li>Clear delivery process from discovery through support</li>
-                <li>Practical technology choices that fit budget and scale</li>
-                <li>Long-term partnership mindset instead of one-off delivery</li>
-              </ul>
+              <p className="mb-4 text-gray-200">
+                We understand Ethiopian business processes, connectivity
+                challenges, and user skills. Our systems:
+              </p>
+              <div className="space-y-3 text-gray-200">
+                {[
+                  "Work with intermittent internet (offline modes where needed)",
+                  "Use simple interfaces staff can learn quickly",
+                  "Are priced for local budgets",
+                  "Come with local support and training (in Amharic/English)",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3 leading-relaxed">
+                    <span className="mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-teal-400" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
             </section>
 
             <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                Industries we support
+                Our approach
               </h2>
-              <p className="mb-4 text-gray-700">
-                We work with SMEs, NGOs, clinics, service businesses, and
-                institutions that need better digital systems for efficiency,
-                visibility, and growth.
-              </p>
-              <div className="flex flex-wrap gap-3">
+              <div className="space-y-4 text-gray-700">
                 {[
-                  "SMEs",
-                  "NGOs",
-                  "Clinics",
-                  "Service Businesses",
-                  "Government Projects",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700"
-                  >
-                    {item}
-                  </span>
+                  "Listen first, code second - we start with your workflow, not our template",
+                  "Build in phases - you see working software early, not after 6 months",
+                  "Train your team - we don't just deliver and disappear",
+                  "Support locally - call us, we respond",
+                ].map((item, index) => (
+                  <div key={item} className="flex items-start gap-3 leading-relaxed">
+                    <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-slate-900 text-sm font-bold text-white">
+                      {index + 1}
+                    </span>
+                    <span>{item}</span>
+                  </div>
                 ))}
               </div>
             </section>
           </div>
 
+          <div className="mt-8 grid gap-8 lg:grid-cols-2">
+            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+                Our promise
+              </h2>
+              <p className="text-lg font-medium text-gray-800">
+                No unnecessary complexity. No vendor lock-in. No support tickets
+                that go unanswered.
+              </p>
+            </section>
+
+            <section className="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 shadow-sm">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+                Team profiles
+              </h2>
+              <p className="text-gray-700">
+                We will add Team Profiles here when available.
+              </p>
+            </section>
+          </div>
+
           <section className="mt-10 rounded-3xl bg-gradient-to-r from-teal-600 to-cyan-600 p-8 text-white shadow-lg sm:p-10">
-            <h2 className="mb-4 text-3xl font-bold">Explore our services</h2>
+            <h2 className="mb-4 text-3xl font-bold">Talk to our team</h2>
             <p className="mb-6 max-w-3xl text-white/90">
               See how Entro Ethiopia can support your next digital project with
               custom software, web development, AI solutions, or ERP systems.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
-                href="/custom-software-development"
-                className="rounded-xl bg-white px-5 py-3 font-semibold text-teal-700 transition hover:bg-slate-100"
-              >
-                Custom Software
-              </Link>
-              <Link
-                href="/web-development"
-                className="rounded-xl bg-white px-5 py-3 font-semibold text-teal-700 transition hover:bg-slate-100"
-              >
-                Web Development
-              </Link>
-              <Link
-                href="/ai-solutions"
-                className="rounded-xl bg-white px-5 py-3 font-semibold text-teal-700 transition hover:bg-slate-100"
-              >
-                AI Solutions
-              </Link>
-              <Link
                 href="/contact"
-                className="rounded-xl border border-white/50 px-5 py-3 font-semibold text-white transition hover:bg-white/10"
+                className="rounded-xl bg-white px-5 py-3 font-semibold text-teal-700 transition hover:bg-slate-100"
               >
-                Contact Entro Ethiopia
+                Talk to Our Team
               </Link>
             </div>
           </section>

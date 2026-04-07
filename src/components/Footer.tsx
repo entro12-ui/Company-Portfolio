@@ -1,12 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 
 const Footer = () => {
-  const pathname = usePathname();
-  const sectionHref = (id: string) => (pathname === "/" ? `#${id}` : `/#${id}`);
-
   return (
     <footer
       className="border-t border-slate-800 bg-slate-950 text-white"
@@ -66,40 +62,17 @@ const Footer = () => {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             <div>
               <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                Solutions
+                Quick Links
               </h3>
               <ul className="space-y-3 text-sm text-slate-300">
                 <li>
-                  <Link href={sectionHref("products")} className="transition hover:text-white">
-                    Our Products
+                  <Link href="/" className="transition hover:text-white">
+                    Home
                   </Link>
                 </li>
-                <li>
-                  <Link href={sectionHref("features")} className="transition hover:text-white">
-                    Platform Features
-                  </Link>
-                </li>
-                <li>
-                  <Link href={sectionHref("industries")} className="transition hover:text-white">
-                    Industries
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                Company
-              </h3>
-              <ul className="space-y-3 text-sm text-slate-300">
                 <li>
                   <Link href="/about" className="transition hover:text-white">
-                    About Us
-                  </Link>
-                </li>
-                <li>
-                  <Link href={sectionHref("faq")} className="transition hover:text-white">
-                    FAQ
+                    About
                   </Link>
                 </li>
                 <li>
@@ -120,7 +93,7 @@ const Footer = () => {
                     href="/custom-software-development"
                     className="transition hover:text-white"
                   >
-                    Custom Software
+                    Custom Software Development
                   </Link>
                 </li>
                 <li>
@@ -135,7 +108,35 @@ const Footer = () => {
                 </li>
                 <li>
                   <Link href="/erp-systems" className="transition hover:text-white">
-                    ERP Systems
+                    ERP &amp; Business Systems
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                Industries
+              </h3>
+              <ul className="space-y-3 text-sm text-slate-300">
+                <li>
+                  <Link href="/solutions-for-smes" className="transition hover:text-white">
+                    SMEs
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/solutions-for-ngos" className="transition hover:text-white">
+                    NGOs
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/solutions-for-clinics" className="transition hover:text-white">
+                    Clinics
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/solutions-for-government" className="transition hover:text-white">
+                    Government
                   </Link>
                 </li>
               </ul>
@@ -175,6 +176,11 @@ const Footer = () => {
                 <li>
                   <Link href="/contact" className="transition hover:text-white">
                     Project Enquiry
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/business-card" className="transition hover:text-white">
+                    Business Card
                   </Link>
                 </li>
               </ul>

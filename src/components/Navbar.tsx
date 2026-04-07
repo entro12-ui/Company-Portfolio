@@ -5,10 +5,28 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
+const serviceLinks = [
+  {
+    href: "/custom-software-development",
+    label: "Custom Software Development",
+  },
+  { href: "/web-development", label: "Web Development" },
+  { href: "/ai-solutions", label: "AI Solutions" },
+  { href: "/erp-systems", label: "ERP & Business Systems" },
+];
+
+const industryLinks = [
+  { href: "/solutions-for-smes", label: "SMEs" },
+  { href: "/solutions-for-ngos", label: "NGOs" },
+  { href: "/solutions-for-clinics", label: "Clinics" },
+  { href: "/solutions-for-government", label: "Government" },
+];
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const pathname = usePathname();
-  const sectionHref = (id: string) => (pathname === "/" ? `#${id}` : `/#${id}`);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+  usePathname();
 
   return (
     <nav className="bg-white fixed w-full z-50 text-base sm:text-lg">
@@ -32,46 +50,80 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4 lg:space-x-8">
             <Link
+              href="/"
+              className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
+            >
+              Home
+            </Link>
+            <Link
               href="/about"
               className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
             >
-              About Us
+              About
             </Link>
-            <Link
-              href={sectionHref("products")}
-              className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
-            >
-              Products
-            </Link>
-            <Link
-              href={sectionHref("access-methods")}
-              className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
-            >
-              Access Methods
-            </Link>
-            <Link
-              href={sectionHref("features")}
-              className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
-            >
-              Platform Features
-            </Link>
-            <Link
-              href={sectionHref("industries")}
-              className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
-            >
-              Industries
-            </Link>
-            <Link
-              href={sectionHref("faq")}
-              className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
-            >
-              FAQ
-            </Link>
+            <div className="group relative">
+              <button className="flex items-center gap-1 text-gray-600 hover:text-teal-700 transition duration-300">
+                Services
+                <svg
+                  className="h-4 w-4 transition-transform group-hover:rotate-180"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div className="invisible absolute left-0 top-full z-50 mt-3 w-72 rounded-2xl border border-gray-200 bg-white p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                {serviceLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block rounded-xl px-4 py-3 text-sm text-gray-700 transition hover:bg-teal-50 hover:text-teal-700"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <div className="group relative">
+              <button className="flex items-center gap-1 text-gray-600 hover:text-teal-700 transition duration-300">
+                Industries
+                <svg
+                  className="h-4 w-4 transition-transform group-hover:rotate-180"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div className="invisible absolute left-0 top-full z-50 mt-3 w-64 rounded-2xl border border-gray-200 bg-white p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                {industryLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block rounded-xl px-4 py-3 text-sm text-gray-700 transition hover:bg-teal-50 hover:text-teal-700"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <Link
               href="/contact"
               className="bg-gradient-to-r from-slate-700 to-teal-700 text-white px-4 py-2 rounded-lg hover:from-slate-800 hover:to-teal-800 transition duration-300 shadow-lg"
             >
-              Contact Us
+              Contact
             </Link>
           </div>
 
@@ -142,53 +194,95 @@ const Navbar = () => {
           <div className="px-4 pt-4 pb-6 space-y-1 sm:px-6">
             {/* Menu items with enhanced hover effects */}
             <Link
+              href="/"
+              className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
               href="/about"
               className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
               onClick={() => setIsMenuOpen(false)}
             >
-              About Us
+              About
             </Link>
-            <Link
-              href={sectionHref("products")}
-              className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Products
-            </Link>
-            <Link
-              href={sectionHref("access-methods")}
-              className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Access Methods
-            </Link>
-            <Link
-              href={sectionHref("features")}
-              className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Platform Features
-            </Link>
-            <Link
-              href={sectionHref("industries")}
-              className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Industries
-            </Link>
-            <Link
-              href={sectionHref("faq")}
-              className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              FAQ
-            </Link>
+            <div className="rounded-lg border border-gray-200">
+              <button
+                onClick={() => setIsServicesOpen(!isServicesOpen)}
+                className="flex w-full items-center justify-between px-4 py-3 text-left text-gray-600 transition hover:bg-teal-50 hover:text-teal-700"
+              >
+                <span>Services</span>
+                <svg
+                  className={`h-4 w-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              {isServicesOpen && (
+                <div className="space-y-1 px-3 pb-3">
+                  {serviceLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 transition hover:bg-teal-50 hover:text-teal-700"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+            <div className="rounded-lg border border-gray-200">
+              <button
+                onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
+                className="flex w-full items-center justify-between px-4 py-3 text-left text-gray-600 transition hover:bg-teal-50 hover:text-teal-700"
+              >
+                <span>Industries</span>
+                <svg
+                  className={`h-4 w-4 transition-transform ${isIndustriesOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              {isIndustriesOpen && (
+                <div className="space-y-1 px-3 pb-3">
+                  {industryLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 transition hover:bg-teal-50 hover:text-teal-700"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <Link
               href="/contact"
               className="block px-4 py-3 bg-gradient-to-r from-slate-700 to-teal-700 text-white rounded-lg transition-all duration-300 ease-out hover:from-slate-800 hover:to-teal-800 hover:shadow-lg text-center font-semibold"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact Us
+              Contact
             </Link>
           </div>
         </div>
