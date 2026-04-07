@@ -56,6 +56,36 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.entroethiopia.com/blog</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/blog/Custom%20Software%20Development%20in%20Ethiopia:%20What%20Businesses%20Need%20to%20Know</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/blog/Why%20Ethiopian%20Businesses%20Need%20Custom%20Software%20Instead%20of%20Spreadsheets</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/blog/Web%20Development%20Company%20in%20Ethiopia:%20How%20to%20Choose%20the%20Right%20Partner</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/blog/AI%20Solutions%20for%20Ethiopian%20Businesses:%20Real%20Use%20Cases%20That%20Work</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/blog/ERP%20Software%20in%20Ethiopia:%20A%20Guide%20for%20SMEs,%20NGOs,%20and%20Government</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.entroethiopia.com/business-card</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
