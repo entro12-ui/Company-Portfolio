@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/PageShell";
 import ContactInquiryForm from "@/components/ContactInquiryForm";
+import JsonLd from "@/components/JsonLd";
 
 export const dynamic = "force-static";
 
@@ -14,9 +15,17 @@ export const metadata: Metadata = {
   },
 };
 
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Entro Ethiopia",
+  url: "https://www.entroethiopia.com/contact",
+};
+
 export default function ContactPage() {
   return (
     <PageShell>
+      <JsonLd data={contactPageSchema} />
       <article className="px-4 pb-16 sm:pb-24">
         <div className="mx-auto max-w-6xl">
           <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">

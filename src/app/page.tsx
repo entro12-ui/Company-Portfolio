@@ -46,6 +46,13 @@ const organizationSchema = {
   ],
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Entro Ethiopia",
+  url: "https://www.entroethiopia.com/",
+};
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -62,6 +69,7 @@ const faqSchema = {
 export default function Home() {
   return (
     <main className="min-h-screen">
+      <JsonLd data={websiteSchema} />
       <JsonLd data={organizationSchema} />
       <JsonLd data={faqSchema} />
       <Navbar />

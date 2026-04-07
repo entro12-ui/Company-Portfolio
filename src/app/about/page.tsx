@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/PageShell";
+import JsonLd from "@/components/JsonLd";
 
 export const dynamic = "force-static";
 
@@ -13,9 +14,19 @@ export const metadata: Metadata = {
   },
 };
 
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Entro Ethiopia",
+  url: "https://www.entroethiopia.com/about",
+  description:
+    "Learn about Entro Ethiopia, a software development company in Addis Ababa providing custom software, web development, AI solutions and ERP systems.",
+};
+
 export default function AboutPage() {
   return (
     <PageShell>
+      <JsonLd data={aboutPageSchema} />
       <article className="px-4 pb-16 sm:pb-24">
         <div className="mx-auto max-w-6xl">
           <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">
