@@ -29,9 +29,23 @@ const Hero = () => {
             As a leading software company in Ethiopia, Entro Ethiopia provides
             comprehensive digital solutions including{" "}
             <span className="font-semibold text-teal-700">
-              custom software development, web platforms, AI solutions, ERP
-              systems, access control systems, healthcare management, and car
-              service management
+              <Link href="/custom-software-development" className="hover:underline">
+                custom software development
+              </Link>
+              ,{" "}
+              <Link href="/web-development" className="hover:underline">
+                web platforms
+              </Link>
+              ,{" "}
+              <Link href="/ai-solutions" className="hover:underline">
+                AI solutions
+              </Link>
+              ,{" "}
+              <Link href="/erp-systems" className="hover:underline">
+                ERP systems
+              </Link>
+              , access control systems, healthcare management, and car service
+              management
             </span>
             .
           </p>

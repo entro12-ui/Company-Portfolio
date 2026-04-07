@@ -33,14 +33,14 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
         <div className="flex justify-between h-16 sm:h-20">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center gap-2 sm:gap-3">
-              <div className="relative flex h-10 w-14 sm:h-12 sm:w-16 items-center justify-center overflow-hidden rounded-md transform hover:scale-105 transition-transform duration-200">
+            <Link href="/" className="flex items-center">
+              <div className="relative flex h-12 w-20 sm:h-14 sm:w-24 items-center justify-center overflow-hidden rounded-lg bg-white px-2 py-1.5 transform hover:scale-105 transition-transform duration-200">
                 <Image
                   src="/logo.png"
                   alt="Entro Ethiopia company logo"
                   fill
                   className="object-contain object-center"
-                  sizes="(min-width: 640px) 64px, 56px"
+                  sizes="(min-width: 640px) 96px, 80px"
                   priority
                 />
               </div>

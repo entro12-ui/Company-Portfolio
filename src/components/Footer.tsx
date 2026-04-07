@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 const Footer = () => {
@@ -12,8 +13,14 @@ const Footer = () => {
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1.8fr]">
           <div>
             <div className="mb-5 flex items-center gap-4">
-              <div className="flex h-11 w-11 items-center justify-center rounded-md border border-white/20 bg-slate-900">
-                <span className="text-lg font-bold text-white">E</span>
+              <div className="relative flex h-12 w-16 items-center justify-center overflow-hidden rounded-md border border-white/20 bg-slate-900">
+                <Image
+                  src="/logo.png"
+                  alt="Entro Ethiopia company logo"
+                  fill
+                  className="object-contain object-center p-1.5"
+                  sizes="64px"
+                />
               </div>
               <div>
                 <h2 className="text-xl font-bold text-white">Entro Ethiopia</h2>
@@ -24,9 +31,57 @@ const Footer = () => {
             </div>
 
             <p className="max-w-md text-sm leading-7 text-slate-400">
-              Entro Ethiopia builds practical digital solutions for businesses,
-              NGOs, clinics, and institutions across Ethiopia, including custom
-              software, web platforms, AI solutions, and ERP systems.
+              Entro Ethiopia is a software development company in Addis Ababa,
+              Ethiopia providing{" "}
+              <Link
+                href="/custom-software-development"
+                className="text-slate-300 transition hover:text-white hover:underline"
+              >
+                custom software development
+              </Link>
+              ,{" "}
+              <Link
+                href="/web-development"
+                className="text-slate-300 transition hover:text-white hover:underline"
+              >
+                web development
+              </Link>
+              ,{" "}
+              <Link
+                href="/ai-solutions"
+                className="text-slate-300 transition hover:text-white hover:underline"
+              >
+                AI solutions
+              </Link>
+              , and{" "}
+              <Link
+                href="/erp-systems"
+                className="text-slate-300 transition hover:text-white hover:underline"
+              >
+                ERP systems
+              </Link>{" "}
+              for{" "}
+              <Link
+                href="/solutions-for-smes"
+                className="text-slate-300 transition hover:text-white hover:underline"
+              >
+                SMEs
+              </Link>
+              ,{" "}
+              <Link
+                href="/solutions-for-ngos"
+                className="text-slate-300 transition hover:text-white hover:underline"
+              >
+                NGOs
+              </Link>
+              , clinics, and{" "}
+              <Link
+                href="/solutions-for-government"
+                className="text-slate-300 transition hover:text-white hover:underline"
+              >
+                government institutions
+              </Link>
+              .
             </p>
 
             <div className="mt-6 grid gap-3 sm:grid-cols-2">

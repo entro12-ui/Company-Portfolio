@@ -86,9 +86,42 @@ export default function CustomSoftwareDevelopmentPage() {
             <p className="max-w-4xl text-lg leading-relaxed text-gray-700">
               We build software that fits your business, not the other way
               around. Entro Ethiopia designs and develops custom web
-              applications, business systems, and automation tools for SMEs,
-              NGOs, clinics, and government institutions in Addis Ababa and
-              across Ethiopia.
+              applications, business systems, and automation tools for{" "}
+              <Link
+                href="/solutions-for-smes"
+                className="font-medium text-teal-700 hover:underline"
+              >
+                SMEs
+              </Link>
+              ,{" "}
+              <Link
+                href="/solutions-for-ngos"
+                className="font-medium text-teal-700 hover:underline"
+              >
+                NGOs
+              </Link>
+              , clinics, and{" "}
+              <Link
+                href="/solutions-for-government"
+                className="font-medium text-teal-700 hover:underline"
+              >
+                government institutions
+              </Link>{" "}
+              in Addis Ababa and across Ethiopia. We also provide{" "}
+              <Link
+                href="/web-development"
+                className="font-medium text-teal-700 hover:underline"
+              >
+                web development services
+              </Link>{" "}
+              and{" "}
+              <Link
+                href="/ai-solutions"
+                className="font-medium text-teal-700 hover:underline"
+              >
+                AI solutions
+              </Link>{" "}
+              for organizations that need integrated systems.
             </p>
           </header>
 
@@ -151,14 +184,23 @@ export default function CustomSoftwareDevelopmentPage() {
               <h2 className="mb-4 text-2xl font-bold">Industries we serve</h2>
               <ul className="space-y-3 text-gray-200">
                 {[
-                  "SMEs",
-                  "NGOs",
-                  "Clinics & Hospitals",
-                  "Government offices",
+                  { label: "SMEs", href: "/solutions-for-smes" },
+                  { label: "NGOs", href: "/solutions-for-ngos" },
+                  { label: "Clinics & Hospitals" },
+                  {
+                    label: "Government offices",
+                    href: "/solutions-for-government",
+                  },
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 leading-relaxed">
+                  <li key={item.label} className="flex items-start gap-3 leading-relaxed">
                     <span className="mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-teal-400" />
-                    <span>{item}</span>
+                    {item.href ? (
+                      <Link href={item.href} className="hover:underline">
+                        {item.label}
+                      </Link>
+                    ) : (
+                      <span>{item.label}</span>
+                    )}
                   </li>
                 ))}
               </ul>
