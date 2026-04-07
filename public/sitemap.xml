@@ -16,6 +16,16 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.entroethiopia.com/privacy-policy</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/terms-and-conditions</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
     <loc>https://www.entroethiopia.com/custom-software-development</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -61,27 +71,27 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.entroethiopia.com/blog/Custom%20Software%20Development%20in%20Ethiopia:%20What%20Businesses%20Need%20to%20Know</loc>
+    <loc>https://www.entroethiopia.com/blog/custom-software-development-in-ethiopia-what-businesses-need-to-know</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.entroethiopia.com/blog/Why%20Ethiopian%20Businesses%20Need%20Custom%20Software%20Instead%20of%20Spreadsheets</loc>
+    <loc>https://www.entroethiopia.com/blog/why-ethiopian-businesses-need-custom-software-instead-of-spreadsheets</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.entroethiopia.com/blog/Web%20Development%20Company%20in%20Ethiopia:%20How%20to%20Choose%20the%20Right%20Partner</loc>
+    <loc>https://www.entroethiopia.com/blog/web-development-company-in-ethiopia-how-to-choose-the-right-partner</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.entroethiopia.com/blog/AI%20Solutions%20for%20Ethiopian%20Businesses:%20Real%20Use%20Cases%20That%20Work</loc>
+    <loc>https://www.entroethiopia.com/blog/ai-solutions-for-ethiopian-businesses-real-use-cases-that-work</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.entroethiopia.com/blog/ERP%20Software%20in%20Ethiopia:%20A%20Guide%20for%20SMEs,%20NGOs,%20and%20Government</loc>
+    <loc>https://www.entroethiopia.com/blog/erp-software-in-ethiopia-a-guide-for-smes-ngos-and-government</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

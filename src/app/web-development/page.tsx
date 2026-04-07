@@ -39,7 +39,7 @@ const faqSchema = {
       name: "How much does a website cost in Ethiopia?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Depends on pages and features. Basic business website starts from [TADE PRICE], e-commerce and web apps are quoted after requirements.",
+        text: "Depends on pages and features. Basic business website starts from 50,000 Birr, e-commerce and web apps are quoted after requirements.",
       },
     },
     {
@@ -197,7 +197,7 @@ export default function WebDevelopmentPage() {
                   </h3>
                   <p>
                     Depends on pages and features. Basic business website starts
-                    from [TADE PRICE], e-commerce and web apps are quoted after
+                    from 50,000 Birr, e-commerce and web apps are quoted after
                     requirements.
                   </p>
                 </div>

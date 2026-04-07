@@ -135,6 +135,22 @@ const Footer = () => {
                     Contact
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    href="/privacy-policy"
+                    className="transition hover:text-white"
+                  >
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/terms-and-conditions"
+                    className="transition hover:text-white"
+                  >
+                    Terms &amp; Conditions
+                  </Link>
+                </li>
               </ul>
             </div>
 
