@@ -26,6 +26,7 @@ const aboutLinks = [
   { href: "/vision", label: "Vision" },
   { href: "/mission", label: "Mission" },
   { href: "/our-team", label: "Our Team" },
+  { href: "/portfolio", label: "Portfolio" },
   { href: "/blog", label: "Blogs and Insight" },
 ];
 

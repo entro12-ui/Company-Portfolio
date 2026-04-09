@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import AccessMethods from "@/components/Features";
-import PlatformFeatures from "@/components/HowItWorks";
 import Industries from "@/components/Systems";
 import SoftwareProducts from "@/components/SoftwareProducts";
+import PastClientReview from "@/components/PastClientReview";
 import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
@@ -74,9 +73,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <SoftwareProducts />
-      <AccessMethods />
-      <PlatformFeatures />
       <Industries />
+      <PastClientReview />
       <Faq />
       <Footer />
     </main>

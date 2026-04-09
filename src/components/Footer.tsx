@@ -2,6 +2,29 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import type { ReactNode } from "react";
+import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6";
+
+type SocialIconProps = {
+  href: string;
+  label: string;
+  icon: ReactNode;
+  iconClassName: string;
+};
+
+function SocialIcon({ href, label, icon, iconClassName }: SocialIconProps) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={label}
+      className="flex h-8 w-8 items-center justify-center transition hover:opacity-85"
+    >
+      <span className={iconClassName}>{icon}</span>
+    </a>
+  );
+}
 
 const Footer = () => {
   return (
@@ -217,44 +240,95 @@ const Footer = () => {
               <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
                 Support
               </h3>
-              <ul className="space-y-3 text-sm text-slate-300">
+              <ul className="space-y-3 text-sm text-white">
                 <li>
                   <a
                     href="mailto:entro12@entroethiopia.com"
-                    className="transition hover:text-white"
+                    className="font-medium text-white transition hover:text-teal-300"
                   >
                     Email Support
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://www.facebook.com/profile.php?id=61574279425487"
+                    href="https://web.facebook.com/profile.php?id=61574279425487"
                     target="_blank"
                     rel="noreferrer"
-                    className="transition hover:text-white"
+                    className="font-medium text-white transition hover:text-teal-300"
                   >
                     Facebook Page
                   </a>
                 </li>
                 <li>
                   <a
+                    href="https://www.instagram.com/entroethiopia/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-white transition hover:text-teal-300"
+                  >
+                    Instagram
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.tiktok.com/@entroethiopia?_r=1&_t=ZS-95Ofst4pNzh"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="font-medium text-white transition hover:text-teal-300"
+                  >
+                    TikTok
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="tel:+251979113638"
-                    className="transition hover:text-white"
+                    className="font-medium text-white transition hover:text-teal-300"
                   >
                     Call Us
                   </a>
                 </li>
                 <li>
-                  <Link href="/contact" className="transition hover:text-white">
+                  <Link
+                    href="/contact"
+                    className="font-medium text-white transition hover:text-teal-300"
+                  >
                     Project Enquiry
                   </Link>
                 </li>
                 <li>
-                  <Link href="/business-card" className="transition hover:text-white">
+                  <Link
+                    href="/business-card"
+                    className="font-medium text-white transition hover:text-teal-300"
+                  >
                     Business Card
                   </Link>
                 </li>
               </ul>
+              <div className="mt-6">
+                <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  Social Pages
+                </p>
+                <div className="mt-5 flex gap-3">
+                  <SocialIcon
+                    href="https://web.facebook.com/profile.php?id=61574279425487"
+                    label="Facebook"
+                    icon={<FaFacebookF className="h-4 w-4" />}
+                    iconClassName="text-[#1877F2]"
+                  />
+                  <SocialIcon
+                    href="https://www.instagram.com/entroethiopia/"
+                    label="Instagram"
+                    icon={<FaInstagram className="h-4 w-4" />}
+                    iconClassName="text-[#E4405F]"
+                  />
+                  <SocialIcon
+                    href="https://www.tiktok.com/@entroethiopia?_r=1&_t=ZS-95Ofst4pNzh"
+                    label="TikTok"
+                    icon={<FaTiktok className="h-4 w-4" />}
+                    iconClassName="text-white"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -30,18 +30,18 @@ export const blogPosts: BlogPost[] = [
     description:
       "Learn what custom software development means in Ethiopia, when businesses need it, how it works, and how to choose the right development partner.",
     intro:
-      "Custom software development is becoming increasingly important for businesses and organizations in Ethiopia. As companies grow, many begin to realize that spreadsheets, disconnected tools, and manual workflows are no longer enough to support daily operations efficiently. In many cases, these systems also need to connect with modern [web development](/web-development) and practical [AI solutions](/ai-solutions).",
+      "[Custom software development](https://www.entroethiopia.com/custom-software-development) is becoming increasingly important for businesses and organizations in Ethiopia. As companies grow, many begin to realize that spreadsheets, disconnected tools, and manual workflows are no longer enough to support daily operations efficiently. In many cases, these systems also need to connect with modern [web development](/web-development) and practical [AI solutions](/ai-solutions).",
     sections: [
       {
         heading: "Why custom software becomes important over time",
         paragraphs: [
-          "Whether you are a small business, a clinic, an NGO, or a government institution, the need for software that matches your exact process becomes more important over time. This is where custom software development comes in. Many organizations first explore this after learning more [about Entro Ethiopia](/about) or speaking with our team through the [contact page](/contact).",
+          "Whether you are a small business, a clinic, an NGO, or a government institution, the need for software that matches your exact process becomes more important over time. This is where [custom software development](https://www.entroethiopia.com/custom-software-development) comes in. Many organizations first explore this after learning more [about Entro Ethiopia](/about) or speaking with our team through the [contact page](/contact).",
         ],
       },
       {
         heading: "What is custom software development?",
         paragraphs: [
-          "Custom software development is the process of designing and building software specifically for the needs of one business or organization. Unlike off-the-shelf software, which is built for a broad market, custom software is tailored to your workflow, users, reporting needs, and operational goals.",
+          "[Custom software development](https://www.entroethiopia.com/custom-software-development) is the process of designing and building software specifically for the needs of one business or organization. Unlike off-the-shelf software, which is built for a broad market, custom software is tailored to your workflow, users, reporting needs, and operational goals.",
           "In simple terms, custom software is built around your business, instead of forcing your business to adapt to generic software.",
         ],
         bullets: [
@@ -75,13 +75,13 @@ export const blogPosts: BlogPost[] = [
           "Custom software is especially valuable for organizations that have repetitive manual processes, manage large volumes of records, rely on approvals and workflows, need reports regularly, operate in more than one department, want to reduce human error, or need stronger visibility and accountability. This applies strongly to organizations looking for [software solutions for SMEs](/solutions-for-smes), [software solutions for NGOs](/solutions-for-ngos), and [software solutions for government](/solutions-for-government).",
         ],
         bullets: [
-          "SMEs",
-          "NGOs",
-          "Clinics and hospitals",
-          "Schools",
-          "Service businesses",
-          "Distributors",
-          "Government offices",
+          "[SMEs](/solutions-for-smes)",
+          "[NGOs](/solutions-for-ngos)",
+          "[Clinics and hospitals](/solutions-for-clinics)",
+          "[Schools](/solutions-for-ngos)",
+          "[Service businesses](/solutions-for-smes)",
+          "[Distributors](/solutions-for-smes)",
+          "[Government offices](/solutions-for-government)",
         ],
       },
       {
@@ -136,7 +136,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Final thoughts",
         paragraphs: [
-          "Custom software development is not only for large corporations. It is increasingly becoming a smart investment for Ethiopian businesses and organizations that want better control, visibility, and efficiency.",
+          "[Custom software development](https://www.entroethiopia.com/custom-software-development) is not only for large corporations. It is increasingly becoming a smart investment for Ethiopian businesses and organizations that want better control, visibility, and efficiency.",
           "The right software can reduce wasted time, improve service quality, and support long-term growth. If your business is still relying on spreadsheets, disconnected tools, or manual reporting, it may be time to explore a custom solution with help from our [web development](/web-development), [AI solutions](/ai-solutions), and sector-focused service pages.",
         ],
       },
@@ -145,7 +145,7 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is custom software development?",
         answer:
-          "Custom software development is the process of building software specifically for one business or organization based on its workflow, users, and goals, instead of using generic off-the-shelf tools.",
+          "[Custom software development](https://www.entroethiopia.com/custom-software-development) is the process of building software specifically for one business or organization based on its workflow, users, and goals, instead of using generic off-the-shelf tools.",
       },
       {
         question: "Who needs custom software in Ethiopia?",
@@ -216,7 +216,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Why custom software is better",
         paragraphs: [
-          "Custom software organizes your operations into one structured system. Instead of many disconnected files, your staff use one platform with defined processes and permissions.",
+          "[Custom software](/custom-software-development) organizes your operations into one structured system. Instead of many disconnected files, your staff use one platform with defined processes and permissions.",
         ],
         bullets: [
           "One source of truth",
@@ -231,9 +231,9 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Real examples of where custom software helps",
         paragraphs: [
-          "Instead of updating stock manually in Excel, a custom system can automatically track product movement, stock levels, sales, invoices, and low stock alerts.",
+          "Instead of updating stock manually in Excel, a [custom system](/custom-software-development) can automatically track product movement, stock levels, sales, invoices, and low stock alerts.",
           "A software system can manage employee records, attendance, salaries, deductions, and payroll reports.",
-          "For service businesses and NGOs, a system can centralize client records, project activity, contact history, and service delivery logs.",
+          "For [service businesses](/solutions-for-smes) and [NGOs](/solutions-for-ngos), a system can centralize client records, project activity, contact history, and service delivery logs.",
         ],
         bullets: [
           "Inventory and sales",
@@ -258,7 +258,7 @@ export const blogPosts: BlogPost[] = [
         heading: "Final thoughts",
         paragraphs: [
           "Spreadsheets are useful tools, but they are not business systems.",
-          "If your organization is spending too much time fixing files, looking for information, or creating reports manually, custom software may be the next logical step.",
+          "If your organization is spending too much time fixing files, looking for information, or creating reports manually, [custom software](/custom-software-development) may be the next logical step.",
           "The move from spreadsheets to software is not just a technology upgrade. It is an operational upgrade.",
           "If your business has outgrown spreadsheets, [contact Entro Ethiopia](/contact) can help you design a practical software solution built for your workflow.",
         ],
@@ -273,23 +273,23 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is better than spreadsheets for business operations?",
         answer:
-          "A custom software system is better when a business needs structured workflows, role-based access, automation, reliable reporting, and a system that can scale with operations.",
+          "A [custom software system](/custom-software-development) is better when a business needs structured workflows, role-based access, automation, reliable reporting, and a system that can scale with operations.",
       },
       {
         question: "Can small businesses in Ethiopia afford custom software?",
         answer:
-          "Yes. Many software solutions can be developed in phases based on budget and priorities, making them practical even for small and medium businesses in Ethiopia.",
+          "Yes. Many [software solutions](/custom-software-development) can be developed in phases based on budget and priorities, making them practical even for small and medium businesses in Ethiopia.",
       },
       {
         question:
           "Which types of businesses should move beyond spreadsheets?",
         answer:
-          "Retailers, distributors, clinics, NGOs, service providers, and growing SMEs should consider moving beyond spreadsheets when manual work starts slowing down operations and affecting accuracy.",
+          "[Retailers](/solutions-for-smes), [distributors](/solutions-for-smes), [clinics](/solutions-for-clinics), [NGOs](/solutions-for-ngos), [service providers](/solutions-for-smes), and growing [SMEs](/solutions-for-smes) should consider moving beyond spreadsheets when manual work starts slowing down operations and affecting accuracy.",
       },
     ],
     cta: {
       title: "Move beyond spreadsheets",
-      text: "If your business has outgrown spreadsheets, contact Entro Ethiopia to design a practical software solution built for your workflow.",
+      text: "If your business has outgrown spreadsheets, [contact Entro Ethiopia](/contact) to design a practical [software solution](/custom-software-development) built for your workflow.",
       buttonLabel: "Contact Entro Ethiopia",
       buttonHref: "/contact",
     },
@@ -302,12 +302,12 @@ export const blogPosts: BlogPost[] = [
     description:
       "Looking for a web development company in Ethiopia? Learn how to choose the right partner for your website or web application project.",
     intro:
-      "Choosing a web development company is an important decision for any business or organization. Your website is often the first place people interact with your brand, and in many cases, it directly affects credibility, visibility, and lead generation.",
+      "Choosing a [web development company](/web-development) is an important decision for any business or organization. Your website is often the first place people interact with your brand, and in many cases, it directly affects credibility, visibility, and lead generation.",
     sections: [
       {
         heading: "Why choosing the right partner matters",
         paragraphs: [
-          "In Ethiopia, more businesses are investing in professional websites and web applications, but not all development partners offer the same level of quality, communication, or support.",
+          "In Ethiopia, more businesses are investing in professional [websites and web applications](/web-development), but not all development partners offer the same level of quality, communication, or support.",
           "So how do you choose the right one?",
         ],
       },
@@ -367,14 +367,14 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Why the right partner matters",
         paragraphs: [
-          "The right web development company can help you build trust online, generate more leads, improve your visibility in search engines, present your business professionally, and support future growth.",
+          "The right [web development company](/web-development) can help you build trust online, generate more leads, improve your visibility in search engines, present your business professionally, and support future growth.",
           "The wrong partner can leave you with a slow, outdated, hard-to-manage website that does not deliver results.",
         ],
       },
       {
         heading: "Final thoughts",
         paragraphs: [
-          "A website is not just a digital brochure. It is a business asset. Choosing the right web development partner in Ethiopia means choosing a team that understands technology, user experience, and business impact.",
+          "A website is not just a digital brochure. It is a business asset. Choosing the right [web development](/web-development) partner in Ethiopia means choosing a team that understands technology, user experience, and business impact.",
           "Take time to evaluate your options carefully, ask the right questions, and work with a team that can support both launch and long-term performance.",
           "If you are looking for a practical, SEO-aware web development partner in Ethiopia, [contact Entro Ethiopia](/contact) to discuss your project.",
         ],
@@ -404,7 +404,7 @@ export const blogPosts: BlogPost[] = [
     ],
     cta: {
       title: "Choose a practical web partner",
-      text: "If you are looking for a practical, SEO-aware web development partner in Ethiopia, contact Entro Ethiopia to discuss your project.",
+      text: "If you are looking for a practical, SEO-aware [web development](/web-development) partner in Ethiopia, [contact Entro Ethiopia](/contact) to discuss your project.",
       buttonLabel: "Contact Entro Ethiopia",
       buttonHref: "/contact",
     },
@@ -417,7 +417,7 @@ export const blogPosts: BlogPost[] = [
     description:
       "Explore practical AI solutions for Ethiopian businesses, clinics, and organizations, including automation, insights, alerts, and healthcare use cases.",
     intro:
-      "Artificial intelligence is often discussed in abstract or futuristic terms. But for businesses in Ethiopia, the most valuable AI solutions are not experimental. They are practical tools that solve specific operational problems.",
+      "Artificial intelligence is often discussed in abstract or futuristic terms. But for businesses in Ethiopia, the most valuable [AI solutions](/ai-solutions) are not experimental. They are practical tools that solve specific operational problems.",
     sections: [
       {
         heading: "What AI means in a business context",
@@ -445,7 +445,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Why AI should be practical, not theoretical",
         paragraphs: [
-          "For most Ethiopian businesses, the best AI solution is not the most advanced system. It is the one that works reliably, fits local workflows, is affordable, solves a real problem, and can be used by staff without deep technical training.",
+          "For most Ethiopian businesses, the best [AI solution](/ai-solutions) is not the most advanced system. It is the one that works reliably, fits local workflows, is affordable, solves a real problem, and can be used by staff without deep technical training.",
           "This is why practical AI implementation matters more than hype.",
         ],
       },
@@ -489,7 +489,7 @@ export const blogPosts: BlogPost[] = [
     ],
     cta: {
       title: "Adopt practical AI",
-      text: "If your organization wants practical AI solutions that work in real business environments, speak with Entro Ethiopia about your goals.",
+      text: "If your organization wants practical [AI solutions](/ai-solutions) that work in real business environments, speak with [Entro Ethiopia](/contact) about your goals.",
       buttonLabel: "Talk to Our Team",
       buttonHref: "/contact",
     },
@@ -507,7 +507,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "What is ERP software?",
         paragraphs: [
-          "ERP software solves this by bringing key business functions into one connected system.",
+          "[ERP software](/erp-systems) solves this by bringing key business functions into one connected system.",
           "ERP stands for Enterprise Resource Planning. It refers to software that helps an organization manage core operations in one system.",
           "Instead of using many disconnected tools, staff use one platform with shared data and better visibility.",
         ],
@@ -540,15 +540,15 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Who needs ERP software?",
         paragraphs: [
-          "ERP software is useful for organizations that have more than one department, manage stock or procurement, need HR and payroll control, generate regular management reports, want stronger accountability, or are growing beyond manual systems.",
+          "[ERP software](/erp-systems) is useful for organizations that have more than one department, manage stock or procurement, need HR and payroll control, generate regular management reports, want stronger accountability, or are growing beyond manual systems.",
         ],
         bullets: [
-          "SMEs",
-          "NGOs",
-          "Clinics and hospitals",
-          "Distributors",
-          "Service businesses",
-          "Government institutions",
+          "[SMEs](/solutions-for-smes)",
+          "[NGOs](/solutions-for-ngos)",
+          "[Clinics and hospitals](/solutions-for-clinics)",
+          "[Distributors](/solutions-for-smes)",
+          "[Service businesses](/solutions-for-smes)",
+          "[Government institutions](/solutions-for-government)",
         ],
       },
       {
@@ -567,26 +567,26 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "ERP for SMEs",
         paragraphs: [
-          "For SMEs, ERP can help with inventory management, sales tracking, invoicing, payroll, and daily management reporting.",
-          "A small business does not always need a huge ERP platform. It needs a practical system that fits its current size and budget.",
+          "For [SMEs](/solutions-for-smes), [ERP](/erp-systems) can help with inventory management, sales tracking, invoicing, payroll, and daily management reporting.",
+          "A small business does not always need a huge ERP platform. It needs a practical [ERP system](/erp-systems) that fits its current size and budget.",
         ],
       },
       {
         heading: "ERP for NGOs",
         paragraphs: [
-          "For NGOs, ERP-like systems can support inventory and asset tracking, procurement workflows, HR and payroll, reporting and compliance, and multi-project visibility.",
+          "For [NGOs](/solutions-for-ngos), [ERP](/erp-systems)-like systems can support inventory and asset tracking, procurement workflows, HR and payroll, reporting and compliance, and multi-project visibility.",
         ],
       },
       {
         heading: "ERP for government institutions",
         paragraphs: [
-          "For government offices, ERP and workflow systems can improve document movement, approvals, staff records, reporting, and service delivery processes.",
+          "For [government institutions](/solutions-for-government), [ERP](/erp-systems) and workflow systems can improve document movement, approvals, staff records, reporting, and service delivery processes.",
         ],
       },
       {
         heading: "Final thoughts",
         paragraphs: [
-          "ERP software is no longer only for large corporations. In Ethiopia, it is becoming increasingly relevant for organizations that want more control, better reporting, and stronger operational efficiency.",
+          "[ERP software](/erp-systems) is no longer only for large corporations. In Ethiopia, it is becoming increasingly relevant for organizations that want more control, better reporting, and stronger operational efficiency.",
           "The key is choosing a system that is practical, scalable, and aligned with your local realities.",
           "If your organization is evaluating ERP software in Ethiopia, Entro Ethiopia [can help](/contact) you identify the right structure and implementation approach.",
         ],
@@ -616,7 +616,7 @@ export const blogPosts: BlogPost[] = [
     ],
     cta: {
       title: "Plan the right ERP structure",
-      text: "If your organization is evaluating ERP software in Ethiopia, Entro Ethiopia can help you identify the right structure and implementation approach.",
+      text: "If your organization is evaluating [ERP software](/erp-systems) in Ethiopia, [Entro Ethiopia](/contact) can help you identify the right structure and implementation approach.",
       buttonLabel: "Contact Entro Ethiopia",
       buttonHref: "/contact",
     },

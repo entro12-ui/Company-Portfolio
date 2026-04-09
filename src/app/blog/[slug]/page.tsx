@@ -108,7 +108,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             <h1 className="mb-6 text-4xl font-bold text-gray-900 sm:text-5xl">
               {post.title}
             </h1>
-            <p className="text-lg leading-relaxed text-gray-700">{post.intro}</p>
+            <p className="text-lg leading-relaxed text-gray-700">
+              {renderRichText(post.intro)}
+            </p>
           </header>
 
           <section className="mb-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
@@ -189,10 +191,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                     <summary className="cursor-pointer list-none pr-8 text-lg font-semibold text-gray-900">
                       {faq.question}
                     </summary>
-                    <p className="mt-4 leading-8 text-gray-700">{faq.answer}</p>
+                    <p className="mt-4 leading-8 text-gray-700">
+                      {renderRichText(faq.answer)}
+                    </p>
                   </details>
                 ))}
               </div>
+              <p className="mt-8 leading-8 text-gray-700">
+                If your organization is considering a software solution, contact
+                Entro Ethiopia to discuss your requirements and explore the right
+                approach.{" "}
+                <Link
+                  href="/contact"
+                  className="font-semibold text-teal-700 underline decoration-teal-300 underline-offset-4 transition hover:text-teal-800 hover:decoration-teal-500"
+                >
+                  Contact Us
+                </Link>
+              </p>
             </section>
           )}
 
@@ -201,8 +216,10 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               {post.cta?.title ?? "Explore more insights"}
             </h2>
             <p className="mb-6 max-w-3xl text-white/90">
-              {post.cta?.text ??
-                "Continue exploring practical guidance from Entro Ethiopia on digital systems, software strategy, and business growth."}
+              {renderRichText(
+                post.cta?.text ??
+                  "Continue exploring practical guidance from [Entro Ethiopia](/contact) on digital systems, software strategy, and business growth.",
+              )}
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
