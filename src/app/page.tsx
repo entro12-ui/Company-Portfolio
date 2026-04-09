@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import AccessMethods from "@/components/Features";
-import AboutUs from "@/components/EntroGuardian";
 import PlatformFeatures from "@/components/HowItWorks";
 import Industries from "@/components/Systems";
 import SoftwareProducts from "@/components/SoftwareProducts";
@@ -74,7 +73,6 @@ export default function Home() {
       <JsonLd data={faqSchema} />
       <Navbar />
       <Hero />
-      <AboutUs />
       <SoftwareProducts />
       <AccessMethods />
       <PlatformFeatures />

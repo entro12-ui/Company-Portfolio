@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import PageShell from "@/components/PageShell";
+import JsonLd from "@/components/JsonLd";
 import { blogPosts, getBlogPostBySlug } from "@/content/blogPosts";
 
 export const dynamic = "force-static";
@@ -80,8 +81,24 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const faqSchema = post.faqs
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: post.faqs.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
+
   return (
     <PageShell>
+      {faqSchema && <JsonLd data={faqSchema} />}
       <article className="px-4 pb-16 sm:pb-24">
         <div className="mx-auto max-w-4xl">
           <header className="mb-10 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">

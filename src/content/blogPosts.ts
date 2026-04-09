@@ -145,27 +145,22 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is custom software development?",
         answer:
-          "Custom software development is the process of building software designed specifically for one organization’s needs, workflow, and users.",
-      },
-      {
-        question: "Is custom software expensive?",
-        answer:
-          "The cost depends on the scope of the project. Many systems can be built in phases, starting with core features first.",
+          "Custom software development is the process of building software specifically for one business or organization based on its workflow, users, and goals, instead of using generic off-the-shelf tools.",
       },
       {
         question: "Who needs custom software in Ethiopia?",
         answer:
-          "SMEs, NGOs, clinics, schools, and government institutions can all benefit from custom software if they have manual or complex processes.",
+          "SMEs, NGOs, clinics, hospitals, schools, distributors, and government institutions in Ethiopia can all benefit from custom software when they have manual, repetitive, or complex business processes.",
       },
       {
         question: "How long does custom software take to build?",
         answer:
-          "It depends on the size and complexity of the system. Some projects take a few weeks, while others take several months.",
+          "The timeline depends on the scope and complexity of the system. Some software projects may take a few weeks, while larger systems may take several months and are often delivered in phases.",
       },
       {
         question: "Can custom software work offline?",
         answer:
-          "Yes. Depending on the system, offline functionality can be built for local use cases.",
+          "Yes. Depending on the business requirement, custom software can be designed with offline functionality for local use cases and sync when internet access becomes available.",
       },
     ],
     cta: {

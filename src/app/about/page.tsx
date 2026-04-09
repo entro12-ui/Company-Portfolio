@@ -44,6 +44,52 @@ export default function AboutPage() {
             </p>
           </header>
 
+          <section className="mb-10 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+            <h2 className="mb-6 text-3xl font-bold text-gray-900">
+              Vision, Mission, and Our Team
+            </h2>
+            <div className="grid gap-6 md:grid-cols-3">
+              <article
+                id="vision"
+                className="scroll-mt-28 rounded-2xl border border-teal-100 bg-teal-50/40 p-6"
+              >
+                <h3 className="mb-3 text-xl font-semibold text-teal-800">Vision</h3>
+                <p className="leading-relaxed text-gray-700">
+                  To become a trusted local technology partner that helps
+                  Ethiopian organizations grow through practical and dependable
+                  digital solutions.
+                </p>
+              </article>
+
+              <article
+                id="mission"
+                className="scroll-mt-28 rounded-2xl border border-cyan-100 bg-cyan-50/40 p-6"
+              >
+                <h3 className="mb-3 text-xl font-semibold text-cyan-800">Mission</h3>
+                <p className="leading-relaxed text-gray-700">
+                  To design and deliver custom software, web, AI, and ERP
+                  systems that solve real local challenges, improve operations,
+                  and create measurable impact for our clients.
+                </p>
+              </article>
+
+              <article
+                id="our-team"
+                className="scroll-mt-28 rounded-2xl border border-slate-200 bg-slate-50 p-6"
+              >
+                <h3 className="mb-3 text-xl font-semibold text-slate-900">
+                  Our Team
+                </h3>
+                <p className="leading-relaxed text-gray-700">
+                  Our team combines product thinking, engineering, and local
+                  domain knowledge to build software that is easy to use,
+                  reliable in local conditions, and supported with close
+                  collaboration.
+                </p>
+              </article>
+            </div>
+          </section>
+
           <div className="grid gap-8 lg:grid-cols-2">
             <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">

@@ -22,10 +22,18 @@ const industryLinks = [
   { href: "/solutions-for-government", label: "Government" },
 ];
 
+const aboutLinks = [
+  { href: "/vision", label: "Vision" },
+  { href: "/mission", label: "Mission" },
+  { href: "/our-team", label: "Our Team" },
+  { href: "/blog", label: "Blogs and Insight" },
+];
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
+  const [isAboutOpen, setIsAboutOpen] = useState(false);
   usePathname();
 
   return (
@@ -55,12 +63,41 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <Link
-              href="/about"
-              className="text-gray-600 hover:text-teal-700 hover:border-b-2 hover:border-teal-600 transition duration-300"
-            >
-              About
-            </Link>
+            <div className="group relative">
+              <button className="flex items-center gap-1 text-gray-600 hover:text-teal-700 transition duration-300">
+                About
+                <svg
+                  className="h-4 w-4 transition-transform group-hover:rotate-180"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div className="invisible absolute left-0 top-full z-50 mt-3 w-56 rounded-2xl border border-gray-200 bg-white p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100">
+                <Link
+                  href="/about"
+                  className="block rounded-xl px-4 py-3 text-sm text-gray-700 transition hover:bg-teal-50 hover:text-teal-700"
+                >
+                  About Overview
+                </Link>
+                {aboutLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="block rounded-xl px-4 py-3 text-sm text-gray-700 transition hover:bg-teal-50 hover:text-teal-700"
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
             <div className="group relative">
               <button className="flex items-center gap-1 text-gray-600 hover:text-teal-700 transition duration-300">
                 Services
@@ -200,13 +237,48 @@ const Navbar = () => {
             >
               Home
             </Link>
-            <Link
-              href="/about"
-              className="block px-4 py-3 text-gray-600 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 hover:bg-teal-50 hover:text-teal-700 hover:shadow-sm"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
+            <div className="rounded-lg border border-gray-200">
+              <button
+                onClick={() => setIsAboutOpen(!isAboutOpen)}
+                className="flex w-full items-center justify-between px-4 py-3 text-left text-gray-600 transition hover:bg-teal-50 hover:text-teal-700"
+              >
+                <span>About</span>
+                <svg
+                  className={`h-4 w-4 transition-transform ${isAboutOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              {isAboutOpen && (
+                <div className="space-y-1 px-3 pb-3">
+                  <Link
+                    href="/about"
+                    className="block rounded-lg px-3 py-2 text-sm text-gray-600 transition hover:bg-teal-50 hover:text-teal-700"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    About Overview
+                  </Link>
+                  {aboutLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="block rounded-lg px-3 py-2 text-sm text-gray-600 transition hover:bg-teal-50 hover:text-teal-700"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <div className="rounded-lg border border-gray-200">
               <button
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
