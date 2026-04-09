@@ -266,24 +266,25 @@ export const blogPosts: BlogPost[] = [
     ],
     faqs: [
       {
-        question: "Are spreadsheets always bad?",
+        question: "Why are spreadsheets a problem for growing businesses?",
         answer:
-          "No. Spreadsheets are useful for basic tasks, but they become risky when operations become larger or more complex.",
+          "Spreadsheets become difficult to manage when multiple staff use them, reporting is frequent, data becomes large, or departments need to share information. This often leads to errors, duplication, and slow reporting.",
       },
       {
         question: "What is better than spreadsheets for business operations?",
         answer:
-          "A custom software system is better when you need structure, user permissions, automation, reporting, and scalability.",
+          "A custom software system is better when a business needs structured workflows, role-based access, automation, reliable reporting, and a system that can scale with operations.",
       },
       {
         question: "Can small businesses in Ethiopia afford custom software?",
         answer:
-          "Yes. Many software projects can be started in phases based on budget and priority.",
+          "Yes. Many software solutions can be developed in phases based on budget and priorities, making them practical even for small and medium businesses in Ethiopia.",
       },
       {
-        question: "What kinds of businesses should move beyond spreadsheets?",
+        question:
+          "Which types of businesses should move beyond spreadsheets?",
         answer:
-          "Retailers, distributors, clinics, NGOs, schools, and growing SMEs are common examples.",
+          "Retailers, distributors, clinics, NGOs, service providers, and growing SMEs should consider moving beyond spreadsheets when manual work starts slowing down operations and affecting accuracy.",
       },
     ],
     cta: {
@@ -383,22 +384,22 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What does a web development company do?",
         answer:
-          "A web development company designs, builds, and launches websites or web applications for businesses and organizations.",
+          "A web development company designs, develops, launches, and maintains websites or web applications for businesses and organizations.",
       },
       {
-        question: "How do I choose the best web development company in Ethiopia?",
+        question: "How do I choose the right web development company in Ethiopia?",
         answer:
-          "Look for a company with strong communication, modern development skills, SEO knowledge, and reliable support.",
+          "Choose a company that understands your business goals, communicates clearly, builds mobile-friendly websites, includes SEO structure, and provides support after launch.",
       },
       {
         question: "Should SEO be included in web development?",
         answer:
-          "Yes. A website should be built with SEO structure from the beginning.",
+          "Yes. A professional website should be built with SEO best practices such as proper page structure, metadata, headings, crawlability, and mobile responsiveness from the beginning.",
       },
       {
-        question: "Can a web development company also manage hosting and updates?",
+        question: "Can a web development company also provide hosting and maintenance?",
         answer:
-          "Yes. Many companies provide hosting, maintenance, and post-launch support.",
+          "Yes. Many web development companies also provide hosting, technical maintenance, updates, and support after the website is launched.",
       },
     ],
     cta: {
@@ -468,22 +469,22 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What are AI solutions for businesses?",
         answer:
-          "AI solutions are software tools or features that use data and automation to improve decision-making, efficiency, and workflows.",
+          "AI solutions for businesses are software tools or features that use automation, pattern recognition, and data analysis to improve decision-making, efficiency, and workflows.",
       },
       {
         question: "Can small businesses in Ethiopia use AI?",
         answer:
-          "Yes. AI does not have to be expensive or complex. Many practical use cases can be implemented for SMEs.",
+          "Yes. AI does not need to be expensive or overly complex. Many practical AI features such as alerts, reporting automation, and smarter workflows can be implemented for SMEs.",
       },
       {
         question: "Which industries benefit most from AI in Ethiopia?",
         answer:
-          "Healthcare, business services, retail, logistics, NGOs, and service operations can all benefit from AI-supported tools.",
+          "Healthcare, retail, service businesses, NGOs, logistics, and administrative operations can all benefit from AI-supported tools in Ethiopia.",
       },
       {
         question: "Does AI replace staff?",
         answer:
-          "No. In most business cases, AI supports staff by reducing repetitive work and improving productivity.",
+          "No. In most business use cases, AI supports staff by reducing repetitive work, improving accuracy, and helping teams make faster decisions.",
       },
     ],
     cta: {
@@ -595,22 +596,22 @@ export const blogPosts: BlogPost[] = [
       {
         question: "What is ERP software used for?",
         answer:
-          "ERP software is used to manage and connect different business functions such as inventory, HR, payroll, procurement, and reporting.",
+          "ERP software is used to manage and connect key business functions such as inventory, sales, procurement, HR, payroll, finance, and reporting in one system.",
       },
       {
         question: "Is ERP only for large companies?",
         answer:
-          "No. SMEs, NGOs, clinics, and government institutions can all benefit from ERP systems.",
+          "No. SMEs, NGOs, clinics, and government institutions can all benefit from ERP systems when they need better visibility, control, and coordination across operations.",
       },
       {
-        question: "Can ERP be implemented in phases?",
+        question: "Can ERP software be implemented in phases?",
         answer:
-          "Yes. Many organizations start with core modules and add more later.",
+          "Yes. Many organizations start with the most important modules such as inventory or payroll and then expand the system over time.",
       },
       {
         question: "Is ERP software expensive?",
         answer:
-          "Cost depends on the size and scope of the system. Local, practical ERP solutions can be more affordable than international platforms.",
+          "The cost depends on the size and scope of the system. Local ERP solutions can be more affordable and better aligned with Ethiopian operational realities than large international platforms.",
       },
     ],
     cta: {
