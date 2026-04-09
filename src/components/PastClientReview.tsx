@@ -178,7 +178,9 @@ export default function PastClientReview() {
                     </div>
                   )}
                 </div>
-                <p className="mb-4 leading-7 text-gray-700">"{review.quote}"</p>
+                <p className="mb-4 leading-7 text-gray-700">
+                  &ldquo;{review.quote}&rdquo;
+                </p>
                 <p className="font-semibold text-gray-900">{review.name}</p>
                 <p className="text-sm text-gray-600">{review.organization}</p>
               </article>
