@@ -41,6 +41,8 @@ const caseStudies = [
   {
     name: "Danat Dental Clinic",
     subtitle: "Website Development & Booking System Integration",
+    accent: "from-cyan-600 to-blue-700",
+    chip: "Healthcare",
     overview:
       "Danat Dental Clinic required a modern, professional website that would improve their online presence and allow patients to book appointments easily.",
     challenges: [
@@ -64,10 +66,13 @@ const caseStudies = [
       "Enhanced online credibility",
       "Increased digital visibility",
     ],
+    outcome: ["Patient Booking", "Mobile UX", "Online Visibility"],
   },
   {
     name: "Operation Kilimanjaro",
     subtitle: "Website SEO/GEO Optimization & Booking System Development",
+    accent: "from-teal-600 to-cyan-700",
+    chip: "Tourism & Booking",
     overview:
       "Operation Kilimanjaro required improved digital visibility and a structured booking system to manage client reservations efficiently.",
     challenges: [
@@ -91,10 +96,13 @@ const caseStudies = [
       "More efficient booking management",
       "Stronger digital authority",
     ],
+    outcome: ["SEO Growth", "GEO Visibility", "Booking Flow"],
   },
   {
     name: "Valintine Advisors",
     subtitle: "AI Integration & Automation for Media Visualization & Reporting",
+    accent: "from-violet-600 to-indigo-700",
+    chip: "Consulting & Advisory",
     overview:
       "Valintine Advisors required enhanced automation and AI integration to improve their media visualization and reporting processes.",
     challenges: [
@@ -118,6 +126,7 @@ const caseStudies = [
       "Improved decision-making visibility",
       "Automated recurring processes",
     ],
+    outcome: ["AI Automation", "Reporting Speed", "Decision Support"],
   },
 ];
 
@@ -127,79 +136,102 @@ export default function PortfolioPage() {
       <JsonLd data={portfolioItemListSchema} />
       <article className="px-4 pb-16 sm:pb-24">
         <div className="mx-auto max-w-6xl">
-          <header className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 shadow-sm sm:p-10">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
+          <header className="overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 p-8 text-white shadow-xl sm:p-10">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-300">
               Case Studies
             </p>
-            <h1 className="mb-5 text-4xl font-bold text-gray-900 sm:text-5xl">
+            <h1 className="mb-5 text-4xl font-bold sm:text-5xl">
               Our Portfolio &amp; Case Studies
             </h1>
-            <p className="max-w-4xl text-lg leading-relaxed text-gray-700">
-              At Entro Ethiopia, we focus on building practical, scalable
-              technology solutions that solve real business challenges. Below are
-              selected projects that demonstrate our expertise in web
-              development, SEO/GEO optimization, AI integration, and automation.
+            <p className="max-w-4xl text-lg leading-relaxed text-slate-200">
+              At Entro Ethiopia, we build practical, scalable systems that solve
+              real business challenges. These selected projects highlight our
+              work in web development, SEO/GEO optimization, AI integration, and
+              automation.
             </p>
+            <div className="mt-6 flex flex-wrap gap-2">
+              {[
+                "Web Development",
+                "SEO & GEO",
+                "AI Integration",
+                "Automation",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           </header>
 
           <div className="mt-8 space-y-8">
             {caseStudies.map((study) => (
               <section
                 key={study.name}
-                className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10"
+                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg"
               >
-                <h2 className="text-3xl font-bold text-gray-900">{study.name}</h2>
-                <p className="mt-2 text-lg font-semibold text-teal-700">
-                  {study.subtitle}
-                </p>
+                <div className={`bg-gradient-to-r ${study.accent} px-8 py-7 text-white sm:px-10`}>
+                  <div className="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
+                    {study.chip}
+                  </div>
+                  <h2 className="text-3xl font-bold">{study.name}</h2>
+                  <p className="mt-2 text-lg text-white/90">{study.subtitle}</p>
+                </div>
 
-                <div className="mt-6 space-y-6">
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      Project Overview
-                    </h3>
-                    <p className="mt-2 leading-8 text-gray-700">{study.overview}</p>
+                <div className="p-8 sm:p-10">
+                  <div className="mb-6 flex flex-wrap gap-2">
+                    {study.outcome.map((pill) => (
+                      <span
+                        key={pill}
+                        className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700"
+                      >
+                        {pill}
+                      </span>
+                    ))}
                   </div>
 
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900">Challenges</h3>
-                    <ul className="mt-2 space-y-2 text-gray-700">
-                      {study.challenges.map((item) => (
-                        <li key={item} className="flex items-start gap-3">
-                          <span className="mt-1 h-2.5 w-2.5 rounded-full bg-slate-700" />
-                          <span>{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div>
-                    <h3 className="text-xl font-semibold text-gray-900">
-                      Solution Delivered by Entro Ethiopia
-                    </h3>
-                    <p className="mt-2 leading-8 text-gray-700">{study.solution}</p>
-                  </div>
-
-                  <div className="grid gap-6 lg:grid-cols-2">
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900">
-                        Key Deliverables
-                      </h3>
-                      <ul className="mt-2 space-y-2 text-gray-700">
-                        {study.deliverables.map((item) => (
-                          <li key={item} className="flex items-start gap-3">
-                            <span className="mt-1 h-2.5 w-2.5 rounded-full bg-teal-600" />
+                  <div className="grid gap-6 lg:grid-cols-3">
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                      <h3 className="text-lg font-semibold text-gray-900">Project Overview</h3>
+                      <p className="mt-2 text-sm leading-7 text-gray-700">{study.overview}</p>
+                    </div>
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                      <h3 className="text-lg font-semibold text-gray-900">Challenges</h3>
+                      <ul className="mt-2 space-y-2 text-sm text-gray-700">
+                        {study.challenges.map((item) => (
+                          <li key={item} className="flex items-start gap-2">
+                            <span className="mt-1 h-2 w-2 rounded-full bg-slate-700" />
                             <span>{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
-                    <div>
-                      <h3 className="text-xl font-semibold text-gray-900">Impact</h3>
-                      <ul className="mt-2 space-y-2 text-gray-700">
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+                      <h3 className="text-lg font-semibold text-gray-900">Solution</h3>
+                      <p className="mt-2 text-sm leading-7 text-gray-700">{study.solution}</p>
+                    </div>
+                  </div>
+
+                  <div className="mt-6 grid gap-6 lg:grid-cols-2">
+                    <div className="rounded-2xl border border-teal-100 bg-teal-50/40 p-5">
+                      <h3 className="text-lg font-semibold text-teal-800">Key Deliverables</h3>
+                      <ul className="mt-2 space-y-2 text-sm text-gray-700">
+                        {study.deliverables.map((item) => (
+                          <li key={item} className="flex items-start gap-2">
+                            <span className="mt-1 h-2 w-2 rounded-full bg-teal-600" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="rounded-2xl border border-cyan-100 bg-cyan-50/40 p-5">
+                      <h3 className="text-lg font-semibold text-cyan-800">Impact</h3>
+                      <ul className="mt-2 space-y-2 text-sm text-gray-700">
                         {study.impact.map((item) => (
-                          <li key={item} className="flex items-start gap-3">
-                            <span className="mt-1 h-2.5 w-2.5 rounded-full bg-cyan-600" />
+                          <li key={item} className="flex items-start gap-2">
+                            <span className="mt-1 h-2 w-2 rounded-full bg-cyan-600" />
                             <span>{item}</span>
                           </li>
                         ))}

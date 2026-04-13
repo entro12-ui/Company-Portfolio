@@ -18,14 +18,14 @@ const reviews = [
     quote:
       "Entro Ethiopia helped us replace manual reporting with a practical system our staff could use from day one. Our monthly reporting is now faster and more accurate.",
     name: "Operations Manager",
-    organization: "Local NGO, Addis Ababa",
+    organization: "Media Reporting Agency, California, USA",
     logoSrc: "/vallintine.png",
   },
   {
     quote:
       "The team understood our workflow quickly and delivered a system that matched how our business actually runs. Support after launch has also been reliable.",
     name: "General Manager",
-    organization: "SME Client, Ethiopia",
+    organization: "SME Client, Iceland",
     logoSrc: "/Parka.png",
   },
   {
@@ -163,13 +163,14 @@ export default function PastClientReview() {
               >
                 <div className="mb-4 flex items-center gap-3">
                   {review.logoSrc ? (
-                    <div className="relative h-10 w-14 overflow-hidden rounded-lg border border-slate-200 bg-white">
+                    <div className="relative h-14 w-28 overflow-hidden rounded-lg border border-slate-200 bg-white p-1 shadow-sm">
                       <Image
                         src={review.logoSrc}
                         alt={`${review.organization} logo`}
                         fill
-                        className="object-contain"
-                        sizes="56px"
+                        className="object-contain object-center"
+                        sizes="112px"
+                        quality={100}
                       />
                     </div>
                   ) : (

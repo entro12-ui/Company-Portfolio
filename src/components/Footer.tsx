@@ -36,17 +36,20 @@ const Footer = () => {
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1.8fr]">
           <div>
             <div className="mb-5 flex items-center gap-4">
-              <div className="relative flex h-12 w-16 items-center justify-center overflow-hidden rounded-md border border-white/20 bg-slate-900">
+              <div className="flex h-18 w-28 items-center justify-center overflow-hidden rounded-xl border border-teal-300/40 bg-white px-2 shadow-[0_0_20px_rgba(45,212,191,0.18)] ring-1 ring-white/20">
                 <Image
                   src="/logo.png"
                   alt="Entro Ethiopia company logo"
-                  fill
-                  className="object-contain object-center p-1.5"
-                  sizes="64px"
+                  width={112}
+                  height={72}
+                  className="h-auto w-auto object-contain object-center"
+                  sizes="112px"
+                  quality={100}
+                  unoptimized
                 />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-white">Entro Ethiopia</h2>
+                <h2 className="text-2xl font-bold text-white">Entro Ethiopia</h2>
                 <p className="text-sm text-slate-400">
                   Software &amp; Hardware Development PLC
                 </p>

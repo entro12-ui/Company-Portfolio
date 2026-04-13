@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const industries = [
   {
     icon: "🏢",
@@ -67,7 +71,72 @@ const industries = [
   },
 ];
 
+const sectorSolutions = [
+  {
+    title: "Access Control",
+    description:
+      "Secure facilities with NFC, keypad, web-based, and IoT access control solutions.",
+    cardClass:
+      "bg-gradient-to-br from-teal-500/10 to-cyan-500/10 border border-teal-500/20",
+    titleClass: "text-teal-400",
+  },
+  {
+    title: "Healthcare Management",
+    description:
+      "AI-powered hospital management with patient care, lab, pharmacy, and AI assistance.",
+    cardClass:
+      "bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20",
+    titleClass: "text-blue-400",
+  },
+  {
+    title: "Car Service Management",
+    description:
+      "Complete digital solutions for auto service centers with automated notifications.",
+    cardClass:
+      "bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20",
+    titleClass: "text-cyan-400",
+  },
+  {
+    title: "FitMind AI",
+    description:
+      "Personal AI fitness and nutrition planning with progress tracking and PDF export.",
+    cardClass:
+      "bg-gradient-to-br from-teal-500/10 to-cyan-500/10 border border-teal-500/20",
+    titleClass: "text-teal-400",
+  },
+  {
+    title: "Inventory Management",
+    description:
+      "Control stock, transfers, sales, and advanced branch-level reporting in one system.",
+    cardClass:
+      "bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20",
+    titleClass: "text-blue-400",
+  },
+  {
+    title: "Property Management",
+    description:
+      "Manage properties, tenants, billing, maintenance, and portfolio dashboards efficiently.",
+    cardClass:
+      "bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/20",
+    titleClass: "text-orange-400",
+  },
+];
+
 const Industries = () => {
+  const cardsPerPage = 3;
+  const totalPages = Math.ceil(sectorSolutions.length / cardsPerPage);
+  const [activePage, setActivePage] = useState(0);
+  const start = activePage * cardsPerPage;
+  const visibleSolutions = sectorSolutions.slice(start, start + cardsPerPage);
+
+  const goPrev = () => {
+    setActivePage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
+  };
+
+  const goNext = () => {
+    setActivePage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
+  };
+
   return (
     <section id="industries" className="py-16 sm:py-24 bg-gradient-to-br from-slate-50 via-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,18 +173,52 @@ const Industries = () => {
           <p className="text-lg sm:text-xl text-center max-w-4xl mx-auto leading-relaxed mb-6">
             Our comprehensive software solutions adapt to the unique needs of your industry. Whether you need Access Control Systems for security, Healthcare Management (MediCare AI) for hospitals, Car Service Management for auto centers, or Custom Software Development, we provide scalable solutions that grow with your business.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            <div className="bg-gradient-to-br from-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 border border-teal-500/20">
-              <h4 className="text-xl font-bold mb-3 text-teal-400">Access Control</h4>
-              <p className="text-gray-300 text-sm">Secure facilities with NFC, keypad, web-based, and IoT access control solutions</p>
+          <div className="mt-8">
+            <div className="mb-4 flex items-center justify-between">
+              <button
+                onClick={goPrev}
+                aria-label="Previous sector solutions"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition hover:border-white/60 hover:bg-white/10"
+              >
+                ←
+              </button>
+              <p className="text-sm text-white/70">
+                {activePage + 1} / {totalPages}
+              </p>
+              <button
+                onClick={goNext}
+                aria-label="Next sector solutions"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition hover:border-white/60 hover:bg-white/10"
+              >
+                →
+              </button>
             </div>
-            <div className="bg-gradient-to-br from-blue-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 border border-blue-500/20">
-              <h4 className="text-xl font-bold mb-3 text-blue-400">Healthcare Management</h4>
-              <p className="text-gray-300 text-sm">AI-powered hospital management with patient care, lab, pharmacy, and AI assistance</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {visibleSolutions.map((solution) => (
+                <div
+                  key={solution.title}
+                  className={`${solution.cardClass} backdrop-blur-sm rounded-xl p-6`}
+                >
+                  <h4 className={`text-xl font-bold mb-3 ${solution.titleClass}`}>
+                    {solution.title}
+                  </h4>
+                  <p className="text-gray-300 text-sm">{solution.description}</p>
+                </div>
+              ))}
             </div>
-            <div className="bg-gradient-to-br from-orange-500/10 to-red-500/10 backdrop-blur-sm rounded-xl p-6 border border-orange-500/20">
-              <h4 className="text-xl font-bold mb-3 text-orange-400">Car Service Management</h4>
-              <p className="text-gray-300 text-sm">Complete digital solutions for auto service centers with automated notifications</p>
+
+            <div className="mt-5 flex justify-center gap-2">
+              {Array.from({ length: totalPages }).map((_, index) => (
+                <button
+                  key={`sector-dot-${index}`}
+                  onClick={() => setActivePage(index)}
+                  aria-label={`Go to sector solutions page ${index + 1}`}
+                  className={`h-2.5 w-2.5 rounded-full transition ${
+                    index === activePage ? "bg-white" : "bg-white/35 hover:bg-white/60"
+                  }`}
+                />
+              ))}
             </div>
           </div>
         </div>

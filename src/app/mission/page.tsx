@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageShell from "@/components/PageShell";
 
 export const dynamic = "force-static";
@@ -14,18 +15,26 @@ export default function MissionPage() {
     <PageShell>
       <article className="px-4 pb-16 sm:pb-24">
         <div className="mx-auto max-w-5xl">
-          <section className="rounded-3xl border border-cyan-100 bg-gradient-to-br from-cyan-50 to-white p-8 shadow-sm sm:p-10">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-700">
+          <section className="overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-900 p-8 text-white shadow-xl sm:p-10">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
               About Entro Ethiopia
             </p>
-            <h1 className="mb-6 text-4xl font-bold text-gray-900 sm:text-5xl">
+            <h1 className="mb-6 text-4xl font-bold sm:text-5xl">
               Our Mission
             </h1>
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p className="text-lg leading-relaxed text-slate-200">
               To design and deliver custom software, web, AI, and ERP systems
               that solve real local challenges, improve operations, and create
               measurable impact for our clients.
             </p>
+            <div className="mt-6">
+              <Link
+                href="/contact"
+                className="inline-flex rounded-xl bg-white px-5 py-3 font-semibold text-cyan-700 transition hover:bg-slate-100"
+              >
+                Start a Project Discussion
+              </Link>
+            </div>
           </section>
         </div>
       </article>

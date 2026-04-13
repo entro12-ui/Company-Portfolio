@@ -176,7 +176,7 @@ export default function AboutPage() {
             </section>
           </div>
 
-          <div className="mt-8 grid gap-8 lg:grid-cols-2">
+          <div className="mt-8">
             <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
               <h2 className="mb-4 text-2xl font-bold text-gray-900">
                 Our promise
@@ -184,15 +184,6 @@ export default function AboutPage() {
               <p className="text-lg font-medium text-gray-800">
                 No unnecessary complexity. No vendor lock-in. No support tickets
                 that go unanswered.
-              </p>
-            </section>
-
-            <section className="rounded-3xl border border-dashed border-slate-300 bg-slate-50 p-8 shadow-sm">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
-                Team profiles
-              </h2>
-              <p className="text-gray-700">
-                We will add Team Profiles here when available.
               </p>
             </section>
           </div>

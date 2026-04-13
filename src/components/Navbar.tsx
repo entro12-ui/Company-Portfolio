@@ -23,8 +23,7 @@ const industryLinks = [
 ];
 
 const aboutLinks = [
-  { href: "/vision", label: "Vision" },
-  { href: "/mission", label: "Mission" },
+  { href: "/vision-mission", label: "Vision & Mission" },
   { href: "/our-team", label: "Our Team" },
   { href: "/portfolio", label: "Portfolio" },
   { href: "/blog", label: "Blogs and Insight" },
@@ -43,13 +42,16 @@ const Navbar = () => {
         <div className="flex justify-between h-16 sm:h-20">
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <div className="relative flex h-14 w-24 sm:h-16 sm:w-28 items-center justify-center overflow-hidden rounded-lg bg-white px-2 py-1 transform hover:scale-105 transition-transform duration-200">
+              <div className="flex h-14 w-24 sm:h-16 sm:w-28 items-center justify-center overflow-hidden rounded-lg bg-white px-2 py-1 transform hover:scale-105 transition-transform duration-200">
                 <Image
                   src="/logo.png"
                   alt="Entro Ethiopia company logo"
-                  fill
-                  className="object-contain object-center"
+                  width={112}
+                  height={64}
+                  className="h-auto w-auto object-contain object-center"
                   sizes="(min-width: 640px) 112px, 96px"
+                  quality={100}
+                  unoptimized
                   priority
                 />
               </div>

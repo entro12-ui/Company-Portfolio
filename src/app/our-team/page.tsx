@@ -116,20 +116,20 @@ export default function OurTeamPage() {
       <JsonLd data={teamOrganizationSchema} />
       <article className="px-4 pb-16 sm:pb-24">
         <div className="mx-auto max-w-6xl">
-          <section className="rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-50 to-white p-8 shadow-sm sm:p-10">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-slate-700">
+          <section className="overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 p-8 text-white shadow-xl sm:p-10">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-300">
               About Entro Ethiopia
             </p>
-            <h1 className="mb-6 text-4xl font-bold text-gray-900 sm:text-5xl">
+            <h1 className="mb-6 text-4xl font-bold sm:text-5xl">
               Meet the Team Behind Entro Ethiopia
             </h1>
-            <p className="text-lg leading-relaxed text-gray-700">
+            <p className="text-lg leading-relaxed text-slate-200">
               Entro Ethiopia is built by a multidisciplinary team of technology,
               digital strategy, and creative professionals dedicated to building
               practical software solutions for Ethiopian businesses and
               organizations.
             </p>
-            <p className="mt-4 text-lg leading-relaxed text-gray-700">
+            <p className="mt-4 text-lg leading-relaxed text-slate-200">
               Our team combines expertise in software engineering, AI systems,
               digital marketing, and content creation to deliver modern,
               scalable solutions for SMEs, NGOs, clinics, and government
@@ -144,7 +144,7 @@ export default function OurTeamPage() {
               ].map((skill) => (
                 <span
                   key={skill}
-                  className="rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-xs font-semibold text-teal-800"
+                  className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white"
                 >
                   {skill}
                 </span>
@@ -163,7 +163,7 @@ export default function OurTeamPage() {
               {teamMembers.map((member) => (
                 <details
                   key={member.name}
-                  className="group rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md open:bg-white"
+                  className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:shadow-lg open:bg-white"
                 >
                   <summary className="list-none cursor-pointer">
                     <div className="flex items-start gap-4">
@@ -178,7 +178,7 @@ export default function OurTeamPage() {
                           {member.role}
                         </p>
                         <p className="mt-3 text-gray-700">{member.summary}</p>
-                        <p className="mt-3 text-sm font-medium text-slate-500 group-open:text-teal-700">
+                        <p className="mt-3 text-sm font-medium text-teal-700/80 group-open:text-teal-700">
                           {`View details`}
                         </p>
                       </div>

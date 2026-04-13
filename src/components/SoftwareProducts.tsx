@@ -28,12 +28,10 @@ const products: Product[] = [
     title: "MediCare AI",
     description: "Intelligent healthcare management platform with AI-powered features. Complete hospital operations management from patient registration to AI-assisted diagnostics.",
     highlights: [
-      "Hospital Management System",
-      "AI Clinical Decision Support",
-      "AI Patient Chatbot (24/7)",
-      "Multi-LLM AI Assistant",
-      "Laboratory & Pharmacy Modules",
-      "Bed Management & Accounting"
+      "Centralizes core hospital and clinic operations",
+      "Supports care teams with AI-powered assistance",
+      "Improves patient flow, records, and service coordination",
+      "Helps management monitor healthcare performance"
     ],
     cta: {
       primary: "Request a Demo",
@@ -55,12 +53,10 @@ const products: Product[] = [
     title: "SMART Access Control System",
     description: "Complete hardware and software solution for secure access control. Supports NFC, keypad, web-based, and IoT integration for doors, equipment, and facilities.",
     highlights: [
-      "NFC & Keypad Access",
-      "Web-Based Remote Control",
-      "Real-Time Monitoring",
-      "IoT Integration",
-      "Offline Operation",
-      "Multi-Location Support"
+      "Controls secure access across facilities and rooms",
+      "Enables remote monitoring and management",
+      "Supports connected and offline access workflows",
+      "Scales for single or multi-location operations"
     ],
     cta: {
       primary: "Get a Demo",
@@ -82,25 +78,101 @@ const products: Product[] = [
     title: "Car Service Management System",
     description: "Complete digital solution for auto service centers. Manage customers, vehicles, appointments, inventory, and automated service notifications via SMS and email.",
     highlights: [
-      "Customer & Vehicle Management",
-      "Appointment Scheduling",
-      "Service History Tracking",
-      "Parts Inventory Management",
-      "Mileage-Based Service Alerts (SMS & Email)",
-      "Loyalty Programs & Reports"
+      "Manages customers, vehicles, and service workflows",
+      "Streamlines appointments and service history tracking",
+      "Improves parts and workshop operation control",
+      "Supports service reminders and performance reporting"
     ],
     cta: {
       primary: "Get Started",
       contact: "entro12@entroethiopia.com"
     },
     colorScheme: {
-      headerBg: "bg-gradient-to-r from-orange-700 to-red-700",
-      textColor: "text-orange-700",
-      borderColor: "border-orange-600",
-      hoverBorder: "hover:border-orange-300",
-      accentColor: "text-orange-600",
-      buttonBg: "bg-gradient-to-r from-orange-700 to-red-700",
-      buttonBorder: "border-orange-600"
+      headerBg: "bg-gradient-to-r from-cyan-700 to-blue-700",
+      textColor: "text-cyan-700",
+      borderColor: "border-cyan-600",
+      hoverBorder: "hover:border-cyan-300",
+      accentColor: "text-cyan-600",
+      buttonBg: "bg-gradient-to-r from-cyan-700 to-blue-700",
+      buttonBorder: "border-cyan-600"
+    }
+  },
+  {
+    id: "fitmind-ai",
+    icon: "💪",
+    title: "FitMind AI",
+    description:
+      "Personal fitness and nutrition app that uses AI to generate custom weekly plans, then helps users save and track progress over time.",
+    highlights: [
+      "Creates personalized weekly workout and nutrition plans",
+      "Provides motivation and practical AI fitness guidance",
+      "Lets users save plans and track progress over time",
+      "Supports media-rich usage with audio and downloadable plans"
+    ],
+    cta: {
+      primary: "Explore FitMind AI",
+      contact: "entro12@entroethiopia.com"
+    },
+    colorScheme: {
+      headerBg: "bg-gradient-to-r from-emerald-700 to-lime-600",
+      textColor: "text-emerald-700",
+      borderColor: "border-emerald-600",
+      hoverBorder: "hover:border-emerald-300",
+      accentColor: "text-emerald-600",
+      buttonBg: "bg-gradient-to-r from-emerald-700 to-lime-600",
+      buttonBorder: "border-emerald-600"
+    }
+  },
+  {
+    id: "control-inventory",
+    icon: "📦",
+    title: "Control Inventory Management System",
+    description:
+      "End-to-end inventory, sales, and reporting platform for branches, warehouses, and retail operations.",
+    highlights: [
+      "Manages inventory and stock movement across locations",
+      "Handles sales workflows and transaction recording",
+      "Provides business reports and profitability visibility",
+      "Improves stock control with smart alerts and tracking"
+    ],
+    cta: {
+      primary: "Request Inventory Demo",
+      contact: "entro12@entroethiopia.com"
+    },
+    colorScheme: {
+      headerBg: "bg-gradient-to-r from-indigo-700 to-blue-700",
+      textColor: "text-indigo-700",
+      borderColor: "border-indigo-600",
+      hoverBorder: "hover:border-indigo-300",
+      accentColor: "text-indigo-600",
+      buttonBg: "bg-gradient-to-r from-indigo-700 to-blue-700",
+      buttonBorder: "border-indigo-600"
+    }
+  },
+  {
+    id: "property-management",
+    icon: "🏢",
+    title: "Property Management System",
+    description:
+      "Digital property operations platform for managing units, tenants, billing, maintenance, and portfolio reporting.",
+    highlights: [
+      "Organizes property, unit, and tenant operations",
+      "Supports billing, rent follow-up, and maintenance workflows",
+      "Provides occupancy and performance visibility",
+      "Automates reminders and routine management tasks"
+    ],
+    cta: {
+      primary: "Book a Property Demo",
+      contact: "entro12@entroethiopia.com"
+    },
+    colorScheme: {
+      headerBg: "bg-gradient-to-r from-violet-700 to-fuchsia-700",
+      textColor: "text-violet-700",
+      borderColor: "border-violet-600",
+      hoverBorder: "hover:border-violet-300",
+      accentColor: "text-violet-600",
+      buttonBg: "bg-gradient-to-r from-violet-700 to-fuchsia-700",
+      buttonBorder: "border-violet-600"
     }
   }
 ];
