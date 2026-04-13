@@ -82,16 +82,8 @@ export default function PastClientReview() {
   const startIndex = activePage * cardsPerPage;
   const visibleReviews = reviews.slice(startIndex, startIndex + cardsPerPage);
 
-  function goPrev() {
-    setActivePage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
-  }
-
-  function goNext() {
-    setActivePage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
-  }
-
   return (
-    <section className="bg-slate-50 px-4 py-16 sm:px-6 lg:px-8">
+    <section className="bg-slate-50 px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 text-center">
           <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
@@ -107,52 +99,10 @@ export default function PastClientReview() {
         </div>
 
         <div className="mx-auto max-w-6xl">
-          <div className="mb-4 flex items-center justify-between">
-            <button
-              onClick={goPrev}
-              aria-label="Previous reviews"
-              className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border-2 border-slate-400 bg-white text-slate-900 shadow-sm transition hover:border-teal-500 hover:text-teal-700"
-            >
-              <svg
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M15 6L9 12L15 18"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
+          <div className="mb-4 text-center">
             <p className="text-sm font-medium text-gray-600">
               {activePage + 1} / {totalPages}
             </p>
-            <button
-              onClick={goNext}
-              aria-label="Next reviews"
-              className="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border-2 border-slate-400 bg-white text-slate-900 shadow-sm transition hover:border-teal-500 hover:text-teal-700"
-            >
-              <svg
-                className="h-5 w-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M9 6L15 12L9 18"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </button>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

@@ -129,18 +129,10 @@ const Industries = () => {
   const start = activePage * cardsPerPage;
   const visibleSolutions = sectorSolutions.slice(start, start + cardsPerPage);
 
-  const goPrev = () => {
-    setActivePage((prev) => (prev === 0 ? totalPages - 1 : prev - 1));
-  };
-
-  const goNext = () => {
-    setActivePage((prev) => (prev === totalPages - 1 ? 0 : prev + 1));
-  };
-
   return (
-    <section id="industries" className="py-16 sm:py-24 bg-gradient-to-br from-slate-50 via-gray-50 to-white">
+    <section id="industries" className="py-8 bg-gradient-to-br from-slate-50 via-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-gray-900">
             Industries We Serve
           </h2>
@@ -149,7 +141,7 @@ const Industries = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 sm:mb-12">
           {industries.map((industry, index) => (
             <div
               key={index}
@@ -174,24 +166,10 @@ const Industries = () => {
             Our comprehensive software solutions adapt to the unique needs of your industry. Whether you need Access Control Systems for security, Healthcare Management (MediCare AI) for hospitals, Car Service Management for auto centers, or Custom Software Development, we provide scalable solutions that grow with your business.
           </p>
           <div className="mt-8">
-            <div className="mb-4 flex items-center justify-between">
-              <button
-                onClick={goPrev}
-                aria-label="Previous sector solutions"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition hover:border-white/60 hover:bg-white/10"
-              >
-                ←
-              </button>
+            <div className="mb-4 text-center">
               <p className="text-sm text-white/70">
                 {activePage + 1} / {totalPages}
               </p>
-              <button
-                onClick={goNext}
-                aria-label="Next sector solutions"
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/30 text-white transition hover:border-white/60 hover:bg-white/10"
-              >
-                →
-              </button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

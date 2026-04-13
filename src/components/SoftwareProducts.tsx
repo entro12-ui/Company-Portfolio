@@ -254,9 +254,9 @@ const SoftwareProducts = () => {
           }
         }
       `}</style>
-      <section id="products" className="py-16 sm:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50">
+      <section id="products" className="py-8 bg-gradient-to-br from-gray-50 via-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 sm:mb-16">
+          <div className="text-center mb-10 sm:mb-12">
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-gray-900">
               Our Software Products & Solutions
             </h2>
@@ -268,7 +268,7 @@ const SoftwareProducts = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 mb-10 sm:mb-12">
             {products.map((product, index) => (
               <ProductCard key={product.id} product={product} index={index} />
             ))}

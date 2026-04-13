@@ -337,7 +337,7 @@ const Footer = () => {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-slate-800 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Entro Ethiopia. All rights reserved.</p>
+          <p>© 2025 Entro Ethiopia. All rights reserved.</p>
           <p>Built for businesses across Addis Ababa and Ethiopia.</p>
         </div>
       </div>

@@ -47,9 +47,9 @@ const FaqItem = ({ question, answer }: (typeof faqItems)[number]) => {
 
 const Faq = () => {
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-br from-gray-50 to-white" id="faq">
+    <section className="py-8 bg-gradient-to-br from-gray-50 to-white" id="faq">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
+        <div className="text-center mb-10 sm:mb-12">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-gray-900">
             Frequently Asked Questions
           </h2>
