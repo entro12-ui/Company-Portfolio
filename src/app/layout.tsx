@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Ubuntu, Hanken_Grotesk } from "next/font/google";
+import { Poppins, Ubuntu } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 
@@ -13,11 +13,6 @@ const ubuntu = Ubuntu({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
   variable: "--font-ubuntu",
-});
-
-const hankenGrotesk = Hanken_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-hanken-grotesk",
 });
 
 export const metadata: Metadata = {
@@ -81,7 +76,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${poppins.variable} ${ubuntu.variable} ${hankenGrotesk.variable} font-sans`}
+        className={`${poppins.variable} ${ubuntu.variable} font-sans`}
       >
         <noscript>
           <iframe
@@ -92,6 +87,7 @@ export default function RootLayout({
           />
         </noscript>
         <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             height="1"
             width="1"

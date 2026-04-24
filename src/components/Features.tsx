@@ -80,9 +80,7 @@ const accessMethods = [
     title: "Automated Service Notifications",
     subtitle: "SMS & Email Alerts for All Services",
     description:
-      "Automated notifications via SMS and email across all platforms.
-      Mileage-based service alerts for vehicles and appointment reminders for
-      healthcare improve response and continuity.",
+      "Automated notifications via SMS and email across all platforms. Mileage-based service alerts for vehicles and appointment reminders for healthcare improve response and continuity.",
   },
   {
     iconSvg: (
@@ -93,9 +91,7 @@ const accessMethods = [
     title: "Real-Time Monitoring & Analytics",
     subtitle: "Live Status Across All Systems",
     description:
-      "Track operations in real-time across all platforms. Monitor patient
-      appointments, service schedules, system health, and receive instant
-      notifications for critical events.",
+      "Track operations in real-time across all platforms. Monitor patient appointments, service schedules, system health, and receive instant notifications for critical events.",
   },
   {
     iconSvg: (
@@ -106,9 +102,7 @@ const accessMethods = [
     title: "Advanced User & Role Management",
     subtitle: "Secure Role-Based Permissions",
     description:
-      "Comprehensive role management across all systems. Define roles for
-      doctors, lab techs, service managers, system admins, and standard users.
-      Control permissions and data visibility for all platforms.",
+      "Comprehensive role management across all systems. Define roles for doctors, lab techs, service managers, system admins, and standard users. Control permissions and data visibility for all platforms.",
   },
 ];
 

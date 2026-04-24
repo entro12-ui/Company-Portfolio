@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { MdEmail } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
@@ -183,11 +184,12 @@ export default function OurTeamPage() {
                 >
                   <summary className="list-none cursor-pointer">
                     <div className="flex items-start gap-4">
-                      <img
+                      <Image
                         src={member.photo}
                         alt={`${member.name} profile`}
+                        width={56}
+                        height={56}
                         className="h-14 w-14 flex-shrink-0 rounded-xl border border-slate-200 object-cover"
-                        loading="lazy"
                       />
                       <div>
                         <h3 className="text-xl font-semibold text-gray-900">
