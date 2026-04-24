@@ -7,49 +7,49 @@ const industries = [
     icon: "🏢",
     title: "Corporate Offices & Co-working Spaces",
     description:
-      "Secure floors, manage meeting rooms, and provide seamless access for employees and guests.",
+      "Streamline internal operations, meeting management, and team workflows with integrated business software.",
   },
   {
     icon: "🏨",
     title: "Hotels & Apartments",
     description:
-      "Offer keyless check-in, secure common areas, and manage tenant access remotely.",
+      "Manage bookings, tenant records, billing, and service workflows from one platform.",
   },
   {
     icon: "🏫",
     title: "Schools & Universities",
     description:
-      "Protect classrooms, labs, and dormitories with scheduled access and detailed logs.",
+      "Digitize student records, communication workflows, and institutional reporting.",
   },
   {
     icon: "🏥",
     title: "Hospitals & Clinics",
     description:
-      "MediCare AI for complete hospital management, plus access control for sensitive areas like pharmacies, labs, and records rooms.",
+      "MediCare AI for complete hospital management, including patient records, appointments, labs, pharmacy, and billing.",
   },
   {
     icon: "🏭",
     title: "Warehouses & Factories",
     description:
-      "Secure gates, equipment cages, and restricted production zones.",
+      "Improve production planning, inventory visibility, and operational reporting.",
   },
   {
     icon: "🏠",
     title: "Residential & Housing Compounds",
     description:
-      "Manage main gates, communal facilities, and individual unit access.",
+      "Manage tenants, billing cycles, maintenance requests, and property operations.",
   },
   {
     icon: "💪",
     title: "Fitness Centers & Gyms",
     description:
-      "Enable 24/7 member access with automated entry and usage tracking.",
+      "Run memberships, class schedules, trainer programs, and member progress tracking.",
   },
   {
     icon: "🏛️",
-    title: "Government & NGO Facilities",
+    title: "Government & NGO Organizations",
     description:
-      "High-security access control with comprehensive audit trails and monitoring.",
+      "Deliver program tracking, document workflows, reporting, and beneficiary data management.",
   },
   {
     icon: "🔧",
@@ -72,14 +72,6 @@ const industries = [
 ];
 
 const sectorSolutions = [
-  {
-    title: "Access Control",
-    description:
-      "Secure facilities with NFC, keypad, web-based, and IoT access control solutions.",
-    cardClass:
-      "bg-gradient-to-br from-teal-500/10 to-cyan-500/10 border border-teal-500/20",
-    titleClass: "text-teal-400",
-  },
   {
     title: "Healthcare Management",
     description:
@@ -137,7 +129,9 @@ const Industries = () => {
             Industries We Serve
           </h2>
           <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
-            Our comprehensive software solutions - including Access Control Systems, Healthcare Management (MediCare AI), Car Service Management, and Custom Software Development - serve diverse industries:
+            Our comprehensive software solutions - including Healthcare
+            Management (MediCare AI), Car Service Management, and Custom
+            Software Development - serve diverse industries:
           </p>
         </div>
 
@@ -163,7 +157,11 @@ const Industries = () => {
             Tailored Solutions for Your Sector
           </h3>
           <p className="text-lg sm:text-xl text-center max-w-4xl mx-auto leading-relaxed mb-6">
-            Our comprehensive software solutions adapt to the unique needs of your industry. Whether you need Access Control Systems for security, Healthcare Management (MediCare AI) for hospitals, Car Service Management for auto centers, or Custom Software Development, we provide scalable solutions that grow with your business.
+            Our comprehensive software solutions adapt to the unique needs of
+            your industry. Whether you need Healthcare Management (MediCare AI)
+            for hospitals, Car Service Management for auto centers, Inventory
+            and Property tools, or Custom Software Development, we provide
+            scalable solutions that grow with your business.
           </p>
           <div className="mt-8">
             <div className="mb-4 text-center">

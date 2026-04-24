@@ -71,7 +71,7 @@ const BusinessCard = () => {
                 </div>
                 <div>
                   <h1 className="text-xl font-bold leading-tight text-gray-900">ENTRO ETHIOPIA</h1>
-                  <p className="text-xs text-gray-600 font-medium">Software & Hardware Development PLC</p>
+                  <p className="text-xs text-gray-600 font-medium">Software Development PLC</p>
                 </div>
               </div>
               <div className="bg-gradient-to-r from-teal-600 to-cyan-600 text-white px-2 py-2 rounded-md mt-1.5">
@@ -127,9 +127,9 @@ const BusinessCard = () => {
 
               {/* Service 2 */}
               <div className="bg-gradient-to-br from-slate-50 to-teal-50 p-1.5 rounded border border-teal-100">
-                <div className="font-bold text-teal-700 text-xs mb-0.5">🔒 Access Control</div>
+                <div className="font-bold text-teal-700 text-xs mb-0.5">📦 Inventory Management</div>
                 <div className="text-[10px] text-gray-600 leading-tight">
-                  NFC, Keypad, Web-based, IoT Integration
+                  Stock, sales, branch tracking, and reporting
                 </div>
               </div>
 

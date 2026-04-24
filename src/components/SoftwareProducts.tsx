@@ -35,7 +35,7 @@ const products: Product[] = [
     ],
     cta: {
       primary: "Request a Demo",
-      contact: "support@medicare-ai.com"
+      contact: "entro12@entroethiopia.com"
     },
     colorScheme: {
       headerBg: "bg-gradient-to-r from-blue-700 to-cyan-700",
@@ -45,31 +45,6 @@ const products: Product[] = [
       accentColor: "text-blue-600",
       buttonBg: "bg-gradient-to-r from-blue-700 to-cyan-700",
       buttonBorder: "border-blue-600"
-    }
-  },
-  {
-    id: "smart-access",
-    icon: "🔒",
-    title: "SMART Access Control System",
-    description: "Complete hardware and software solution for secure access control. Supports NFC, keypad, web-based, and IoT integration for doors, equipment, and facilities.",
-    highlights: [
-      "Controls secure access across facilities and rooms",
-      "Enables remote monitoring and management",
-      "Supports connected and offline access workflows",
-      "Scales for single or multi-location operations"
-    ],
-    cta: {
-      primary: "Get a Demo",
-      contact: "entro12@entroethiopia.com"
-    },
-    colorScheme: {
-      headerBg: "bg-gradient-to-r from-slate-700 to-teal-700",
-      textColor: "text-teal-700",
-      borderColor: "border-teal-600",
-      hoverBorder: "hover:border-teal-300",
-      accentColor: "text-teal-600",
-      buttonBg: "bg-gradient-to-r from-slate-700 to-teal-700",
-      buttonBorder: "border-teal-600"
     }
   },
   {

@@ -51,7 +51,7 @@ const Footer = () => {
               <div>
                 <h2 className="text-2xl font-bold text-white">Entro Ethiopia</h2>
                 <p className="text-sm text-slate-400">
-                  Software &amp; Hardware Development PLC
+                  Software Development PLC
                 </p>
               </div>
             </div>

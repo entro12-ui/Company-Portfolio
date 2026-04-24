@@ -22,9 +22,14 @@ const hankenGrotesk = Hanken_Grotesk({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.entroethiopia.com"),
-  title: "Entro Ethiopia - SMART Access Control Solutions",
-  description: "Secure, automate, and manage access with NFC, keypad, web, and IoT-based technology. Locally developed smart access control systems for modern businesses in Ethiopia and Africa.",
-  keywords: "access control, smart security, NFC access, keypad entry, IoT automation, door control, Ethiopia, Addis Ababa",
+  alternates: {
+    canonical: "./",
+  },
+  title: "Entro Ethiopia - Software & AI Solutions",
+  description:
+    "Custom software development, AI solutions, ERP systems, and business automation platforms for organizations in Ethiopia and Africa.",
+  keywords:
+    "custom software, AI solutions, ERP systems, business automation, Ethiopia, Addis Ababa",
   icons: {
     icon: "/favicon.ico",
     apple: "/logo1.png",

@@ -7,8 +7,8 @@ const AboutUs = () => {
     },
     {
       icon: "✅",
-      title: "Reliable Hardware + Software Integration",
-      description: "Complete end-to-end solutions that work seamlessly"
+      title: "Reliable End-to-End Software Delivery",
+      description: "Complete digital solutions that work seamlessly"
     },
     {
       icon: "✅",
@@ -33,7 +33,7 @@ const AboutUs = () => {
             Who We Are
           </h3>
           <p className="text-lg sm:text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
-            <span className="font-semibold text-gray-900">Entro Ethiopia Software and Hardware Development PLC</span> is a local tech company providing comprehensive software and hardware solutions. We develop custom software including Access Control Systems, Healthcare Management Platforms (MediCare AI), Car Service Management Systems, and other business automation solutions. We design and build complete solutions that help businesses transform their operations through technology.
+            <span className="font-semibold text-gray-900">Entro Ethiopia Software Development PLC</span> is a local tech company providing comprehensive software solutions. We develop custom software including Healthcare Management Platforms (MediCare AI), Car Service Management Systems, Inventory and Property platforms, and other business automation solutions. We design and build complete systems that help businesses transform their operations through technology.
           </p>
         </div>
 
@@ -62,13 +62,26 @@ const AboutUs = () => {
               Our Mission
             </h3>
             <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-              To deliver smart, secure, and affordable technology solutions that empower Ethiopian and African businesses. We provide comprehensive software solutions including Access Control Systems, Healthcare Management Platforms (MediCare AI), Car Service Management Systems, and custom software development. Our mission is to transform businesses through automation, AI-powered systems, innovation, and intelligent management platforms that drive efficiency and growth.
+              To deliver smart, secure, and affordable technology solutions
+              that empower Ethiopian and African businesses. We provide
+              comprehensive software solutions including Healthcare Management
+              Platforms (MediCare AI), Car Service Management Systems, and
+              custom software development. Our mission is to transform
+              businesses through automation, AI-powered systems, innovation,
+              and intelligent management platforms that drive efficiency and
+              growth.
             </p>
             <h3 className="text-3xl font-bold text-gray-900 mb-6">
               Our Vision
             </h3>
             <p className="text-lg text-gray-700 leading-relaxed">
-              To become a leading African technology provider, delivering innovative software and hardware solutions across multiple industries. We envision a future where Ethiopian and African businesses leverage cutting-edge technology including AI-powered healthcare management, intelligent access control, automated service management, and custom software solutions to achieve operational excellence and competitive advantage.
+              To become a leading African technology provider, delivering
+              innovative software solutions across multiple industries. We
+              envision a future where Ethiopian and African businesses leverage
+              cutting-edge technology including AI-powered healthcare
+              management, automated service management, and custom software
+              solutions to achieve operational excellence and competitive
+              advantage.
             </p>
           </div>
         </div>
@@ -78,7 +91,9 @@ const AboutUs = () => {
             Why Choose Entro Ethiopia?
           </h3>
           <p className="text-lg text-gray-300 mb-8 max-w-3xl mx-auto">
-            We provide comprehensive software solutions including Access Control Systems, Healthcare Management (MediCare AI), Car Service Management, and Custom Software Development. Here&apos;s why businesses trust us:
+            We provide comprehensive software solutions including Healthcare
+            Management (MediCare AI), Car Service Management, and Custom
+            Software Development. Here&apos;s why businesses trust us:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
             <div className="bg-gradient-to-br from-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 hover:from-teal-500/20 hover:to-cyan-500/20 transition-all border border-teal-500/20 hover:border-teal-500/40">
@@ -116,7 +131,7 @@ const AboutUs = () => {
                 </svg>
               </div>
               <p className="font-semibold text-lg">Complete Solutions</p>
-              <p className="text-sm text-gray-400 mt-2">Hardware and software integration across multiple industries</p>
+              <p className="text-sm text-gray-400 mt-2">Integrated software platforms across multiple industries</p>
             </div>
             <div className="bg-gradient-to-br from-teal-500/10 to-cyan-500/10 backdrop-blur-sm rounded-xl p-6 hover:from-teal-500/20 hover:to-cyan-500/20 transition-all border border-teal-500/20 hover:border-teal-500/40">
               <div className="w-12 h-12 mx-auto mb-3 bg-teal-500/20 rounded-lg flex items-center justify-center">

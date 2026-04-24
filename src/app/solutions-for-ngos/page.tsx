@@ -102,7 +102,7 @@ export default function SolutionsForNgosPage() {
                 Data security
               </h2>
               <p className="text-gray-700">
-                Beneficiary data is protected with role-based access control,
+                Beneficiary data is protected with role-based permissions,
                 and the system can be deployed on your server if required.
               </p>
             </section>

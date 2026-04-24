@@ -36,7 +36,7 @@ const faqSchema = {
   mainEntity: [
     {
       "@type": "Question",
-      name: "Do I need expensive hardware for AI?",
+      name: "Do I need expensive infrastructure for AI?",
       acceptedAnswer: {
         "@type": "Answer",
         text: "No. Our solutions run on standard servers or cloud infrastructure, and we optimize them for local conditions.",
@@ -172,7 +172,7 @@ export default function AiSolutionsPage() {
               </h2>
               <p className="text-gray-700">
                 Your data stays in Ethiopia. We can deploy on-premise or on a
-                private cloud, with role-based access control to protect
+                private cloud, with role-based permissions to protect
                 sensitive business and healthcare information.
               </p>
             </section>
@@ -184,7 +184,7 @@ export default function AiSolutionsPage() {
               <div className="space-y-5 text-gray-700">
                 <div>
                   <h3 className="font-semibold text-gray-900">
-                    Do I need expensive hardware for AI?
+                    Do I need expensive infrastructure for AI?
                   </h3>
                   <p>
                     No. Our solutions run on standard servers or cloud

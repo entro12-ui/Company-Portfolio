@@ -22,10 +22,10 @@ const accessMethods = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 9a2 2 0 10-4 0v5a2 2 0 01-2 2h6m-6-4h4m8 0a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
-    title: "NFC-Based Access Control",
-    subtitle: "Secure Contactless Entry with NFC Cards",
+    title: "Workflow Automation",
+    subtitle: "Reduce Manual Steps Across Teams",
     description:
-      "Enable safe and convenient access using NFC cards or tags. Ideal for offices, apartments, hotels, and controlled areas with fast and secure authentication. Every access is logged for accountability.",
+      "Automate repetitive operational tasks across departments, reduce bottlenecks, and improve consistency in daily business processes.",
   },
   {
     iconSvg: (
@@ -33,10 +33,10 @@ const accessMethods = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
       </svg>
     ),
-    title: "Keypad Access Control",
-    subtitle: "PIN-Based Entry with Custom Codes",
+    title: "Operational Dashboards",
+    subtitle: "Track KPIs in Real Time",
     description:
-      "Assign unique PIN codes to users for secure door access. Supports scheduled access, temporary codes, and emergency overrides. Works even when offline.",
+      "Use live dashboards to monitor performance, team activity, service progress, and core operational metrics from one centralized view.",
   },
   {
     iconSvg: (
@@ -47,7 +47,7 @@ const accessMethods = [
     title: "Web-Based Remote Control",
     subtitle: "Control Systems Anytime from the Web",
     description:
-      "Manage all systems remotely from your secure web dashboard. Control access, monitor healthcare operations, manage car service appointments, and view comprehensive reports from any device.",
+      "Manage all systems remotely from your secure web dashboard. Monitor healthcare operations, manage car service appointments, and view comprehensive reports from any device.",
   },
   {
     iconSvg: (
@@ -80,7 +80,9 @@ const accessMethods = [
     title: "Automated Service Notifications",
     subtitle: "SMS & Email Alerts for All Services",
     description:
-      "Automated notifications via SMS and email across all platforms. Mileage-based service alerts for vehicles, appointment reminders for healthcare, and access notifications for security systems.",
+      "Automated notifications via SMS and email across all platforms.
+      Mileage-based service alerts for vehicles and appointment reminders for
+      healthcare improve response and continuity.",
   },
   {
     iconSvg: (
@@ -91,7 +93,9 @@ const accessMethods = [
     title: "Real-Time Monitoring & Analytics",
     subtitle: "Live Status Across All Systems",
     description:
-      "Track operations in real-time across all platforms. Monitor access attempts, patient appointments, service schedules, system health, and get instant notifications for critical events.",
+      "Track operations in real-time across all platforms. Monitor patient
+      appointments, service schedules, system health, and receive instant
+      notifications for critical events.",
   },
   {
     iconSvg: (
@@ -100,9 +104,11 @@ const accessMethods = [
       </svg>
     ),
     title: "Advanced User & Role Management",
-    subtitle: "Secure Role-Based Access Control",
+    subtitle: "Secure Role-Based Permissions",
     description:
-      "Comprehensive role management across all systems. Define roles for doctors, lab techs, service managers, system admins, and standard users. Control permissions and access levels for all platforms.",
+      "Comprehensive role management across all systems. Define roles for
+      doctors, lab techs, service managers, system admins, and standard users.
+      Control permissions and data visibility for all platforms.",
   },
 ];
 
@@ -180,7 +186,9 @@ const AccessMethods = () => {
               Core Capabilities
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-              Key features and capabilities across all our software solutions - from Access Control to Healthcare Management and Car Service Management
+              Key features and capabilities across our software solutions - from
+              Healthcare Management to Car Service Management and custom
+              platforms
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">

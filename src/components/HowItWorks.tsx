@@ -8,7 +8,10 @@ const platformFeatures = [
     title: "Real-Time Monitoring & Automated Alerts",
     subtitle: "Stay Informed, Always",
     description:
-      "Monitor all system activities in real-time across Access Control, Healthcare Management, and Car Service Management. Get instant SMS or email alerts for critical events, service reminders, and system notifications. Track everything from door access to patient appointments to vehicle service schedules.",
+      "Monitor all system activities in real-time across Healthcare
+      Management, Car Service Management, Inventory, and Property platforms.
+      Get instant SMS or email alerts for critical events, service reminders,
+      and system notifications.",
     icon: "📊",
   },
   {
@@ -16,7 +19,10 @@ const platformFeatures = [
     title: "Advanced User & Role Management",
     subtitle: "Granular Control Across All Systems",
     description:
-      "Comprehensive role-based access control across all our solutions. Define roles like System Admin, Doctors, Lab Techs, Service Managers, and Standard Users. Control permissions, access levels, and data visibility for Access Control, Healthcare Management, and Car Service Management platforms.",
+      "Comprehensive role-based permissions across all our solutions. Define
+      roles like System Admin, Doctors, Lab Techs, Service Managers, and
+      Standard Users. Control permissions, access levels, and data visibility
+      across each platform.",
     icon: "👥",
   },
   {
@@ -24,7 +30,10 @@ const platformFeatures = [
     title: "AI-Powered Intelligence & Automation",
     subtitle: "Smart Solutions for Modern Businesses",
     description:
-      "Leverage AI capabilities across our platforms: AI Clinical Decision Support in MediCare AI, automated service scheduling in Car Service Management, and intelligent access control. Automated booking integration, appointment scheduling, and predictive analytics help streamline operations.",
+      "Leverage AI capabilities across our platforms: AI Clinical Decision
+      Support in MediCare AI, automated service scheduling in Car Service
+      Management, and predictive analytics. Automated booking integration and
+      appointment scheduling help streamline operations.",
     icon: "🤖",
   },
   {
@@ -32,7 +41,11 @@ const platformFeatures = [
     title: "Comprehensive Data Management & Reporting",
     subtitle: "Insights That Drive Decisions",
     description:
-      "Complete data management with detailed reporting and analytics across all solutions. Track access logs, patient records, service history, inventory, and financial data. Generate comprehensive reports for business intelligence, compliance, and operational insights. Secure, HIPAA-compliant data handling where required.",
+      "Complete data management with detailed reporting and analytics across
+      all solutions. Track patient records, service history, inventory, and
+      financial data. Generate comprehensive reports for business intelligence,
+      compliance, and operational insights. Secure, HIPAA-compliant data
+      handling where required.",
     icon: "📈",
   },
 ];
