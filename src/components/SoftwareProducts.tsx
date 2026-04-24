@@ -38,13 +38,13 @@ const products: Product[] = [
       contact: "entro12@entroethiopia.com"
     },
     colorScheme: {
-      headerBg: "bg-gradient-to-r from-blue-700 to-cyan-700",
-      textColor: "text-blue-700",
-      borderColor: "border-blue-600",
-      hoverBorder: "hover:border-blue-300",
-      accentColor: "text-blue-600",
-      buttonBg: "bg-gradient-to-r from-blue-700 to-cyan-700",
-      buttonBorder: "border-blue-600"
+      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      textColor: "text-teal-700",
+      borderColor: "border-teal-600",
+      hoverBorder: "hover:border-teal-300",
+      accentColor: "text-cyan-600",
+      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      buttonBorder: "border-teal-600"
     }
   },
   {
@@ -63,13 +63,13 @@ const products: Product[] = [
       contact: "entro12@entroethiopia.com"
     },
     colorScheme: {
-      headerBg: "bg-gradient-to-r from-cyan-700 to-blue-700",
-      textColor: "text-cyan-700",
-      borderColor: "border-cyan-600",
-      hoverBorder: "hover:border-cyan-300",
+      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      textColor: "text-teal-700",
+      borderColor: "border-teal-600",
+      hoverBorder: "hover:border-teal-300",
       accentColor: "text-cyan-600",
-      buttonBg: "bg-gradient-to-r from-cyan-700 to-blue-700",
-      buttonBorder: "border-cyan-600"
+      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      buttonBorder: "border-teal-600"
     }
   },
   {
@@ -89,13 +89,13 @@ const products: Product[] = [
       contact: "entro12@entroethiopia.com"
     },
     colorScheme: {
-      headerBg: "bg-gradient-to-r from-emerald-700 to-lime-600",
-      textColor: "text-emerald-700",
-      borderColor: "border-emerald-600",
-      hoverBorder: "hover:border-emerald-300",
-      accentColor: "text-emerald-600",
-      buttonBg: "bg-gradient-to-r from-emerald-700 to-lime-600",
-      buttonBorder: "border-emerald-600"
+      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      textColor: "text-teal-700",
+      borderColor: "border-teal-600",
+      hoverBorder: "hover:border-teal-300",
+      accentColor: "text-cyan-600",
+      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      buttonBorder: "border-teal-600"
     }
   },
   {
@@ -115,13 +115,13 @@ const products: Product[] = [
       contact: "entro12@entroethiopia.com"
     },
     colorScheme: {
-      headerBg: "bg-gradient-to-r from-indigo-700 to-blue-700",
-      textColor: "text-indigo-700",
-      borderColor: "border-indigo-600",
-      hoverBorder: "hover:border-indigo-300",
-      accentColor: "text-indigo-600",
-      buttonBg: "bg-gradient-to-r from-indigo-700 to-blue-700",
-      buttonBorder: "border-indigo-600"
+      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      textColor: "text-teal-700",
+      borderColor: "border-teal-600",
+      hoverBorder: "hover:border-teal-300",
+      accentColor: "text-cyan-600",
+      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      buttonBorder: "border-teal-600"
     }
   },
   {
@@ -141,13 +141,13 @@ const products: Product[] = [
       contact: "entro12@entroethiopia.com"
     },
     colorScheme: {
-      headerBg: "bg-gradient-to-r from-violet-700 to-fuchsia-700",
-      textColor: "text-violet-700",
-      borderColor: "border-violet-600",
-      hoverBorder: "hover:border-violet-300",
-      accentColor: "text-violet-600",
-      buttonBg: "bg-gradient-to-r from-violet-700 to-fuchsia-700",
-      buttonBorder: "border-violet-600"
+      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      textColor: "text-teal-700",
+      borderColor: "border-teal-600",
+      hoverBorder: "hover:border-teal-300",
+      accentColor: "text-cyan-600",
+      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      buttonBorder: "border-teal-600"
     }
   }
 ];
