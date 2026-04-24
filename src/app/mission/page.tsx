@@ -5,6 +5,9 @@ import PageShell from "@/components/PageShell";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.entroethiopia.com/mission",
+  },
   title: "Mission | Entro Ethiopia",
   description:
     "Explore the mission of Entro Ethiopia and how we deliver practical software solutions.",

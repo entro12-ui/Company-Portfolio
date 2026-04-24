@@ -6,6 +6,9 @@ import JsonLd from "@/components/JsonLd";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.entroethiopia.com/portfolio",
+  },
   title: "Portfolio & Case Studies | Entro Ethiopia Software & AI Projects",
   description:
     "Explore Entro Ethiopia's portfolio including Danat Dental Clinic website development, Operation Kilimanjaro SEO/GEO optimization, and AI automation for Valintine Advisors.",

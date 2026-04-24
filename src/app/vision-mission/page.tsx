@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.entroethiopia.com/vision-mission",
+  },
   title: "Vision & Mission | Entro Ethiopia",
   description:
     "Explore Entro Ethiopia's vision and mission for practical, scalable, and locally relevant technology solutions.",

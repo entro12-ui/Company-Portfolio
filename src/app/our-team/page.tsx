@@ -10,6 +10,9 @@ import JsonLd from "@/components/JsonLd";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
+  alternates: {
+    canonical: "https://www.entroethiopia.com/our-team",
+  },
   title: "Our Team | Entro Ethiopia Software & AI Experts in Addis Ababa",
   description:
     "Meet the leadership team behind Entro Ethiopia - experts in custom software development, AI solutions, web development, and digital strategy in Addis Ababa.",
