@@ -68,7 +68,7 @@ const Navbar = () => {
             </Link>
             <div className="group relative">
               <button className="flex items-center gap-1 text-gray-600 hover:text-teal-700 transition duration-300">
-                About
+                About Us
                 <svg
                   className="h-4 w-4 transition-transform group-hover:rotate-180"
                   fill="none"
@@ -163,7 +163,7 @@ const Navbar = () => {
               href="/contact"
               className="bg-gradient-to-r from-slate-700 to-teal-700 text-white px-4 py-2 rounded-lg hover:from-slate-800 hover:to-teal-800 transition duration-300 shadow-lg"
             >
-              Contact
+              Contact Us
             </Link>
           </div>
 
@@ -245,7 +245,7 @@ const Navbar = () => {
                 onClick={() => setIsAboutOpen(!isAboutOpen)}
                 className="flex w-full items-center justify-between px-4 py-3 text-left text-gray-600 transition hover:bg-teal-50 hover:text-teal-700"
               >
-                <span>About</span>
+                <span>About Us</span>
                 <svg
                   className={`h-4 w-4 transition-transform ${isAboutOpen ? "rotate-180" : ""}`}
                   fill="none"
@@ -357,7 +357,7 @@ const Navbar = () => {
               className="block px-4 py-3 bg-gradient-to-r from-slate-700 to-teal-700 text-white rounded-lg transition-all duration-300 ease-out hover:from-slate-800 hover:to-teal-800 hover:shadow-lg text-center font-semibold"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact
+              Contact Us
             </Link>
           </div>
         </div>

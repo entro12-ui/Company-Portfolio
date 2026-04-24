@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Industries from "@/components/Systems";
@@ -8,6 +9,7 @@ import Faq from "@/components/Faq";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { faqItems } from "@/content/faqItems";
+import { blogPosts } from "@/content/blogPosts";
 
 export const dynamic = "force-static";
 
@@ -80,6 +82,52 @@ export default function Home() {
       <SoftwareProducts />
       <Industries />
       <PastClientReview />
+      <section className="bg-white px-4 py-10 sm:py-14">
+        <div className="mx-auto max-w-7xl">
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
+                Insights
+              </p>
+              <h2 className="mt-2 text-3xl font-bold text-slate-900 sm:text-4xl">
+                From Our Blog
+              </h2>
+              <p className="mt-2 max-w-2xl text-slate-600">
+                Explore practical guides on software, web, AI, and ERP solutions
+                for Ethiopian businesses and organizations.
+              </p>
+            </div>
+            <Link
+              href="/blog"
+              className="inline-flex items-center justify-center rounded-xl border border-teal-600 px-5 py-3 font-semibold text-teal-700 transition hover:bg-teal-50"
+            >
+              View All Blogs
+            </Link>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+            {blogPosts.map((post) => (
+              <article
+                key={post.slug}
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm transition hover:-translate-y-0.5 hover:border-teal-300 hover:bg-white"
+              >
+                <h3 className="line-clamp-2 text-lg font-semibold text-slate-900">
+                  {post.title}
+                </h3>
+                <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600">
+                  {post.description}
+                </p>
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="mt-4 inline-flex items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800 hover:underline"
+                >
+                  Read article
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
       <Faq />
       <Footer />
     </main>
