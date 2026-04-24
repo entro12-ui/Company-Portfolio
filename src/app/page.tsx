@@ -25,7 +25,12 @@ const organizationSchema = {
   "@type": "Organization",
   name: "Entro Ethiopia",
   url: "https://www.entroethiopia.com/",
-  logo: "https://www.entroethiopia.com/logo.png",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://www.entroethiopia.com/logo.png",
+    width: 512,
+    height: 512,
+  },
   description:
     "Entro Ethiopia builds custom software, websites, AI solutions and ERP systems for SMEs, NGOs, clinics and government in Addis Ababa and Ethiopia.",
   address: {

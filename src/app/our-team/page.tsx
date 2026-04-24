@@ -83,7 +83,12 @@ const teamOrganizationSchema = {
   "@type": "Organization",
   name: "Entro Ethiopia",
   url: "https://www.entroethiopia.com/",
-  logo: "https://www.entroethiopia.com/logo.png",
+  logo: {
+    "@type": "ImageObject",
+    url: "https://www.entroethiopia.com/logo.png",
+    width: 512,
+    height: 512,
+  },
   address: {
     "@type": "PostalAddress",
     addressLocality: "Addis Ababa",
