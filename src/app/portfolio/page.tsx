@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/PageShell";
 import JsonLd from "@/components/JsonLd";
+import OrgChart from "@/components/OrgChart";
+import { afsOrganogram } from "@/content/afsOrganogram";
 
 export const dynamic = "force-static";
 
@@ -11,7 +13,7 @@ export const metadata: Metadata = {
   },
   title: "Portfolio & Case Studies | Entro Ethiopia Software & AI Projects",
   description:
-    "Explore Entro Ethiopia's portfolio including Danat Dental Clinic website development, Operation Kilimanjaro SEO/GEO optimization, and AI automation for Valintine Advisors.",
+    "Explore Entro Ethiopia's portfolio including websites, SEO/GEO optimization, AI automation, and smart organizational design for client operations.",
 };
 
 const portfolioItemListSchema = {
@@ -36,6 +38,12 @@ const portfolioItemListSchema = {
       name: "Valintine Advisors AI Integration",
       description:
         "AI integration and automation for media visualization and reporting systems.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "AFS Automotive Fleet Services Organogram",
+      description:
+        "Responsive, data-driven organizational chart design for AFS Automotive Fleet Services International PLC.",
     },
   ],
 };
@@ -245,6 +253,40 @@ export default function PortfolioPage() {
               </section>
             ))}
           </div>
+
+          <section className="mt-8 rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 p-8 text-white shadow-xl sm:p-10">
+            <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
+                  Org Structure Design
+                </p>
+                <h2 className="text-3xl font-bold sm:text-4xl">
+                  AFS Automotive Fleet Services International PLC
+                </h2>
+                <p className="mt-4 max-w-4xl text-lg leading-relaxed text-slate-200">
+                  We translated a static corporate organogram into a structured,
+                  web-friendly layout that is easier to maintain, easier to read
+                  on any screen, and ready to evolve as teams change.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  "Responsive Layout",
+                  "Data-Driven Structure",
+                  "Corporate Governance",
+                ].map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-white/15 bg-white/10 px-3 py-1 text-xs font-semibold text-white"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <OrgChart chart={afsOrganogram} />
+          </section>
 
           <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
             <h2 className="mb-4 text-3xl font-bold text-gray-900">
