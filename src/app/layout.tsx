@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   keywords:
     "custom software, AI solutions, ERP systems, business automation, Ethiopia, Addis Ababa",
   icons: {
-    icon: [{ url: "/logo.png", type: "image/png" }],
-    shortcut: "/logo.png",
-    apple: "/logo.png",
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
   },
 };
 
