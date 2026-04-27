@@ -943,7 +943,9 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
 
       <div className="relative">
         <div className="grid gap-2 lg:grid-cols-[250px_minmax(0,1fr)_170px] lg:items-start">
-          <LogoCard />
+          <div className="ml-0 mt-0 justify-self-start self-start">
+            <LogoCard />
+          </div>
 
           <div className="text-center">
             <h1 className="text-3xl font-black uppercase leading-[1.05] text-[#0f3f95] sm:text-[3.3rem]">
@@ -995,13 +997,16 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
           </div>
         </div>
 
-        <div className="mt-1 flex items-center justify-center gap-4 text-[#0f3f95]">
+        <div className="mt-0 flex items-center justify-center gap-4 text-[#0f3f95]">
           <span className="h-px w-16 bg-[#1b4ea3]/45" />
           <p className="text-base font-semibold italic tracking-[0.04em]">
             {chart.tagline}
           </p>
           <span className="h-px w-16 bg-[#1b4ea3]/45" />
         </div>
+        <p className="mt-0.5 text-center text-xs font-semibold uppercase tracking-[0.16em] text-[#0f3f95]/80">
+          Since 1999
+        </p>
       </div>
     </section>
   );
