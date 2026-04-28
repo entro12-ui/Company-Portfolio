@@ -465,6 +465,7 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
 export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
   const boardWrapperRef = useRef<HTMLDivElement | null>(null);
   const [boardScale, setBoardScale] = useState(1);
+  const [isPrinting, setIsPrinting] = useState(false);
   const VIEWPORT_BOTTOM_PADDING = 12;
   const FOOTER_RESERVED_HEIGHT = 44;
 
@@ -495,6 +496,18 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
       window.removeEventListener("resize", updateScale);
     };
   }, []);
+
+  useEffect(() => {
+    const beforePrint = () => setIsPrinting(true);
+    const afterPrint = () => setIsPrinting(false);
+    window.addEventListener("beforeprint", beforePrint);
+    window.addEventListener("afterprint", afterPrint);
+    return () => {
+      window.removeEventListener("beforeprint", beforePrint);
+      window.removeEventListener("afterprint", afterPrint);
+    };
+  }, []);
+
 
   const technical = getDepartment(chart, "Technical Manager");
   const spareParts = getDepartment(chart, "Spare Parts & Logistics Manager");
@@ -923,14 +936,38 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     },
   };
 
+  const effectiveScale = isPrinting ? 0.94 : boardScale;
+
   return (
-    <section className="relative overflow-hidden rounded-[1rem] border border-[#0f3f95]/10 bg-[#f8f9fc] px-1 py-3 shadow-none sm:px-2 lg:px-4">
+    <section className="afc-print-root relative overflow-hidden rounded-[1rem] border border-[#0f3f95]/10 bg-[#f8f9fc] px-1 py-3 shadow-none sm:px-2 lg:px-4 print:overflow-visible print:rounded-none print:border-0 print:bg-white print:px-0 print:py-0">
+      <style jsx global>{`
+        @media print {
+          @page {
+            size: A4 landscape;
+            margin: 4mm;
+          }
+          html,
+          body {
+            background: #fff !important;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+          }
+          .afc-print-root {
+            break-inside: avoid;
+            page-break-inside: avoid;
+            margin: 0 auto !important;
+            width: 100% !important;
+            max-width: none !important;
+          }
+        }
+      `}</style>
+      <div className="relative">
       <div className="absolute -left-28 -top-28 h-56 w-56 rounded-full border-[42px] border-[#0f3f95]/12" />
       <div className="absolute -bottom-32 -right-28 h-64 w-64 rounded-full border-[48px] border-[#0f3f95]/18" />
       <div className="absolute -bottom-24 -right-20 h-48 w-48 rounded-full border-[36px] border-[#0f3f95]/20" />
       <DotCorner className="right-4 top-3" />
       <DotCorner className="bottom-3 left-4" />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.08]">
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.08] print:hidden">
         <Image
           src="/afs-logo.png"
           alt=""
@@ -942,7 +979,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
       </div>
 
       <div className="relative">
-        <div className="grid gap-2 lg:grid-cols-[250px_minmax(0,1fr)_170px] lg:items-start">
+        <div className="grid gap-2 lg:grid-cols-[250px_minmax(0,1fr)_170px] lg:items-start print:grid-cols-[207px_minmax(0,1fr)_72px] print:items-start">
           <div className="ml-0 mt-0 justify-self-start self-start">
             <LogoCard />
           </div>
@@ -963,7 +1000,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
             </div>
           </div>
 
-          <div className="justify-self-start rounded-[3px] bg-[#0f3f95] px-3 py-1.5 text-xs font-semibold text-white shadow-none lg:justify-self-end">
+          <div className="justify-self-start rounded-[3px] bg-[#0f3f95] px-3 py-1.5 text-xs font-semibold text-white shadow-none lg:justify-self-end print:justify-self-end">
             {chart.updatedLabel}
           </div>
         </div>
@@ -972,7 +1009,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
           <div
             className="mx-auto"
             style={{
-              height: BOARD_HEIGHT * boardScale,
+              width: BOARD_WIDTH * effectiveScale,
+              height: BOARD_HEIGHT * effectiveScale,
               maxWidth: BOARD_WIDTH,
             }}
           >
@@ -981,7 +1019,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
               style={{
                 width: BOARD_WIDTH,
                 height: BOARD_HEIGHT,
-                transform: `scale(${boardScale})`,
+                transform: `scale(${effectiveScale})`,
               }}
             >
               <DiagramLines nodes={nodes} />
@@ -1007,6 +1045,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
         <p className="mt-0.5 text-center text-xs font-semibold uppercase tracking-[0.16em] text-[#0f3f95]/80">
           Since 1999
         </p>
+      </div>
       </div>
     </section>
   );

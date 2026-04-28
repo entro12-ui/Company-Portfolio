@@ -27,7 +27,7 @@ export default function AfcPage() {
   return (
     <>
       <JsonLd data={organogramSchema} />
-      <article className="bg-gradient-to-b from-slate-100 via-white to-slate-100 px-1 pb-4 pt-1 sm:px-2 sm:pb-6 sm:pt-2">
+      <article className="bg-gradient-to-b from-slate-100 via-white to-slate-100 px-1 pb-4 pt-1 sm:px-2 sm:pb-6 sm:pt-2 print:bg-white print:p-0">
         <div className="mx-auto max-w-[1600px]">
           <AfcOrganogramBoard chart={afcOrganogram} />
         </div>
