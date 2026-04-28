@@ -967,7 +967,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
       <div className="absolute -bottom-24 -right-20 h-48 w-48 rounded-full border-[36px] border-[#0f3f95]/20" />
       <DotCorner className="right-4 top-3" />
       <DotCorner className="bottom-3 left-4" />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.08] print:hidden">
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.08]">
         <Image
           src="/afs-logo.png"
           alt=""
