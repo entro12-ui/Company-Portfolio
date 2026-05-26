@@ -7,6 +7,10 @@ import { usePathname } from "next/navigation";
 
 const serviceLinks = [
   {
+    href: "/#products",
+    label: "EduStack SchoolHub",
+  },
+  {
     href: "/custom-software-development",
     label: "Custom Software Development",
   },

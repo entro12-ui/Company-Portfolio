@@ -19,7 +19,7 @@ const industries = [
     icon: "🏫",
     title: "Schools & Universities",
     description:
-      "Digitize student records, communication workflows, and institutional reporting.",
+      "Digitize administration, academic workflows, parent communication, and teaching support with EduStack.",
   },
   {
     icon: "🏥",
@@ -105,6 +105,14 @@ const sectorSolutions = [
     titleClass: "text-blue-400",
   },
   {
+    title: "Education Technology",
+    description:
+      "EduStack unifies school management, parent communication, AI tutoring, and teacher support in one platform.",
+    cardClass:
+      "bg-gradient-to-br from-teal-500/10 to-cyan-500/10 border border-teal-500/20",
+    titleClass: "text-teal-400",
+  },
+  {
     title: "Property Management",
     description:
       "Manage properties, tenants, billing, maintenance, and portfolio dashboards efficiently.",
@@ -129,9 +137,9 @@ const Industries = () => {
             Industries We Serve
           </h2>
           <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
-            Our comprehensive software solutions - including Healthcare
-            Management (MediCare AI), Car Service Management, and Custom
-            Software Development - serve diverse industries:
+            Our comprehensive software solutions - including MediCare AI,
+            EduStack, Car Service Management, and custom software development -
+            serve diverse industries:
           </p>
         </div>
 
@@ -158,10 +166,11 @@ const Industries = () => {
           </h3>
           <p className="text-lg sm:text-xl text-center max-w-4xl mx-auto leading-relaxed mb-6">
             Our comprehensive software solutions adapt to the unique needs of
-            your industry. Whether you need Healthcare Management (MediCare AI)
-            for hospitals, Car Service Management for auto centers, Inventory
-            and Property tools, or Custom Software Development, we provide
-            scalable solutions that grow with your business.
+            your industry. Whether you need healthcare management for
+            hospitals, education technology for schools, car service management
+            for auto centers, inventory and property tools, or custom software
+            development, we provide scalable solutions that grow with your
+            business.
           </p>
           <div className="mt-8">
             <div className="mb-4 text-center">

@@ -100,7 +100,7 @@ const Footer = () => {
               >
                 NGOs
               </Link>
-              , clinics, and{" "}
+              , schools, clinics, and{" "}
               <Link
                 href="/solutions-for-government"
                 className="text-slate-300 transition hover:text-white hover:underline"
@@ -185,6 +185,11 @@ const Footer = () => {
                 Services
               </h3>
               <ul className="space-y-3 text-sm text-slate-300">
+                <li>
+                  <Link href="/#products" className="transition hover:text-white">
+                    EduStack SchoolHub
+                  </Link>
+                </li>
                 <li>
                   <Link
                     href="/custom-software-development"

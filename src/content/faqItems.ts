@@ -2,7 +2,12 @@ export const faqItems = [
   {
     question: "What software solutions do you provide?",
     answer:
-      "We provide software solutions including MediCare AI for healthcare management, Car Service Management for auto service centers, Inventory and Property Management platforms, and custom software development tailored to your specific business needs.",
+      "We provide software solutions including EduStack for school management and AI teaching support, MediCare AI for healthcare management, Car Service Management for auto service centers, Inventory and Property Management platforms, and custom software development tailored to your specific business needs.",
+  },
+  {
+    question: "What is EduStack and who is it for?",
+    answer:
+      "EduStack is our education technology platform for KG-12 schools, academies, school networks, and other educational institutions. It combines school management, multi-branch operations, parent and student portals, AI-powered academic insights, and TeacherAssist AI for lesson planning and classroom support.",
   },
   {
     question: "What is MediCare AI and what does it offer?",
@@ -18,7 +23,7 @@ export const faqItems = [
   {
     question: "Do your systems support cloud or local deployment?",
     answer:
-      "Yes! All our software solutions support both cloud and local deployment options. You can choose cloud-connected systems for remote access and scalability, or local server installation for enhanced data control. Healthcare and Car Service Management systems can be deployed based on your infrastructure preferences.",
+      "Yes! All our software solutions support both cloud and local deployment options. You can choose cloud-connected systems for remote access and scalability, or local server installation for enhanced data control. Education, healthcare, and operational systems can be deployed based on your infrastructure preferences.",
   },
   {
     question: "How secure are your systems and is patient data protected?",
@@ -28,7 +33,7 @@ export const faqItems = [
   {
     question: "Can I get automated notifications and alerts?",
     answer:
-      "Absolutely! All our systems support automated notifications via SMS and email. MediCare AI sends appointment reminders and test result notifications. Car Service Management automatically alerts customers when their vehicle reaches the next service mileage requirement, helping you maintain customer relationships.",
+      "Absolutely! All our systems support automated notifications and alerts. EduStack supports smart parent communication and school updates, MediCare AI sends appointment reminders and test result notifications, and Car Service Management alerts customers when their vehicle reaches the next service mileage requirement.",
   },
   {
     question: "Do you provide installation, training, and support?",

@@ -44,7 +44,8 @@ const Hero = () => {
               <Link href="/erp-systems" className="hover:underline">
                 ERP systems
               </Link>
-              , healthcare management, and car service management
+              , education technology platforms, healthcare management, and car
+              service management
             </span>
             .
           </p>
@@ -52,7 +53,8 @@ const Hero = () => {
           <p className="text-base sm:text-lg text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-in-up animation-delay-600">
             Entro Ethiopia delivers innovative, locally-developed software
             solutions that transform businesses through automation, AI-powered
-            systems, and intelligent management platforms.
+            systems, and intelligent management platforms for schools,
+            institutions, and growing businesses.
           </p>
 
           {/* Key tagline */}

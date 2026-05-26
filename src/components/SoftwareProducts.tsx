@@ -23,6 +23,32 @@ type Product = {
 
 const products: Product[] = [
   {
+    id: "edustack-schoolhub",
+    icon: "🏫",
+    title: "EduStack SchoolHub",
+    description:
+      "Modern school management platform for KG-12 schools and academies. Manage administration, academics, finance, communication, and AI-supported learning from one system.",
+    highlights: [
+      "Centralizes student, registrar, finance, and HR workflows",
+      "Supports multi-branch schools with shared reporting",
+      "Connects parents, teachers, students, and administrators",
+      "Adds AI-powered academic insights and teaching support"
+    ],
+    cta: {
+      primary: "Book a SchoolHub Demo",
+      contact: "entro12@entroethiopia.com"
+    },
+    colorScheme: {
+      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      textColor: "text-teal-700",
+      borderColor: "border-teal-600",
+      hoverBorder: "hover:border-teal-300",
+      accentColor: "text-cyan-600",
+      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
+      buttonBorder: "border-teal-600"
+    }
+  },
+  {
     id: "medicare-ai",
     icon: "🏥",
     title: "MediCare AI",
@@ -236,10 +262,11 @@ const SoftwareProducts = () => {
               Our Software Products & Solutions
             </h2>
             <h3 className="text-2xl sm:text-3xl font-semibold text-teal-700 mb-6">
-              Complete Digital Solutions for Your Business
+              Flagship Platforms Built for Real Operations
             </h3>
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
-              We provide comprehensive software solutions to transform your business operations
+              We build sector-ready software for healthcare, education, mobility,
+              inventory, property, and custom business operations.
             </p>
           </div>
 
