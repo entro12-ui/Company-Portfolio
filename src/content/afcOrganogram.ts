@@ -58,7 +58,7 @@ export type OrganogramData = {
 export const afcOrganogram: OrganogramData = {
   organization: "AFS Automotive Fleet Services International PLC",
   heading: "Organogram",
-  updatedLabel: "2026",
+  updatedLabel: "February, 2026",
   tagline: "Driven by Excellence — Committed to Service",
   leadership: {
     managingDirector: {

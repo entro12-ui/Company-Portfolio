@@ -182,35 +182,46 @@ const Footer = () => {
 
             <div>
               <h3 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
-                Services
+                Products
               </h3>
               <ul className="space-y-3 text-sm text-slate-300">
                 <li>
-                  <Link href="/#products" className="transition hover:text-white">
+                  <Link
+                    href="/products/edustack-schoolhub"
+                    className="transition hover:text-white"
+                  >
                     EduStack SchoolHub
                   </Link>
                 </li>
                 <li>
+                  <Link href="/products/medicare-ai" className="transition hover:text-white">
+                    MediCare AI
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/products/car-service" className="transition hover:text-white">
+                    Car Service Management System
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/products/fitmind-ai" className="transition hover:text-white">
+                    FitMind AI
+                  </Link>
+                </li>
+                <li>
                   <Link
-                    href="/custom-software-development"
+                    href="/products/control-inventory"
                     className="transition hover:text-white"
                   >
-                    Custom Software Development
+                    Control Inventory Management System
                   </Link>
                 </li>
                 <li>
-                  <Link href="/web-development" className="transition hover:text-white">
-                    Web Development
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/ai-solutions" className="transition hover:text-white">
-                    AI Solutions
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/erp-systems" className="transition hover:text-white">
-                    ERP &amp; Business Systems
+                  <Link
+                    href="/products/property-management"
+                    className="transition hover:text-white"
+                  >
+                    Property Management System
                   </Link>
                 </li>
               </ul>

@@ -220,7 +220,7 @@ const ProductCard = ({ product, index }: { product: Product; index: number }) =>
         <div className="pt-6 border-t border-gray-200">
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
             <Link
-              href="#contact"
+              href={`/products/${product.id}`}
               className={`inline-flex items-center justify-center gap-2 ${colors.buttonBg} text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 text-center w-full sm:w-auto`}
             >
               {product.cta.primary}

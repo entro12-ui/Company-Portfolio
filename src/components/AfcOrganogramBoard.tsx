@@ -1,30 +1,25 @@
- "use client";
-
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
 import type { IconType } from "react-icons";
 import {
-  FiActivity,
-  FiArchive,
-  FiBarChart2,
-  FiBriefcase,
-  FiClipboard,
-  FiCode,
-  FiGrid,
-  FiHardDrive,
-  FiLayers,
-  FiMonitor,
-  FiPackage,
-  FiPenTool,
-  FiSettings,
-  FiShield,
-  FiTrendingUp,
-  FiTruck,
-  FiUser,
-  FiUserCheck,
-  FiUsers,
-  FiTool,
-} from "react-icons/fi";
+  FaBolt,
+  FaBoxes,
+  FaBullhorn,
+  FaBuilding,
+  FaCarSide,
+  FaChartBar,
+  FaClipboardList,
+  FaCogs,
+  FaHandshake,
+  FaLaptopCode,
+  FaMoneyCheckAlt,
+  FaPaintBrush,
+  FaRegAddressCard,
+  FaToolbox,
+  FaUserFriends,
+  FaUserSecret,
+  FaUsers,
+  FaUserTie,
+  FaWrench,
+} from "react-icons/fa";
 import type {
   OrganogramData,
   OrganogramIconKey,
@@ -46,39 +41,36 @@ type PositionedNode = {
   filled?: boolean;
   compact?: boolean;
   stacked?: boolean;
-  showIcon?: boolean;
 };
 
 const BOARD_WIDTH = 1580;
-const BOARD_HEIGHT = 790;
+const BOARD_HEIGHT = 930;
 const BRAND_BLUE = "#0f3f95";
 const LINE_BLUE = "#1b4ea3";
-const NODE_BORDER = "#6a79b3";
-const NODE_TEXT = "#1a2c56";
 
 const iconMap: Record<OrganogramIconKey, IconType> = {
-  director: FiUserCheck,
-  auditor: FiShield,
-  manager: FiUser,
-  it: FiMonitor,
-  secretary: FiClipboard,
-  technical: FiSettings,
-  "customer-service": FiUsers,
-  service: FiTool,
-  diagnostic: FiActivity,
-  painting: FiPenTool,
-  cleaning: FiTruck,
-  tools: FiHardDrive,
-  parts: FiPackage,
-  marketing: FiTrendingUp,
-  finance: FiBarChart2,
-  hr: FiUsers,
-  sales: FiBriefcase,
-  digital: FiGrid,
-  accounting: FiLayers,
-  procurement: FiArchive,
-  property: FiCode,
-  "general-service": FiUsers,
+  director: FaUserTie,
+  auditor: FaUserSecret,
+  manager: FaUserTie,
+  it: FaLaptopCode,
+  secretary: FaRegAddressCard,
+  technical: FaCogs,
+  "customer-service": FaUsers,
+  service: FaWrench,
+  diagnostic: FaBolt,
+  painting: FaPaintBrush,
+  cleaning: FaCarSide,
+  tools: FaToolbox,
+  parts: FaBoxes,
+  marketing: FaBullhorn,
+  finance: FaChartBar,
+  hr: FaUserFriends,
+  sales: FaHandshake,
+  digital: FaChartBar,
+  accounting: FaMoneyCheckAlt,
+  procurement: FaClipboardList,
+  property: FaBuilding,
+  "general-service": FaUsers,
 };
 
 function getDepartment(chart: OrganogramData, name: string) {
@@ -110,10 +102,6 @@ function centerX(node: PositionedNode) {
   return node.x + node.width / 2;
 }
 
-function centerY(node: PositionedNode) {
-  return node.y + node.height / 2;
-}
-
 function bottomY(node: PositionedNode) {
   return node.y + node.height;
 }
@@ -127,7 +115,6 @@ function NodeBox({
   filled = false,
   compact = false,
   stacked = false,
-  showIcon = false,
 }: PositionedNode) {
   const Icon = role.icon ? iconMap[role.icon] : null;
 
@@ -142,25 +129,25 @@ function NodeBox({
       }}
     >
       <div
-        className={`flex h-full w-full items-center justify-center rounded-[5px] border ${compact ? "px-2 py-1.5 text-[8px] leading-3.5" : "px-3 py-2 text-[9px] leading-4"}`}
+        className={`flex h-full w-full items-center justify-center rounded-[10px] border ${compact ? "px-2 py-1.5 text-[8.5px] leading-3.5" : "px-3 py-2.5 text-[10px] leading-4"}`}
         style={{
-          borderColor: filled ? BRAND_BLUE : NODE_BORDER,
+          borderColor: filled ? BRAND_BLUE : `${BRAND_BLUE}80`,
           background: filled ? BRAND_BLUE : "#ffffff",
-          color: filled ? "#ffffff" : NODE_TEXT,
+          color: filled ? "#ffffff" : "#16315d",
           boxShadow: "none",
         }}
       >
         <div
           className={`flex w-full items-center justify-center gap-1.5 ${stacked ? "flex-col" : "flex-row"}`}
         >
-          {showIcon && Icon ? (
+          {Icon ? (
             <span
-              className={`inline-flex items-center justify-center rounded-[4px] ${filled ? "bg-white/18 text-white" : "bg-[#0f3f95]/12 text-[#0f3f95]"} ${compact ? "h-5 w-5 text-[10px]" : "h-7 w-7 text-[14px]"}`}
+              className={`inline-flex items-center justify-center rounded-full ${filled ? "bg-white/12 text-white" : "bg-[#0f3f95]/8 text-[#0f3f95]"} ${compact ? "h-4.5 w-4.5 text-[9px]" : "h-5.5 w-5.5 text-[10px]"}`}
             >
               <Icon />
             </span>
           ) : null}
-          <span className="text-center font-extrabold uppercase tracking-[0.03em]">
+          <span className="text-center font-extrabold uppercase tracking-[0.05em]">
             {role.title}
           </span>
         </div>
@@ -171,15 +158,21 @@ function NodeBox({
 
 function LogoCard() {
   return (
-    <div className="w-[207px] overflow-hidden rounded-[4px] border border-[#0f3f95]/40 bg-white">
-      <Image
-        src="/afs-logo.png"
-        alt="AFS Automotive Fleet Services International PLC logo"
-        width={207}
-        height={96}
-        priority
-        className="block h-auto w-full"
-      />
+    <div className="relative flex w-[250px] overflow-hidden rounded-[1.6rem] border border-[#0f3f95]/18 bg-white px-4 py-4 shadow-none">
+      <div className="absolute -left-9 -top-9 h-24 w-24 rounded-full border-[16px] border-[#0f3f95]/14" />
+      <div className="flex items-center gap-3">
+        <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-[#0f3f95]/7 text-3xl font-black text-[#0f3f95]">
+          ✺
+        </div>
+        <div className="min-w-0">
+          <div className="text-[2.55rem] font-black leading-none tracking-[0.22em] text-[#0f3f95]">
+            AFS
+          </div>
+          <div className="mt-1 rounded-sm border-y border-[#0f3f95] py-1 text-[8.5px] font-extrabold uppercase leading-4 tracking-[0.145em] text-[#0f3f95]">
+            Automotive Fleet Services International PLC
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -211,14 +204,10 @@ function ToolsRoomBadge({ role, x, y }: { role: OrganogramRole; x: number; y: nu
 }
 
 function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
-  const topLineY = 296;
-  const supportLineY = 188;
-  const technicalSubLineY = 404;
-  const marketingSubLineY = 416;
-  const financeSubLineY = 416;
-  const generalServiceRailX = nodes.hrDrivers.x - 16;
-  const generalServiceStartY = centerY(nodes.generalServiceOfficer);
-  const generalServiceEndY = nodes.hrGuards.y + nodes.hrGuards.height / 2;
+  const topLineY = 328;
+  const technicalSubLineY = 429;
+  const marketingSubLineY = 452;
+  const financeSubLineY = 452;
 
   return (
     <svg
@@ -226,7 +215,6 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
       viewBox={`0 0 ${BOARD_WIDTH} ${BOARD_HEIGHT}`}
       preserveAspectRatio="none"
       aria-hidden="true"
-      shapeRendering="geometricPrecision"
     >
       <defs>
         <marker
@@ -234,8 +222,8 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
           viewBox="0 0 10 10"
           refX="8"
           refY="5"
-          markerWidth="6"
-          markerHeight="6"
+          markerWidth="5"
+          markerHeight="5"
           orient="auto-start-reverse"
         >
           <path d="M 0 0 L 10 5 L 0 10 z" fill={LINE_BLUE} />
@@ -245,11 +233,9 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
       <line x1={centerX(nodes.managingDirector)} y1={bottomY(nodes.managingDirector)} x2={centerX(nodes.managingDirector)} y2={nodes.generalManager.y} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
       <line x1={nodes.generalManager.x} y1={nodes.generalManager.y + nodes.generalManager.height / 2} x2={nodes.internalAuditor.x + nodes.internalAuditor.width} y2={nodes.generalManager.y + nodes.generalManager.height / 2} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
 
-      <line x1={centerX(nodes.generalManager)} y1={bottomY(nodes.generalManager)} x2={centerX(nodes.generalManager)} y2={supportLineY} stroke={LINE_BLUE} strokeWidth="2.2" />
-      <line x1={centerX(nodes.itHead)} y1={supportLineY} x2={centerX(nodes.executiveSecretary)} y2={supportLineY} stroke={LINE_BLUE} strokeWidth="2.2" />
-      <line x1={centerX(nodes.itHead)} y1={supportLineY} x2={centerX(nodes.itHead)} y2={nodes.itHead.y} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
-      <line x1={centerX(nodes.executiveSecretary)} y1={supportLineY} x2={centerX(nodes.executiveSecretary)} y2={nodes.executiveSecretary.y} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
-      <line x1={centerX(nodes.generalManager)} y1={supportLineY} x2={centerX(nodes.generalManager)} y2={topLineY} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
+      <line x1={centerX(nodes.generalManager)} y1={bottomY(nodes.generalManager)} x2={centerX(nodes.generalManager)} y2={topLineY} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
+      <line x1={centerX(nodes.itHead)} y1={nodes.itHead.y} x2={centerX(nodes.itHead)} y2={topLineY} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
+      <line x1={centerX(nodes.executiveSecretary)} y1={nodes.executiveSecretary.y} x2={centerX(nodes.executiveSecretary)} y2={topLineY} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
 
       <line x1={centerX(nodes.technicalManager)} y1={topLineY} x2={centerX(nodes.hrManager)} y2={topLineY} stroke={LINE_BLUE} strokeWidth="2.2" />
       {[
@@ -324,36 +310,18 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
 
       {[nodes.spareSupervisor, nodes.hrOfficer, nodes.generalServiceOfficer].map((node, index) => {
         const parent = index === 0 ? nodes.sparePartsManager : nodes.hrManager;
-        const elbowY = bottomY(parent) + 14;
 
         return (
-          <g key={node.id}>
-            <line
-              x1={centerX(parent)}
-              y1={bottomY(parent)}
-              x2={centerX(parent)}
-              y2={elbowY}
-              stroke={LINE_BLUE}
-              strokeWidth="2.2"
-            />
-            <line
-              x1={centerX(parent)}
-              y1={elbowY}
-              x2={centerX(node)}
-              y2={elbowY}
-              stroke={LINE_BLUE}
-              strokeWidth="2.2"
-            />
-            <line
-              x1={centerX(node)}
-              y1={elbowY}
-              x2={centerX(node)}
-              y2={node.y}
-              stroke={LINE_BLUE}
-              strokeWidth="2.2"
-              markerEnd="url(#afcArrowHead)"
-            />
-          </g>
+          <line
+            key={node.id}
+            x1={centerX(parent)}
+            y1={bottomY(parent)}
+            x2={centerX(node)}
+            y2={node.y}
+            stroke={LINE_BLUE}
+            strokeWidth="2.2"
+            markerEnd="url(#afcArrowHead)"
+          />
         );
       })}
 
@@ -380,76 +348,25 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
         [nodes.financeSenior, nodes.financeAr],
         [nodes.financeAr, nodes.financeJuniorAccounts],
         [nodes.financeProperty, nodes.financeCashier],
-      ].map(([from, to]) => {
-        const sameColumn = centerX(from) === centerX(to);
-        const elbowY = bottomY(from) + 12;
+      ].map(([from, to]) => (
+        <line
+          key={`${from.id}-${to.id}`}
+          x1={centerX(from)}
+          y1={bottomY(from)}
+          x2={centerX(to)}
+          y2={to.y}
+          stroke={LINE_BLUE}
+          strokeWidth="2"
+          markerEnd="url(#afcArrowHead)"
+        />
+      ))}
 
-        if (sameColumn) {
-          return (
-            <line
-              key={`${from.id}-${to.id}`}
-              x1={centerX(from)}
-              y1={bottomY(from)}
-              x2={centerX(to)}
-              y2={to.y}
-              stroke={LINE_BLUE}
-              strokeWidth="2"
-              markerEnd="url(#afcArrowHead)"
-            />
-          );
-        }
-
-        return (
-          <g key={`${from.id}-${to.id}`}>
-            <line
-              x1={centerX(from)}
-              y1={bottomY(from)}
-              x2={centerX(from)}
-              y2={elbowY}
-              stroke={LINE_BLUE}
-              strokeWidth="2"
-            />
-            <line
-              x1={centerX(from)}
-              y1={elbowY}
-              x2={centerX(to)}
-              y2={elbowY}
-              stroke={LINE_BLUE}
-              strokeWidth="2"
-            />
-            <line
-              x1={centerX(to)}
-              y1={elbowY}
-              x2={centerX(to)}
-              y2={to.y}
-              stroke={LINE_BLUE}
-              strokeWidth="2"
-              markerEnd="url(#afcArrowHead)"
-            />
-          </g>
-        );
-      })}
-
-      <line
-        x1={centerX(nodes.generalServiceOfficer)}
-        y1={generalServiceStartY}
-        x2={generalServiceRailX}
-        y2={generalServiceStartY}
-        stroke={LINE_BLUE}
-        strokeWidth="2.2"
-      />
-      <line
-        x1={generalServiceRailX}
-        y1={generalServiceStartY}
-        x2={generalServiceRailX}
-        y2={generalServiceEndY}
-        stroke={LINE_BLUE}
-        strokeWidth="2.2"
-      />
+      <line x1={centerX(nodes.generalServiceOfficer)} y1={bottomY(nodes.generalServiceOfficer) - nodes.generalServiceOfficer.height / 2} x2={1498} y2={bottomY(nodes.generalServiceOfficer) - nodes.generalServiceOfficer.height / 2} stroke={LINE_BLUE} strokeWidth="2.2" />
+      <line x1={1498} y1={bottomY(nodes.generalServiceOfficer) - nodes.generalServiceOfficer.height / 2} x2={1498} y2={760} stroke={LINE_BLUE} strokeWidth="2.2" />
       {[nodes.hrDrivers, nodes.hrJanitors, nodes.hrGuards].map((node) => (
         <line
           key={node.id}
-          x1={generalServiceRailX}
+          x1={1498}
           y1={node.y + node.height / 2}
           x2={node.x}
           y2={node.y + node.height / 2}
@@ -463,70 +380,22 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
 }
 
 export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
-  const boardWrapperRef = useRef<HTMLDivElement | null>(null);
-  const [boardScale, setBoardScale] = useState(1);
-  const [isPrinting, setIsPrinting] = useState(false);
-  const VIEWPORT_BOTTOM_PADDING = 12;
-  const FOOTER_RESERVED_HEIGHT = 44;
-
-  useEffect(() => {
-    const updateScale = () => {
-      if (!boardWrapperRef.current) {
-        return;
-      }
-
-      const availableWidth = boardWrapperRef.current.clientWidth;
-      if (!availableWidth) {
-        return;
-      }
-
-      const widthScale = availableWidth / BOARD_WIDTH;
-      const wrapperTop = boardWrapperRef.current.getBoundingClientRect().top;
-      const availableHeight =
-        window.innerHeight - wrapperTop - FOOTER_RESERVED_HEIGHT - VIEWPORT_BOTTOM_PADDING;
-      const heightScale = availableHeight > 0 ? availableHeight / BOARD_HEIGHT : 1;
-
-      setBoardScale(Math.min(1, widthScale, heightScale));
-    };
-
-    updateScale();
-    window.addEventListener("resize", updateScale);
-
-    return () => {
-      window.removeEventListener("resize", updateScale);
-    };
-  }, []);
-
-  useEffect(() => {
-    const beforePrint = () => setIsPrinting(true);
-    const afterPrint = () => setIsPrinting(false);
-    window.addEventListener("beforeprint", beforePrint);
-    window.addEventListener("afterprint", afterPrint);
-    return () => {
-      window.removeEventListener("beforeprint", beforePrint);
-      window.removeEventListener("afterprint", afterPrint);
-    };
-  }, []);
-
-
   const technical = getDepartment(chart, "Technical Manager");
   const spareParts = getDepartment(chart, "Spare Parts & Logistics Manager");
   const marketing = getDepartment(chart, "Marketing Manager");
   const finance = getDepartment(chart, "Finance & Administration Manager");
   const hr = getDepartment(chart, "HR & General Service Manager");
 
-  const technicalX = [16, 156, 296, 436, 576];
+  const technicalX = [40, 180, 320, 460, 600];
   const technicalBranches = technical.branches.map((branch, index) => ({
     node: {
       id: `tech-${index}`,
       role: { title: branch.title, icon: branch.icon },
       x: technicalX[index],
-      y: 454,
+      y: 462,
       width: 118,
-      height: 52,
+      height: 56,
       compact: true,
-      filled: true,
-      showIcon: true,
     } satisfies PositionedNode,
     children: getLinearChildren(branch),
   }));
@@ -536,12 +405,11 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
       id: "managing-director",
       role: chart.leadership.managingDirector,
       x: 710,
-      y: 26,
+      y: 52,
       width: 164,
       height: 58,
       filled: true,
       stacked: true,
-      showIcon: true,
     },
     internalAuditor: {
       id: "internal-auditor",
@@ -559,13 +427,12 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
       width: 160,
       height: 56,
       stacked: true,
-      showIcon: true,
     },
     itHead: {
       id: "it-head",
       role: chart.leadership.supportRoles[0],
       x: 624,
-      y: 214,
+      y: 232,
       width: 118,
       height: 46,
     },
@@ -573,64 +440,59 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
       id: "executive-secretary",
       role: chart.leadership.supportRoles[1],
       x: 884,
-      y: 214,
+      y: 232,
       width: 148,
       height: 46,
     },
     technicalManager: {
       id: "technical-manager",
       role: { title: technical.name, icon: technical.icon },
-      x: 86,
-      y: 320,
+      x: 118,
+      y: 334,
       width: 176,
       height: 58,
       filled: true,
-      stacked: false,
-      showIcon: true,
+      stacked: true,
     },
     sparePartsManager: {
       id: "spare-parts-manager",
       role: { title: spareParts.name, icon: spareParts.icon },
       x: 724,
-      y: 320,
+      y: 334,
       width: 176,
       height: 58,
       filled: true,
-      stacked: false,
-      showIcon: true,
+      stacked: true,
     },
     marketingManager: {
       id: "marketing-manager",
       role: { title: marketing.name, icon: marketing.icon },
-      x: 920,
-      y: 320,
+      x: 934,
+      y: 334,
       width: 144,
       height: 58,
       filled: true,
-      stacked: false,
-      showIcon: true,
+      stacked: true,
     },
     financeManager: {
       id: "finance-manager",
       role: { title: finance.name, icon: finance.icon },
-      x: 1110,
-      y: 320,
+      x: 1130,
+      y: 334,
       width: 194,
       height: 58,
       filled: true,
-      stacked: false,
-      showIcon: true,
+      stacked: true,
     },
     hrManager: {
       id: "hr-manager",
       role: { title: hr.name, icon: hr.icon },
-      x: 1398,
-      y: 320,
+      x: 1394,
+      y: 334,
       width: 176,
       height: 58,
       filled: true,
-      stacked: false,
-      showIcon: true,
+      stacked: true,
     },
     techCustomerService: technicalBranches[0].node,
     techServiceSection: technicalBranches[1].node,
@@ -640,7 +502,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techServiceAdvisors: {
       id: "tech-service-advisors",
       role: technicalBranches[0].children[0],
-      x: 24,
+      x: 48,
       y: 540,
       width: 104,
       height: 50,
@@ -649,7 +511,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techWarranty: {
       id: "tech-warranty",
       role: technicalBranches[0].children[1],
-      x: 4,
+      x: 28,
       y: 613,
       width: 144,
       height: 50,
@@ -658,7 +520,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techTimekeeper: {
       id: "tech-timekeeper",
       role: technicalBranches[0].children[2],
-      x: 32,
+      x: 56,
       y: 686,
       width: 88,
       height: 46,
@@ -667,7 +529,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techForeman: {
       id: "tech-foreman",
       role: technicalBranches[1].children[0],
-      x: 180,
+      x: 204,
       y: 540,
       width: 94,
       height: 48,
@@ -676,7 +538,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techSeniorMechanics: {
       id: "tech-senior-mechanics",
       role: technicalBranches[1].children[1],
-      x: 166,
+      x: 190,
       y: 613,
       width: 122,
       height: 50,
@@ -685,7 +547,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techJuniorMechanics: {
       id: "tech-junior-mechanics",
       role: technicalBranches[1].children[2],
-      x: 170,
+      x: 194,
       y: 686,
       width: 114,
       height: 46,
@@ -694,7 +556,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techDiagnosticTechnician: {
       id: "tech-diagnostic-tech",
       role: technicalBranches[2].children[0],
-      x: 307,
+      x: 331,
       y: 540,
       width: 108,
       height: 50,
@@ -703,7 +565,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techSeniorElectrician: {
       id: "tech-senior-electrician",
       role: technicalBranches[2].children[1],
-      x: 297,
+      x: 321,
       y: 613,
       width: 128,
       height: 50,
@@ -712,7 +574,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techJuniorElectricians: {
       id: "tech-junior-electricians",
       role: technicalBranches[2].children[2],
-      x: 296,
+      x: 320,
       y: 686,
       width: 130,
       height: 46,
@@ -721,7 +583,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techSeniorBodyPainter: {
       id: "tech-senior-body-painter",
       role: technicalBranches[3].children[0],
-      x: 446,
+      x: 470,
       y: 540,
       width: 112,
       height: 50,
@@ -730,7 +592,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techJuniorBodyPainter: {
       id: "tech-junior-body-painter",
       role: technicalBranches[3].children[1],
-      x: 443,
+      x: 467,
       y: 613,
       width: 118,
       height: 50,
@@ -739,7 +601,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techJuniorPanelBeaters: {
       id: "tech-junior-panel-beaters",
       role: technicalBranches[3].children[2],
-      x: 436,
+      x: 460,
       y: 686,
       width: 132,
       height: 46,
@@ -748,7 +610,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techDenter: {
       id: "tech-denter",
       role: technicalBranches[4].children[0],
-      x: 604,
+      x: 628,
       y: 540,
       width: 62,
       height: 50,
@@ -757,7 +619,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techSanding: {
       id: "tech-sanding",
       role: technicalBranches[4].children[1],
-      x: 591,
+      x: 615,
       y: 613,
       width: 88,
       height: 50,
@@ -766,7 +628,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     techCarWash: {
       id: "tech-car-wash",
       role: technicalBranches[4].children[2],
-      x: 598,
+      x: 622,
       y: 686,
       width: 74,
       height: 46,
@@ -775,8 +637,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     spareSupervisor: {
       id: "spare-supervisor",
       role: { title: spareParts.branches[0].title, icon: spareParts.branches[0].icon },
-      x: 700,
-      y: 462,
+      x: 738,
+      y: 486,
       width: 144,
       height: 56,
       compact: true,
@@ -785,7 +647,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
       id: "spare-tire",
       role: getLinearChildren(spareParts.branches[0])[0],
       x: 744,
-      y: 536,
+      y: 566,
       width: 132,
       height: 50,
       compact: true,
@@ -794,7 +656,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
       id: "spare-store",
       role: getLinearChildren(spareParts.branches[0])[1],
       x: 756,
-      y: 608,
+      y: 642,
       width: 108,
       height: 48,
       compact: true,
@@ -803,7 +665,7 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
       id: "spare-picker",
       role: getLinearChildren(spareParts.branches[0])[2],
       x: 746,
-      y: 678,
+      y: 716,
       width: 128,
       height: 48,
       compact: true,
@@ -811,8 +673,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     marketingTender: {
       id: "marketing-tender",
       role: { title: marketing.branches[0].title, icon: marketing.branches[0].icon },
-      x: 850,
-      y: 462,
+      x: 918,
+      y: 486,
       width: 126,
       height: 56,
       compact: true,
@@ -820,17 +682,17 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     marketingDigital: {
       id: "marketing-digital",
       role: { title: marketing.branches[1].title, icon: marketing.branches[1].icon },
-      x: 990,
-      y: 462,
-      width: 96,
+      x: 1062,
+      y: 486,
+      width: 126,
       height: 56,
       compact: true,
     },
     marketingSeniorSales: {
       id: "marketing-senior-sales",
       role: getLinearChildren(marketing.branches[0])[0],
-      x: 883,
-      y: 538,
+      x: 951,
+      y: 568,
       width: 60,
       height: 50,
       compact: true,
@@ -838,8 +700,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     financeSenior: {
       id: "finance-senior",
       role: { title: finance.branches[0].title, icon: finance.branches[0].icon },
-      x: 1088,
-      y: 462,
+      x: 1114,
+      y: 486,
       width: 104,
       height: 56,
       compact: true,
@@ -847,8 +709,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     financeProcurement: {
       id: "finance-procurement",
       role: { title: finance.branches[1].title, icon: finance.branches[1].icon },
-      x: 1198,
-      y: 462,
+      x: 1240,
+      y: 486,
       width: 108,
       height: 56,
       compact: true,
@@ -856,8 +718,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     financeProperty: {
       id: "finance-property",
       role: { title: finance.branches[2].title, icon: finance.branches[2].icon },
-      x: 1314,
-      y: 462,
+      x: 1364,
+      y: 486,
       width: 98,
       height: 56,
       compact: true,
@@ -865,8 +727,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     financeAr: {
       id: "finance-ar",
       role: getLinearChildren(finance.branches[0])[0],
-      x: 1108,
-      y: 540,
+      x: 1134,
+      y: 570,
       width: 64,
       height: 48,
       compact: true,
@@ -874,8 +736,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     financeJuniorAccounts: {
       id: "finance-junior-accounts",
       role: getLinearChildren(finance.branches[0])[1],
-      x: 1092,
-      y: 612,
+      x: 1118,
+      y: 646,
       width: 96,
       height: 50,
       compact: true,
@@ -883,8 +745,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     financeCashier: {
       id: "finance-cashier",
       role: getLinearChildren(finance.branches[2])[0],
-      x: 1333,
-      y: 540,
+      x: 1383,
+      y: 570,
       width: 60,
       height: 48,
       compact: true,
@@ -892,8 +754,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     hrOfficer: {
       id: "hr-officer",
       role: { title: hr.branches[0].title, icon: hr.branches[0].icon },
-      x: 1422,
-      y: 462,
+      x: 1415,
+      y: 486,
       width: 64,
       height: 56,
       compact: true,
@@ -901,8 +763,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     generalServiceOfficer: {
       id: "general-service-officer",
       role: { title: hr.branches[1].title, icon: hr.branches[1].icon },
-      x: 1492,
-      y: 462,
+      x: 1498,
+      y: 486,
       width: 98,
       height: 56,
       compact: true,
@@ -910,8 +772,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     hrDrivers: {
       id: "hr-drivers",
       role: hr.branches[1].children?.[0] ?? { title: "Drivers" },
-      x: 1520,
-      y: 532,
+      x: 1518,
+      y: 562,
       width: 58,
       height: 46,
       compact: true,
@@ -919,8 +781,8 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     hrJanitors: {
       id: "hr-janitors",
       role: hr.branches[1].children?.[1] ?? { title: "Janitors" },
-      x: 1520,
-      y: 604,
+      x: 1518,
+      y: 638,
       width: 58,
       height: 46,
       compact: true,
@@ -928,100 +790,52 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     hrGuards: {
       id: "hr-guards",
       role: hr.branches[1].children?.[2] ?? { title: "Guards" },
-      x: 1520,
-      y: 676,
+      x: 1518,
+      y: 714,
       width: 58,
       height: 46,
       compact: true,
     },
   };
 
-  const effectiveScale = isPrinting ? 0.94 : boardScale;
-
   return (
-    <section className="afc-print-root relative overflow-hidden rounded-[1rem] border border-[#0f3f95]/10 bg-[#f8f9fc] px-1 py-3 shadow-none sm:px-2 lg:px-4 print:overflow-visible print:rounded-none print:border-0 print:bg-white print:px-0 print:py-0">
-      <style jsx global>{`
-        @media print {
-          @page {
-            size: A4 landscape;
-            margin: 4mm;
-          }
-          html,
-          body {
-            background: #fff !important;
-            -webkit-print-color-adjust: exact;
-            print-color-adjust: exact;
-          }
-          .afc-print-root {
-            break-inside: avoid;
-            page-break-inside: avoid;
-            margin: 0 auto !important;
-            width: 100% !important;
-            max-width: none !important;
-          }
-        }
-      `}</style>
-      <div className="relative">
+    <section className="relative overflow-hidden rounded-[2.3rem] border border-[#0f3f95]/10 bg-white px-4 py-6 shadow-none sm:px-6 lg:px-8">
       <div className="absolute -left-28 -top-28 h-56 w-56 rounded-full border-[42px] border-[#0f3f95]/12" />
-      <div className="absolute -bottom-32 -right-28 h-64 w-64 rounded-full border-[48px] border-[#0f3f95]/18" />
-      <div className="absolute -bottom-24 -right-20 h-48 w-48 rounded-full border-[36px] border-[#0f3f95]/20" />
+      <div className="absolute -bottom-32 -right-28 h-64 w-64 rounded-full border-[48px] border-[#0f3f95]/12" />
       <DotCorner className="right-4 top-3" />
       <DotCorner className="bottom-3 left-4" />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-[0.08]">
-        <Image
-          src="/afs-logo.png"
-          alt=""
-          width={620}
-          height={288}
-          aria-hidden="true"
-          className="h-auto w-[62%] max-w-[620px]"
-        />
+      <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-[18rem] font-black tracking-[0.12em] text-[#0f3f95]/[0.035]">
+        AFS
       </div>
 
       <div className="relative">
-        <div className="grid gap-2 lg:grid-cols-[250px_minmax(0,1fr)_170px] lg:items-start print:grid-cols-[207px_minmax(0,1fr)_72px] print:items-start">
-          <div className="ml-0 mt-0 justify-self-start self-start">
-            <LogoCard />
-          </div>
+        <div className="grid gap-5 lg:grid-cols-[250px_minmax(0,1fr)_170px] lg:items-start">
+          <LogoCard />
 
           <div className="text-center">
-            <h1 className="text-3xl font-black uppercase leading-[1.05] text-[#0f3f95] sm:text-[3.3rem]">
+            <h1 className="text-3xl font-black uppercase leading-tight text-[#0f3f95] sm:text-[3.3rem]">
               AFS Automotive Fleet Services
               <br />
               International PLC
             </h1>
 
-            <div className="mt-1 flex items-center justify-center gap-4 text-[#0f3f95]">
+            <div className="mt-4 flex items-center justify-center gap-5 text-[#0f3f95]">
               <span className="relative h-px w-28 bg-[#1b4ea3]/45 after:absolute after:-right-1 after:-top-1 after:h-2 after:w-2 after:rounded-full after:bg-[#1b4ea3]" />
-              <p className="text-lg font-bold uppercase tracking-[0.32em] sm:text-[1.75rem]">
+              <p className="text-lg font-bold uppercase tracking-[0.38em] sm:text-[1.9rem]">
                 {chart.heading}
               </p>
               <span className="relative h-px w-28 bg-[#1b4ea3]/45 before:absolute before:-left-1 before:-top-1 before:h-2 before:w-2 before:rounded-full before:bg-[#1b4ea3]" />
             </div>
           </div>
 
-          <div className="justify-self-start rounded-[3px] bg-[#0f3f95] px-3 py-1.5 text-xs font-semibold text-white shadow-none lg:justify-self-end print:justify-self-end">
+          <div className="justify-self-start rounded-[4px] bg-[#0f3f95] px-4 py-2 text-sm font-semibold text-white shadow-none lg:justify-self-end">
             {chart.updatedLabel}
           </div>
         </div>
 
-        <div ref={boardWrapperRef} className="mt-0 overflow-hidden pb-0">
-          <div
-            className="mx-auto"
-            style={{
-              width: BOARD_WIDTH * effectiveScale,
-              height: BOARD_HEIGHT * effectiveScale,
-              maxWidth: BOARD_WIDTH,
-            }}
-          >
-            <div
-              className="relative origin-top-left"
-              style={{
-                width: BOARD_WIDTH,
-                height: BOARD_HEIGHT,
-                transform: `scale(${effectiveScale})`,
-              }}
-            >
+        <div className="mt-8 overflow-x-auto pb-2">
+          <div className="mx-auto" style={{ width: BOARD_WIDTH }}>
+            <div className="relative" style={{ width: BOARD_WIDTH, height: BOARD_HEIGHT }}>
               <DiagramLines nodes={nodes} />
 
               {Object.values(nodes).map((node) => (
@@ -1029,23 +843,19 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
               ))}
 
               {technical.sideNote ? (
-                <ToolsRoomBadge role={technical.sideNote} x={656} y={368} />
+                <ToolsRoomBadge role={technical.sideNote} x={680} y={392} />
               ) : null}
             </div>
           </div>
         </div>
 
-        <div className="mt-0 flex items-center justify-center gap-4 text-[#0f3f95]">
+        <div className="mt-6 flex items-center justify-center gap-4 text-[#0f3f95]">
           <span className="h-px w-16 bg-[#1b4ea3]/45" />
           <p className="text-base font-semibold italic tracking-[0.04em]">
             {chart.tagline}
           </p>
           <span className="h-px w-16 bg-[#1b4ea3]/45" />
         </div>
-        <p className="mt-0.5 text-center text-xs font-semibold uppercase tracking-[0.16em] text-[#0f3f95]/80">
-          Since 1999
-        </p>
-      </div>
       </div>
     </section>
   );

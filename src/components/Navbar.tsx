@@ -5,18 +5,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const serviceLinks = [
+const productLinks = [
   {
-    href: "/#products",
+    href: "/products/edustack-schoolhub",
     label: "EduStack SchoolHub",
   },
+  { href: "/products/medicare-ai", label: "MediCare AI" },
+  { href: "/products/car-service", label: "Car Service Management System" },
+  { href: "/products/fitmind-ai", label: "FitMind AI" },
   {
-    href: "/custom-software-development",
-    label: "Custom Software Development",
+    href: "/products/control-inventory",
+    label: "Control Inventory Management System",
   },
-  { href: "/web-development", label: "Web Development" },
-  { href: "/ai-solutions", label: "AI Solutions" },
-  { href: "/erp-systems", label: "ERP & Business Systems" },
+  { href: "/products/property-management", label: "Property Management System" },
 ];
 
 const industryLinks = [
@@ -107,7 +108,7 @@ const Navbar = () => {
             </div>
             <div className="group relative">
               <button className="flex items-center gap-1 text-gray-600 hover:text-teal-700 transition duration-300">
-                Services
+                Products
                 <svg
                   className="h-4 w-4 transition-transform group-hover:rotate-180"
                   fill="none"
@@ -123,7 +124,7 @@ const Navbar = () => {
                 </svg>
               </button>
               <div className="invisible absolute left-0 top-full z-50 mt-3 w-72 rounded-2xl border border-gray-200 bg-white p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100">
-                {serviceLinks.map((link) => (
+                {productLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
@@ -291,7 +292,7 @@ const Navbar = () => {
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
                 className="flex w-full items-center justify-between px-4 py-3 text-left text-gray-600 transition hover:bg-teal-50 hover:text-teal-700"
               >
-                <span>Services</span>
+                <span>Products</span>
                 <svg
                   className={`h-4 w-4 transition-transform ${isServicesOpen ? "rotate-180" : ""}`}
                   fill="none"
@@ -308,7 +309,7 @@ const Navbar = () => {
               </button>
               {isServicesOpen && (
                 <div className="space-y-1 px-3 pb-3">
-                  {serviceLinks.map((link) => (
+                  {productLinks.map((link) => (
                     <Link
                       key={link.href}
                       href={link.href}

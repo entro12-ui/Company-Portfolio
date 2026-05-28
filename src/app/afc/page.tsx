@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import PageShell from "@/components/PageShell";
 import JsonLd from "@/components/JsonLd";
 import AfcOrganogramBoard from "@/components/AfcOrganogramBoard";
 import { afcOrganogram } from "@/content/afcOrganogram";
@@ -25,13 +26,13 @@ const organogramSchema = {
 
 export default function AfcPage() {
   return (
-    <>
+    <PageShell>
       <JsonLd data={organogramSchema} />
-      <article className="bg-gradient-to-b from-slate-100 via-white to-slate-100 px-1 pb-4 pt-1 sm:px-2 sm:pb-6 sm:pt-2 print:bg-white print:p-0">
+      <article className="bg-gradient-to-b from-slate-100 via-white to-slate-100 px-2 pb-16 sm:px-4 sm:pb-24">
         <div className="mx-auto max-w-[1600px]">
           <AfcOrganogramBoard chart={afcOrganogram} />
         </div>
       </article>
-    </>
+    </PageShell>
   );
 }
