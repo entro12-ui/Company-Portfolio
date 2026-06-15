@@ -28,14 +28,15 @@ export default function ContactPage() {
       <JsonLd data={contactPageSchema} />
       <article className="px-4 pb-16 sm:pb-24">
         <div className="mx-auto max-w-6xl">
-          <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
+          {/* Header */}
+          <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm transition-colors duration-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 sm:px-10">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-400">
               Contact Entro Ethiopia
             </p>
-            <h1 className="mb-6 text-4xl font-bold text-gray-900 sm:text-5xl">
+            <h1 className="mb-6 text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
               Contact Entro Ethiopia
             </h1>
-            <p className="max-w-4xl text-lg leading-relaxed text-gray-700">
+            <p className="max-w-4xl text-lg leading-relaxed text-gray-700 dark:text-gray-300">
               Let&apos;s discuss your software requirements.
             </p>
           </header>
@@ -44,60 +45,67 @@ export default function ContactPage() {
             <ContactInquiryForm />
 
             <aside className="space-y-8">
-              <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                <h2 className="mb-6 text-2xl font-bold text-gray-900">
+              {/* Get in touch */}
+              <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+                <h2 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
                   Get in touch
                 </h2>
-                <div className="space-y-5 text-gray-700">
+                <div className="space-y-5 text-gray-700 dark:text-gray-300">
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+                    <p className="text-sm font-semibold uppercase tracking-wide text-teal-700 dark:text-teal-400">
                       Phone
                     </p>
                     <a
                       href="tel:+251979113638"
-                      className="mt-1 inline-block text-lg font-bold text-gray-900 hover:text-teal-700"
+                      className="mt-1 inline-block text-lg font-bold text-gray-900 transition hover:text-teal-700 dark:text-white dark:hover:text-teal-400"
                     >
                       +251 979 113 638
                     </a>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+                    <p className="text-sm font-semibold uppercase tracking-wide text-teal-700 dark:text-teal-400">
                       Email
                     </p>
                     <a
                       href="mailto:entro12@entroethiopia.com"
-                      className="mt-1 inline-block text-lg font-bold text-gray-900 hover:text-teal-700"
+                      className="mt-1 inline-block text-lg font-bold text-gray-900 transition hover:text-teal-700 dark:text-white dark:hover:text-teal-400"
                     >
                       entro12@entroethiopia.com
                     </a>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+                    <p className="text-sm font-semibold uppercase tracking-wide text-teal-700 dark:text-teal-400">
                       Address
                     </p>
-                    <p className="mt-1 text-gray-700">Addis Ababa, Ethiopia</p>
+                    <p className="mt-1 text-gray-700 dark:text-gray-300">
+                      Addis Ababa, Ethiopia
+                    </p>
                   </div>
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-wide text-teal-700">
+                    <p className="text-sm font-semibold uppercase tracking-wide text-teal-700 dark:text-teal-400">
                       Hours
                     </p>
-                    <p className="mt-1 text-gray-700">
+                    <p className="mt-1 text-gray-700 dark:text-gray-300">
                       Monday - Friday, 9:00 AM - 6:00 PM
                     </p>
                   </div>
                 </div>
               </section>
 
-              <section className="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 text-white shadow-sm">
+              {/* What happens next */}
+              <section className="rounded-3xl bg-gradient-to-br from-slate-900 to-slate-800 p-8 text-white shadow-sm dark:from-slate-800 dark:to-gray-800">
                 <h2 className="mb-6 text-2xl font-bold">What happens next</h2>
-                <ol className="space-y-4 text-gray-200">
+                <ol className="space-y-4 text-gray-200 dark:text-gray-300">
                   {[
                     "We contact you within 24 hours",
                     "We schedule a free 30-minute consultation",
                     "You get a clear proposal (no hidden costs)",
                   ].map((item, index) => (
-                    <li key={item} className="flex items-start gap-3 leading-relaxed">
-                      <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-white text-sm font-bold text-slate-900">
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 leading-relaxed"
+                    >
+                      <span className="mt-0.5 flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full bg-white text-sm font-bold text-slate-900 dark:bg-teal-500 dark:text-white">
                         {index + 1}
                       </span>
                       <span>{item}</span>
@@ -106,18 +114,20 @@ export default function ContactPage() {
                 </ol>
               </section>
 
-              <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                <h2 className="mb-4 text-2xl font-bold text-gray-900">
+              {/* Alternative */}
+              <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+                <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                   Alternative
                 </h2>
-                <p className="mb-4 text-gray-700">
-                  Prefer a direct chat? Reach us on WhatsApp for a quick response.
+                <p className="mb-4 text-gray-700 dark:text-gray-300">
+                  Prefer a direct chat? Reach us on WhatsApp for a quick
+                  response.
                 </p>
                 <a
                   href="https://wa.me/251979113638"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center rounded-xl bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-700"
+                  className="inline-flex items-center justify-center rounded-xl bg-green-600 px-5 py-3 font-semibold text-white transition hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-800"
                 >
                   WhatsApp us directly
                 </a>
@@ -125,10 +135,13 @@ export default function ContactPage() {
             </aside>
           </div>
 
-          <section className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-            <div className="border-b border-slate-200 px-8 py-6">
-              <h2 className="text-2xl font-bold text-gray-900">Location</h2>
-              <p className="mt-2 text-gray-600">
+          {/* Location */}
+          <section className="mt-8 overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+            <div className="border-b border-slate-200 px-8 py-6 dark:border-gray-700">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+                Location
+              </h2>
+              <p className="mt-2 text-gray-600 dark:text-gray-400">
                 Addis Ababa, Ethiopia
               </p>
             </div>
@@ -141,32 +154,33 @@ export default function ContactPage() {
             />
           </section>
 
-          <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-            <h2 className="mb-4 text-2xl font-bold text-gray-900">
+          {/* Explore related services */}
+          <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+            <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
               Explore related services
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
               <Link
                 href="/custom-software-development"
-                className="rounded-2xl bg-slate-50 px-5 py-4 font-semibold text-slate-800 transition hover:bg-slate-100"
+                className="rounded-2xl bg-slate-50 px-5 py-4 font-semibold text-slate-800 transition hover:bg-slate-100 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
               >
                 Custom Software Development
               </Link>
               <Link
                 href="/web-development"
-                className="rounded-2xl bg-slate-50 px-5 py-4 font-semibold text-slate-800 transition hover:bg-slate-100"
+                className="rounded-2xl bg-slate-50 px-5 py-4 font-semibold text-slate-800 transition hover:bg-slate-100 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
               >
                 Web Development
               </Link>
               <Link
                 href="/ai-solutions"
-                className="rounded-2xl bg-slate-50 px-5 py-4 font-semibold text-slate-800 transition hover:bg-slate-100"
+                className="rounded-2xl bg-slate-50 px-5 py-4 font-semibold text-slate-800 transition hover:bg-slate-100 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
               >
                 AI Solutions
               </Link>
               <Link
                 href="/erp-systems"
-                className="rounded-2xl bg-slate-50 px-5 py-4 font-semibold text-slate-800 transition hover:bg-slate-100"
+                className="rounded-2xl bg-slate-50 px-5 py-4 font-semibold text-slate-800 transition hover:bg-slate-100 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600"
               >
                 ERP System
               </Link>

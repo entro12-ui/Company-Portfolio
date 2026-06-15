@@ -144,14 +144,15 @@ export default function PortfolioPage() {
       <JsonLd data={portfolioItemListSchema} />
       <article className="px-4 pb-16 sm:pb-24">
         <div className="mx-auto max-w-6xl">
-          <header className="overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 p-8 text-white shadow-xl sm:p-10">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-300">
+          {/* Hero Section */}
+          <header className="overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 p-8 text-white shadow-xl transition-colors duration-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 sm:p-10">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-300 dark:text-teal-400">
               Case Studies
             </p>
             <h1 className="mb-5 text-4xl font-bold sm:text-5xl">
               Our Portfolio &amp; Case Studies
             </h1>
-            <p className="max-w-4xl text-lg leading-relaxed text-slate-200">
+            <p className="max-w-4xl text-lg leading-relaxed text-slate-200 dark:text-gray-300">
               At Entro Ethiopia, we build practical, scalable systems that solve
               real business challenges. These selected projects highlight our
               work in web development, SEO/GEO optimization, AI integration, and
@@ -174,13 +175,16 @@ export default function PortfolioPage() {
             </div>
           </header>
 
+          {/* Case Studies */}
           <div className="mt-8 space-y-8">
             {caseStudies.map((study) => (
               <section
                 key={study.name}
-                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg"
+                className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg dark:border-gray-700 dark:bg-gray-800"
               >
-                <div className={`bg-gradient-to-r ${study.accent} px-8 py-7 text-white sm:px-10`}>
+                <div
+                  className={`bg-gradient-to-r ${study.accent} px-8 py-7 text-white sm:px-10`}
+                >
                   <div className="mb-3 inline-flex rounded-full bg-white/15 px-3 py-1 text-xs font-semibold">
                     {study.chip}
                   </div>
@@ -193,7 +197,7 @@ export default function PortfolioPage() {
                     {study.outcome.map((pill) => (
                       <span
                         key={pill}
-                        className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700"
+                        className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700 dark:border-gray-700 dark:bg-gray-700 dark:text-gray-300"
                       >
                         {pill}
                       </span>
@@ -201,45 +205,59 @@ export default function PortfolioPage() {
                   </div>
 
                   <div className="grid gap-6 lg:grid-cols-3">
-                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                      <h3 className="text-lg font-semibold text-gray-900">Project Overview</h3>
-                      <p className="mt-2 text-sm leading-7 text-gray-700">{study.overview}</p>
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-gray-700 dark:bg-gray-700/50">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        Project Overview
+                      </h3>
+                      <p className="mt-2 text-sm leading-7 text-gray-700 dark:text-gray-300">
+                        {study.overview}
+                      </p>
                     </div>
-                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                      <h3 className="text-lg font-semibold text-gray-900">Challenges</h3>
-                      <ul className="mt-2 space-y-2 text-sm text-gray-700">
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-gray-700 dark:bg-gray-700/50">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        Challenges
+                      </h3>
+                      <ul className="mt-2 space-y-2 text-sm text-gray-700 dark:text-gray-300">
                         {study.challenges.map((item) => (
                           <li key={item} className="flex items-start gap-2">
-                            <span className="mt-1 h-2 w-2 rounded-full bg-slate-700" />
+                            <span className="mt-1 h-2 w-2 rounded-full bg-slate-700 dark:bg-gray-400" />
                             <span>{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
-                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
-                      <h3 className="text-lg font-semibold text-gray-900">Solution</h3>
-                      <p className="mt-2 text-sm leading-7 text-gray-700">{study.solution}</p>
+                    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5 dark:border-gray-700 dark:bg-gray-700/50">
+                      <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                        Solution
+                      </h3>
+                      <p className="mt-2 text-sm leading-7 text-gray-700 dark:text-gray-300">
+                        {study.solution}
+                      </p>
                     </div>
                   </div>
 
                   <div className="mt-6 grid gap-6 lg:grid-cols-2">
-                    <div className="rounded-2xl border border-teal-100 bg-teal-50/40 p-5">
-                      <h3 className="text-lg font-semibold text-teal-800">Key Deliverables</h3>
-                      <ul className="mt-2 space-y-2 text-sm text-gray-700">
+                    <div className="rounded-2xl border border-teal-100 bg-teal-50/40 p-5 dark:border-teal-900/50 dark:bg-teal-950/30">
+                      <h3 className="text-lg font-semibold text-teal-800 dark:text-teal-400">
+                        Key Deliverables
+                      </h3>
+                      <ul className="mt-2 space-y-2 text-sm text-gray-700 dark:text-gray-300">
                         {study.deliverables.map((item) => (
                           <li key={item} className="flex items-start gap-2">
-                            <span className="mt-1 h-2 w-2 rounded-full bg-teal-600" />
+                            <span className="mt-1 h-2 w-2 rounded-full bg-teal-600 dark:bg-teal-500" />
                             <span>{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
-                    <div className="rounded-2xl border border-cyan-100 bg-cyan-50/40 p-5">
-                      <h3 className="text-lg font-semibold text-cyan-800">Impact</h3>
-                      <ul className="mt-2 space-y-2 text-sm text-gray-700">
+                    <div className="rounded-2xl border border-cyan-100 bg-cyan-50/40 p-5 dark:border-cyan-900/50 dark:bg-cyan-950/30">
+                      <h3 className="text-lg font-semibold text-cyan-800 dark:text-cyan-400">
+                        Impact
+                      </h3>
+                      <ul className="mt-2 space-y-2 text-sm text-gray-700 dark:text-gray-300">
                         {study.impact.map((item) => (
                           <li key={item} className="flex items-start gap-2">
-                            <span className="mt-1 h-2 w-2 rounded-full bg-cyan-600" />
+                            <span className="mt-1 h-2 w-2 rounded-full bg-cyan-600 dark:bg-cyan-500" />
                             <span>{item}</span>
                           </li>
                         ))}
@@ -251,16 +269,17 @@ export default function PortfolioPage() {
             ))}
           </div>
 
-          <section className="mt-8 rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 p-8 text-white shadow-xl sm:p-10">
+          {/* AFS Organogram Section */}
+          <section className="mt-8 rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 p-8 text-white shadow-xl transition-colors duration-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 sm:p-10">
             <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div>
-                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300 dark:text-cyan-400">
                   Org Structure Design
                 </p>
                 <h2 className="text-3xl font-bold sm:text-4xl">
                   AFS Automotive Fleet Services International PLC
                 </h2>
-                <p className="mt-4 max-w-4xl text-lg leading-relaxed text-slate-200">
+                <p className="mt-4 max-w-4xl text-lg leading-relaxed text-slate-200 dark:text-gray-300">
                   We translated a static corporate organogram into a structured,
                   web-friendly layout that is easier to maintain, easier to read
                   on any screen, and ready to evolve as teams change.
@@ -285,11 +304,12 @@ export default function PortfolioPage() {
             <OrgChart chart={afsOrganogram} />
           </section>
 
-          <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900">
+          {/* Our Approach */}
+          <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800 sm:p-10">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
               Our Approach to Every Project
             </h2>
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
               {[
                 "Discovery & Requirement Analysis",
                 "System Architecture Planning",
@@ -298,12 +318,12 @@ export default function PortfolioPage() {
                 "Ongoing Optimization & Support",
               ].map((step) => (
                 <li key={step} className="flex items-start gap-3">
-                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-slate-700" />
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-slate-700 dark:bg-gray-500" />
                   <span>{step}</span>
                 </li>
               ))}
             </ul>
-            <p className="mt-6 font-semibold text-gray-900">
+            <p className="mt-6 font-semibold text-gray-900 dark:text-white">
               We focus on building systems that are:
             </p>
             <div className="mt-3 flex flex-wrap gap-2">
@@ -316,7 +336,7 @@ export default function PortfolioPage() {
               ].map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-sm font-medium text-teal-800"
+                  className="rounded-full border border-teal-200 bg-teal-50 px-3 py-1 text-sm font-medium text-teal-800 dark:border-teal-900/50 dark:bg-teal-950/50 dark:text-teal-400"
                 >
                   {item}
                 </span>
@@ -324,11 +344,12 @@ export default function PortfolioPage() {
             </div>
           </section>
 
-          <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
-            <h2 className="mb-4 text-3xl font-bold text-gray-900">
+          {/* Industries We Serve */}
+          <section className="mt-8 rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800 sm:p-10">
+            <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
               Industries We Serve
             </h2>
-            <ul className="space-y-3 text-gray-700">
+            <ul className="space-y-3 text-gray-700 dark:text-gray-300">
               {[
                 "Healthcare",
                 "Tourism & Booking Services",
@@ -338,13 +359,14 @@ export default function PortfolioPage() {
                 "Government Institutions",
               ].map((industry) => (
                 <li key={industry} className="flex items-start gap-3">
-                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-teal-600" />
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-teal-600 dark:bg-teal-500" />
                   <span>{industry}</span>
                 </li>
               ))}
             </ul>
           </section>
 
+          {/* CTA Section */}
           <section className="mt-8 rounded-3xl bg-gradient-to-r from-teal-600 to-cyan-600 p-8 text-white shadow-lg sm:p-10">
             <h2 className="mb-3 text-3xl font-bold">
               Ready to discuss your project?
@@ -355,7 +377,7 @@ export default function PortfolioPage() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex rounded-xl bg-white px-5 py-3 font-semibold text-teal-700 transition hover:bg-slate-100"
+              className="inline-flex rounded-xl bg-white px-5 py-3 font-semibold text-teal-700 transition hover:bg-slate-100 dark:bg-gray-800 dark:text-teal-400 dark:hover:bg-gray-700"
             >
               Start Your Project Consultation
             </Link>

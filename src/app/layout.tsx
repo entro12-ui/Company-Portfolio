@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins, Ubuntu } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { ThemeProvider } from "@/context/ThemeContext"; // 👈 import the provider
+import SupportBot from "@/components/SupportBot";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -76,9 +78,7 @@ export default function RootLayout({
           `}
         </Script>
       </head>
-      <body
-        className={`${poppins.variable} ${ubuntu.variable} font-sans`}
-      >
+      <body className={`${poppins.variable} ${ubuntu.variable} font-sans`}>
         <noscript>
           <iframe
             src="https://www.googletagmanager.com/ns.html?id=GTM-554N8BGQ"
@@ -88,7 +88,6 @@ export default function RootLayout({
           />
         </noscript>
         <noscript>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             height="1"
             width="1"
@@ -97,7 +96,12 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
-        {children}
+
+        {/* 👇 Wrap your page content with ThemeProvider */}
+        <ThemeProvider>
+          {children}
+          <SupportBot />
+        </ThemeProvider>
       </body>
     </html>
   );

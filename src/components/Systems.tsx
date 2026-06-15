@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTheme } from "@/context/ThemeContext";
 
 const industries = [
   {
@@ -123,6 +124,31 @@ const sectorSolutions = [
 ];
 
 const Industries = () => {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
+  // Theme-aware classes
+  const sectionBg = isDark
+    ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
+    : "bg-gradient-to-br from-slate-50 via-gray-50 to-white";
+  const headingClass = isDark ? "text-white" : "text-gray-900";
+  const descriptionClass = isDark ? "text-gray-300" : "text-gray-700";
+  const industryCardBg = isDark
+    ? "bg-gray-800 border-gray-700 hover:border-teal-500"
+    : "bg-white border-transparent hover:border-teal-300";
+  const industryTitleClass = isDark ? "text-white" : "text-gray-900";
+  const industryDescClass = isDark ? "text-gray-300" : "text-gray-600";
+  const sectorBg = isDark
+    ? "bg-gradient-to-br from-gray-800 via-gray-800 to-gray-900"
+    : "bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900";
+  const sectorTitleClass = isDark ? "text-white" : "text-white";
+  const sectorTextClass = isDark ? "text-gray-200" : "text-gray-200";
+  const paginationTextClass = isDark ? "text-gray-300" : "text-white/70";
+  const dotActiveClass = isDark ? "bg-teal-500" : "bg-white";
+  const dotInactiveClass = isDark
+    ? "bg-gray-600 hover:bg-gray-500"
+    : "bg-white/35 hover:bg-white/60";
+
   const cardsPerPage = 3;
   const totalPages = Math.ceil(sectorSolutions.length / cardsPerPage);
   const [activePage, setActivePage] = useState(0);
@@ -130,13 +156,20 @@ const Industries = () => {
   const visibleSolutions = sectorSolutions.slice(start, start + cardsPerPage);
 
   return (
-    <section id="industries" className="py-8 bg-gradient-to-br from-slate-50 via-gray-50 to-white">
+    <section
+      id="industries"
+      className={`py-8 transition-colors duration-300 ${sectionBg}`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 sm:mb-12">
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 text-gray-900">
+          <h2
+            className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 ${headingClass}`}
+          >
             Industries We Serve
           </h2>
-          <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+          <p
+            className={`text-lg sm:text-xl max-w-3xl mx-auto mb-8 ${descriptionClass}`}
+          >
             Our comprehensive software solutions - including MediCare AI,
             EduStack, Car Service Management, and custom software development -
             serve diverse industries:
@@ -147,34 +180,44 @@ const Industries = () => {
           {industries.map((industry, index) => (
             <div
               key={index}
-              className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent hover:border-teal-300"
+              className={`p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 ${industryCardBg}`}
             >
               <div className="text-5xl mb-4 text-center">{industry.icon}</div>
-              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 text-center">
+              <h3
+                className={`text-lg sm:text-xl font-bold mb-3 text-center ${industryTitleClass}`}
+              >
                 {industry.title}
               </h3>
-              <p className="text-gray-600 text-sm sm:text-base text-center leading-relaxed">
+              <p
+                className={`text-sm sm:text-base text-center leading-relaxed ${industryDescClass}`}
+              >
                 {industry.description}
               </p>
             </div>
           ))}
         </div>
 
-        <div className="bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900 rounded-2xl p-8 sm:p-12 text-white shadow-2xl">
-          <h3 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
+        <div
+          className={`rounded-2xl p-8 sm:p-12 text-white shadow-2xl transition-colors duration-300 ${sectorBg}`}
+        >
+          <h3
+            className={`text-3xl sm:text-4xl font-bold mb-6 text-center ${sectorTitleClass}`}
+          >
             Tailored Solutions for Your Sector
           </h3>
-          <p className="text-lg sm:text-xl text-center max-w-4xl mx-auto leading-relaxed mb-6">
+          <p
+            className={`text-lg sm:text-xl text-center max-w-4xl mx-auto leading-relaxed mb-6 ${sectorTextClass}`}
+          >
             Our comprehensive software solutions adapt to the unique needs of
-            your industry. Whether you need healthcare management for
-            hospitals, education technology for schools, car service management
-            for auto centers, inventory and property tools, or custom software
+            your industry. Whether you need healthcare management for hospitals,
+            education technology for schools, car service management for auto
+            centers, inventory and property tools, or custom software
             development, we provide scalable solutions that grow with your
             business.
           </p>
           <div className="mt-8">
             <div className="mb-4 text-center">
-              <p className="text-sm text-white/70">
+              <p className={`text-sm ${paginationTextClass}`}>
                 {activePage + 1} / {totalPages}
               </p>
             </div>
@@ -185,10 +228,14 @@ const Industries = () => {
                   key={solution.title}
                   className={`${solution.cardClass} backdrop-blur-sm rounded-xl p-6`}
                 >
-                  <h4 className={`text-xl font-bold mb-3 ${solution.titleClass}`}>
+                  <h4
+                    className={`text-xl font-bold mb-3 ${solution.titleClass}`}
+                  >
                     {solution.title}
                   </h4>
-                  <p className="text-gray-300 text-sm">{solution.description}</p>
+                  <p className="text-gray-300 text-sm">
+                    {solution.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -199,8 +246,8 @@ const Industries = () => {
                   key={`sector-dot-${index}`}
                   onClick={() => setActivePage(index)}
                   aria-label={`Go to sector solutions page ${index + 1}`}
-                  className={`h-2.5 w-2.5 rounded-full transition ${
-                    index === activePage ? "bg-white" : "bg-white/35 hover:bg-white/60"
+                  className={`h-2.5 w-2.5 rounded-full transition-all duration-200 ${
+                    index === activePage ? dotActiveClass : dotInactiveClass
                   }`}
                 />
               ))}

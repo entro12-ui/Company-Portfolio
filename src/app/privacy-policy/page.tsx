@@ -19,14 +19,15 @@ export default function PrivacyPolicyPage() {
     <PageShell>
       <article className="px-4 pb-16 sm:pb-24">
         <div className="mx-auto max-w-4xl">
-          <header className="mb-10 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm sm:px-10">
-            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700">
+          {/* Header */}
+          <header className="mb-10 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm transition-colors duration-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 sm:px-10">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-400">
               Legal
             </p>
-            <h1 className="mb-6 text-4xl font-bold text-gray-900 sm:text-5xl">
+            <h1 className="mb-6 text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
               Privacy Policy
             </h1>
-            <p className="max-w-3xl text-lg leading-relaxed text-gray-700">
+            <p className="max-w-3xl text-lg leading-relaxed text-gray-700 dark:text-gray-300">
               This Privacy Policy explains how Entro Ethiopia collects, uses,
               stores, and protects personal and business information through its
               website, enquiries, and service interactions.
@@ -34,11 +35,12 @@ export default function PrivacyPolicyPage() {
           </header>
 
           <div className="space-y-8">
-            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+            {/* Section 1 */}
+            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                 1. Information We Collect
               </h2>
-              <ul className="space-y-3 text-gray-700">
+              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                 {[
                   "Name and organization details",
                   "Phone number and email address",
@@ -46,7 +48,7 @@ export default function PrivacyPolicyPage() {
                   "Other business details you choose to share with us",
                 ].map((item) => (
                   <li key={item} className={bulletClassName}>
-                    <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-teal-100 text-sm font-bold text-teal-700">
+                    <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-teal-100 text-sm font-bold text-teal-700 dark:bg-teal-900/50 dark:text-teal-400">
                       ✓
                     </span>
                     <span>{item}</span>
@@ -55,11 +57,12 @@ export default function PrivacyPolicyPage() {
               </ul>
             </section>
 
-            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+            {/* Section 2 */}
+            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                 2. How We Use Information
               </h2>
-              <ul className="space-y-3 text-gray-700">
+              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                 {[
                   "To respond to enquiries and service requests",
                   "To prepare proposals, consultations, and project discussions",
@@ -67,7 +70,7 @@ export default function PrivacyPolicyPage() {
                   "To maintain internal records related to legitimate business enquiries",
                 ].map((item) => (
                   <li key={item} className={bulletClassName}>
-                    <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-cyan-100 text-sm font-bold text-cyan-700">
+                    <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-cyan-100 text-sm font-bold text-cyan-700 dark:bg-cyan-900/50 dark:text-cyan-400">
                       ✓
                     </span>
                     <span>{item}</span>
@@ -76,11 +79,12 @@ export default function PrivacyPolicyPage() {
               </ul>
             </section>
 
-            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+            {/* Section 3 */}
+            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                 3. Cookies and Analytics
               </h2>
-              <p className="leading-8 text-gray-700">
+              <p className="leading-8 text-gray-700 dark:text-gray-300">
                 Our website may use cookies, analytics tools, and tracking
                 technologies such as Google services and Meta technologies to
                 understand website usage, improve performance, and support
@@ -90,24 +94,26 @@ export default function PrivacyPolicyPage() {
               </p>
             </section>
 
-            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+            {/* Section 4 */}
+            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                 4. Data Sharing
               </h2>
-              <p className="leading-8 text-gray-700">
+              <p className="leading-8 text-gray-700 dark:text-gray-300">
                 We do not sell your personal information. We may share limited
                 information with trusted service providers or technical partners
                 where necessary to operate our website, manage communication, or
-                deliver requested services, subject to reasonable confidentiality
-                and security expectations.
+                deliver requested services, subject to reasonable
+                confidentiality and security expectations.
               </p>
             </section>
 
-            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+            {/* Section 5 */}
+            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                 5. Data Security
               </h2>
-              <ul className="space-y-3 text-gray-700">
+              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                 {[
                   "Reasonable technical safeguards against unauthorized access",
                   "Organizational measures to reduce misuse or disclosure",
@@ -115,46 +121,49 @@ export default function PrivacyPolicyPage() {
                   "Acknowledgement that no online system can be guaranteed fully secure",
                 ].map((item) => (
                   <li key={item} className={bulletClassName}>
-                    <span className="mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-slate-800" />
+                    <span className="mt-1 h-2.5 w-2.5 flex-shrink-0 rounded-full bg-slate-800 dark:bg-gray-500" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
             </section>
 
-            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+            {/* Section 6 */}
+            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                 6. Data Retention
               </h2>
-              <p className="leading-8 text-gray-700">
+              <p className="leading-8 text-gray-700 dark:text-gray-300">
                 We retain enquiry and communication data only for as long as is
                 reasonably necessary for business follow-up, legal compliance,
                 internal recordkeeping, or service delivery purposes.
               </p>
             </section>
 
-            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+            {/* Section 7 */}
+            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                 7. Your Rights
               </h2>
-              <p className="leading-8 text-gray-700">
+              <p className="leading-8 text-gray-700 dark:text-gray-300">
                 You may contact us to request updates or corrections to
                 information you have submitted to us, subject to applicable
                 legal, operational, or recordkeeping requirements.
               </p>
             </section>
 
-            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-              <h2 className="mb-4 text-2xl font-bold text-gray-900">
+            {/* Section 8 */}
+            <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
+              <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                 8. Contact
               </h2>
-              <p className="leading-8 text-gray-700">
+              <p className="leading-8 text-gray-700 dark:text-gray-300">
                 For privacy-related questions, please contact Entro Ethiopia at{" "}
-                <span className="font-medium text-gray-900">
+                <span className="font-medium text-gray-900 dark:text-white">
                   entro12@entroethiopia.com
                 </span>{" "}
                 or call{" "}
-                <span className="font-medium text-gray-900">
+                <span className="font-medium text-gray-900 dark:text-white">
                   +251 979 113 638
                 </span>
                 .

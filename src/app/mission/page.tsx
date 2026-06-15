@@ -18,14 +18,12 @@ export default function MissionPage() {
     <PageShell>
       <article className="px-4 pb-16 sm:pb-24">
         <div className="mx-auto max-w-5xl">
-          <section className="overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-900 p-8 text-white shadow-xl sm:p-10">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">
+          <section className="overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-cyan-900 p-8 text-white shadow-xl transition-colors duration-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 sm:p-10">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300 dark:text-cyan-400">
               About Entro Ethiopia
             </p>
-            <h1 className="mb-6 text-4xl font-bold sm:text-5xl">
-              Our Mission
-            </h1>
-            <p className="text-lg leading-relaxed text-slate-200">
+            <h1 className="mb-6 text-4xl font-bold sm:text-5xl">Our Mission</h1>
+            <p className="text-lg leading-relaxed text-slate-200 dark:text-gray-300">
               To design and deliver custom software, web, AI, and ERP systems
               that solve real local challenges, improve operations, and create
               measurable impact for our clients.
@@ -33,7 +31,7 @@ export default function MissionPage() {
             <div className="mt-6">
               <Link
                 href="/contact"
-                className="inline-flex rounded-xl bg-white px-5 py-3 font-semibold text-cyan-700 transition hover:bg-slate-100"
+                className="inline-flex rounded-xl bg-white px-5 py-3 font-semibold text-cyan-700 transition hover:bg-slate-100 dark:bg-gray-800 dark:text-cyan-400 dark:hover:bg-gray-700"
               >
                 Start a Project Discussion
               </Link>

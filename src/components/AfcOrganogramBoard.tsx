@@ -1,3 +1,5 @@
+"use client";
+
 import type { IconType } from "react-icons";
 import {
   FaBolt,
@@ -26,6 +28,7 @@ import type {
   OrganogramNode,
   OrganogramRole,
 } from "@/content/afcOrganogram";
+import { useTheme } from "@/context/ThemeContext";
 
 type AfcOrganogramBoardProps = {
   chart: OrganogramData;
@@ -45,8 +48,6 @@ type PositionedNode = {
 
 const BOARD_WIDTH = 1580;
 const BOARD_HEIGHT = 930;
-const BRAND_BLUE = "#0f3f95";
-const LINE_BLUE = "#1b4ea3";
 
 const iconMap: Record<OrganogramIconKey, IconType> = {
   director: FaUserTie,
@@ -116,6 +117,20 @@ function NodeBox({
   compact = false,
   stacked = false,
 }: PositionedNode) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+
+  // Theme-aware colors
+  const brandColor = isDark ? "#14b8a6" : "#0f3f95"; // teal in dark, blue in light
+  const lineColor = isDark ? "#2dd4bf" : "#1b4ea3";
+  const bgFilled = isDark ? brandColor : brandColor;
+  const textFilled = isDark ? "#ffffff" : "#ffffff";
+  const borderColor = filled ? brandColor : `${brandColor}80`;
+  const bgEmpty = isDark ? "#1f2937" : "#ffffff";
+  const textEmpty = isDark ? "#cbd5e1" : "#16315d";
+  const iconBgEmpty = isDark ? `${brandColor}20` : `${brandColor}14`;
+  const iconTextEmpty = isDark ? brandColor : brandColor;
+
   const Icon = role.icon ? iconMap[role.icon] : null;
 
   return (
@@ -131,9 +146,9 @@ function NodeBox({
       <div
         className={`flex h-full w-full items-center justify-center rounded-[10px] border ${compact ? "px-2 py-1.5 text-[8.5px] leading-3.5" : "px-3 py-2.5 text-[10px] leading-4"}`}
         style={{
-          borderColor: filled ? BRAND_BLUE : `${BRAND_BLUE}80`,
-          background: filled ? BRAND_BLUE : "#ffffff",
-          color: filled ? "#ffffff" : "#16315d",
+          borderColor: borderColor,
+          background: filled ? bgFilled : bgEmpty,
+          color: filled ? textFilled : textEmpty,
           boxShadow: "none",
         }}
       >
@@ -142,7 +157,11 @@ function NodeBox({
         >
           {Icon ? (
             <span
-              className={`inline-flex items-center justify-center rounded-full ${filled ? "bg-white/12 text-white" : "bg-[#0f3f95]/8 text-[#0f3f95]"} ${compact ? "h-4.5 w-4.5 text-[9px]" : "h-5.5 w-5.5 text-[10px]"}`}
+              className={`inline-flex items-center justify-center rounded-full ${filled ? "bg-white/12 text-white" : `bg-[${iconBgEmpty}] text-[${iconTextEmpty}]`} ${compact ? "h-4.5 w-4.5 text-[9px]" : "h-5.5 w-5.5 text-[10px]"}`}
+              style={{
+                backgroundColor: filled ? undefined : iconBgEmpty,
+                color: filled ? undefined : iconTextEmpty,
+              }}
             >
               <Icon />
             </span>
@@ -157,18 +176,41 @@ function NodeBox({
 }
 
 function LogoCard() {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  const brandColor = isDark ? "#14b8a6" : "#0f3f95";
+  const borderColor = isDark ? `${brandColor}30` : `${brandColor}18`;
+  const bg = isDark ? "#1f2937" : "#ffffff";
+  const textColor = brandColor;
+  const circleBorderColor = isDark ? `${brandColor}20` : `${brandColor}14`;
+
   return (
-    <div className="relative flex w-[250px] overflow-hidden rounded-[1.6rem] border border-[#0f3f95]/18 bg-white px-4 py-4 shadow-none">
-      <div className="absolute -left-9 -top-9 h-24 w-24 rounded-full border-[16px] border-[#0f3f95]/14" />
+    <div
+      className="relative flex w-[250px] overflow-hidden rounded-[1.6rem] border px-4 py-4 shadow-none"
+      style={{ borderColor, background: bg }}
+    >
+      <div
+        className="absolute -left-9 -top-9 h-24 w-24 rounded-full border-[16px]"
+        style={{ borderColor: circleBorderColor }}
+      />
       <div className="flex items-center gap-3">
-        <div className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full bg-[#0f3f95]/7 text-3xl font-black text-[#0f3f95]">
+        <div
+          className="flex h-16 w-16 flex-shrink-0 items-center justify-center rounded-full text-3xl font-black"
+          style={{ background: `${brandColor}10`, color: textColor }}
+        >
           ✺
         </div>
         <div className="min-w-0">
-          <div className="text-[2.55rem] font-black leading-none tracking-[0.22em] text-[#0f3f95]">
+          <div
+            className="text-[2.55rem] font-black leading-none tracking-[0.22em]"
+            style={{ color: textColor }}
+          >
             AFS
           </div>
-          <div className="mt-1 rounded-sm border-y border-[#0f3f95] py-1 text-[8.5px] font-extrabold uppercase leading-4 tracking-[0.145em] text-[#0f3f95]">
+          <div
+            className="mt-1 rounded-sm border-y py-1 text-[8.5px] font-extrabold uppercase leading-4 tracking-[0.145em]"
+            style={{ borderColor: textColor, color: textColor }}
+          >
             Automotive Fleet Services International PLC
           </div>
         </div>
@@ -178,24 +220,50 @@ function LogoCard() {
 }
 
 function DotCorner({ className = "" }: { className?: string }) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  const dotColor = isDark ? "#2dd4bf" : "#1b4ea3";
+
   return (
     <div
       className={`absolute h-24 w-24 opacity-35 ${className}`}
       style={{
-        backgroundImage: "radial-gradient(#1b4ea3 1.2px, transparent 1.2px)",
+        backgroundImage: `radial-gradient(${dotColor} 1.2px, transparent 1.2px)`,
         backgroundSize: "9px 9px",
       }}
     />
   );
 }
 
-function ToolsRoomBadge({ role, x, y }: { role: OrganogramRole; x: number; y: number }) {
+function ToolsRoomBadge({
+  role,
+  x,
+  y,
+}: {
+  role: OrganogramRole;
+  x: number;
+  y: number;
+}) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  const brandColor = isDark ? "#14b8a6" : "#0f3f95";
+  const borderColor = `${brandColor}80`;
+  const bg = isDark ? "#1f2937" : "#ffffff";
+  const textColor = brandColor;
+  const lineColor = isDark ? "#2dd4bf" : "#1b4ea3";
+
   const Icon = role.icon ? iconMap[role.icon] : null;
 
   return (
     <div className="absolute" style={{ left: x, top: y }}>
-      <div className="relative flex h-[74px] w-[58px] flex-col items-center justify-center rounded-[10px] border border-[#0f3f95]/40 bg-white px-2 text-center text-[8.5px] font-extrabold uppercase tracking-[0.07em] text-[#0f3f95] shadow-none">
-        <div className="absolute -left-7 top-1/2 h-px w-7 -translate-y-1/2 bg-[#1b4ea3]/40" />
+      <div
+        className="relative flex h-[74px] w-[58px] flex-col items-center justify-center rounded-[10px] border px-2 text-center text-[8.5px] font-extrabold uppercase tracking-[0.07em] shadow-none"
+        style={{ borderColor, background: bg, color: textColor }}
+      >
+        <div
+          className="absolute -left-7 top-1/2 h-px w-7 -translate-y-1/2"
+          style={{ background: `${lineColor}80` }}
+        />
         {Icon ? <Icon className="mb-1 text-base" /> : null}
         <span>{role.title}</span>
       </div>
@@ -204,6 +272,11 @@ function ToolsRoomBadge({ role, x, y }: { role: OrganogramRole; x: number; y: nu
 }
 
 function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  const lineColor = isDark ? "#2dd4bf" : "#1b4ea3";
+  const arrowFill = lineColor;
+
   const topLineY = 328;
   const technicalSubLineY = 429;
   const marketingSubLineY = 452;
@@ -226,18 +299,65 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
           markerHeight="5"
           orient="auto-start-reverse"
         >
-          <path d="M 0 0 L 10 5 L 0 10 z" fill={LINE_BLUE} />
+          <path d="M 0 0 L 10 5 L 0 10 z" fill={arrowFill} />
         </marker>
       </defs>
 
-      <line x1={centerX(nodes.managingDirector)} y1={bottomY(nodes.managingDirector)} x2={centerX(nodes.managingDirector)} y2={nodes.generalManager.y} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
-      <line x1={nodes.generalManager.x} y1={nodes.generalManager.y + nodes.generalManager.height / 2} x2={nodes.internalAuditor.x + nodes.internalAuditor.width} y2={nodes.generalManager.y + nodes.generalManager.height / 2} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
+      <line
+        x1={centerX(nodes.managingDirector)}
+        y1={bottomY(nodes.managingDirector)}
+        x2={centerX(nodes.managingDirector)}
+        y2={nodes.generalManager.y}
+        stroke={lineColor}
+        strokeWidth="2.2"
+        markerEnd="url(#afcArrowHead)"
+      />
+      <line
+        x1={nodes.generalManager.x}
+        y1={nodes.generalManager.y + nodes.generalManager.height / 2}
+        x2={nodes.internalAuditor.x + nodes.internalAuditor.width}
+        y2={nodes.generalManager.y + nodes.generalManager.height / 2}
+        stroke={lineColor}
+        strokeWidth="2.2"
+        markerEnd="url(#afcArrowHead)"
+      />
 
-      <line x1={centerX(nodes.generalManager)} y1={bottomY(nodes.generalManager)} x2={centerX(nodes.generalManager)} y2={topLineY} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
-      <line x1={centerX(nodes.itHead)} y1={nodes.itHead.y} x2={centerX(nodes.itHead)} y2={topLineY} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
-      <line x1={centerX(nodes.executiveSecretary)} y1={nodes.executiveSecretary.y} x2={centerX(nodes.executiveSecretary)} y2={topLineY} stroke={LINE_BLUE} strokeWidth="2.2" markerEnd="url(#afcArrowHead)" />
+      <line
+        x1={centerX(nodes.generalManager)}
+        y1={bottomY(nodes.generalManager)}
+        x2={centerX(nodes.generalManager)}
+        y2={topLineY}
+        stroke={lineColor}
+        strokeWidth="2.2"
+        markerEnd="url(#afcArrowHead)"
+      />
+      <line
+        x1={centerX(nodes.itHead)}
+        y1={nodes.itHead.y}
+        x2={centerX(nodes.itHead)}
+        y2={topLineY}
+        stroke={lineColor}
+        strokeWidth="2.2"
+        markerEnd="url(#afcArrowHead)"
+      />
+      <line
+        x1={centerX(nodes.executiveSecretary)}
+        y1={nodes.executiveSecretary.y}
+        x2={centerX(nodes.executiveSecretary)}
+        y2={topLineY}
+        stroke={lineColor}
+        strokeWidth="2.2"
+        markerEnd="url(#afcArrowHead)"
+      />
 
-      <line x1={centerX(nodes.technicalManager)} y1={topLineY} x2={centerX(nodes.hrManager)} y2={topLineY} stroke={LINE_BLUE} strokeWidth="2.2" />
+      <line
+        x1={centerX(nodes.technicalManager)}
+        y1={topLineY}
+        x2={centerX(nodes.hrManager)}
+        y2={topLineY}
+        stroke={lineColor}
+        strokeWidth="2.2"
+      />
       {[
         nodes.technicalManager,
         nodes.sparePartsManager,
@@ -251,13 +371,20 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
           y1={topLineY}
           x2={centerX(node)}
           y2={node.y}
-          stroke={LINE_BLUE}
+          stroke={lineColor}
           strokeWidth="2.2"
           markerEnd="url(#afcArrowHead)"
         />
       ))}
 
-      <line x1={centerX(nodes.techCustomerService)} y1={technicalSubLineY} x2={centerX(nodes.techCleaning)} y2={technicalSubLineY} stroke={LINE_BLUE} strokeWidth="2.2" />
+      <line
+        x1={centerX(nodes.techCustomerService)}
+        y1={technicalSubLineY}
+        x2={centerX(nodes.techCleaning)}
+        y2={technicalSubLineY}
+        stroke={lineColor}
+        strokeWidth="2.2"
+      />
       {[
         nodes.techCustomerService,
         nodes.techServiceSection,
@@ -271,15 +398,36 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
           y1={technicalSubLineY}
           x2={centerX(node)}
           y2={node.y}
-          stroke={LINE_BLUE}
+          stroke={lineColor}
           strokeWidth="2.2"
           markerEnd="url(#afcArrowHead)"
         />
       ))}
-      <line x1={centerX(nodes.technicalManager)} y1={bottomY(nodes.technicalManager)} x2={centerX(nodes.technicalManager)} y2={technicalSubLineY} stroke={LINE_BLUE} strokeWidth="2.2" />
+      <line
+        x1={centerX(nodes.technicalManager)}
+        y1={bottomY(nodes.technicalManager)}
+        x2={centerX(nodes.technicalManager)}
+        y2={technicalSubLineY}
+        stroke={lineColor}
+        strokeWidth="2.2"
+      />
 
-      <line x1={centerX(nodes.marketingTender)} y1={marketingSubLineY} x2={centerX(nodes.marketingDigital)} y2={marketingSubLineY} stroke={LINE_BLUE} strokeWidth="2.2" />
-      <line x1={centerX(nodes.marketingManager)} y1={bottomY(nodes.marketingManager)} x2={centerX(nodes.marketingManager)} y2={marketingSubLineY} stroke={LINE_BLUE} strokeWidth="2.2" />
+      <line
+        x1={centerX(nodes.marketingTender)}
+        y1={marketingSubLineY}
+        x2={centerX(nodes.marketingDigital)}
+        y2={marketingSubLineY}
+        stroke={lineColor}
+        strokeWidth="2.2"
+      />
+      <line
+        x1={centerX(nodes.marketingManager)}
+        y1={bottomY(nodes.marketingManager)}
+        x2={centerX(nodes.marketingManager)}
+        y2={marketingSubLineY}
+        stroke={lineColor}
+        strokeWidth="2.2"
+      />
       {[nodes.marketingTender, nodes.marketingDigital].map((node) => (
         <line
           key={node.id}
@@ -287,28 +435,50 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
           y1={marketingSubLineY}
           x2={centerX(node)}
           y2={node.y}
-          stroke={LINE_BLUE}
+          stroke={lineColor}
           strokeWidth="2.2"
           markerEnd="url(#afcArrowHead)"
         />
       ))}
 
-      <line x1={centerX(nodes.financeSenior)} y1={financeSubLineY} x2={centerX(nodes.financeProperty)} y2={financeSubLineY} stroke={LINE_BLUE} strokeWidth="2.2" />
-      <line x1={centerX(nodes.financeManager)} y1={bottomY(nodes.financeManager)} x2={centerX(nodes.financeManager)} y2={financeSubLineY} stroke={LINE_BLUE} strokeWidth="2.2" />
-      {[nodes.financeSenior, nodes.financeProcurement, nodes.financeProperty].map((node) => (
+      <line
+        x1={centerX(nodes.financeSenior)}
+        y1={financeSubLineY}
+        x2={centerX(nodes.financeProperty)}
+        y2={financeSubLineY}
+        stroke={lineColor}
+        strokeWidth="2.2"
+      />
+      <line
+        x1={centerX(nodes.financeManager)}
+        y1={bottomY(nodes.financeManager)}
+        x2={centerX(nodes.financeManager)}
+        y2={financeSubLineY}
+        stroke={lineColor}
+        strokeWidth="2.2"
+      />
+      {[
+        nodes.financeSenior,
+        nodes.financeProcurement,
+        nodes.financeProperty,
+      ].map((node) => (
         <line
           key={node.id}
           x1={centerX(node)}
           y1={financeSubLineY}
           x2={centerX(node)}
           y2={node.y}
-          stroke={LINE_BLUE}
+          stroke={lineColor}
           strokeWidth="2.2"
           markerEnd="url(#afcArrowHead)"
         />
       ))}
 
-      {[nodes.spareSupervisor, nodes.hrOfficer, nodes.generalServiceOfficer].map((node, index) => {
+      {[
+        nodes.spareSupervisor,
+        nodes.hrOfficer,
+        nodes.generalServiceOfficer,
+      ].map((node, index) => {
         const parent = index === 0 ? nodes.sparePartsManager : nodes.hrManager;
 
         return (
@@ -318,7 +488,7 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
             y1={bottomY(parent)}
             x2={centerX(node)}
             y2={node.y}
-            stroke={LINE_BLUE}
+            stroke={lineColor}
             strokeWidth="2.2"
             markerEnd="url(#afcArrowHead)"
           />
@@ -355,14 +525,37 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
           y1={bottomY(from)}
           x2={centerX(to)}
           y2={to.y}
-          stroke={LINE_BLUE}
+          stroke={lineColor}
           strokeWidth="2"
           markerEnd="url(#afcArrowHead)"
         />
       ))}
 
-      <line x1={centerX(nodes.generalServiceOfficer)} y1={bottomY(nodes.generalServiceOfficer) - nodes.generalServiceOfficer.height / 2} x2={1498} y2={bottomY(nodes.generalServiceOfficer) - nodes.generalServiceOfficer.height / 2} stroke={LINE_BLUE} strokeWidth="2.2" />
-      <line x1={1498} y1={bottomY(nodes.generalServiceOfficer) - nodes.generalServiceOfficer.height / 2} x2={1498} y2={760} stroke={LINE_BLUE} strokeWidth="2.2" />
+      <line
+        x1={centerX(nodes.generalServiceOfficer)}
+        y1={
+          bottomY(nodes.generalServiceOfficer) -
+          nodes.generalServiceOfficer.height / 2
+        }
+        x2={1498}
+        y2={
+          bottomY(nodes.generalServiceOfficer) -
+          nodes.generalServiceOfficer.height / 2
+        }
+        stroke={lineColor}
+        strokeWidth="2.2"
+      />
+      <line
+        x1={1498}
+        y1={
+          bottomY(nodes.generalServiceOfficer) -
+          nodes.generalServiceOfficer.height / 2
+        }
+        x2={1498}
+        y2={760}
+        stroke={lineColor}
+        strokeWidth="2.2"
+      />
       {[nodes.hrDrivers, nodes.hrJanitors, nodes.hrGuards].map((node) => (
         <line
           key={node.id}
@@ -370,7 +563,7 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
           y1={node.y + node.height / 2}
           x2={node.x}
           y2={node.y + node.height / 2}
-          stroke={LINE_BLUE}
+          stroke={lineColor}
           strokeWidth="2.2"
           markerEnd="url(#afcArrowHead)"
         />
@@ -380,6 +573,18 @@ function DiagramLines({ nodes }: { nodes: Record<string, PositionedNode> }) {
 }
 
 export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
+  const brandColor = isDark ? "#14b8a6" : "#0f3f95";
+  const lineColor = isDark ? "#2dd4bf" : "#1b4ea3";
+  const bgSection = isDark ? "bg-gray-900" : "bg-white";
+  const borderColor = isDark ? `${brandColor}20` : `${brandColor}10`;
+  const largeCircleBorder = isDark ? `${brandColor}20` : `${brandColor}12`;
+  const watermarkColor = isDark ? `${brandColor}10` : `${brandColor}08`;
+  const headingColor = brandColor;
+  const accentLineColor = lineColor;
+  const taglineText = isDark ? "#cbd5e1" : brandColor;
+
   const technical = getDepartment(chart, "Technical Manager");
   const spareParts = getDepartment(chart, "Spare Parts & Logistics Manager");
   const marketing = getDepartment(chart, "Marketing Manager");
@@ -636,7 +841,10 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     },
     spareSupervisor: {
       id: "spare-supervisor",
-      role: { title: spareParts.branches[0].title, icon: spareParts.branches[0].icon },
+      role: {
+        title: spareParts.branches[0].title,
+        icon: spareParts.branches[0].icon,
+      },
       x: 738,
       y: 486,
       width: 144,
@@ -672,7 +880,10 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     },
     marketingTender: {
       id: "marketing-tender",
-      role: { title: marketing.branches[0].title, icon: marketing.branches[0].icon },
+      role: {
+        title: marketing.branches[0].title,
+        icon: marketing.branches[0].icon,
+      },
       x: 918,
       y: 486,
       width: 126,
@@ -681,7 +892,10 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     },
     marketingDigital: {
       id: "marketing-digital",
-      role: { title: marketing.branches[1].title, icon: marketing.branches[1].icon },
+      role: {
+        title: marketing.branches[1].title,
+        icon: marketing.branches[1].icon,
+      },
       x: 1062,
       y: 486,
       width: 126,
@@ -699,7 +913,10 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     },
     financeSenior: {
       id: "finance-senior",
-      role: { title: finance.branches[0].title, icon: finance.branches[0].icon },
+      role: {
+        title: finance.branches[0].title,
+        icon: finance.branches[0].icon,
+      },
       x: 1114,
       y: 486,
       width: 104,
@@ -708,7 +925,10 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     },
     financeProcurement: {
       id: "finance-procurement",
-      role: { title: finance.branches[1].title, icon: finance.branches[1].icon },
+      role: {
+        title: finance.branches[1].title,
+        icon: finance.branches[1].icon,
+      },
       x: 1240,
       y: 486,
       width: 108,
@@ -717,7 +937,10 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
     },
     financeProperty: {
       id: "finance-property",
-      role: { title: finance.branches[2].title, icon: finance.branches[2].icon },
+      role: {
+        title: finance.branches[2].title,
+        icon: finance.branches[2].icon,
+      },
       x: 1364,
       y: 486,
       width: 98,
@@ -799,12 +1022,24 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
   };
 
   return (
-    <section className="relative overflow-hidden rounded-[2.3rem] border border-[#0f3f95]/10 bg-white px-4 py-6 shadow-none sm:px-6 lg:px-8">
-      <div className="absolute -left-28 -top-28 h-56 w-56 rounded-full border-[42px] border-[#0f3f95]/12" />
-      <div className="absolute -bottom-32 -right-28 h-64 w-64 rounded-full border-[48px] border-[#0f3f95]/12" />
+    <section
+      className={`relative overflow-hidden rounded-[2.3rem] border px-4 py-6 shadow-none transition-colors duration-300 sm:px-6 lg:px-8 ${bgSection}`}
+      style={{ borderColor: borderColor }}
+    >
+      <div
+        className="absolute -left-28 -top-28 h-56 w-56 rounded-full border-[42px]"
+        style={{ borderColor: largeCircleBorder }}
+      />
+      <div
+        className="absolute -bottom-32 -right-28 h-64 w-64 rounded-full border-[48px]"
+        style={{ borderColor: largeCircleBorder }}
+      />
       <DotCorner className="right-4 top-3" />
       <DotCorner className="bottom-3 left-4" />
-      <div className="pointer-events-none absolute inset-0 flex items-center justify-center text-[18rem] font-black tracking-[0.12em] text-[#0f3f95]/[0.035]">
+      <div
+        className="pointer-events-none absolute inset-0 flex items-center justify-center text-[18rem] font-black tracking-[0.12em]"
+        style={{ color: watermarkColor }}
+      >
         AFS
       </div>
 
@@ -813,29 +1048,60 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
           <LogoCard />
 
           <div className="text-center">
-            <h1 className="text-3xl font-black uppercase leading-tight text-[#0f3f95] sm:text-[3.3rem]">
+            <h1
+              className="text-3xl font-black uppercase leading-tight sm:text-[3.3rem]"
+              style={{ color: headingColor }}
+            >
               AFS Automotive Fleet Services
               <br />
               International PLC
             </h1>
 
-            <div className="mt-4 flex items-center justify-center gap-5 text-[#0f3f95]">
-              <span className="relative h-px w-28 bg-[#1b4ea3]/45 after:absolute after:-right-1 after:-top-1 after:h-2 after:w-2 after:rounded-full after:bg-[#1b4ea3]" />
-              <p className="text-lg font-bold uppercase tracking-[0.38em] sm:text-[1.9rem]">
+            <div className="mt-4 flex items-center justify-center gap-5">
+              <span
+                className="relative h-px w-28 after:absolute after:-right-1 after:-top-1 after:h-2 after:w-2 after:rounded-full after:bg-[#1b4ea3]"
+                style={{
+                  backgroundColor: `${accentLineColor}80`,
+                  color: headingColor,
+                }}
+              >
+                <span
+                  className="absolute -right-1 -top-1 h-2 w-2 rounded-full"
+                  style={{ backgroundColor: accentLineColor }}
+                />
+              </span>
+              <p
+                className="text-lg font-bold uppercase tracking-[0.38em] sm:text-[1.9rem]"
+                style={{ color: headingColor }}
+              >
                 {chart.heading}
               </p>
-              <span className="relative h-px w-28 bg-[#1b4ea3]/45 before:absolute before:-left-1 before:-top-1 before:h-2 before:w-2 before:rounded-full before:bg-[#1b4ea3]" />
+              <span
+                className="relative h-px w-28 before:absolute before:-left-1 before:-top-1 before:h-2 before:w-2 before:rounded-full"
+                style={{ backgroundColor: `${accentLineColor}80` }}
+              >
+                <span
+                  className="absolute -left-1 -top-1 h-2 w-2 rounded-full"
+                  style={{ backgroundColor: accentLineColor }}
+                />
+              </span>
             </div>
           </div>
 
-          <div className="justify-self-start rounded-[4px] bg-[#0f3f95] px-4 py-2 text-sm font-semibold text-white shadow-none lg:justify-self-end">
+          <div
+            className="justify-self-start rounded-[4px] px-4 py-2 text-sm font-semibold text-white shadow-none lg:justify-self-end"
+            style={{ backgroundColor: brandColor }}
+          >
             {chart.updatedLabel}
           </div>
         </div>
 
         <div className="mt-8 overflow-x-auto pb-2">
           <div className="mx-auto" style={{ width: BOARD_WIDTH }}>
-            <div className="relative" style={{ width: BOARD_WIDTH, height: BOARD_HEIGHT }}>
+            <div
+              className="relative"
+              style={{ width: BOARD_WIDTH, height: BOARD_HEIGHT }}
+            >
               <DiagramLines nodes={nodes} />
 
               {Object.values(nodes).map((node) => (
@@ -849,12 +1115,21 @@ export default function AfcOrganogramBoard({ chart }: AfcOrganogramBoardProps) {
           </div>
         </div>
 
-        <div className="mt-6 flex items-center justify-center gap-4 text-[#0f3f95]">
-          <span className="h-px w-16 bg-[#1b4ea3]/45" />
-          <p className="text-base font-semibold italic tracking-[0.04em]">
+        <div className="mt-6 flex items-center justify-center gap-4">
+          <span
+            className="h-px w-16"
+            style={{ backgroundColor: `${accentLineColor}80` }}
+          />
+          <p
+            className="text-base font-semibold italic tracking-[0.04em]"
+            style={{ color: taglineText }}
+          >
             {chart.tagline}
           </p>
-          <span className="h-px w-16 bg-[#1b4ea3]/45" />
+          <span
+            className="h-px w-16"
+            style={{ backgroundColor: `${accentLineColor}80` }}
+          />
         </div>
       </div>
     </section>
