@@ -13,6 +13,18 @@ import {
 } from "lucide-react";
 import { WEBSITE_KNOWLEDGE, POPULAR_EMOJIS } from "../content/botData";
 
+
+interface CustomSpeechRecognitionEvent {
+  resultIndex: number;
+  results: {
+    [index: number]: {
+      [index: number]: {
+        transcript: string;
+      };
+    };
+  };
+}
+
 interface Message {
   sender: "user" | "bot";
   text: string;
@@ -68,9 +80,14 @@ export default function SupportBot() {
   }, []);
 
   const startSpeechRecognition = () => {
+    const targetWindow = window as unknown as {
+      SpeechRecognition?: new () => any;
+      webkitSpeechRecognition?: new () => any;
+    };
+
     const SpeechRecognition =
-      (window as any).SpeechRecognition ||
-      (window as any).webkitSpeechRecognition;
+      targetWindow.SpeechRecognition || targetWindow.webkitSpeechRecognition;
+
     if (!SpeechRecognition) {
       alert(
         "Voice recognition is not supported by your current browser. Please try again using Google Chrome.",
@@ -86,7 +103,7 @@ export default function SupportBot() {
     recognition.onstart = () => setIsListening(true);
     recognition.onerror = () => setIsListening(false);
     recognition.onend = () => setIsListening(false);
-    recognition.onresult = (event: any) => {
+    recognition.onresult = (event: CustomSpeechRecognitionEvent) => {
       const transcript = event.results[0][0].transcript;
       setInputValue((prev) => (prev ? prev + " " + transcript : transcript));
     };
