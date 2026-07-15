@@ -19,7 +19,6 @@ const AboutUs = () => {
   const missionVisionBg = isDark
     ? "bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900"
     : "bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900"; // keep dark for both? Actually the original section is dark always, but we can keep it dark for both themes or adjust. I'll keep it dark but make text adapt.
-  const bottomCardText = isDark ? "text-white" : "text-white"; // bottom card already uses white text, we can keep it.
   const bottomCardSubtext = isDark ? "text-gray-300" : "text-gray-200";
   const featureCardBg = isDark
     ? "bg-gray-800/50 border-gray-700 hover:bg-gray-700/50"

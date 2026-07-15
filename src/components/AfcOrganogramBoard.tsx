@@ -122,7 +122,6 @@ function NodeBox({
 
   // Theme-aware colors
   const brandColor = isDark ? "#14b8a6" : "#0f3f95"; // teal in dark, blue in light
-  const lineColor = isDark ? "#2dd4bf" : "#1b4ea3";
   const bgFilled = isDark ? brandColor : brandColor;
   const textFilled = isDark ? "#ffffff" : "#ffffff";
   const borderColor = filled ? brandColor : `${brandColor}80`;

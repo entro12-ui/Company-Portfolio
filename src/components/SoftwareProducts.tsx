@@ -196,7 +196,6 @@ const ProductCard = ({
 
   // Theme-aware overrides for product colors (preserve brand identity but adapt to dark mode)
   const cardBg = isDark ? "bg-gray-800" : "bg-white";
-  const textColor = isDark ? "text-gray-200" : "text-gray-700";
   const highlightTextClass = isDark ? "text-gray-300" : "text-gray-700";
   const borderTopClass = isDark ? "border-gray-700" : "border-gray-200";
   const contactTextClass = isDark ? "text-gray-400" : "text-gray-600";

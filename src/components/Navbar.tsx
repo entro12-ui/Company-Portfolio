@@ -3,7 +3,6 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
 import { useTheme } from "@/context/ThemeContext";
 import { ArrowUpRight } from "lucide-react";
 
@@ -42,7 +41,6 @@ const Navbar = () => {
   const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
   const [isAboutOpen, setIsAboutOpen] = useState(false);
   const { theme, toggleTheme } = useTheme();
-  const pathname = usePathname();
 
   const isDark = theme === "dark";
 
@@ -67,7 +65,6 @@ const Navbar = () => {
   const searchInputClass = isDark
     ? "bg-gray-800/60 border-gray-600 text-white placeholder-gray-400 focus:border-teal-500 focus:ring-teal-500"
     : "bg-gray-100 border-gray-300 text-gray-900 placeholder-gray-500 focus:border-teal-600 focus:ring-teal-600";
-  const outlineButtonClass = `rounded-full border ${borderClass} px-4 py-2 transition-all hover:bg-white/10`;
 
   return (
     <nav

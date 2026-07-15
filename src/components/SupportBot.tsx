@@ -25,6 +25,19 @@ interface CustomSpeechRecognitionEvent {
   };
 }
 
+interface SpeechRecognitionInstance {
+  continuous: boolean;
+  lang: string;
+  interimResults: boolean;
+  onstart: (() => void) | null;
+  onerror: (() => void) | null;
+  onend: (() => void) | null;
+  onresult: ((event: CustomSpeechRecognitionEvent) => void) | null;
+  start: () => void;
+}
+
+type SpeechRecognitionConstructor = new () => SpeechRecognitionInstance;
+
 interface Message {
   sender: "user" | "bot";
   text: string;
@@ -81,8 +94,8 @@ export default function SupportBot() {
 
   const startSpeechRecognition = () => {
     const targetWindow = window as unknown as {
-      SpeechRecognition?: new () => any;
-      webkitSpeechRecognition?: new () => any;
+      SpeechRecognition?: SpeechRecognitionConstructor;
+      webkitSpeechRecognition?: SpeechRecognitionConstructor;
     };
 
     const SpeechRecognition =

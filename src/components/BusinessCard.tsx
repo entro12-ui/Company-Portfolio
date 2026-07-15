@@ -20,7 +20,6 @@ const BusinessCard = () => {
   const subTextClass = isDark ? "text-slate-200" : "text-gray-600";
   const accentTextClass = isDark ? "text-cyan-200" : "text-teal-700";
   const dividerClass = isDark ? "bg-white/40" : "bg-gray-400/60";
-  const borderClass = isDark ? "border-cyan-300/70" : "border-teal-500/60";
   const circuitDotClass = isDark
     ? "bg-[rgba(120,250,255,0.9)] shadow-[0_0_10px_rgba(99,233,255,0.7)]"
     : "bg-[rgba(13,148,136,0.9)] shadow-[0_0_8px_rgba(20,184,166,0.6)]";
