@@ -129,8 +129,8 @@ const Industries = () => {
 
   // Theme-aware classes
   const sectionBg = isDark
-    ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
-    : "bg-gradient-to-br from-slate-50 via-gray-50 to-white";
+    ? "bg-gradient-to-b from-[#071019] via-[#0a1120] to-[#05070f]"
+    : "bg-gradient-to-b from-teal-50/40 via-white to-cyan-50/50";
   const headingClass = isDark ? "text-white" : "text-gray-900";
   const descriptionClass = isDark ? "text-gray-300" : "text-gray-700";
   const industryCardBg = isDark
@@ -139,8 +139,8 @@ const Industries = () => {
   const industryTitleClass = isDark ? "text-white" : "text-gray-900";
   const industryDescClass = isDark ? "text-gray-300" : "text-gray-600";
   const sectorBg = isDark
-    ? "bg-gradient-to-br from-gray-800 via-gray-800 to-gray-900"
-    : "bg-gradient-to-br from-slate-800 via-gray-800 to-slate-900";
+    ? "bg-gradient-to-br from-[#0a1120] via-[#0d1b33] to-[#05070f] ring-1 ring-white/10"
+    : "bg-gradient-to-br from-slate-900 via-[#0f2a4a] to-slate-900";
   const sectorTitleClass = isDark ? "text-white" : "text-white";
   const sectorTextClass = isDark ? "text-gray-200" : "text-gray-200";
   const paginationTextClass = isDark ? "text-gray-300" : "text-white/70";

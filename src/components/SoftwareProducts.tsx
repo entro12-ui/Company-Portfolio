@@ -288,8 +288,8 @@ const SoftwareProducts = () => {
 
   // Theme-aware classes
   const sectionBg = isDark
-    ? "bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
-    : "bg-gradient-to-br from-gray-50 via-white to-gray-50";
+    ? "bg-gradient-to-b from-[#05070f] via-[#0a1120] to-[#071019]"
+    : "bg-gradient-to-b from-white via-cyan-50/40 to-teal-50/40";
   const headingClass = isDark ? "text-white" : "text-gray-900";
   const subheadingClass = isDark ? "text-teal-400" : "text-teal-700";
   const descriptionClass = isDark ? "text-gray-300" : "text-gray-700";

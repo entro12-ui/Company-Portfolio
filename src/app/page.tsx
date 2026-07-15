@@ -83,7 +83,7 @@ export default function Home() {
       <PastClientReview />
 
       {/* Blog Section - Theme-aware */}
-      <section className="px-4 py-10 sm:py-14 transition-colors duration-300">
+      <section className="bg-gradient-to-b from-slate-50 via-white to-teal-50/40 px-4 py-10 transition-colors duration-300 dark:from-[#05070f] dark:via-[#0a1120] dark:to-[#071019] sm:py-14">
         <div className="mx-auto max-w-7xl">
           <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>

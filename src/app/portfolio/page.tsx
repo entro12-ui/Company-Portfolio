@@ -2,9 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/PageShell";
 import JsonLd from "@/components/JsonLd";
-import OrgChart from "@/components/OrgChart";
-import { afsOrganogram } from "@/content/afsOrganogram";
-
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
@@ -38,7 +35,60 @@ const portfolioItemListSchema = {
     },
     {
       "@type": "CreativeWork",
-      name: "AFS Automotive Fleet Services Organogram",
+      name: "Wewalo Pharmacy Inventory System",
+      description: "Pharmacy inventory management system for Wewalo Pharmacy in Mekelle.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "Lemelem Clinic MediCare AI",
+      description: "MediCare AI implementation for Lemelem Clinic.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "Kelebet Clinic MediCare AI",
+      description: "MediCare AI implementation for Kelebet Clinic in Addis Ababa.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "Marbez Restaurant Digital Solutions",
+      description: "Business digital solutions for Marbez Restaurant.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "Chillina Chiffon Digital Solutions",
+      description: "Business digital solutions for Chillina Chiffon.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "Happy Decor Booking and AI Digitalization",
+      description:
+        "Booking system and AI-powered business digitalization for Happy Decor in Addis Ababa.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "Meey Gold Digital Solutions",
+      description: "Business digital solutions for Meey Gold in Adama.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "Hibret Building Property Management System",
+      description: "Property management system for Hibret Building in Addis Ababa.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "AFS Automotive Fleet Services Website Design",
+      description:
+        "Modern, responsive company website design and development for AFS Automotive Fleet Services International PLC.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "AFS Car Service Management System",
+      description:
+        "Car Service Management System for AFS covering customers, vehicles, appointments, service history, inventory, and automated service alerts.",
+    },
+    {
+      "@type": "CreativeWork",
+      name: "AFS Automotive Fleet Services",
       description:
         "Responsive, data-driven organizational chart design for AFS Automotive Fleet Services International PLC.",
     },
@@ -135,6 +185,65 @@ const caseStudies = [
       "Automated recurring processes",
     ],
     outcome: ["AI Automation", "Reporting Speed", "Decision Support"],
+  },
+];
+
+const additionalProjects = [
+  {
+    name: "Wewalo Pharmacy",
+    service: "Pharmacy Inventory System",
+    location: "Mekelle",
+    status: "Delivered",
+    icon: "💊",
+  },
+  {
+    name: "Lemelem Clinic",
+    service: "MediCare AI",
+    location: "Ethiopia",
+    status: "In Progress",
+    icon: "🏥",
+  },
+  {
+    name: "Kelebet Clinic",
+    service: "MediCare AI",
+    location: "Addis Ababa",
+    status: "In Progress",
+    icon: "🩺",
+  },
+  {
+    name: "Marbez Restaurant",
+    service: "Business Digital Solutions",
+    location: "Ethiopia",
+    status: "Client Project",
+    icon: "🍽️",
+  },
+  {
+    name: "Chillina Chiffon",
+    service: "Business Digital Solutions",
+    location: "Ethiopia",
+    status: "Client Project",
+    icon: "👗",
+  },
+  {
+    name: "Happy Decor",
+    service: "Booking System & AI-Powered Business Digitalization",
+    location: "Addis Ababa",
+    status: "Client Project",
+    icon: "✨",
+  },
+  {
+    name: "Meey Gold",
+    service: "Business Digital Solutions",
+    location: "Adama",
+    status: "Client Project",
+    icon: "💎",
+  },
+  {
+    name: "Hibret Building",
+    service: "Property Management System",
+    location: "Addis Ababa",
+    status: "Client Project",
+    icon: "🏢",
   },
 ];
 
@@ -269,27 +378,70 @@ export default function PortfolioPage() {
             ))}
           </div>
 
-          {/* AFS Organogram Section */}
+          <section className="mt-8 rounded-3xl border border-slate-200 bg-gradient-to-b from-white to-teal-50/50 p-8 shadow-sm dark:border-gray-700 dark:from-gray-800 dark:to-gray-900 sm:p-10">
+            <div className="mb-8">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-400">
+                Recent &amp; Ongoing Work
+              </p>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white sm:text-4xl">
+                More Client Projects
+              </h2>
+              <p className="mt-3 max-w-3xl leading-7 text-slate-600 dark:text-gray-300">
+                Software systems and digital solutions delivered or currently
+                being developed for organizations across Ethiopia.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {additionalProjects.map((project) => (
+                <article
+                  key={project.name}
+                  className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-teal-300 hover:shadow-lg dark:border-gray-700 dark:bg-gray-800 dark:hover:border-teal-600"
+                >
+                  <div className="mb-4 flex items-start justify-between gap-3">
+                    <span className="text-3xl" aria-hidden>
+                      {project.icon}
+                    </span>
+                    <span className="rounded-full bg-teal-50 px-2.5 py-1 text-[11px] font-semibold text-teal-700 dark:bg-teal-950/60 dark:text-teal-300">
+                      {project.status}
+                    </span>
+                  </div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-white">
+                    {project.name}
+                  </h3>
+                  <p className="mt-2 text-sm font-medium leading-6 text-teal-700 dark:text-teal-400">
+                    {project.service}
+                  </p>
+                  <p className="mt-3 text-sm text-slate-500 dark:text-gray-400">
+                    {project.location}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          {/* AFS Project Section */}
           <section className="mt-8 rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-blue-900 p-8 text-white shadow-xl transition-colors duration-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 sm:p-10">
             <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300 dark:text-cyan-400">
-                  Org Structure Design
+                  Website, Systems &amp; Org Design
                 </p>
                 <h2 className="text-3xl font-bold sm:text-4xl">
                   AFS Automotive Fleet Services International PLC
                 </h2>
                 <p className="mt-4 max-w-4xl text-lg leading-relaxed text-slate-200 dark:text-gray-300">
-                  We translated a static corporate organogram into a structured,
-                  web-friendly layout that is easier to maintain, easier to read
-                  on any screen, and ready to evolve as teams change.
+                  A complete engagement for AFS: we designed and built their
+                  website, delivered a Car Service Management System for their
+                  auto service operations, and translated their corporate
+                  organogram into a structured, responsive, web-friendly layout.
                 </p>
               </div>
               <div className="flex flex-wrap gap-2">
                 {[
-                  "Responsive Layout",
-                  "Data-Driven Structure",
-                  "Corporate Governance",
+                  "Website Design",
+                  "Car Service Management System",
+                  "Org Structure Design",
                 ].map((tag) => (
                   <span
                     key={tag}
@@ -301,7 +453,54 @@ export default function PortfolioPage() {
               </div>
             </div>
 
-            <OrgChart chart={afsOrganogram} />
+            <div className="mb-8 grid gap-4 md:grid-cols-3">
+              {[
+                {
+                  title: "Website Design",
+                  description:
+                    "A modern, responsive company website that presents AFS services, brand, and facility professionally online.",
+                  icon: "🌐",
+                  href: "/afs",
+                  cta: "View AFS Gallery",
+                },
+                {
+                  title: "Car Service Management System",
+                  description:
+                    "A complete digital system to manage customers, vehicles, appointments, service history, inventory, and automated service alerts.",
+                  icon: "🚗",
+                  href: "/products/car-service",
+                  cta: "View the Product",
+                },
+                {
+                  title: "Organizational Structure Design",
+                  description:
+                    "A responsive, data-driven organogram that is easy to maintain, read on any screen, and ready to evolve as teams change.",
+                  icon: "🏢",
+                  href: "/afc",
+                  cta: "View Organogram",
+                },
+              ].map((item) => (
+                <div
+                  key={item.title}
+                  className="flex flex-col rounded-2xl border border-white/15 bg-white/10 p-5 backdrop-blur transition hover:bg-white/15"
+                >
+                  <div className="mb-3 text-3xl">{item.icon}</div>
+                  <h3 className="text-lg font-semibold text-white">
+                    {item.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-6 text-slate-200 dark:text-gray-300">
+                    {item.description}
+                  </p>
+                  <Link
+                    href={item.href}
+                    className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-cyan-300 transition hover:text-cyan-200 hover:underline"
+                  >
+                    {item.cta}
+                    <span aria-hidden>→</span>
+                  </Link>
+                </div>
+              ))}
+            </div>
           </section>
 
           {/* Our Approach */}

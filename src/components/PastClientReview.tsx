@@ -76,12 +76,33 @@ const reviews = [
   },
 ];
 
+const clientProjects = [
+  { name: "Wewalo Pharmacy", project: "Inventory System", location: "Mekelle" },
+  { name: "Lemelem Clinic", project: "MediCare AI", location: "Ethiopia" },
+  { name: "Kelebet Clinic", project: "MediCare AI", location: "Addis Ababa" },
+  { name: "Marbez Restaurant", project: "Digital Solutions", location: "Ethiopia" },
+  { name: "Chillina Chiffon", project: "Digital Solutions", location: "Ethiopia" },
+  {
+    name: "Happy Decor",
+    project: "Booking & AI Business Digitalization",
+    location: "Addis Ababa",
+  },
+  { name: "Meey Gold", project: "Digital Solutions", location: "Adama" },
+  {
+    name: "Hibret Building",
+    project: "Property Management",
+    location: "Addis Ababa",
+  },
+];
+
 export default function PastClientReview() {
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
   // Theme-aware classes
-  const sectionBg = isDark ? "bg-gray-900" : "bg-slate-50";
+  const sectionBg = isDark
+    ? "bg-gradient-to-b from-[#05070f] via-[#0a1120] to-[#05070f]"
+    : "bg-gradient-to-b from-cyan-50/50 via-white to-slate-50";
   const badgeClass = isDark ? "text-teal-400" : "text-teal-700";
   const headingClass = isDark ? "text-white" : "text-gray-900";
   const paragraphClass = isDark ? "text-gray-300" : "text-gray-600";
@@ -118,6 +139,23 @@ export default function PastClientReview() {
     <section
       className={`px-4 py-8 transition-colors duration-300 sm:px-6 lg:px-8 ${sectionBg}`}
     >
+      <style>{`
+        @keyframes clientMarquee {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .client-marquee-track {
+          animation: clientMarquee 32s linear infinite;
+        }
+        .client-marquee-wrap:hover .client-marquee-track {
+          animation-play-state: paused;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .client-marquee-track {
+            animation: none;
+          }
+        }
+      `}</style>
       <div className="mx-auto max-w-7xl">
         <div className="mb-10 text-center">
           <p
@@ -132,6 +170,49 @@ export default function PastClientReview() {
             Feedback from organizations we have supported with software systems
             and digital solutions.
           </p>
+        </div>
+
+        <div className="mx-auto mb-12 max-w-6xl">
+          <div className="mb-5 text-center">
+            <h3 className={`text-2xl font-bold ${headingClass}`}>
+              Clients We Work With
+            </h3>
+            <p className={`mt-2 text-sm ${paragraphClass}`}>
+              Recent and ongoing software projects across Ethiopia
+            </p>
+          </div>
+          <div className="client-marquee-wrap group relative overflow-hidden">
+            {/* Edge fade masks */}
+            <div
+              className={`pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r ${isDark ? "from-[#0a1120]" : "from-white"} to-transparent`}
+            />
+            <div
+              className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l ${isDark ? "from-[#0a1120]" : "from-white"} to-transparent`}
+            />
+            <div className="client-marquee-track flex w-max gap-4 py-2">
+              {[...clientProjects, ...clientProjects].map((client, index) => (
+                <div
+                  key={`${client.name}-${index}`}
+                  className={`w-56 flex-shrink-0 rounded-2xl border p-4 text-center shadow-sm transition hover:-translate-y-0.5 hover:border-teal-400 ${cardBg}`}
+                >
+                  <div
+                    className={`mx-auto mb-3 flex h-11 w-11 items-center justify-center rounded-xl text-sm font-bold ${fallbackIconBg}`}
+                  >
+                    {getInitials(client.name)}
+                  </div>
+                  <h4 className={`font-semibold ${reviewerNameClass}`}>
+                    {client.name}
+                  </h4>
+                  <p className={`mt-1 text-xs font-medium ${badgeClass}`}>
+                    {client.project}
+                  </p>
+                  <p className={`mt-1 text-xs ${reviewerOrgClass}`}>
+                    {client.location}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="mx-auto max-w-6xl">

@@ -12,7 +12,7 @@ export default function PageShell({
   const { theme } = useTheme();
   const isDark = theme === "dark";
 
-  const mainBg = isDark ? "bg-gray-900" : "bg-white";
+  const mainBg = isDark ? "bg-[#05070f]" : "bg-white";
 
   return (
     <>

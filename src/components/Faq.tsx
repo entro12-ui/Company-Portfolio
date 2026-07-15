@@ -74,8 +74,8 @@ const Faq = () => {
   const isDark = theme === "dark";
 
   const sectionBg = isDark
-    ? "bg-gradient-to-br from-gray-900 to-slate-900"
-    : "bg-gradient-to-br from-gray-50 to-white";
+    ? "bg-gradient-to-b from-[#071019] via-[#0a1120] to-[#05070f]"
+    : "bg-gradient-to-b from-teal-50/40 via-white to-cyan-50/50";
   const headingColor = isDark ? "text-white" : "text-gray-900";
   const subheadingColor = isDark ? "text-gray-300" : "text-gray-600";
   const containerBg = isDark ? "bg-gray-800/50" : "bg-white";

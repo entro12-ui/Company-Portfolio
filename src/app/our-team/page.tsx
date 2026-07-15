@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { MdEmail } from "react-icons/md";
+import { MdEmail, MdPhone } from "react-icons/md";
 import { FaLinkedin } from "react-icons/fa";
 import { SiUpwork } from "react-icons/si";
 import PageShell from "@/components/PageShell";
@@ -44,6 +44,18 @@ const teamMembers = [
     bio: "Natnael Mekuria is responsible for the technical architecture and software engineering direction of Entro Ethiopia. As Founder and CTO, he leads the development of custom software systems, AI-powered solutions, ERP platforms, and scalable web applications built for Ethiopian organizations.",
   },
   {
+    name: "Ermias Mezgebe",
+    role: "Chief Operations Officer (COO)",
+    photo: "/team/ermias-mezgebe.png",
+    email: "entro12@entroethiopia.com",
+    phone: "+251930926317",
+    linkedIn: "",
+    upwork: "",
+    summary:
+      "Coordinates company operations, project delivery, and the workflows that connect Entro Ethiopia's teams and clients.",
+    bio: "Ermias Mezgebe serves as Chief Operations Officer at Entro Ethiopia. He coordinates day-to-day operations, supports project delivery, and helps align internal teams with client requirements and company priorities.",
+  },
+  {
     name: "Yosef Birhanu",
     role: "Digital Marketing Manager",
     photo: "/team/yosef.jpeg",
@@ -53,6 +65,18 @@ const teamMembers = [
     summary:
       "Drives SEO and Generative Engine Optimization (GEO) so solutions are discoverable across search and AI platforms.",
     bio: "Yosef Birhanu leads digital strategy, SEO, and Generative Engine Optimization (GEO) initiatives at Entro Ethiopia. He ensures that the company's solutions are discoverable across search engines and AI-driven platforms, helping businesses connect with practical software solutions.",
+  },
+  {
+    name: "Mekides Nigatu",
+    role: "Marketing Officer",
+    photo: "/team/mekides-nigatu.png",
+    email: "entro12@entroethiopia.com",
+    phone: "+251979113638",
+    linkedIn: "",
+    upwork: "",
+    summary:
+      "Supports marketing, client communication, and brand outreach for Entro Ethiopia's software and digital solutions.",
+    bio: "Mekides Nigatu serves as Marketing Officer at Entro Ethiopia. She supports marketing activities, client communication, and brand outreach, helping organizations discover software and digital solutions suited to their needs.",
   },
   {
     name: "Kidist Tafa",
@@ -116,8 +140,26 @@ const teamOrganizationSchema = {
     },
     {
       "@type": "Person",
+      name: "Ermias Mezgebe",
+      jobTitle: "Chief Operations Officer",
+      worksFor: {
+        "@type": "Organization",
+        name: "Entro Ethiopia",
+      },
+    },
+    {
+      "@type": "Person",
       name: "Yosef Birhanu",
       jobTitle: "Digital Marketing Manager",
+      worksFor: {
+        "@type": "Organization",
+        name: "Entro Ethiopia",
+      },
+    },
+    {
+      "@type": "Person",
+      name: "Mekides Nigatu",
+      jobTitle: "Marketing Officer",
       worksFor: {
         "@type": "Organization",
         name: "Entro Ethiopia",
@@ -221,6 +263,15 @@ export default function OurTeamPage() {
                     {member.bio}
                   </p>
                   <div className="mt-4 flex flex-wrap gap-3 border-t border-slate-200 pt-4 dark:border-gray-700">
+                    {"phone" in member && member.phone ? (
+                      <a
+                        href={`tel:${member.phone}`}
+                        className="inline-flex items-center gap-2 rounded-full border border-slate-200 px-3 py-1.5 text-sm font-medium text-slate-700 transition hover:border-teal-300 hover:text-teal-700 dark:border-gray-700 dark:text-gray-300 dark:hover:border-teal-600 dark:hover:text-teal-400"
+                      >
+                        <MdPhone className="h-4 w-4" />
+                        <span>{member.phone}</span>
+                      </a>
+                    ) : null}
                     {member.email ? (
                       <a
                         href={`mailto:${member.email}`}
