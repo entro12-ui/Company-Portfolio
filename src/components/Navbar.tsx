@@ -1,560 +1,394 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+import {
+  ArrowUpRight,
+  ChevronDown,
+  Mail,
+  MapPin,
+  Menu,
+  Moon,
+  Phone,
+  Sun,
+  X,
+} from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
-import { ArrowUpRight } from "lucide-react";
+import {
+  company,
+  companyLinks,
+  industryLinks,
+  productLinks,
+  serviceLinks,
+} from "@/content/company";
 
-const productLinks = [
-  { href: "/products/edustack-schoolhub", label: "EduStack SchoolHub" },
-  { href: "/products/medicare-ai", label: "MediCare AI" },
-  { href: "/products/car-service", label: "Car Service Management System" },
-  { href: "/products/fitmind-ai", label: "FitMind AI" },
+type NavLinkItem = {
+  href: string;
+  label: string;
+  description?: string;
+};
+
+type NavGroup = {
+  label: string;
+  items: readonly NavLinkItem[];
+  columns: 1 | 2;
+  footer?: { href: string; label: string };
+};
+
+const navGroups: NavGroup[] = [
   {
-    href: "/products/control-inventory",
-    label: "Control Inventory Management System",
+    label: "Services",
+    items: serviceLinks,
+    columns: 1,
+    footer: { href: "/contact", label: "Discuss a project" },
   },
   {
-    href: "/products/property-management",
-    label: "Property Management System",
+    label: "Products",
+    items: productLinks,
+    columns: 2,
+    footer: { href: "/portfolio", label: "See them in action" },
+  },
+  {
+    label: "Industries",
+    items: industryLinks,
+    columns: 1,
+  },
+  {
+    label: "Company",
+    items: companyLinks,
+    columns: 1,
   },
 ];
 
-const industryLinks = [
-  { href: "/solutions-for-smes", label: "SMEs" },
-  { href: "/solutions-for-ngos", label: "NGOs" },
-  { href: "/solutions-for-clinics", label: "Clinics" },
-  { href: "/solutions-for-government", label: "Government" },
-];
+function DesktopDropdown({ group }: { group: NavGroup }) {
+  const pathname = usePathname();
+  const isActive = group.items.some((item) => pathname === item.href);
 
-const aboutLinks = [
-  { href: "/vision-mission", label: "Vision & Mission" },
-  { href: "/our-team", label: "Our Team" },
-  { href: "/portfolio", label: "Portfolio" },
-  { href: "/blog", label: "Blogs and Insight" },
-];
+  return (
+    <div className="group relative">
+      <button
+        className={`flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium transition-colors ${
+          isActive
+            ? "text-teal-700 dark:text-teal-300"
+            : "text-slate-700 hover:text-teal-700 dark:text-slate-300 dark:hover:text-white"
+        }`}
+        aria-haspopup="true"
+      >
+        {group.label}
+        <ChevronDown
+          className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180"
+          aria-hidden="true"
+        />
+      </button>
+
+      <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+        <div
+          className={`translate-y-2 rounded-2xl border border-slate-200/80 bg-white/95 p-2.5 shadow-[0_28px_70px_-30px_rgba(15,23,42,0.5)] backdrop-blur-xl transition-transform duration-200 group-hover:translate-y-0 group-focus-within:translate-y-0 dark:border-white/10 dark:bg-ink-900/95 ${
+            group.columns === 2 ? "w-[38rem]" : "w-[22rem]"
+          }`}
+        >
+          <div
+            className={`grid gap-1 ${group.columns === 2 ? "grid-cols-2" : "grid-cols-1"}`}
+          >
+            {group.items.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className="group/item rounded-xl px-3.5 py-3 transition-colors hover:bg-teal-50 dark:hover:bg-white/[0.06]"
+              >
+                <span className="flex items-center justify-between gap-3">
+                  <span className="text-sm font-semibold text-slate-900 dark:text-white">
+                    {item.label}
+                  </span>
+                  <ArrowUpRight
+                    className="h-3.5 w-3.5 shrink-0 text-teal-600 opacity-0 transition-all duration-200 group-hover/item:opacity-100 dark:text-teal-400"
+                    aria-hidden="true"
+                  />
+                </span>
+                {item.description ? (
+                  <span className="mt-1 block text-xs leading-5 text-slate-500 dark:text-slate-400">
+                    {item.description}
+                  </span>
+                ) : null}
+              </Link>
+            ))}
+          </div>
+
+          {group.footer ? (
+            <Link
+              href={group.footer.href}
+              className="mt-1 flex items-center justify-between rounded-xl bg-slate-50 px-3.5 py-3 text-sm font-semibold text-teal-700 transition-colors hover:bg-teal-50 dark:bg-white/[0.04] dark:text-teal-300 dark:hover:bg-white/[0.08]"
+            >
+              {group.footer.label}
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            </Link>
+          ) : null}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MobileAccordion({
+  group,
+  onNavigate,
+}: {
+  group: NavGroup;
+  onNavigate: () => void;
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border-b border-slate-200 py-1 dark:border-white/10">
+      <button
+        onClick={() => setIsOpen((prev) => !prev)}
+        className="flex w-full items-center justify-between py-3.5 text-left text-base font-semibold text-slate-900 dark:text-white"
+        aria-expanded={isOpen}
+      >
+        {group.label}
+        <ChevronDown
+          className={`h-4 w-4 text-slate-400 transition-transform duration-300 ${
+            isOpen ? "rotate-180" : ""
+          }`}
+          aria-hidden="true"
+        />
+      </button>
+      <div
+        className={`grid transition-all duration-300 ${
+          isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="space-y-1 pb-3">
+            {group.items.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={onNavigate}
+                className="block rounded-xl px-3 py-2.5 text-sm text-slate-600 transition-colors hover:bg-teal-50 hover:text-teal-700 dark:text-slate-300 dark:hover:bg-white/[0.06] dark:hover:text-white"
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isIndustriesOpen, setIsIndustriesOpen] = useState(false);
-  const [isAboutOpen, setIsAboutOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
-
+  const pathname = usePathname();
   const isDark = theme === "dark";
 
-  // Theme-based class helpers
-  const navBgClass = isDark ? "bg-black text-white" : "bg-white text-gray-900";
-  const linkBaseClass = isDark
-    ? "text-gray-300 hover:text-white hover:border-teal-400"
-    : "text-gray-600 hover:text-teal-700 hover:border-teal-600";
-  const dropdownContainerClass = isDark
-    ? "bg-gray-800 border-gray-700 text-gray-200"
-    : "bg-white border-gray-200 text-gray-700";
-  const dropdownLinkClass = isDark
-    ? "hover:bg-gray-700 hover:text-teal-300"
-    : "hover:bg-teal-50 hover:text-teal-700";
-  const mobileMenuBgClass = isDark
-    ? "bg-gray-900 border-gray-800 text-white"
-    : "bg-white border-gray-200 text-gray-900";
-  const mobileLinkClass = isDark
-    ? "hover:bg-gray-800 hover:text-teal-300"
-    : "hover:bg-teal-50 hover:text-teal-700";
-  const borderClass = isDark ? "border-gray-700" : "border-gray-200";
-  const searchInputClass = isDark
-    ? "bg-gray-800/60 border-gray-600 text-white placeholder-gray-400 focus:border-teal-500 focus:ring-teal-500"
-    : "bg-gray-100 border-gray-300 text-gray-900 placeholder-gray-500 focus:border-teal-600 focus:ring-teal-600";
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 12);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   return (
-    <nav
-      className={`fixed w-full z-50 transition-colors duration-300 ${navBgClass}`}
-    >
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
-        <div className="flex justify-between items-center w-full h-16 sm:h-20">
-          {/* Logo */}
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <div className="flex h-14 w-24 sm:h-16 sm:w-28 items-center justify-center overflow-hidden rounded-lg bg-white px-2 py-1 transform hover:scale-105 transition-transform duration-200">
-                <Image
-                  src="/logo.png"
-                  alt="Entro Ethiopia company logo"
-                  width={112}
-                  height={64}
-                  className="h-auto w-auto object-contain object-center"
-                  sizes="(min-width: 640px) 112px, 96px"
-                  quality={100}
-                  unoptimized
-                  priority
-                />
-              </div>
+    <header className="fixed inset-x-0 top-0 z-50">
+      {/* Utility bar */}
+      <div className="hidden border-b border-white/10 bg-ink-950 text-white lg:block">
+        <div className="mx-auto flex h-9 max-w-7xl items-center justify-between px-6 text-xs lg:px-8">
+          <div className="flex items-center gap-6 text-slate-300">
+            <a
+              href={company.phoneHref}
+              className="flex items-center gap-2 transition-colors hover:text-white"
+            >
+              <Phone className="h-3.5 w-3.5 text-teal-400" aria-hidden="true" />
+              {company.phone}
+            </a>
+            <a
+              href={company.emailHref}
+              className="flex items-center gap-2 transition-colors hover:text-white"
+            >
+              <Mail className="h-3.5 w-3.5 text-teal-400" aria-hidden="true" />
+              {company.email}
+            </a>
+            <span className="flex items-center gap-2">
+              <MapPin className="h-3.5 w-3.5 text-teal-400" aria-hidden="true" />
+              {company.city}
+            </span>
+          </div>
+          <p className="flex items-center gap-2 font-medium text-slate-300">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-teal-400" />
+            </span>
+            Accepting new projects for this quarter
+          </p>
+        </div>
+      </div>
+
+      {/* Main bar */}
+      <nav
+        className={`transition-all duration-300 ${
+          isScrolled
+            ? "border-b border-slate-200/70 bg-white/85 shadow-[0_10px_40px_-24px_rgba(15,23,42,0.5)] backdrop-blur-xl dark:border-white/10 dark:bg-ink-950/85"
+            : "border-b border-transparent bg-white/95 backdrop-blur-sm dark:bg-ink-950/95"
+        }`}
+      >
+        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
+          <Link href="/" className="flex shrink-0 items-center gap-3">
+            <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-slate-200 dark:ring-white/15">
+              <Image
+                src="/logo.png"
+                alt="Entro Ethiopia"
+                width={44}
+                height={44}
+                className="h-9 w-9 object-contain"
+                quality={100}
+                unoptimized
+                priority
+              />
+            </span>
+            <span className="hidden sm:block">
+              <span className="block text-[15px] font-bold leading-tight tracking-tight text-slate-900 dark:text-white">
+                Entro Ethiopia
+              </span>
+              <span className="block text-[11px] font-medium uppercase tracking-[0.14em] text-teal-700 dark:text-teal-400">
+                Software · Web · AI
+              </span>
+            </span>
+          </Link>
+
+          <div className="hidden items-center gap-1 lg:flex">
+            <Link
+              href="/"
+              className={`rounded-full px-3 py-2 text-sm font-medium transition-colors ${
+                pathname === "/"
+                  ? "text-teal-700 dark:text-teal-300"
+                  : "text-slate-700 hover:text-teal-700 dark:text-slate-300 dark:hover:text-white"
+              }`}
+            >
+              Home
             </Link>
+            {navGroups.map((group) => (
+              <DesktopDropdown key={group.label} group={group} />
+            ))}
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-6">
-            {/* Main nav links */}
-            <div className="flex items-center space-x-4 lg:space-x-8">
-              <Link
-                href="/"
-                className={`${linkBaseClass} transition duration-300 border-b-2 border-transparent hover:border-b-2`}
-              >
-                Home
-              </Link>
-
-              {/* About Us dropdown */}
-              <div className="group relative">
-                <button
-                  className={`flex items-center gap-1 ${linkBaseClass} transition duration-300`}
-                >
-                  About Us
-                  <svg
-                    className="h-4 w-4 transition-transform group-hover:rotate-180"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                <div
-                  className={`invisible absolute left-0 top-full z-50 mt-3 w-56 rounded-2xl border ${dropdownContainerClass} p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100`}
-                >
-                  <Link
-                    href="/about"
-                    className={`block rounded-xl px-4 py-3 text-sm transition ${dropdownLinkClass}`}
-                  >
-                    About Overview
-                  </Link>
-                  {aboutLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`block rounded-xl px-4 py-3 text-sm transition ${dropdownLinkClass}`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {/* Products dropdown */}
-              <div className="group relative">
-                <button
-                  className={`flex items-center gap-1 ${linkBaseClass} transition duration-300`}
-                >
-                  Products
-                  <svg
-                    className="h-4 w-4 transition-transform group-hover:rotate-180"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                <div
-                  className={`invisible absolute left-0 top-full z-50 mt-3 w-72 rounded-2xl border ${dropdownContainerClass} p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100`}
-                >
-                  {productLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`block rounded-xl px-4 py-3 text-sm transition ${dropdownLinkClass}`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-
-              {/* Industries dropdown */}
-              <div className="group relative">
-                <button
-                  className={`flex items-center gap-1 ${linkBaseClass} transition duration-300`}
-                >
-                  Industries
-                  <svg
-                    className="h-4 w-4 transition-transform group-hover:rotate-180"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-                <div
-                  className={`invisible absolute left-0 top-full z-50 mt-3 w-64 rounded-2xl border ${dropdownContainerClass} p-3 opacity-0 shadow-xl transition-all duration-200 group-hover:visible group-hover:opacity-100`}
-                >
-                  {industryLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`block rounded-xl px-4 py-3 text-sm transition ${dropdownLinkClass}`}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* Right side items: Search, Theme Toggle */}
-            <div className="flex items-center gap-2 lg:gap-3">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder="Search documentation..."
-                  className={`hidden lg:block w-48 xl:w-64 rounded-full border ${searchInputClass} px-4 py-1.5 text-sm outline-none transition-all focus:ring-1`}
-                />
-                <button className="lg:hidden p-2 rounded-full hover:bg-white/10">
-                  <svg
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    />
-                  </svg>
-                </button>
-              </div>
-
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-full transition-all duration-200 hover:bg-white/10 focus:outline-none"
-                aria-label="Toggle theme"
-              >
-                {isDark ? (
-                  <svg
-                    className="h-5 w-5 text-yellow-300"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="h-5 w-5 text-gray-700"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                    />
-                  </svg>
-                )}
-              </button>
-              
-              {/* Contact Us (outline button) */}
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 group"
-              >
-                <span className="rounded-full bg-gradient-to-r from-[#0e3b33] to-[#1a6659] px-6 py-2 text-base font-medium text-white transition-all duration-300 group-hover:from-[#1a6659] group-hover:to-[#0e3b33]">
-                  Contact-us
-                </span>
-
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-r from-[#0e3b33] to-[#1a6659] text-white transition-all duration-300 group-hover:from-[#1a6659] group-hover:to-[#0e3b33] group-hover:translate-x-1">
-                  <ArrowUpRight className="h-4 w-4" />
-                </span>
-              </Link>
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center z-50">
+          <div className="flex items-center gap-2">
             <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg transition-colors hover:bg-white/10 focus:outline-none"
+              onClick={toggleTheme}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors hover:border-teal-400 hover:text-teal-700 dark:border-white/10 dark:text-slate-300 dark:hover:border-teal-400/50 dark:hover:text-white"
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {isDark ? (
+                <Sun className="h-4 w-4" aria-hidden="true" />
+              ) : (
+                <Moon className="h-4 w-4" aria-hidden="true" />
+              )}
+            </button>
+
+            <Link
+              href="/contact"
+              className="group hidden items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-cyan-700 px-5 py-2.5 text-sm font-semibold text-white shadow-[0_14px_30px_-14px_rgba(13,148,136,0.9)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_20px_40px_-16px_rgba(13,148,136,0.95)] sm:inline-flex"
+            >
+              Start a Project
+              <ArrowUpRight
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              />
+            </Link>
+
+            <button
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-700 transition-colors dark:border-white/10 dark:text-white lg:hidden"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={isMenuOpen}
             >
               {isMenuOpen ? (
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <X className="h-5 w-5" aria-hidden="true" />
               ) : (
-                <svg
-                  className="h-6 w-6"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
+                <Menu className="h-5 w-5" aria-hidden="true" />
               )}
             </button>
           </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Mobile Navigation */}
+      {/* Mobile sheet */}
       <div
-        className={`fixed inset-0 ${
+        className={`fixed inset-x-0 bottom-0 top-[72px] z-40 lg:hidden ${
           isMenuOpen ? "pointer-events-auto" : "pointer-events-none"
         }`}
-        style={{ perspective: "1000px" }}
       >
-        {/* Backdrop */}
         <div
-          className={`fixed inset-0 top-[64px] sm:top-[80px] bg-black/30 backdrop-blur-sm z-40 transition-all duration-500 ease-in-out ${
+          className={`absolute inset-0 bg-slate-900/40 backdrop-blur-sm transition-opacity duration-300 ${
             isMenuOpen ? "opacity-100" : "opacity-0"
           }`}
           onClick={() => setIsMenuOpen(false)}
-        ></div>
-
-        {/* Mobile menu content */}
+        />
         <div
-          className={`fixed top-16 sm:top-20 left-0 right-0 border-t z-50 transition-all duration-500 ease-out transform origin-top ${mobileMenuBgClass} ${
+          className={`absolute inset-x-0 top-0 max-h-full overflow-y-auto border-b border-slate-200 bg-white px-5 pb-8 pt-4 shadow-2xl transition-all duration-300 dark:border-white/10 dark:bg-ink-950 ${
             isMenuOpen
-              ? "opacity-100 translate-y-0 scale-100"
-              : "opacity-0 -translate-y-4 scale-95"
+              ? "translate-y-0 opacity-100"
+              : "-translate-y-4 opacity-0"
           }`}
         >
-          <div className="px-4 pt-4 pb-6 space-y-3 sm:px-6">
-            {/* Search input */}
-            <div className="relative mb-2">
-              <input
-                type="text"
-                placeholder="Search documentation..."
-                className={`w-full rounded-lg border ${searchInputClass} px-4 py-2.5 text-sm outline-none transition-all focus:ring-1`}
-              />
-            </div>
+          <Link
+            href="/"
+            onClick={() => setIsMenuOpen(false)}
+            className="block border-b border-slate-200 py-3.5 text-base font-semibold text-slate-900 dark:border-white/10 dark:text-white"
+          >
+            Home
+          </Link>
+          {navGroups.map((group) => (
+            <MobileAccordion
+              key={group.label}
+              group={group}
+              onNavigate={() => setIsMenuOpen(false)}
+            />
+          ))}
 
-            <Link
-              href="/"
-              className={`block px-4 py-3 rounded-lg transition-all duration-300 ease-out transform hover:pl-6 hover:pr-2 ${mobileLinkClass}`}
-              onClick={() => setIsMenuOpen(false)}
+          <Link
+            href="/contact"
+            onClick={() => setIsMenuOpen(false)}
+            className="mt-6 flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-cyan-700 px-6 py-3.5 text-sm font-semibold text-white"
+          >
+            Start a Project
+            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+
+          <div className="mt-5 grid gap-2 text-sm">
+            <a
+              href={company.phoneHref}
+              className="flex items-center gap-2.5 rounded-xl bg-slate-50 px-4 py-3 text-slate-700 dark:bg-white/[0.04] dark:text-slate-300"
             >
-              Home
-            </Link>
-
-            {/* About Us accordion */}
-            <div className={`rounded-lg border ${borderClass}`}>
-              <button
-                onClick={() => setIsAboutOpen(!isAboutOpen)}
-                className={`flex w-full items-center justify-between px-4 py-3 text-left transition ${mobileLinkClass}`}
-              >
-                <span>About Us</span>
-                <svg
-                  className={`h-4 w-4 transition-transform ${
-                    isAboutOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              {isAboutOpen && (
-                <div className="space-y-1 px-3 pb-3">
-                  <Link
-                    href="/about"
-                    className={`block rounded-lg px-3 py-2 text-sm transition ${mobileLinkClass}`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    About Overview
-                  </Link>
-                  {aboutLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`block rounded-lg px-3 py-2 text-sm transition ${mobileLinkClass}`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Products accordion */}
-            <div className={`rounded-lg border ${borderClass}`}>
-              <button
-                onClick={() => setIsServicesOpen(!isServicesOpen)}
-                className={`flex w-full items-center justify-between px-4 py-3 text-left transition ${mobileLinkClass}`}
-              >
-                <span>Products</span>
-                <svg
-                  className={`h-4 w-4 transition-transform ${
-                    isServicesOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              {isServicesOpen && (
-                <div className="space-y-1 px-3 pb-3">
-                  {productLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`block rounded-lg px-3 py-2 text-sm transition ${mobileLinkClass}`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Industries accordion */}
-            <div className={`rounded-lg border ${borderClass}`}>
-              <button
-                onClick={() => setIsIndustriesOpen(!isIndustriesOpen)}
-                className={`flex w-full items-center justify-between px-4 py-3 text-left transition ${mobileLinkClass}`}
-              >
-                <span>Industries</span>
-                <svg
-                  className={`h-4 w-4 transition-transform ${
-                    isIndustriesOpen ? "rotate-180" : ""
-                  }`}
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19 9l-7 7-7-7"
-                  />
-                </svg>
-              </button>
-              {isIndustriesOpen && (
-                <div className="space-y-1 px-3 pb-3">
-                  {industryLinks.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      className={`block rounded-lg px-3 py-2 text-sm transition ${mobileLinkClass}`}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
-            {/* Mobile Contact Us */}
-            <Link
-              href="/contact"
-              className={`block w-full text-center rounded-full border ${borderClass} px-4 py-2.5 text-sm font-medium transition-all hover:bg-white/10`}
-              onClick={() => setIsMenuOpen(false)}
+              <Phone className="h-4 w-4 text-teal-600 dark:text-teal-400" aria-hidden="true" />
+              {company.phone}
+            </a>
+            <a
+              href={company.emailHref}
+              className="flex items-center gap-2.5 rounded-xl bg-slate-50 px-4 py-3 text-slate-700 dark:bg-white/[0.04] dark:text-slate-300"
             >
-              Contact Us
-            </Link>
-
-            {/* Actions row: Theme Toggle */}
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <button
-                onClick={toggleTheme}
-                className={`flex items-center gap-2 rounded-full border ${borderClass} px-3 py-2 text-sm transition hover:bg-white/10`}
-              >
-                {isDark ? (
-                  <>
-                    <svg
-                      className="h-4 w-4 text-yellow-300"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                      />
-                    </svg>
-                    <span>Light</span>
-                  </>
-                ) : (
-                  <>
-                    <svg
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                      />
-                    </svg>
-                    <span>Dark</span>
-                  </>
-                )}
-              </button>
-
-            
-            </div>
+              <Mail className="h-4 w-4 text-teal-600 dark:text-teal-400" aria-hidden="true" />
+              {company.email}
+            </a>
           </div>
         </div>
       </div>
-    </nav>
+    </header>
   );
 };
 

@@ -1,262 +1,153 @@
-"use client";
+import Link from "next/link";
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Building2,
+  Car,
+  Dumbbell,
+  Factory,
+  GraduationCap,
+  HeartPulse,
+  Hotel,
+  Landmark,
+  Package,
+  type LucideIcon,
+} from "lucide-react";
+import { Section, SectionHeading } from "@/components/ui/Section";
+import Reveal from "@/components/ui/Reveal";
 
-import { useState } from "react";
-import { useTheme } from "@/context/ThemeContext";
-
-const industries = [
-  {
-    icon: "🏢",
-    title: "Corporate Offices & Co-working Spaces",
-    description:
-      "Streamline internal operations, meeting management, and team workflows with integrated business software.",
-  },
-  {
-    icon: "🏨",
-    title: "Hotels & Apartments",
-    description:
-      "Manage bookings, tenant records, billing, and service workflows from one platform.",
-  },
-  {
-    icon: "🏫",
-    title: "Schools & Universities",
-    description:
-      "Digitize administration, academic workflows, parent communication, and teaching support with EduStack.",
-  },
-  {
-    icon: "🏥",
-    title: "Hospitals & Clinics",
-    description:
-      "MediCare AI for complete hospital management, including patient records, appointments, labs, pharmacy, and billing.",
-  },
-  {
-    icon: "🏭",
-    title: "Warehouses & Factories",
-    description:
-      "Improve production planning, inventory visibility, and operational reporting.",
-  },
-  {
-    icon: "🏠",
-    title: "Residential & Housing Compounds",
-    description:
-      "Manage tenants, billing cycles, maintenance requests, and property operations.",
-  },
-  {
-    icon: "💪",
-    title: "Fitness Centers & Gyms",
-    description:
-      "Run memberships, class schedules, trainer programs, and member progress tracking.",
-  },
-  {
-    icon: "🏛️",
-    title: "Government & NGO Organizations",
-    description:
-      "Deliver program tracking, document workflows, reporting, and beneficiary data management.",
-  },
-  {
-    icon: "🔧",
-    title: "Auto Service Centers & Garages",
-    description:
-      "Car Service Management System for complete garage operations. Manage customers, vehicles, appointments, service history, inventory, and automated mileage-based service alerts.",
-  },
-  {
-    icon: "🚗",
-    title: "Car Service & Maintenance Shops",
-    description:
-      "Streamline operations with our Car Service Management System. Track service records, manage appointments, handle billing, and send automated SMS/email notifications for next service mileage.",
-  },
-  {
-    icon: "⚙️",
-    title: "Auto Repair & Maintenance Facilities",
-    description:
-      "Complete digital management for repair shops. Manage customer vehicles, service history, parts inventory, loyalty programs, and generate comprehensive business reports.",
-  },
-];
-
-const sectorSolutions = [
-  {
-    title: "Healthcare Management",
-    description:
-      "AI-powered hospital management with patient care, lab, pharmacy, and AI assistance.",
-    cardClass:
-      "bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20",
-    titleClass: "text-blue-400",
-  },
-  {
-    title: "Car Service Management",
-    description:
-      "Complete digital solutions for auto service centers with automated notifications.",
-    cardClass:
-      "bg-gradient-to-br from-cyan-500/10 to-blue-500/10 border border-cyan-500/20",
-    titleClass: "text-cyan-400",
-  },
-  {
-    title: "FitMind AI",
-    description:
-      "Personal AI fitness and nutrition planning with progress tracking and PDF export.",
-    cardClass:
-      "bg-gradient-to-br from-teal-500/10 to-cyan-500/10 border border-teal-500/20",
-    titleClass: "text-teal-400",
-  },
-  {
-    title: "Inventory Management",
-    description:
-      "Control stock, transfers, sales, and advanced branch-level reporting in one system.",
-    cardClass:
-      "bg-gradient-to-br from-blue-500/10 to-cyan-500/10 border border-blue-500/20",
-    titleClass: "text-blue-400",
-  },
-  {
-    title: "Education Technology",
-    description:
-      "EduStack unifies school management, parent communication, AI tutoring, and teacher support in one platform.",
-    cardClass:
-      "bg-gradient-to-br from-teal-500/10 to-cyan-500/10 border border-teal-500/20",
-    titleClass: "text-teal-400",
-  },
-  {
-    title: "Property Management",
-    description:
-      "Manage properties, tenants, billing, maintenance, and portfolio dashboards efficiently.",
-    cardClass:
-      "bg-gradient-to-br from-orange-500/10 to-red-500/10 border border-orange-500/20",
-    titleClass: "text-orange-400",
-  },
-];
-
-const Industries = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-
-  // Theme-aware classes
-  const sectionBg = isDark
-    ? "bg-gradient-to-b from-[#071019] via-[#0a1120] to-[#05070f]"
-    : "bg-gradient-to-b from-teal-50/40 via-white to-cyan-50/50";
-  const headingClass = isDark ? "text-white" : "text-gray-900";
-  const descriptionClass = isDark ? "text-gray-300" : "text-gray-700";
-  const industryCardBg = isDark
-    ? "bg-gray-800 border-gray-700 hover:border-teal-500"
-    : "bg-white border-transparent hover:border-teal-300";
-  const industryTitleClass = isDark ? "text-white" : "text-gray-900";
-  const industryDescClass = isDark ? "text-gray-300" : "text-gray-600";
-  const sectorBg = isDark
-    ? "bg-gradient-to-br from-[#0a1120] via-[#0d1b33] to-[#05070f] ring-1 ring-white/10"
-    : "bg-gradient-to-br from-slate-900 via-[#0f2a4a] to-slate-900";
-  const sectorTitleClass = isDark ? "text-white" : "text-white";
-  const sectorTextClass = isDark ? "text-gray-200" : "text-gray-200";
-  const paginationTextClass = isDark ? "text-gray-300" : "text-white/70";
-  const dotActiveClass = isDark ? "bg-teal-500" : "bg-white";
-  const dotInactiveClass = isDark
-    ? "bg-gray-600 hover:bg-gray-500"
-    : "bg-white/35 hover:bg-white/60";
-
-  const cardsPerPage = 3;
-  const totalPages = Math.ceil(sectorSolutions.length / cardsPerPage);
-  const [activePage, setActivePage] = useState(0);
-  const start = activePage * cardsPerPage;
-  const visibleSolutions = sectorSolutions.slice(start, start + cardsPerPage);
-
-  return (
-    <section
-      id="industries"
-      className={`py-8 transition-colors duration-300 ${sectionBg}`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10 sm:mb-12">
-          <h2
-            className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 ${headingClass}`}
-          >
-            Industries We Serve
-          </h2>
-          <p
-            className={`text-lg sm:text-xl max-w-3xl mx-auto mb-8 ${descriptionClass}`}
-          >
-            Our comprehensive software solutions - including MediCare AI,
-            EduStack, Car Service Management, and custom software development -
-            serve diverse industries:
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10 sm:mb-12">
-          {industries.map((industry, index) => (
-            <div
-              key={index}
-              className={`p-6 sm:p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 ${industryCardBg}`}
-            >
-              <div className="text-5xl mb-4 text-center">{industry.icon}</div>
-              <h3
-                className={`text-lg sm:text-xl font-bold mb-3 text-center ${industryTitleClass}`}
-              >
-                {industry.title}
-              </h3>
-              <p
-                className={`text-sm sm:text-base text-center leading-relaxed ${industryDescClass}`}
-              >
-                {industry.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div
-          className={`rounded-2xl p-8 sm:p-12 text-white shadow-2xl transition-colors duration-300 ${sectorBg}`}
-        >
-          <h3
-            className={`text-3xl sm:text-4xl font-bold mb-6 text-center ${sectorTitleClass}`}
-          >
-            Tailored Solutions for Your Sector
-          </h3>
-          <p
-            className={`text-lg sm:text-xl text-center max-w-4xl mx-auto leading-relaxed mb-6 ${sectorTextClass}`}
-          >
-            Our comprehensive software solutions adapt to the unique needs of
-            your industry. Whether you need healthcare management for hospitals,
-            education technology for schools, car service management for auto
-            centers, inventory and property tools, or custom software
-            development, we provide scalable solutions that grow with your
-            business.
-          </p>
-          <div className="mt-8">
-            <div className="mb-4 text-center">
-              <p className={`text-sm ${paginationTextClass}`}>
-                {activePage + 1} / {totalPages}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {visibleSolutions.map((solution) => (
-                <div
-                  key={solution.title}
-                  className={`${solution.cardClass} backdrop-blur-sm rounded-xl p-6`}
-                >
-                  <h4
-                    className={`text-xl font-bold mb-3 ${solution.titleClass}`}
-                  >
-                    {solution.title}
-                  </h4>
-                  <p className="text-gray-300 text-sm">
-                    {solution.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-5 flex justify-center gap-2">
-              {Array.from({ length: totalPages }).map((_, index) => (
-                <button
-                  key={`sector-dot-${index}`}
-                  onClick={() => setActivePage(index)}
-                  aria-label={`Go to sector solutions page ${index + 1}`}
-                  className={`h-2.5 w-2.5 rounded-full transition-all duration-200 ${
-                    index === activePage ? dotActiveClass : dotInactiveClass
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+type Industry = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+  href: string;
 };
 
-export default Industries;
+const industries: Industry[] = [
+  {
+    icon: GraduationCap,
+    title: "Schools & universities",
+    description:
+      "Admissions, academics, finance and parent communication in one platform.",
+    href: "/products/edustack-schoolhub",
+  },
+  {
+    icon: HeartPulse,
+    title: "Hospitals & clinics",
+    description:
+      "Patient records, appointments, lab, pharmacy and billing with AI support.",
+    href: "/solutions-for-clinics",
+  },
+  {
+    icon: Package,
+    title: "Retail & distribution",
+    description:
+      "Stock control across branches and warehouses with real profitability reporting.",
+    href: "/products/control-inventory",
+  },
+  {
+    icon: Car,
+    title: "Auto service & garages",
+    description:
+      "Vehicles, service history, parts and automated mileage-based reminders.",
+    href: "/products/car-service",
+  },
+  {
+    icon: Building2,
+    title: "Property & housing",
+    description:
+      "Units, tenants, rent collection, maintenance and portfolio dashboards.",
+    href: "/products/property-management",
+  },
+  {
+    icon: Landmark,
+    title: "Government & NGOs",
+    description:
+      "Program tracking, beneficiary data, document workflows and donor reporting.",
+    href: "/solutions-for-government",
+  },
+  {
+    icon: BriefcaseBusiness,
+    title: "SMEs & professional services",
+    description:
+      "Replace spreadsheets and manual reporting with systems your team will use.",
+    href: "/solutions-for-smes",
+  },
+  {
+    icon: Hotel,
+    title: "Hotels & apartments",
+    description:
+      "Bookings, tenant records, billing and day-to-day service workflows.",
+    href: "/contact",
+  },
+  {
+    icon: Factory,
+    title: "Manufacturing & warehousing",
+    description:
+      "Production planning, inventory visibility and operational reporting.",
+    href: "/contact",
+  },
+  {
+    icon: Dumbbell,
+    title: "Fitness & wellness",
+    description:
+      "Memberships, class schedules, trainer programmes and progress tracking.",
+    href: "/products/fitmind-ai",
+  },
+];
+
+export default function Industries() {
+  return (
+    <Section id="industries" className="bg-white dark:bg-ink-950">
+      <SectionHeading
+        eyebrow="Industries"
+        title="Deep enough in your sector to skip the explaining"
+        description="We have already built for these operating models, which means discovery starts from informed questions instead of a blank page."
+      />
+
+      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        {industries.map((industry, index) => {
+          const Icon = industry.icon;
+          return (
+            <Reveal key={industry.title} delay={index * 50} className="h-full">
+              <Link
+                href={industry.href}
+                className="ring-gradient group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-teal-300 hover:shadow-[var(--shadow-lifted)] dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-teal-400/40"
+              >
+                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-500/10 transition-colors duration-300 group-hover:bg-teal-500/20">
+                  <Icon
+                    className="h-5 w-5 text-teal-600 dark:text-teal-400"
+                    aria-hidden="true"
+                  />
+                </span>
+                <h3 className="mt-5 text-[15px] font-bold leading-snug text-slate-900 dark:text-white">
+                  {industry.title}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                  {industry.description}
+                </p>
+                <ArrowUpRight
+                  className="mt-auto h-4 w-4 translate-y-1 pt-0 text-teal-600 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 dark:text-teal-400"
+                  aria-hidden="true"
+                />
+              </Link>
+            </Reveal>
+          );
+        })}
+      </div>
+
+      <Reveal delay={120} className="mt-10 text-center">
+        <p className="text-[15px] text-slate-600 dark:text-slate-400">
+          Working in a sector that is not listed?{" "}
+          <Link
+            href="/contact"
+            className="font-semibold text-teal-700 underline-offset-4 hover:underline dark:text-teal-400"
+          >
+            Tell us about your process
+          </Link>{" "}
+          — most of our platforms started exactly that way.
+        </p>
+      </Reveal>
+    </Section>
+  );
+}

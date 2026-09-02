@@ -1,495 +1,398 @@
-export const WEBSITE_KNOWLEDGE = [
+export type KnowledgeItem = {
+  keywords: string[];
+  answer: string;
+};
+
+export const WEBSITE_KNOWLEDGE: KnowledgeItem[] = [
   {
     keywords: [
-      "entro",
-      "entro ethiopia",
-      "about entro",
-      "tell me about entro",
-      "what is entro",
       "who are you",
-      "company",
-      "software company",
+      "what is entro",
+      "tell me about entro",
+      "about entro",
+      "entro ethiopia",
+      "about the company",
+      "company overview",
       "ethiopian software company",
-      "overview",
     ],
     answer:
-      "Entro Ethiopia is a local software development company based in Addis Ababa, Ethiopia. We design and build practical, dependable digital solutions—including custom web applications, mobile apps, AI solutions, and ERP systems—specifically optimized to solve real challenges and work reliably in local operational conditions.",
+      "Entro Ethiopia is a software development company based in Addis Ababa. We design and build custom web applications, mobile apps, AI solutions, and ERP systems for schools, clinics, SMEs, NGOs, and government — engineered for how Ethiopian organizations actually work.",
   },
   {
     keywords: [
-      "services",
-      "web",
-      "mobile",
-      "development",
-      "software",
-      "solutions",
-      "ui",
-      "ux",
-      "design",
-      "erp",
-      "custom",
-      "offer",
-      "provide",
-      "build",
-      "applications",
-      "tailored",
-      "business needs",
-      "enterprise",
+      "what services",
+      "your services",
+      "services you offer",
+      "what do you offer",
+      "what do you provide",
+      "what can you build",
       "what we do",
+      "core services",
     ],
     answer:
-      "Entro Ethiopia offers top-tier software solutions tailored to your specific business needs. Our core services include:\n• Custom Web Application Development (React, Next.js, Node.js)\n• Mobile App Development (React Native & Expo)\n• UI/UX Design and Prototyping\n• Custom Enterprise Resource Planning (ERP), Inventory, and Property Management Platforms\n• AI Solutions & Automation (including MediCare AI)\n• IT Consulting and Software Architecture Design.",
+      "Our core services are:\n• Custom Software Development\n• Web Development (Next.js, React)\n• Mobile Apps (React Native & Expo)\n• AI Solutions & Automation\n• ERP, Inventory & Property Management platforms\n• UI/UX Design and IT consulting\n\nTell me which one you need and I can go deeper.",
+  },
+  {
+    keywords: [
+      "custom software",
+      "bespoke software",
+      "custom development",
+      "build a system",
+      "build software",
+    ],
+    answer:
+      "We build custom software around your real workflows — not generic templates. Typical projects include business process automation, internal portals, dashboards, and integrations with tools you already use. Discovery comes first, then a fixed scope and price before we start coding.",
+  },
+  {
+    keywords: [
+      "web development",
+      "website",
+      "web app",
+      "web application",
+      "landing page",
+      "company website",
+    ],
+    answer:
+      "We build fast, SEO-ready websites and web applications with Next.js and React. That covers marketing sites, client portals, booking flows, and content-managed platforms — with accessibility and mobile performance built in.",
+  },
+  {
+    keywords: [
+      "mobile app",
+      "react native",
+      "android app",
+      "ios app",
+      "expo",
+    ],
+    answer:
+      "Yes — we build mobile apps with React Native and Expo for Android and iOS. We can ship a shared codebase, connect it to your backend, and support both store release and ongoing updates.",
+  },
+  {
+    keywords: [
+      "ai solutions",
+      "artificial intelligence",
+      "chatbot",
+      "automation",
+      "ai assistant",
+      "machine learning",
+      "openai",
+    ],
+    answer:
+      "We build practical AI that removes repetitive work: assistants and chatbots, document/report automation, clinical or business decision support, and model integrations (including OpenAI and other LLMs). If you share the task you want automated, I can point you to the right approach.",
+  },
+  {
+    keywords: [
+      "erp",
+      "enterprise resource",
+      "inventory system",
+      "property management",
+      "payroll",
+      "control inventory",
+    ],
+    answer:
+      "We build ERP-style business systems covering inventory, sales, finance/billing, HR/payroll, and property management — with branch-level reporting and dashboards management can actually use. Ask about Control Inventory or Property Management if you want product details.",
   },
   {
     keywords: [
       "products",
-      "software",
-      "built",
-      "management",
-      "system",
-      "portal",
-      "apps",
-      "app",
-      "saas",
-      "erp",
-      "payroll",
-      "todo",
-      "projects",
-      "portfolio",
+      "flagship products",
+      "software products",
       "platforms",
-      "internal",
-      "case studies",
+      "what products",
+      "portfolio products",
     ],
     answer:
-      "We have built several powerful products and custom platforms, including:\n1. EduStack: A premier K-12 school management network with AI multi-branch tools.\n2. MediCare AI: An intelligent hospital management platform reducing administrative workloads.\n3. Car Service Management System: Operational automation for auto service centers and garages.\n4. Employee Management System: A full-stack MERN platform for tracking attendance and payroll.\n5. Custom Corporate Client Implementations: Dedicated portals for clinics, tourism, advisory firms, and fleet services.",
-  },
-  {
-    keywords: [
-      "danat",
-      "dental",
-      "clinic",
-      "healthcare",
-      "booking",
-      "dentist",
-      "teeth",
-      "appointments",
-      "scheduling",
-      "visibility",
-      "ux",
-    ],
-    answer:
-      "For Danat Dental Clinic, we designed and developed a modern, mobile-friendly, and SEO-ready website integrated with a centralized online patient booking system. This custom healthcare solution successfully reduced manual scheduling workloads, enhanced online credibility, and boosted digital visibility.",
-  },
-  {
-    keywords: [
-      "operation",
-      "kilimanjaro",
-      "tourism",
-      "seo",
-      "geo",
-      "generative engine optimization",
-      "search visibility",
-      "discoverability",
-      "reservations",
-      "travel",
-    ],
-    answer:
-      "For Operation Kilimanjaro, we implemented advanced technical SEO and Generative Engine Optimization (GEO) strategies alongside a structured tour booking system. This approach restructured content for maximum AI-driven search discoverability, streamlined reservation coordinates, and built powerful digital authority.",
-  },
-  {
-    keywords: [
-      "valintine",
-      "advisors",
-      "consulting",
-      "advisory",
-      "ai integration",
-      "automation",
-      "media visualization",
-      "reporting",
-      "dashboards",
-      "workflows",
-      "aggregation",
-    ],
-    answer:
-      "For Valintine Advisors, we developed AI-driven automation systems to improve complex reporting workflows. The system automates manual data aggregation, introduces consistent media data visualization dashboards, cuts recurring process cycles down significantly, and upgrades decision-making speed.",
-  },
-  {
-    keywords: [
-      "afs",
-      "automotive",
-      "fleet",
-      "services",
-      "organogram",
-      "chart",
-      "organizational",
-      "structure",
-      "governance",
-      "layout",
-      "responsive",
-    ],
-    answer:
-      "For AFS Automotive Fleet Services International PLC, we translated a static corporate organogram into a responsive, data-driven, and interactive web layout. It optimizes corporate governance viewing, works seamlessly across any screen dimension, and is structured for easy updates as organizational teams evolve.",
-  },
-  {
-    keywords: [
-      "industries",
-      "serve",
-      "who we serve",
-      "clients",
-      "smes",
-      "ngos",
-      "hospitals",
-      "clinics",
-      "government",
-      "institutions",
-      "businesses",
-    ],
-    answer:
-      "Entro Ethiopia serves diverse fields with specialized systems. Our main industries include Small and Medium Enterprises (SMEs), Non-Governmental Organizations (NGOs), Clinics & Hospitals, Tourism & Booking services, Consulting/Advisory firms, and Government institutions looking for high-performance software built for local operational realities.",
-  },
-  {
-    keywords: [
-      "why local",
-      "local matters",
-      "conditions",
-      "offline",
-      "intermittent",
-      "internet",
-      "amharic",
-      "english",
-      "budgets",
-      "pricing",
-    ],
-    answer:
-      "Local matters because we build software tailored to Ethiopian business contexts, user skill sets, and infrastructure capabilities. Our systems feature smart offline modes to navigate intermittent internet, utilize intuitive and quick-to-learn interfaces, match local budgets without expensive imported pricing, and include dedicated close-proximity support in Amharic and English.",
-  },
-  {
-    keywords: [
-      "approach",
-      "process",
-      "phases",
-      "listen",
-      "workflow",
-      "promise",
-      "steps",
-      "discovery",
-      "planning",
-    ],
-    answer:
-      "Our software approach centers on strict execution standards:\n1. Discovery & Requirement Analysis (Listen first, code second).\n2. System Architecture Planning (Tailoring architecture over templates).\n3. Phased Development & Testing (Delivering early working components).\n4. Deployment & Multi-Branch Integration.\n5. Ongoing Local Support & Optimization. Our core promise is simple: No unnecessary complexity, no vendor lock-in, and zero unanswered support tickets.",
-  },
-  {
-    keywords: [
-      "technology",
-      "stack",
-      "tech",
-      "tools",
-      "languages",
-      "framework",
-      "react",
-      "nextjs",
-      "tailwind",
-      "nodejs",
-      "express",
-      "mongodb",
-      "mern",
-      "typescript",
-      "backend",
-      "frontend",
-      "database",
-      "coding",
-      "python",
-      "go",
-      "postgresql",
-    ],
-    answer:
-      "Our engineering team uses a cutting-edge tech stack:\n• Frontend: Next.js, React, Tailwind CSS, shadcn/ui\n• Backend: Node.js, Express, Python, Go\n• Database: MongoDB, PostgreSQL\n• Mobile: React Native, Expo",
+      "Our flagship platforms:\n1. EduStack SchoolHub — school management for KG–12\n2. MediCare AI — hospital & clinic operations with AI support\n3. Car Service Management — workshops, appointments & reminders\n4. Control Inventory — stock, sales & branch reporting\n5. Property Management — units, tenants, billing & maintenance\n6. FitMind AI — personalized fitness & nutrition plans\n\nWhich one should I explain?",
   },
   {
     keywords: [
       "edustack",
-      "school",
-      "education",
-      "academy",
-      "kg-12",
-      "institutions",
-      "management",
-      "multi-branch",
-      "parent",
-      "student",
-      "portal",
-      "academic",
-      "insights",
+      "schoolhub",
+      "school management",
+      "education technology",
       "teacherassist",
-      "lesson planning",
-      "classroom",
+      "kg-12",
+      "parent portal",
+      "student portal",
     ],
     answer:
-      "EduStack is our premier education technology platform designed for KG-12 schools, academies, school networks, and educational institutions. It seamlessly combines school management, multi-branch operations, parent and student portals, AI-powered academic insights, and TeacherAssist AI for automated lesson planning and classroom support.",
+      "EduStack SchoolHub is our education platform for KG–12 schools and academies. It covers administration, academics, finance, multi-branch operations, parent/student portals, and AI teaching support (TeacherAssist) for lesson planning and classroom help.",
   },
   {
     keywords: [
+      "medicare ai",
       "medicare",
-      "healthcare",
-      "hospital",
-      "clinic",
-      "medical",
-      "patient",
-      "laboratory",
-      "pharmacy",
-      "modules",
-      "bed management",
-      "billing",
-      "diagnostic",
-      "accuracy",
-      "workload",
-      "clinical",
-    ],
-    answer:
-      "MediCare AI is our intelligent healthcare management platform that modernizes hospital operations with advanced AI features. It includes patient management, laboratory and pharmacy modules, bed management, and billing. It is proven to reduce administrative workload by 60% and significantly improve diagnostic accuracy.",
-  },
-  {
-    keywords: [
-      "medicare ai features",
+      "hospital management",
+      "clinic management",
+      "healthcare system",
+      "patient management",
       "clinical decision",
-      "patient chatbot",
-      "multi-llm",
-      "ai assistant",
-      "gpt-4",
-      "gemini",
-      "claude",
-      "llama",
-      "voice assistant",
-      "consultation",
-      "analysis",
-      "treatment",
-      "recommendations",
-      "24/7",
     ],
     answer:
-      "MediCare AI's features significantly enhance healthcare delivery. It includes AI Clinical Decision Support to assist doctors with disease analysis and treatment recommendations, a 24/7 AI Patient Chatbot for history-based patient queries, a Multi-LLM AI Assistant (integrating GPT-4, Gemini, Claude, and Llama) for clinical consultation, and an interactive AI Voice Assistant.",
+      "MediCare AI is our healthcare management platform for hospitals and clinics. It covers patient records, appointments, lab, pharmacy, beds, and billing — plus AI clinical decision support, a 24/7 patient chatbot, and multi-LLM consultation assistance. It is designed to cut admin workload and improve care coordination.",
   },
   {
     keywords: [
-      "car",
-      "service",
-      "management",
-      "auto",
-      "centers",
+      "car service",
       "garage",
-      "vehicles",
-      "appointments",
-      "history",
-      "parts",
-      "inventory",
-      "loyalty",
-      "mileage",
-      "retention",
+      "auto service",
+      "workshop",
+      "vehicle service",
+      "mileage reminder",
     ],
     answer:
-      "Our Car Service Management System streamlines all operations for auto service centers and garages. It efficiently manages customers, vehicles, appointments, service history, parts inventory, and client loyalty programs, thereby maximizing operational throughput and boosting customer retention.",
+      "Our Car Service Management System runs auto workshops end to end: customers, vehicles, appointments, service history, parts inventory, and loyalty. It can send SMS/email reminders when a vehicle reaches the next service mileage.",
   },
   {
     keywords: [
-      "reminders",
-      "notifications",
-      "alerts",
-      "automated",
-      "sms",
-      "email",
-      "mileage requirement",
-      "updates",
-      "communication",
+      "fitmind",
+      "fitness app",
+      "nutrition plan",
+      "workout plan",
     ],
     answer:
-      "Absolutely! All our systems support automated, real-time notifications and alerts. EduStack facilitates smart parent-school communication; MediCare AI automates appointment reminders and test results; and the Car Service Management System text-alerts customers automatically based on mileage parameters.",
+      "FitMind AI creates personalized weekly workout and nutrition plans, lets users save and track progress, and supports downloadable plans with practical AI guidance.",
   },
   {
     keywords: [
-      "service history",
-      "service types",
-      "basic",
-      "major",
-      "brake",
-      "tire",
-      "ac",
-      "general",
-      "maintenance",
-      "calculate",
-      "due date",
-      "mileage parameters",
+      "danat",
+      "dental clinic",
+      "dentist",
     ],
     answer:
-      "Yes! The Car Service Management System tracks complete vehicle lifecycles, maintaining histories for all service types (Basic, Major, Brake, Tire, AC, General). It automatically calculates when the next service is due based on mileage intervals and fires out SMS/email notifications accordingly.",
+      "For Danat Dental Clinic we built a modern, mobile-friendly, SEO-ready website with an integrated online booking system. That reduced manual scheduling, improved online visibility, and made appointments easier for patients.",
   },
   {
     keywords: [
-      "deployment",
-      "cloud",
-      "local",
-      "server",
-      "installation",
-      "connected",
-      "remote access",
-      "scalability",
-      "infrastructure",
-      "preferences",
-      "data control",
+      "operation kilimanjaro",
+      "kilimanjaro",
+      "tourism booking",
     ],
     answer:
-      "Yes! All our software solutions offer ultimate deployment flexibility. You can choose cloud-connected systems for seamless remote access and instant scalability, or local server installations for enhanced on-premise data control based on your infrastructure preferences.",
+      "For Operation Kilimanjaro we improved search/GEO visibility and built a structured booking system so reservations and content were easier to manage and easier to find online.",
+  },
+  {
+    keywords: [
+      "valintine",
+      "vallintine",
+      "advisors",
+      "media reporting",
+    ],
+    answer:
+      "For Valintine Advisors we built AI-driven automation for media visualization and reporting — cutting manual data aggregation and speeding up recurring report cycles.",
+  },
+  {
+    keywords: [
+      "industries",
+      "who do you serve",
+      "who we serve",
+      "clients you serve",
+      "target clients",
+      "smes",
+      "ngos",
+      "government",
+    ],
+    answer:
+      "We work with SMEs, NGOs, clinics & hospitals, schools, tourism/booking operators, property managers, auto service centers, consulting firms, and government institutions. Most projects start from a process that is costing the team time.",
+  },
+  {
+    keywords: [
+      "tech stack",
+      "technology stack",
+      "what technologies",
+      "programming languages",
+      "frameworks",
+      "next.js",
+      "nextjs",
+      "react",
+      "typescript",
+      "node.js",
+      "nodejs",
+      "python",
+      "postgresql",
+      "mongodb",
+      "tailwind",
+    ],
+    answer:
+      "Our main stack:\n• Frontend: Next.js, React, TypeScript, Tailwind CSS\n• Backend: Node.js, Express, Python, Go\n• Databases: PostgreSQL, MongoDB\n• Mobile: React Native, Expo\n• AI: OpenAI and multi-LLM integrations\n• Deployment: cloud or on-premise\n\nWe pick the stack based on your requirements, not fashion.",
+  },
+  {
+    keywords: [
+      "how do you work",
+      "your process",
+      "project process",
+      "development process",
+      "workflow",
+      "methodology",
+      "agile",
+      "scrum",
+      "sprint",
+    ],
+    answer:
+      "Our process is built to reduce risk:\n1. Discover — map the current process with your team\n2. Scope & design — wireframes, architecture, fixed price in writing\n3. Build & review — two-week sprints with demos you can click through\n4. Launch & support — training, handover, and ongoing care\n\nYou own the source code and the data.",
+  },
+  {
+    keywords: [
+      "pricing",
+      "cost",
+      "price",
+      "budget",
+      "how much",
+      "quote",
+      "estimate",
+    ],
+    answer:
+      "Pricing depends on scope, complexity, and timeline. We give a fixed scope and fixed price in writing before production work starts. The fastest way to get a useful estimate is a short call or a brief via our Contact page — share the problem, who uses the system, and any deadline.",
   },
   {
     keywords: [
       "security",
       "secure",
-      "code",
-      "vulnerability",
-      "safety",
-      "network",
-      "models",
-      "non-repudiation",
+      "data protection",
       "encryption",
-      "data",
-      "privacy",
-      "cyber",
-      "protection",
-      "safe",
-      "assessment",
-      "attacks",
       "hipaa",
-      "compliant",
-      "audit trails",
+      "privacy",
+      "audit trail",
       "permissions",
-      "monitoring",
-      "tamper-proof",
-      "logging",
     ],
     answer:
-      "Security is built into our core DNA across all systems. Our architectural frameworks feature robust end-to-end data encryption, extensive audit trails, role-based access permissions, vulnerability assessments, non-repudiation, and continuous network security monitoring. Notably, MediCare AI is fully HIPAA-compliant with tamper-proof logging to ensure client business and medical data is 100% safe from cyber attacks.",
+      "Security is built into every project: encryption, role-based permissions, audit trails, and continuous monitoring. MediCare AI is designed for healthcare data handling with HIPAA-minded controls. You also keep ownership of your data and source code.",
   },
   {
     keywords: [
-      "agile",
-      "scrum",
-      "methodology",
-      "design",
-      "patterns",
-      "sdlc",
-      "process",
-      "sprint",
-      "project",
-      "management",
-      "workflow",
-      "method",
-      "practice",
-      "teams",
-      "architecture",
+      "deployment",
+      "cloud",
+      "on-premise",
+      "on premise",
+      "local server",
+      "hosting",
     ],
     answer:
-      "At Entro Ethiopia, we follow strict modern software engineering theories. We use the Agile and Scrum methodologies, working in 2-week sprints with strict design patterns to guarantee secure, clean, and highly scalable code architecture.",
-  },
-  {
-    keywords: [
-      "contact",
-      "phone",
-      "email",
-      "address",
-      "location",
-      "office",
-      "map",
-      "info",
-      "hours",
-      "help",
-      "support",
-      "call",
-      "number",
-      "find",
-      "reach",
-      "addis",
-    ],
-    answer:
-      "You can find or contact us here:\n• Office: Located in Addis Ababa, Ethiopia.\n• Phone: +251 979 113 638\n• Working Hours: Monday to Friday (8:30 AM - 5:30 PM East Africa Time).\n• Email: contact@entroethiopia.com or send a message via our 'Contact Us' page form.",
+      "Yes — we support both cloud and on-premise deployment. Choose cloud for remote access and easier scaling, or local servers when you need tighter data control. We advise based on your infrastructure and compliance needs.",
   },
   {
     keywords: [
       "training",
       "support",
-      "installation",
-      "configuration",
-      "setup",
-      "troubleshooting",
       "maintenance",
-      "local",
-      "ethiopian team",
+      "after launch",
       "24/7",
-      "available",
+      "installation",
+      "onboarding",
     ],
     answer:
-      "Yes, we provide holistic end-to-end services! This includes complete system installation, tailor-made configuration, extensive user training, and ongoing technical support. Our dedicated local Ethiopian team is available 24/7 to assist with setup, troubleshooting, and maintenance to ensure your team is fully comfortable.",
+      "Yes. Every delivery includes installation, configuration, staff training, and handover documentation. After launch you get ongoing support from our local Addis Ababa team, including 24/7 coverage for critical issues on supported systems.",
   },
- 
+  {
+    keywords: [
+      "contact",
+      "phone number",
+      "email address",
+      "office address",
+      "where are you",
+      "location",
+      "call you",
+      "whatsapp",
+      "reach you",
+      "addis ababa",
+    ],
+    answer:
+      "You can reach us here:\n• Phone / WhatsApp: +251 979 113 638\n• Email: entro12@entroethiopia.com\n• Office: Megnagna, Hibret Bldg, Office No. H7-702, Addis Ababa, Ethiopia\n• Hours: Monday–Friday, 9:00 AM – 6:00 PM\n\nOr use the Contact page to send a project brief.",
+  },
+  {
+    keywords: [
+      "demo",
+      "book a demo",
+      "consultation",
+      "free consultation",
+      "meeting",
+      "talk to someone",
+    ],
+    answer:
+      "Happy to help. Book a free consultation on our Contact page, call +251 979 113 638, or email entro12@entroethiopia.com. In about 30 minutes we listen to the process you want to fix and leave you with a rough scope, timeline, and price range.",
+  },
+  {
+    keywords: [
+      "why entro",
+      "why choose you",
+      "why local",
+      "local team",
+      "trust",
+    ],
+    answer:
+      "Teams choose us because we are local in Addis Ababa, senior engineers stay on the project, pricing is fixed before we start, you own the code and data, and support answers after launch — not just during the sales cycle.",
+  },
+];
+
+/**
+ * Score a user question against knowledge entries.
+ * Longer keyword phrase matches weigh more, so "medicare ai" beats bare "ai".
+ */
+export function findBestAnswer(question: string): string | null {
+  const cleaned = question
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s.+#-]/gu, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  if (!cleaned) return null;
+
+  let best: { score: number; answer: string } | null = null;
+
+  for (const item of WEBSITE_KNOWLEDGE) {
+    let score = 0;
+
+    for (const keyword of item.keywords) {
+      const key = keyword.toLowerCase();
+      if (!key) continue;
+
+      if (cleaned.includes(key)) {
+        // Longer phrases are more specific → higher weight
+        const wordCount = key.split(/\s+/).length;
+        score += 10 * wordCount + key.length;
+        continue;
+      }
+
+      // Fallback: match individual words for short keywords
+      if (!key.includes(" ") && key.length > 3) {
+        const words = cleaned.split(" ");
+        if (words.includes(key)) {
+          score += 6;
+        }
+      }
+    }
+
+    if (score > 0 && (!best || score > best.score)) {
+      best = { score, answer: item.answer };
+    }
+  }
+
+  // Require a minimum score so random short words don't hijack answers
+  if (!best || best.score < 6) return null;
+  return best.answer;
+}
+
+export const QUICK_REPLIES = [
+  "What services do you offer?",
+  "Tell me about MediCare AI",
+  "What is your tech stack?",
+  "How do I contact you?",
 ];
 
 export const POPULAR_EMOJIS = [
   "😀",
-  "😃",
-  "😄",
-  "😁",
-  "😆",
-  "😅",
-  "😂",
-  "🤣",
   "😊",
-  "😇",
   "🙂",
-  "🙃",
-  "😉",
-  "😌",
-  "😍",
-  "🥰",
-  "😘",
-  "😗",
-  "😙",
-  "😚",
-  "😋",
-  "😛",
-  "😝",
-  "😜",
-  "🤪",
-  "🤨",
-  "🧐",
-  "🤓",
-  "😎",
-  "🥸",
-  "🤩",
-  "🥳",
-  "😏",
-  "😒",
-  "😞",
-  "😔",
-  "😟",
-  "😕",
-  "🙁",
-  "☹️",
-  "😣",
-  "😖",
-  "😫",
-  "😩",
-  "🥺",
-  "😢",
-  "😭",
-  "😤",
-  "😠",
-  "😡",
-  "👋",
-  "👌",
   "👍",
-  "👎",
   "👏",
-  "🙌",
-  "👐",
   "🙏",
-  "🤝",
   "❤️",
+  "🔥",
+  "✨",
+  "💡",
+  "📌",
+  "🤝",
+  "👌",
+  "🙌",
+  "😎",
+  "🤩",
 ];

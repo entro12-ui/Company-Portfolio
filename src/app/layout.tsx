@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Poppins, Ubuntu } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import { ThemeProvider } from "@/context/ThemeContext"; // 👈 import the provider
+import { ThemeProvider } from "@/context/ThemeContext";
 import SupportBot from "@/components/SupportBot";
+import { themeInitScript } from "@/lib/theme";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,6 +33,22 @@ export const metadata: Metadata = {
     shortcut: "/icon.svg",
     apple: "/icon.svg",
   },
+  openGraph: {
+    type: "website",
+    siteName: "Entro Ethiopia",
+    title: "Entro Ethiopia — Custom Software, Web & AI Engineering",
+    description:
+      "We design, build and support custom software, web platforms, AI solutions and ERP systems for organizations across Ethiopia and Africa.",
+    url: "https://www.entroethiopia.com/",
+    images: [{ url: "/logo.png", width: 512, height: 512, alt: "Entro Ethiopia" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Entro Ethiopia — Custom Software, Web & AI Engineering",
+    description:
+      "Custom software, web platforms, AI solutions and ERP systems, engineered locally and supported for the long run.",
+    images: ["/logo.png"],
+  },
 };
 
 export default function RootLayout({
@@ -40,8 +57,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{ __html: themeInitScript }}
+        />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-GWRYL6ZV0F"
           strategy="beforeInteractive"

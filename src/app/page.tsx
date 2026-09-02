@@ -2,11 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/PageShell";
 import Hero from "@/components/Hero";
+import Services from "@/components/Services";
+import WhyEntro from "@/components/WhyEntro";
 import Industries from "@/components/Systems";
 import SoftwareProducts from "@/components/SoftwareProducts";
+import Process from "@/components/Process";
 import PastClientReview from "@/components/PastClientReview";
+import CtaBand from "@/components/CtaBand";
 import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
+import { Section, SectionHeading } from "@/components/ui/Section";
+import Reveal from "@/components/ui/Reveal";
 import { faqItems } from "@/content/faqItems";
 import { blogPosts } from "@/content/blogPosts";
 
@@ -78,57 +84,58 @@ export default function Home() {
       <JsonLd data={organizationSchema} />
       <JsonLd data={faqSchema} />
       <Hero />
+      <Services />
+      <WhyEntro />
       <SoftwareProducts />
       <Industries />
+      <Process />
       <PastClientReview />
+      <CtaBand />
 
-      {/* Blog Section - Theme-aware */}
-      <section className="bg-gradient-to-b from-slate-50 via-white to-teal-50/40 px-4 py-10 transition-colors duration-300 dark:from-[#05070f] dark:via-[#0a1120] dark:to-[#071019] sm:py-14">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-400">
-                Insights
-              </p>
-              <h2 className="mt-2 text-3xl font-bold text-slate-900 dark:text-white sm:text-4xl">
-                From Our Blog
-              </h2>
-              <p className="mt-2 max-w-2xl text-slate-600 dark:text-gray-400">
-                Explore practical guides on software, web, AI, and ERP solutions
-                for Ethiopian businesses and organizations.
-              </p>
-            </div>
+      {/* Insights */}
+      <Section
+        id="insights"
+        className="border-y border-slate-200/70 bg-slate-50 dark:border-white/10 dark:bg-ink-900"
+      >
+        <SectionHeading
+          align="left"
+          eyebrow="Insights"
+          title="Practical writing on software, AI and ERP"
+          description="Guides drawn from real projects with Ethiopian businesses and institutions — written for decision makers, not developers."
+          action={
             <Link
               href="/blog"
-              className="inline-flex items-center justify-center rounded-xl border border-teal-600 px-5 py-3 font-semibold text-teal-700 transition hover:bg-teal-50 dark:text-teal-400 dark:hover:bg-teal-950/50"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-400 dark:border-white/15 dark:bg-white/[0.05] dark:text-white"
             >
-              View All Blogs
+              Read all articles
             </Link>
-          </div>
+          }
+        />
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {blogPosts.map((post) => (
-              <article
-                key={post.slug}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-300 hover:bg-white dark:border-gray-700 dark:bg-gray-800 dark:hover:border-teal-600 dark:hover:bg-gray-750"
+        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {blogPosts.map((post, index) => (
+            <Reveal key={post.slug} delay={index * 70} className="h-full">
+              <Link
+                href={`/blog/${post.slug}`}
+                className="ring-gradient group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lifted)] dark:border-white/10 dark:bg-white/[0.03]"
               >
-                <h3 className="line-clamp-2 text-lg font-semibold text-slate-900 dark:text-white">
+                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-400">
+                  Article
+                </span>
+                <h3 className="mt-3 line-clamp-2 text-lg font-bold leading-snug text-slate-900 dark:text-white">
                   {post.title}
                 </h3>
-                <p className="mt-2 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-gray-400">
+                <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
                   {post.description}
                 </p>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="mt-4 inline-flex items-center text-sm font-semibold text-teal-700 transition hover:text-teal-800 hover:underline dark:text-teal-400 dark:hover:text-teal-300"
-                >
-                  Read article
-                </Link>
-              </article>
-            ))}
-          </div>
+                <span className="mt-auto pt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">
+                  Read article →
+                </span>
+              </Link>
+            </Reveal>
+          ))}
         </div>
-      </section>
+      </Section>
 
       <Faq />
     </PageShell>

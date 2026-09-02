@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
+/* Dark mode is driven by a `.dark` class on <html> (see ThemeContext) so that the
+   in-app toggle and Tailwind's `dark:` variants stay in sync. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0b1220;
+
   --brand-primary: #0f766e;
   --brand-primary-dark: #115e59;
   --brand-primary-light: #14b8a6;
@@ -12,6 +17,32 @@
   --brand-text-secondary: #475569;
   --brand-border: #e2e8f0;
   --brand-surface: #f8fafc;
+
+  /* Premium ink scale used for dark surfaces, hero bands and CTA sections */
+  --ink-950: #04070f;
+  --ink-900: #070c18;
+  --ink-800: #0b1222;
+  --ink-700: #111c31;
+  --ink-600: #1a2942;
+
+  --halo-teal: rgba(20, 184, 166, 0.45);
+  --halo-cyan: rgba(37, 99, 235, 0.35);
+
+  --shadow-soft: 0 1px 2px rgba(15, 23, 42, 0.04),
+    0 8px 24px -12px rgba(15, 23, 42, 0.12);
+  --shadow-lifted: 0 2px 4px rgba(15, 23, 42, 0.04),
+    0 24px 48px -24px rgba(15, 23, 42, 0.28);
+  --shadow-glow: 0 18px 40px -18px rgba(13, 148, 136, 0.55);
+}
+
+.dark {
+  --background: #04070f;
+  --foreground: #e8edf7;
+  --brand-border: rgba(255, 255, 255, 0.1);
+  --brand-surface: #0b1222;
+  --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+  --shadow-lifted: 0 2px 4px rgba(0, 0, 0, 0.4),
+    0 24px 48px -24px rgba(0, 0, 0, 0.8);
 }
 
 @theme inline {
@@ -25,6 +56,13 @@
   --color-brand-muted: var(--brand-text-secondary);
   --color-brand-border: var(--brand-border);
   --color-brand-surface: var(--brand-surface);
+
+  --color-ink-950: var(--ink-950);
+  --color-ink-900: var(--ink-900);
+  --color-ink-800: var(--ink-800);
+  --color-ink-700: var(--ink-700);
+  --color-ink-600: var(--ink-600);
+
   --color-teal-50: #f0fdfa;
   --color-teal-100: #ccfbf1;
   --color-teal-200: #99f6e4;
@@ -45,31 +83,60 @@
   --color-cyan-700: var(--brand-accent-dark);
   --color-cyan-800: #1e40af;
   --color-cyan-900: #1e3a8a;
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+  --color-nativeblack: #010808;
+  --color-lightgreen: #8abfc0;
+
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-poppins: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  --font-ubuntu: var(--font-ubuntu), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--brand-border);
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-poppins), ui-sans-serif, system-ui, -apple-system,
+      "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    letter-spacing: -0.022em;
+  }
+
+  h1 {
+    letter-spacing: -0.035em;
+  }
+
+  ::selection {
+    background: rgba(13, 148, 136, 0.24);
+    color: inherit;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* ---------------------------------------------------------------- *
+ * Motion
+ * ---------------------------------------------------------------- */
 
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom animations */
 @keyframes blob {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0) scale(1);
   }
   25% {
@@ -95,11 +162,67 @@ html {
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
-    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.45);
   }
   50% {
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.8);
+    box-shadow: 0 0 44px rgba(20, 184, 166, 0.8);
+  }
+}
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate3d(4%, -6%, 0) scale(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer-sweep {
+  from {
+    transform: translateX(-120%);
+  }
+  to {
+    transform: translateX(220%);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes beam-scan {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  35%,
+  65% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(320%);
+    opacity: 0;
   }
 }
 
@@ -111,57 +234,88 @@ html {
   animation: fade-in-up 0.6s ease-out forwards;
 }
 
+.animate-aurora {
+  animation: aurora-drift 14s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float-y 6s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee-x 38s linear infinite;
+}
+
+.marquee-paused:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
 .animation-delay-200 {
   animation-delay: 0.2s;
 }
-
 .animation-delay-400 {
   animation-delay: 0.4s;
 }
-
 .animation-delay-600 {
   animation-delay: 0.6s;
 }
-
 .animation-delay-800 {
   animation-delay: 0.8s;
 }
-
 .animation-delay-1000 {
   animation-delay: 1s;
 }
-
 .animation-delay-2000 {
   animation-delay: 2s;
 }
-
 .animation-delay-4000 {
   animation-delay: 4s;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
+/* Scroll reveal. Scoped to `.js` (set by the theme init script) so content is
+   never hidden when scripting is unavailable. `.is-visible` comes from <Reveal>. */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
+.js .reveal.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, #0f766e, #0e7490);
-  border-radius: 5px;
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .animate-blob,
+  .animate-aurora,
+  .animate-float,
+  .animate-marquee,
+  .animate-fade-in-up {
+    animation: none !important;
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, #115e59, #155e75);
-}
+/* ---------------------------------------------------------------- *
+ * Surfaces & decoration
+ * ---------------------------------------------------------------- */
 
-/* Gradient text */
 .gradient-text {
   background: linear-gradient(
     135deg,
-    var(--brand-primary) 0%,
+    var(--brand-primary-light) 0%,
     var(--brand-accent) 100%
   );
   -webkit-background-clip: text;
@@ -169,19 +323,173 @@ html {
   background-clip: text;
 }
 
-/* Card hover effects */
 .card-hover {
-  transition: all 0.3s ease;
+  transition:
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
 .card-hover:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lifted);
 }
 
-/* Focus styles for accessibility */
+/* Subtle blueprint grid used behind hero / CTA bands */
+.grid-lines {
+  background-image: linear-gradient(
+      to right,
+      rgba(148, 163, 184, 0.16) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.16) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 30%,
+    #000 35%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 30%,
+    #000 35%,
+    transparent 100%
+  );
+}
+
+.dark .grid-lines {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+}
+
+.grid-lines-invert {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 70% at 50% 25%,
+    #000 30%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 75% 70% at 50% 25%,
+    #000 30%,
+    transparent 100%
+  );
+}
+
+/* Fades the left/right edges of horizontal marquees */
+.mask-fade-x {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+}
+
+/* Gradient hairline border for premium cards */
+.ring-gradient {
+  position: relative;
+}
+
+.ring-gradient::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    140deg,
+    rgba(45, 212, 191, 0.55),
+    rgba(59, 130, 246, 0.2) 45%,
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.ring-gradient:hover::before,
+.ring-gradient:focus-within::before {
+  opacity: 1;
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 45%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.28),
+    transparent
+  );
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.shine:hover::after {
+  animation: shimmer-sweep 0.9s ease-out;
+}
+
+/* ---------------------------------------------------------------- *
+ * Scrollbar & focus
+ * ---------------------------------------------------------------- */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #14b8a6, #2563eb);
+  border-radius: 999px;
+  border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #0f766e, #1d4ed8);
+}
+
 button:focus-visible,
-a:focus-visible {
-  outline: 2px solid #0f766e;
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+summary:focus-visible {
+  outline: 2px solid #14b8a6;
   outline-offset: 2px;
+  border-radius: 6px;
 }

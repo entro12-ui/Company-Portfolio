@@ -1,157 +1,141 @@
 "use client";
 
-import { FormEvent } from "react";
-import { useTheme } from "@/context/ThemeContext";
+import { FormEvent, useState } from "react";
+import { ArrowUpRight, ShieldCheck } from "lucide-react";
+import { company } from "@/content/company";
 
 const serviceOptions = [
   "Custom Software",
   "Web Development",
   "AI Solutions",
   "ERP System",
+  "Mobile App",
   "Other",
 ];
 
-export default function ContactInquiryForm() {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
+const budgetOptions = [
+  "Not sure yet",
+  "Under 250,000 ETB",
+  "250,000 – 750,000 ETB",
+  "750,000 ETB+",
+];
 
-  // Theme-aware classes
-  const formBg = isDark
-    ? "bg-gray-800 border-gray-700"
-    : "bg-white border-slate-200";
-  const headingColor = isDark ? "text-white" : "text-gray-900";
-  const labelColor = isDark ? "text-gray-300" : "text-gray-700";
-  const inputBg = isDark
-    ? "bg-gray-900 border-gray-600 text-white"
-    : "bg-white border-slate-300 text-gray-900";
-  const inputFocusRing = isDark
-    ? "focus:border-teal-500 focus:ring-2 focus:ring-teal-800"
-    : "focus:border-teal-600 focus:ring-2 focus:ring-teal-100";
-  const selectBg = isDark
-    ? "bg-gray-900 border-gray-600 text-white"
-    : "bg-white border-slate-300 text-gray-900";
-  const helperTextColor = isDark ? "text-gray-400" : "text-gray-500";
-  const buttonGradient = isDark
-    ? "bg-gradient-to-r from-slate-800 to-teal-800 hover:from-slate-900 hover:to-teal-900"
-    : "bg-gradient-to-r from-slate-700 to-teal-700 hover:from-slate-800 hover:to-teal-800";
+const fieldClass =
+  "w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-[15px] text-slate-900 outline-none transition-colors placeholder:text-slate-400 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 dark:border-white/12 dark:bg-white/[0.04] dark:text-white dark:placeholder:text-slate-500 dark:focus:border-teal-400/60";
+
+const labelClass =
+  "mb-2 block text-sm font-medium text-slate-700 dark:text-slate-300";
+
+export default function ContactInquiryForm() {
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
-    const fullName = formData.get("fullName");
-    const organization = formData.get("organization");
-    const phone = formData.get("phone");
-    const email = formData.get("email");
-    const service = formData.get("service");
-    const message = formData.get("message");
+    const get = (key: string) => String(formData.get(key) ?? "");
 
     const subject = encodeURIComponent(
-      `Website enquiry from ${String(fullName || "New Lead")}`,
+      `Project enquiry from ${get("fullName") || "New Lead"}`,
     );
     const body = encodeURIComponent(
       [
-        `Full Name: ${String(fullName || "")}`,
-        `Organization: ${String(organization || "")}`,
-        `Phone/WhatsApp: ${String(phone || "")}`,
-        `Email: ${String(email || "")}`,
-        `Service Interested In: ${String(service || "")}`,
+        `Full Name: ${get("fullName")}`,
+        `Organization: ${get("organization")}`,
+        `Phone/WhatsApp: ${get("phone")}`,
+        `Email: ${get("email")}`,
+        `Service Interested In: ${get("service")}`,
+        `Indicative Budget: ${get("budget")}`,
         "",
         "Message:",
-        String(message || ""),
+        get("message"),
       ].join("\n"),
     );
 
-    window.location.href = `mailto:entro12@entroethiopia.com?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+    window.location.href = `${company.emailHref}?subject=${subject}&body=${body}`;
   };
 
   return (
     <form
       onSubmit={handleSubmit}
-      className={`rounded-3xl border p-8 shadow-sm transition-colors duration-300 ${formBg}`}
+      className="rounded-3xl border border-slate-200 bg-white p-7 shadow-[var(--shadow-soft)] sm:p-9 dark:border-white/10 dark:bg-white/[0.03]"
     >
-      <h2 className={`mb-6 text-2xl font-bold ${headingColor}`}>
-        Send us a message
+      <h2 className="text-2xl font-bold text-slate-900 dark:text-white">
+        Tell us about your project
       </h2>
+      <p className="mt-2 text-[15px] leading-6 text-slate-600 dark:text-slate-400">
+        The more context you give us, the more useful our first reply will be.
+        Every enquiry is read by an engineer, not a sales bot.
+      </p>
 
-      <div className="grid gap-5 sm:grid-cols-2">
+      <div className="mt-8 grid gap-5 sm:grid-cols-2">
         <div>
-          <label
-            htmlFor="fullName"
-            className={`mb-2 block text-sm font-semibold ${labelColor}`}
-          >
-            Full Name*
+          <label htmlFor="fullName" className={labelClass}>
+            Full name <span className="text-teal-600">*</span>
           </label>
           <input
             id="fullName"
             name="fullName"
             type="text"
             required
-            className={`w-full rounded-2xl border px-4 py-3 outline-none transition ${inputBg} ${inputFocusRing}`}
+            placeholder="Abebe Kebede"
+            className={fieldClass}
           />
         </div>
 
         <div>
-          <label
-            htmlFor="organization"
-            className={`mb-2 block text-sm font-semibold ${labelColor}`}
-          >
-            Organization*
+          <label htmlFor="organization" className={labelClass}>
+            Organization <span className="text-teal-600">*</span>
           </label>
           <input
             id="organization"
             name="organization"
             type="text"
             required
-            className={`w-full rounded-2xl border px-4 py-3 outline-none transition ${inputBg} ${inputFocusRing}`}
+            placeholder="Company, school or clinic"
+            className={fieldClass}
           />
         </div>
 
         <div>
-          <label
-            htmlFor="phone"
-            className={`mb-2 block text-sm font-semibold ${labelColor}`}
-          >
-            Phone/WhatsApp*
+          <label htmlFor="phone" className={labelClass}>
+            Phone / WhatsApp <span className="text-teal-600">*</span>
           </label>
           <input
             id="phone"
             name="phone"
             type="tel"
             required
-            className={`w-full rounded-2xl border px-4 py-3 outline-none transition ${inputBg} ${inputFocusRing}`}
+            placeholder="+251 9.. ... ..."
+            className={fieldClass}
           />
         </div>
 
         <div>
-          <label
-            htmlFor="email"
-            className={`mb-2 block text-sm font-semibold ${labelColor}`}
-          >
-            Email*
+          <label htmlFor="email" className={labelClass}>
+            Email <span className="text-teal-600">*</span>
           </label>
           <input
             id="email"
             name="email"
             type="email"
             required
-            className={`w-full rounded-2xl border px-4 py-3 outline-none transition ${inputBg} ${inputFocusRing}`}
+            placeholder="you@company.com"
+            className={fieldClass}
           />
         </div>
 
-        <div className="sm:col-span-2">
-          <label
-            htmlFor="service"
-            className={`mb-2 block text-sm font-semibold ${labelColor}`}
-          >
-            Service Interested In*
+        <div>
+          <label htmlFor="service" className={labelClass}>
+            What do you need? <span className="text-teal-600">*</span>
           </label>
           <select
             id="service"
             name="service"
             required
             defaultValue=""
-            className={`w-full rounded-2xl border px-4 py-3 outline-none transition ${selectBg} ${inputFocusRing}`}
+            className={fieldClass}
           >
             <option value="" disabled>
               Select a service
@@ -164,33 +148,58 @@ export default function ContactInquiryForm() {
           </select>
         </div>
 
-        <div className="sm:col-span-2">
-          <label
-            htmlFor="message"
-            className={`mb-2 block text-sm font-semibold ${labelColor}`}
+        <div>
+          <label htmlFor="budget" className={labelClass}>
+            Indicative budget
+          </label>
+          <select
+            id="budget"
+            name="budget"
+            defaultValue="Not sure yet"
+            className={fieldClass}
           >
-            Message*
+            {budgetOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        <div className="sm:col-span-2">
+          <label htmlFor="message" className={labelClass}>
+            What problem are you trying to solve?{" "}
+            <span className="text-teal-600">*</span>
           </label>
           <textarea
             id="message"
             name="message"
             required
             rows={6}
-            className={`w-full rounded-2xl border px-4 py-3 outline-none transition ${inputBg} ${inputFocusRing}`}
+            placeholder="Describe the process that is costing you time today, who uses it, and what a good outcome would look like."
+            className={fieldClass}
           />
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <p className={`text-sm ${helperTextColor}`}>
-          Submitting will open your email app with your enquiry details filled
-          in.
+      <div className="mt-7 flex flex-col gap-5 border-t border-slate-100 pt-7 sm:flex-row sm:items-center sm:justify-between dark:border-white/10">
+        <p className="flex items-start gap-2.5 text-sm leading-6 text-slate-500 dark:text-slate-400">
+          <ShieldCheck
+            className="mt-0.5 h-4 w-4 shrink-0 text-teal-600 dark:text-teal-400"
+            aria-hidden="true"
+          />
+          Your details stay with our team. Submitting opens your email app with
+          everything filled in.
         </p>
         <button
           type="submit"
-          className={`inline-flex items-center justify-center rounded-xl px-6 py-3 font-semibold text-white transition ${buttonGradient}`}
+          className="group inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_36px_-16px_rgba(20,184,166,0.95)] transition-all duration-300 hover:-translate-y-0.5"
         >
-          Send Message
+          {submitted ? "Opening your email app…" : "Send enquiry"}
+          <ArrowUpRight
+            className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            aria-hidden="true"
+          />
         </button>
       </div>
     </form>

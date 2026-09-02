@@ -1,427 +1,203 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
-import type { ReactNode } from "react";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6";
-import { useTheme } from "@/context/ThemeContext";
+import {
+  company,
+  companyLinks,
+  industryLinks,
+  productLinks,
+  serviceLinks,
+} from "@/content/company";
 
-type SocialIconProps = {
-  href: string;
-  label: string;
-  icon: ReactNode;
-  iconClassName: string;
-};
+const legalLinks = [
+  { href: "/privacy-policy", label: "Privacy Policy" },
+  { href: "/terms-and-conditions", label: "Terms & Conditions" },
+  { href: "/business-card", label: "Business Card" },
+];
 
-function SocialIcon({ href, label, icon, iconClassName }: SocialIconProps) {
+const socials = [
+  {
+    href: company.socials.facebook,
+    label: "Facebook",
+    icon: <FaFacebookF className="h-4 w-4" />,
+  },
+  {
+    href: company.socials.instagram,
+    label: "Instagram",
+    icon: <FaInstagram className="h-4 w-4" />,
+  },
+  {
+    href: company.socials.tiktok,
+    label: "TikTok",
+    icon: <FaTiktok className="h-4 w-4" />,
+  },
+];
+
+function LinkColumn({
+  title,
+  links,
+}: {
+  title: string;
+  links: readonly { href: string; label: string }[];
+}) {
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
-      aria-label={label}
-      className="flex h-8 w-8 items-center justify-center transition hover:opacity-85"
-    >
-      <span className={iconClassName}>{icon}</span>
-    </a>
+    <div>
+      <h3 className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+        {title}
+      </h3>
+      <ul className="mt-5 space-y-3">
+        {links.map((link) => (
+          <li key={link.href}>
+            <Link
+              href={link.href}
+              className="text-sm text-slate-400 transition-colors hover:text-white"
+            >
+              {link.label}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
 const Footer = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-
-  // Theme-aware classes
-  const footerBgClass = isDark
-    ? "bg-slate-950 text-white border-slate-800"
-    : "bg-gray-50 text-gray-900 border-gray-200";
-  const textMutedClass = isDark ? "text-slate-400" : "text-gray-500";
-  const headingClass = isDark ? "text-slate-500" : "text-gray-400";
-  const linkClass = isDark
-    ? "text-slate-300 hover:text-white"
-    : "text-gray-600 hover:text-teal-700";
-  const cardBgClass = isDark
-    ? "bg-slate-900/60 border-slate-800 hover:border-teal-500/40"
-    : "bg-white/80 border-gray-200 hover:border-teal-400";
-  const borderClass = isDark ? "border-slate-800" : "border-gray-200";
+  const year = new Date().getFullYear();
 
   return (
     <footer
-      className={`border-t transition-colors duration-300 ${footerBgClass}`}
       id="contact"
+      className="relative isolate overflow-hidden bg-ink-950 text-white"
     >
-      <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-14 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[1.2fr_1.8fr]">
-          {/* Left column */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="absolute -top-40 left-1/4 h-80 w-80 rounded-full bg-teal-600/10 blur-[120px]" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* Closing CTA */}
+        <div className="flex flex-col items-center gap-6 border-b border-white/10 py-12 text-center lg:flex-row lg:justify-between lg:text-left">
           <div>
-            <div className="mb-5 flex items-center gap-4">
-              <div className="flex h-18 w-28 items-center justify-center overflow-hidden rounded-xl border border-teal-300/40 bg-white px-2 shadow-[0_0_20px_rgba(45,212,191,0.18)] ring-1 ring-white/20">
+            <h2 className="text-2xl font-bold text-white sm:text-3xl">
+              Let&apos;s build something your team will actually use.
+            </h2>
+            <p className="mt-2 text-[15px] text-slate-400">
+              Free consultation, honest scoping, and a clear price before any
+              commitment.
+            </p>
+          </div>
+          <Link
+            href="/contact"
+            className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-7 py-3.5 text-sm font-semibold text-white shadow-[0_16px_40px_-18px_rgba(20,184,166,0.95)] transition-all duration-300 hover:-translate-y-0.5"
+          >
+            Start a project
+            <ArrowUpRight
+              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            />
+          </Link>
+        </div>
+
+        {/* Main footer */}
+        <div className="grid gap-12 py-14 lg:grid-cols-[1.3fr_2fr] lg:gap-16">
+          <div>
+            <Link href="/" className="flex items-center gap-3">
+              <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-white/15">
                 <Image
                   src="/logo.png"
-                  alt="Entro Ethiopia company logo"
-                  width={112}
-                  height={72}
-                  className="h-auto w-auto object-contain object-center"
-                  sizes="112px"
+                  alt="Entro Ethiopia"
+                  width={48}
+                  height={48}
+                  className="h-10 w-10 object-contain"
                   quality={100}
                   unoptimized
                 />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-white">
-                  Entro Ethiopia
-                </h2>
-                <p className={`text-sm ${textMutedClass}`}>
+              </span>
+              <span>
+                <span className="block text-lg font-bold leading-tight text-white">
+                  {company.name}
+                </span>
+                <span className="block text-[11px] font-medium uppercase tracking-[0.14em] text-teal-400">
                   Software Development PLC
-                </p>
-              </div>
-            </div>
+                </span>
+              </span>
+            </Link>
 
-            <p className={`max-w-md text-sm leading-7 ${textMutedClass}`}>
-              Entro Ethiopia is a software development company in Addis Ababa,
-              Ethiopia providing{" "}
-              <Link
-                href="/custom-software-development"
-                className={`transition hover:underline ${linkClass}`}
-              >
-                custom software development
-              </Link>
-              ,{" "}
-              <Link
-                href="/web-development"
-                className={`transition hover:underline ${linkClass}`}
-              >
-                web development
-              </Link>
-              ,{" "}
-              <Link
-                href="/ai-solutions"
-                className={`transition hover:underline ${linkClass}`}
-              >
-                AI solutions
-              </Link>
-              , and{" "}
-              <Link
-                href="/erp-systems"
-                className={`transition hover:underline ${linkClass}`}
-              >
-                ERP systems
-              </Link>{" "}
-              for{" "}
-              <Link
-                href="/solutions-for-smes"
-                className={`transition hover:underline ${linkClass}`}
-              >
-                SMEs
-              </Link>
-              ,{" "}
-              <Link
-                href="/solutions-for-ngos"
-                className={`transition hover:underline ${linkClass}`}
-              >
-                NGOs
-              </Link>
-              , schools, clinics, and{" "}
-              <Link
-                href="/solutions-for-government"
-                className={`transition hover:underline ${linkClass}`}
-              >
-                government institutions
-              </Link>
-              .
+            <p className="mt-6 max-w-md text-sm leading-7 text-slate-400">
+              We build custom software, web platforms, AI solutions and ERP
+              systems for schools, clinics, NGOs, government institutions and
+              growing businesses across Ethiopia — and support them long after
+              launch.
             </p>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
+            <div className="mt-7 space-y-3">
               <a
-                href="tel:+251979113638"
-                className={`rounded-2xl border px-4 py-3 text-sm transition ${cardBgClass}`}
+                href={company.phoneHref}
+                className="flex items-center gap-3 text-sm text-slate-300 transition-colors hover:text-white"
               >
-                <span
-                  className={`mb-1 block text-xs font-semibold uppercase tracking-wide ${headingClass}`}
-                >
-                  Phone
-                </span>
-                <span className="font-medium">+251 979 113 638</span>
+                <Phone className="h-4 w-4 text-teal-400" aria-hidden="true" />
+                {company.phone}
               </a>
               <a
-                href="mailto:entro12@entroethiopia.com"
-                className={`rounded-2xl border px-4 py-3 text-sm transition ${cardBgClass}`}
+                href={company.emailHref}
+                className="flex items-center gap-3 text-sm text-slate-300 transition-colors hover:text-white"
               >
-                <span
-                  className={`mb-1 block text-xs font-semibold uppercase tracking-wide ${headingClass}`}
-                >
-                  Email
-                </span>
-                <span className="font-medium">entro12@entroethiopia.com</span>
+                <Mail className="h-4 w-4 text-teal-400" aria-hidden="true" />
+                {company.email}
               </a>
+              <p className="flex items-start gap-3 text-sm text-slate-400">
+                <MapPin
+                  className="mt-0.5 h-4 w-4 shrink-0 text-teal-400"
+                  aria-hidden="true"
+                />
+                <span>
+                  {company.address}
+                  <br />
+                  {company.city} · TIN {company.tin}
+                </span>
+              </p>
             </div>
 
-            <div className={`mt-5 text-sm leading-7 ${textMutedClass}`}>
-              <p>Megnagna, Hibret Bldg, Office No. H7-702</p>
-              <p>Addis Ababa, Ethiopia</p>
-              <p className="mt-2">TIN: 0095875999</p>
+            <div className="mt-7 flex gap-3">
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-slate-300 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-400/40 hover:text-white"
+                >
+                  {social.icon}
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Right columns (links) */}
-          <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:grid-cols-4">
-            {/* Quick Links */}
-            <div>
-              <h3
-                className={`mb-4 text-xs font-semibold uppercase tracking-[0.2em] ${headingClass}`}
-              >
-                Quick Links
-              </h3>
-              <ul
-                className={`space-y-3 text-sm ${isDark ? "text-slate-300" : "text-gray-600"}`}
-              >
-                <li>
-                  <Link href="/" className={`transition ${linkClass}`}>
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className={`transition ${linkClass}`}>
-                    About
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className={`transition ${linkClass}`}>
-                    Contact
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/privacy-policy"
-                    className={`transition ${linkClass}`}
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/terms-and-conditions"
-                    className={`transition ${linkClass}`}
-                  >
-                    Terms &amp; Conditions
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Products */}
-            <div>
-              <h3
-                className={`mb-4 text-xs font-semibold uppercase tracking-[0.2em] ${headingClass}`}
-              >
-                Products
-              </h3>
-              <ul
-                className={`space-y-3 text-sm ${isDark ? "text-slate-300" : "text-gray-600"}`}
-              >
-                <li>
-                  <Link
-                    href="/products/edustack-schoolhub"
-                    className={`transition ${linkClass}`}
-                  >
-                    EduStack SchoolHub
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/products/medicare-ai"
-                    className={`transition ${linkClass}`}
-                  >
-                    MediCare AI
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/products/car-service"
-                    className={`transition ${linkClass}`}
-                  >
-                    Car Service Management System
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/products/fitmind-ai"
-                    className={`transition ${linkClass}`}
-                  >
-                    FitMind AI
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/products/control-inventory"
-                    className={`transition ${linkClass}`}
-                  >
-                    Control Inventory Management System
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/products/property-management"
-                    className={`transition ${linkClass}`}
-                  >
-                    Property Management System
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Industries */}
-            <div>
-              <h3
-                className={`mb-4 text-xs font-semibold uppercase tracking-[0.2em] ${headingClass}`}
-              >
-                Industries
-              </h3>
-              <ul
-                className={`space-y-3 text-sm ${isDark ? "text-slate-300" : "text-gray-600"}`}
-              >
-                <li>
-                  <Link
-                    href="/solutions-for-smes"
-                    className={`transition ${linkClass}`}
-                  >
-                    SMEs
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions-for-ngos"
-                    className={`transition ${linkClass}`}
-                  >
-                    NGOs
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions-for-clinics"
-                    className={`transition ${linkClass}`}
-                  >
-                    Clinics
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/solutions-for-government"
-                    className={`transition ${linkClass}`}
-                  >
-                    Government
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Support */}
-            <div>
-              <h3
-                className={`mb-4 text-xs font-semibold uppercase tracking-[0.2em] ${headingClass}`}
-              >
-                Support
-              </h3>
-              <ul className="space-y-3 text-sm">
-                <li>
-                  <a
-                    href="mailto:entro12@entroethiopia.com"
-                    className={`font-medium transition ${linkClass}`}
-                  >
-                    Email Support
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://web.facebook.com/profile.php?id=61574279425487"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`font-medium transition ${linkClass}`}
-                  >
-                    Facebook Page
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/entroethiopia/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`font-medium transition ${linkClass}`}
-                  >
-                    Instagram
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.tiktok.com/@entroethiopia?_r=1&_t=ZS-95Ofst4pNzh"
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`font-medium transition ${linkClass}`}
-                  >
-                    TikTok
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="tel:+251979113638"
-                    className={`font-medium transition ${linkClass}`}
-                  >
-                    Call Us
-                  </a>
-                </li>
-                <li>
-                  <Link
-                    href="/contact"
-                    className={`font-medium transition ${linkClass}`}
-                  >
-                    Project Enquiry
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/business-card"
-                    className={`font-medium transition ${linkClass}`}
-                  >
-                    Business Card
-                  </Link>
-                </li>
-              </ul>
-              <div className="mt-6">
-                <p
-                  className={`mb-3 text-xs font-semibold uppercase tracking-[0.2em] ${headingClass}`}
-                >
-                  Social Pages
-                </p>
-                <div className="mt-5 flex gap-3">
-                  <SocialIcon
-                    href="https://web.facebook.com/profile.php?id=61574279425487"
-                    label="Facebook"
-                    icon={<FaFacebookF className="h-4 w-4" />}
-                    iconClassName="text-[#1877F2]"
-                  />
-                  <SocialIcon
-                    href="https://www.instagram.com/entroethiopia/"
-                    label="Instagram"
-                    icon={<FaInstagram className="h-4 w-4" />}
-                    iconClassName="text-[#E4405F]"
-                  />
-                  <SocialIcon
-                    href="https://www.tiktok.com/@entroethiopia?_r=1&_t=ZS-95Ofst4pNzh"
-                    label="TikTok"
-                    icon={<FaTiktok className="h-4 w-4" />}
-                    iconClassName="text-white"
-                  />
-                </div>
-              </div>
-            </div>
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-4">
+            <LinkColumn title="Services" links={serviceLinks} />
+            <LinkColumn title="Products" links={productLinks} />
+            <LinkColumn title="Industries" links={industryLinks} />
+            <LinkColumn title="Company" links={companyLinks} />
           </div>
         </div>
 
-        <div
-          className={`mt-10 flex flex-col gap-3 border-t pt-6 text-sm ${textMutedClass} sm:flex-row sm:items-center sm:justify-between ${borderClass}`}
-        >
-          <p>© 2025 Entro Ethiopia. All rights reserved.</p>
-          <p>Built for businesses across Addis Ababa and Ethiopia.</p>
+        {/* Bottom bar */}
+        <div className="flex flex-col gap-4 border-t border-white/10 py-7 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            © {year} {company.name}. All rights reserved.
+          </p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+            {legalLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="transition-colors hover:text-slate-300"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

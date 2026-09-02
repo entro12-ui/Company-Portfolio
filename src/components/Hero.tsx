@@ -1,197 +1,278 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
-import { useTheme } from "@/context/ThemeContext";
+import {
+  ArrowUpRight,
+  BadgeCheck,
+  BrainCircuit,
+  Clock,
+  Play,
+  ShieldCheck,
+  Sparkles,
+} from "lucide-react";
 
 const stats = [
-  { value: "6+", label: "Flagship Products" },
-  { value: "10+", label: "Industries Served" },
-  { value: "100%", label: "Locally Engineered" },
-  { value: "24/7", label: "Support & Care" },
+  { value: "6+", label: "Flagship products" },
+  { value: "10+", label: "Industries served" },
+  { value: "100%", label: "Locally engineered" },
+  { value: "24/7", label: "Support & care" },
 ];
 
-const Hero = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
+const trustedBy = [
+  { name: "duey.ai", logo: "/duey.ai.png" },
+  { name: "Danat Dental Clinic", logo: "/healthcare-client-logo.png" },
+  { name: "Operation Kilimanjaro", logo: "/operation-kilimanjaro-logo.png" },
+  { name: "Parka", logo: "/Parka.png" },
+  { name: "Vallintine", logo: "/vallintine.png" },
+];
 
-  const sectionBg = isDark
-    ? "bg-gradient-to-br from-[#05070f] via-[#0a1120] to-[#04121a]"
-    : "bg-gradient-to-br from-slate-50 via-white to-cyan-50/60";
+const assurances = [
+  { icon: ShieldCheck, label: "Security-first builds" },
+  { icon: Clock, label: "Delivery on schedule" },
+  { icon: BadgeCheck, label: "Post-launch support" },
+];
 
-  const titleColor = isDark ? "text-white" : "text-slate-900";
-  const subtitleColor = isDark ? "text-slate-300" : "text-slate-700";
-  const descriptionColor = isDark ? "text-slate-400" : "text-slate-600";
-  const taglineColor = isDark ? "text-slate-200" : "text-slate-800";
-
-  const badgeClasses = isDark
-    ? "border-teal-400/30 bg-teal-400/10 text-teal-200"
-    : "border-teal-600/20 bg-teal-50 text-teal-700";
-
-  const primaryButton =
-    "bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-lg shadow-teal-500/30 hover:shadow-xl hover:shadow-teal-500/40 hover:brightness-105";
-
-  const secondaryButton = isDark
-    ? "border-white/15 bg-white/5 text-white hover:bg-white/10 backdrop-blur"
-    : "border-slate-200 bg-white/80 text-slate-800 hover:bg-white backdrop-blur";
-
-  const statValueColor = isDark ? "text-white" : "text-slate-900";
-  const statLabelColor = isDark ? "text-slate-400" : "text-slate-500";
-  const dividerColor = isDark ? "border-white/10" : "border-slate-200";
-
+function DashboardMock() {
   return (
-    <section
-      className={`relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28 ${sectionBg} min-h-[640px] transition-colors duration-300`}
-    >
-      {/* Layered background */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        {/* Grid pattern */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: isDark
-              ? "linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px)"
-              : "linear-gradient(rgba(15,23,42,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(15,23,42,0.05) 1px, transparent 1px)",
-            backgroundSize: "44px 44px",
-            maskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%)",
-            WebkitMaskImage:
-              "radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%)",
-          }}
-        />
-        {/* Glow orbs */}
-        <div className="absolute -top-32 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-teal-500/20 blur-[120px]" />
-        <div className="absolute -bottom-40 -left-24 h-80 w-80 rounded-full bg-cyan-500/15 blur-[100px]" />
-        <div className="absolute -bottom-32 right-0 h-72 w-72 rounded-full bg-blue-500/10 blur-[100px]" />
+    <div className="relative">
+      {/* Glow behind the panel */}
+      <div
+        className="absolute -inset-8 rounded-[3rem] bg-gradient-to-tr from-teal-500/25 via-cyan-500/10 to-transparent blur-3xl"
+        aria-hidden="true"
+      />
+
+      <div className="relative rounded-2xl border border-white/12 bg-gradient-to-b from-white/[0.09] to-white/[0.03] p-2.5 shadow-[0_40px_100px_-40px_rgba(0,0,0,0.9)] backdrop-blur-xl">
+        <div className="overflow-hidden rounded-xl border border-white/10 bg-ink-900/90">
+          {/* Window chrome */}
+          <div className="flex items-center gap-2 border-b border-white/8 px-4 py-3">
+            <span className="h-2.5 w-2.5 rounded-full bg-rose-400/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
+            <span className="ml-3 rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-medium tracking-wide text-slate-400">
+              entro · delivery console
+            </span>
+          </div>
+
+          <div className="space-y-4 p-4 sm:p-5">
+            {/* KPI row */}
+            <div className="grid grid-cols-3 gap-3">
+              {[
+                { label: "Uptime", value: "99.9%", accent: "text-emerald-300" },
+                { label: "Releases", value: "128", accent: "text-teal-300" },
+                { label: "Avg. response", value: "< 2h", accent: "text-cyan-300" },
+              ].map((kpi) => (
+                <div
+                  key={kpi.label}
+                  className="rounded-lg border border-white/8 bg-white/[0.04] p-3"
+                >
+                  <p className="text-[10px] uppercase tracking-wider text-slate-500">
+                    {kpi.label}
+                  </p>
+                  <p className={`mt-1 text-lg font-bold ${kpi.accent}`}>
+                    {kpi.value}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Chart */}
+            <div className="rounded-lg border border-white/8 bg-white/[0.03] p-4">
+              <div className="mb-3 flex items-center justify-between">
+                <p className="text-xs font-semibold text-slate-300">
+                  Project velocity
+                </p>
+                <span className="rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
+                  +38%
+                </span>
+              </div>
+              <div className="flex h-24 items-end gap-1.5">
+                {[38, 52, 44, 63, 58, 74, 69, 88, 82, 96].map((height, index) => (
+                  <div
+                    key={index}
+                    className="flex-1 rounded-t bg-gradient-to-t from-teal-500/25 to-teal-400"
+                    style={{ height: `${height}%` }}
+                  />
+                ))}
+              </div>
+            </div>
+
+            {/* Module list */}
+            <div className="space-y-2">
+              {[
+                { name: "Patient records module", progress: 100, state: "Live" },
+                { name: "AI reporting assistant", progress: 76, state: "In build" },
+                { name: "Payments integration", progress: 42, state: "In build" },
+              ].map((item) => (
+                <div
+                  key={item.name}
+                  className="rounded-lg border border-white/8 bg-white/[0.03] px-3.5 py-3"
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <p className="truncate text-xs font-medium text-slate-200">
+                      {item.name}
+                    </p>
+                    <span
+                      className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${
+                        item.state === "Live"
+                          ? "bg-emerald-400/10 text-emerald-300"
+                          : "bg-teal-400/10 text-teal-300"
+                      }`}
+                    >
+                      {item.state}
+                    </span>
+                  </div>
+                  <div className="mt-2 h-1 overflow-hidden rounded-full bg-white/10">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-teal-400 to-cyan-400"
+                      style={{ width: `${item.progress}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          {/* Badge */}
-          <div
-            className={`animate-fade-in-up mb-7 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-xs font-semibold backdrop-blur sm:text-sm ${badgeClasses}`}
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-teal-500" />
-            </span>
-            Trusted, Scalable, Locally Engineered Solutions
+      {/* Floating badges */}
+      <div className="animate-float absolute -left-4 top-1/3 hidden rounded-xl border border-white/12 bg-ink-800/90 px-3.5 py-2.5 shadow-xl backdrop-blur-xl sm:block">
+        <div className="flex items-center gap-2.5">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-400/15">
+            <BrainCircuit className="h-4 w-4 text-teal-300" aria-hidden="true" />
+          </span>
+          <div>
+            <p className="text-[11px] font-semibold text-white">AI-assisted</p>
+            <p className="text-[10px] text-slate-400">Built into the workflow</p>
           </div>
+        </div>
+      </div>
 
-          <h1
-            className={`animate-fade-in-up animation-delay-200 mb-6 font-poppins text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl md:text-7xl ${titleColor}`}
-          >
-            Custom Software Development
-            <span className="mt-2 block bg-gradient-to-r from-teal-500 via-cyan-500 to-teal-400 bg-clip-text text-transparent">
-              Company in Ethiopia
-            </span>
-          </h1>
-
-          <p
-            className={`animate-fade-in-up animation-delay-400 mx-auto mb-4 max-w-3xl text-lg leading-relaxed sm:text-xl ${subtitleColor}`}
-          >
-            As a leading software company in Ethiopia, Entro Ethiopia provides
-            comprehensive digital solutions including{" "}
-            <span className="font-semibold text-teal-600 dark:text-teal-400">
-              <Link href="/custom-software-development" className="hover:underline">
-                custom software development
-              </Link>
-              ,{" "}
-              <Link href="/web-development" className="hover:underline">
-                web platforms
-              </Link>
-              ,{" "}
-              <Link href="/ai-solutions" className="hover:underline">
-                AI solutions
-              </Link>
-              ,{" "}
-              <Link href="/erp-systems" className="hover:underline">
-                ERP systems
-              </Link>
-              , education technology platforms, healthcare management, and car
-              service management
-            </span>
-            .
-          </p>
-
-          <p
-            className={`animate-fade-in-up animation-delay-600 mx-auto mb-8 max-w-2xl text-base leading-relaxed sm:text-lg ${descriptionColor}`}
-          >
-            Entro Ethiopia delivers innovative, locally-developed software
-            solutions that transform businesses through automation, AI-powered
-            systems, and intelligent management platforms.
-          </p>
-
-          <div
-            className={`animate-fade-in-up animation-delay-800 mb-9 flex items-center justify-center gap-2 font-medium ${taglineColor}`}
-          >
-            <span className="text-xl text-teal-500">→</span>
-            <span className="text-base sm:text-lg">
-              Innovation. Excellence. Local Expertise.
-            </span>
+      <div className="animate-float animation-delay-2000 absolute -right-3 bottom-10 hidden rounded-xl border border-white/12 bg-ink-800/90 px-3.5 py-2.5 shadow-xl backdrop-blur-xl sm:block">
+        <div className="flex items-center gap-2.5">
+          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-400/15">
+            <ShieldCheck className="h-4 w-4 text-emerald-300" aria-hidden="true" />
+          </span>
+          <div>
+            <p className="text-[11px] font-semibold text-white">Data secured</p>
+            <p className="text-[10px] text-slate-400">Role-based & audited</p>
           </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
-          <div className="animate-fade-in-up animation-delay-1000 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="#contact"
-              className={`group inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 text-base font-semibold transition-all duration-300 hover:-translate-y-1 sm:px-10 sm:py-5 sm:text-lg ${primaryButton}`}
-            >
-              Get a Demo
-              <svg
-                className="h-5 w-5 transition-transform group-hover:translate-x-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+const Hero = () => {
+  return (
+    <section className="relative isolate overflow-hidden bg-ink-950">
+      {/* Ambient background */}
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="grid-lines-invert absolute inset-0" />
+        <div className="animate-aurora absolute -top-40 left-1/4 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-teal-500/20 blur-[130px]" />
+        <div className="animate-aurora animation-delay-2000 absolute -bottom-52 right-0 h-[32rem] w-[32rem] rounded-full bg-cyan-600/20 blur-[130px]" />
+      </div>
+
+      <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pb-24 sm:pt-20 lg:px-8 lg:pb-28 lg:pt-24">
+        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+          {/* Copy */}
+          <div className="max-w-2xl">
+            <div className="animate-fade-in-up inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold text-teal-200 backdrop-blur sm:text-[13px]">
+              <Sparkles className="h-3.5 w-3.5 text-teal-300" aria-hidden="true" />
+              Software · Web · AI · ERP — engineered in Addis Ababa
+            </div>
+
+            <h1 className="animate-fade-in-up animation-delay-200 mt-7 text-balance text-4xl font-bold leading-[1.07] text-white sm:text-5xl lg:text-[3.5rem]">
+              Custom software development
+              <span className="mt-2 block bg-gradient-to-r from-teal-300 via-teal-200 to-cyan-300 bg-clip-text text-transparent">
+                that moves your organization forward
+              </span>
+            </h1>
+
+            <p className="animate-fade-in-up animation-delay-400 mt-6 max-w-xl text-lg leading-8 text-slate-300">
+              Entro Ethiopia is a software company in Addis Ababa building web
+              platforms, AI solutions and ERP systems for schools, clinics,
+              government bodies and growing businesses — designed around how your
+              team actually works, and supported long after launch.
+            </p>
+
+            <div className="animate-fade-in-up animation-delay-600 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-7 py-4 text-base font-semibold text-white shadow-[0_18px_44px_-18px_rgba(20,184,166,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_26px_56px_-20px_rgba(20,184,166,1)]"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
+                Book a free consultation
+                <ArrowUpRight
+                  className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  aria-hidden="true"
                 />
-              </svg>
-            </Link>
-            <Link
-              href="#contact"
-              className={`group inline-flex items-center justify-center gap-2 rounded-xl border px-8 py-4 text-base font-semibold transition-all duration-300 hover:-translate-y-1 sm:px-10 sm:py-5 sm:text-lg ${secondaryButton}`}
-            >
-              Contact Us
-              <svg
-                className="h-5 w-5 transition-transform group-hover:scale-110"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+              </Link>
+              <Link
+                href="/portfolio"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-7 py-4 text-base font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-400/40 hover:bg-white/[0.12]"
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                />
-              </svg>
-            </Link>
+                <Play className="h-4 w-4 text-teal-300" aria-hidden="true" />
+                See our work
+              </Link>
+            </div>
+
+            <ul className="animate-fade-in-up animation-delay-800 mt-7 flex flex-wrap gap-x-6 gap-y-3">
+              {assurances.map(({ icon: Icon, label }) => (
+                <li
+                  key={label}
+                  className="flex items-center gap-2 text-sm text-slate-400"
+                >
+                  <Icon className="h-4 w-4 text-teal-400" aria-hidden="true" />
+                  {label}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Trust stats */}
-          <div
-            className={`animate-fade-in-up animation-delay-1000 mx-auto mt-14 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-2xl border ${dividerColor} sm:grid-cols-4`}
-          >
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className={`px-4 py-5 ${isDark ? "bg-white/[0.03]" : "bg-white/60"} backdrop-blur`}
-              >
-                <div
-                  className={`text-2xl font-bold sm:text-3xl ${statValueColor}`}
-                >
-                  {stat.value}
-                </div>
-                <div
-                  className={`mt-1 text-xs font-medium uppercase tracking-wider sm:text-sm ${statLabelColor}`}
-                >
-                  {stat.label}
-                </div>
+          {/* Visual */}
+          <div className="animate-fade-in-up animation-delay-600 relative lg:pl-4">
+            <DashboardMock />
+          </div>
+        </div>
+
+        {/* Stats */}
+        <div className="animate-fade-in-up animation-delay-1000 mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] sm:mt-20 sm:grid-cols-4">
+          {stats.map((stat) => (
+            <div key={stat.label} className="bg-ink-950/60 px-5 py-6 backdrop-blur">
+              <div className="text-3xl font-bold text-white sm:text-4xl">
+                {stat.value}
               </div>
-            ))}
+              <div className="mt-1.5 text-xs font-medium uppercase tracking-[0.12em] text-slate-400 sm:text-[13px]">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Trust bar */}
+        <div className="mt-12 sm:mt-14">
+          <p className="text-center text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
+            Trusted by teams across Ethiopia and abroad
+          </p>
+          <div className="mask-fade-x marquee-paused mt-7 overflow-hidden">
+            <div className="animate-marquee flex w-max items-center gap-12 sm:gap-16">
+              {[...trustedBy, ...trustedBy, ...trustedBy].map((client, index) => (
+                <div
+                  key={`${client.name}-${index}`}
+                  className="flex h-16 w-40 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/95 px-4 opacity-80 transition-all duration-300 hover:-translate-y-0.5 hover:opacity-100"
+                >
+                  <span className="relative h-10 w-full">
+                    <Image
+                      src={client.logo}
+                      alt={client.name}
+                      fill
+                      className="object-contain object-center"
+                      sizes="160px"
+                    />
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

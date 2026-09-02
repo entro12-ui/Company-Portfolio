@@ -2,41 +2,69 @@
 
 import React, {
   createContext,
+  useCallback,
   useContext,
-  useState,
   useEffect,
+  useState,
   ReactNode,
 } from "react";
-
-type Theme = "light" | "dark";
+import { THEME_STORAGE_KEY as STORAGE_KEY, type Theme } from "@/lib/theme";
 
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
+  setTheme: (theme: Theme) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
+function applyTheme(theme: Theme) {
+  const root = document.documentElement;
+  root.classList.toggle("dark", theme === "dark");
+  root.style.colorScheme = theme;
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setThemeState] = useState<Theme>("light");
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    if (savedTheme && (savedTheme === "light" || savedTheme === "dark")) {
-      setTheme(savedTheme);
+    const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
+    const resolved: Theme =
+      stored === "dark" || stored === "light"
+        ? stored
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+
+    setThemeState(resolved);
+    applyTheme(resolved);
+  }, []);
+
+  const setTheme = useCallback((next: Theme) => {
+    setThemeState(next);
+    applyTheme(next);
+    try {
+      localStorage.setItem(STORAGE_KEY, next);
+    } catch {
+      // Storage can be unavailable in private browsing; the theme still applies.
     }
   }, []);
 
-  const toggleTheme = () => {
-    setTheme((prev) => {
-      const newTheme = prev === "light" ? "dark" : "light";
-      localStorage.setItem("theme", newTheme);
-      return newTheme;
+  const toggleTheme = useCallback(() => {
+    setThemeState((prev) => {
+      const next: Theme = prev === "light" ? "dark" : "light";
+      applyTheme(next);
+      try {
+        localStorage.setItem(STORAGE_KEY, next);
+      } catch {
+        // Ignore persistence failures.
+      }
+      return next;
     });
-  };
+  }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

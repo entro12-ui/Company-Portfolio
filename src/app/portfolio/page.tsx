@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import PageShell from "@/components/PageShell";
 import JsonLd from "@/components/JsonLd";
+import PageHero from "@/components/ui/PageHero";
+
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
@@ -99,7 +101,7 @@ const caseStudies = [
   {
     name: "Danat Dental Clinic",
     subtitle: "Website Development & Booking System Integration",
-    accent: "from-cyan-600 to-blue-700",
+    accent: "from-ink-900 via-ink-800 to-teal-900",
     chip: "Healthcare",
     overview:
       "Danat Dental Clinic required a modern, professional website that would improve their online presence and allow patients to book appointments easily.",
@@ -129,7 +131,7 @@ const caseStudies = [
   {
     name: "Operation Kilimanjaro",
     subtitle: "Website SEO/GEO Optimization & Booking System Development",
-    accent: "from-teal-600 to-cyan-700",
+    accent: "from-ink-900 via-ink-800 to-cyan-900",
     chip: "Tourism & Booking",
     overview:
       "Operation Kilimanjaro required improved digital visibility and a structured booking system to manage client reservations efficiently.",
@@ -159,7 +161,7 @@ const caseStudies = [
   {
     name: "Valintine Advisors",
     subtitle: "AI Integration & Automation for Media Visualization & Reporting",
-    accent: "from-violet-600 to-indigo-700",
+    accent: "from-ink-900 via-ink-800 to-teal-800",
     chip: "Consulting & Advisory",
     overview:
       "Valintine Advisors required enhanced automation and AI integration to improve their media visualization and reporting processes.",
@@ -251,41 +253,34 @@ export default function PortfolioPage() {
   return (
     <PageShell>
       <JsonLd data={portfolioItemListSchema} />
-      <article className="px-4 pb-16 sm:pb-24">
-        <div className="mx-auto max-w-6xl">
-          {/* Hero Section */}
-          <header className="overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900 p-8 text-white shadow-xl transition-colors duration-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 sm:p-10">
-            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-300 dark:text-teal-400">
-              Case Studies
-            </p>
-            <h1 className="mb-5 text-4xl font-bold sm:text-5xl">
-              Our Portfolio &amp; Case Studies
-            </h1>
-            <p className="max-w-4xl text-lg leading-relaxed text-slate-200 dark:text-gray-300">
-              At Entro Ethiopia, we build practical, scalable systems that solve
-              real business challenges. These selected projects highlight our
-              work in web development, SEO/GEO optimization, AI integration, and
-              automation.
-            </p>
-            <div className="mt-6 flex flex-wrap gap-2">
-              {[
-                "Web Development",
-                "SEO & GEO",
-                "AI Integration",
-                "Automation",
-              ].map((tag) => (
-                <span
-                  key={tag}
-                  className="rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-semibold text-white"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </header>
 
+      <PageHero
+        breadcrumbs={[
+          { href: "/", label: "Home" },
+          { href: "/portfolio", label: "Portfolio" },
+        ]}
+        eyebrow="Case studies"
+        title="Selected work, and what it changed for the client"
+        description="We build practical, scalable systems that solve real business problems. These projects show the work in web development, SEO and GEO optimization, AI integration and automation."
+      >
+        <div className="flex flex-wrap gap-2">
+          {["Web Development", "SEO & GEO", "AI Integration", "Automation"].map(
+            (tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-white/15 bg-white/[0.06] px-3.5 py-1.5 text-xs font-semibold text-slate-200"
+              >
+                {tag}
+              </span>
+            ),
+          )}
+        </div>
+      </PageHero>
+
+      <article className="px-4 pb-16 pt-14 sm:pb-24">
+        <div className="mx-auto max-w-6xl">
           {/* Case Studies */}
-          <div className="mt-8 space-y-8">
+          <div className="space-y-8">
             {caseStudies.map((study) => (
               <section
                 key={study.name}

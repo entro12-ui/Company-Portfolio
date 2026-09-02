@@ -1,345 +1,208 @@
-"use client";
-
 import Link from "next/link";
-import { useTheme } from "@/context/ThemeContext";
+import {
+  ArrowUpRight,
+  Building2,
+  Car,
+  Dumbbell,
+  GraduationCap,
+  HeartPulse,
+  Package,
+  type LucideIcon,
+} from "lucide-react";
+import { Section, SectionHeading } from "@/components/ui/Section";
+import Reveal from "@/components/ui/Reveal";
 
 type Product = {
   id: string;
-  icon: string;
+  icon: LucideIcon;
   title: string;
+  category: string;
   description: string;
   highlights: string[];
-  cta: {
-    primary: string;
-    contact?: string;
-  };
-  colorScheme: {
-    headerBg: string;
-    textColor: string;
-    borderColor: string;
-    hoverBorder: string;
-    accentColor: string;
-    buttonBg: string;
-    buttonBorder: string;
-  };
 };
 
 const products: Product[] = [
   {
     id: "edustack-schoolhub",
-    icon: "🏫",
+    icon: GraduationCap,
     title: "EduStack SchoolHub",
+    category: "Education",
     description:
-      "Modern school management platform for KG-12 schools and academies. Manage administration, academics, finance, communication, and AI-supported learning from one system.",
+      "School management for KG–12 schools and academies: administration, academics, finance, communication and AI-supported learning in one system.",
     highlights: [
-      "Centralizes student, registrar, finance, and HR workflows",
-      "Supports multi-branch schools with shared reporting",
-      "Connects parents, teachers, students, and administrators",
-      "Adds AI-powered academic insights and teaching support",
+      "Student, registrar, finance and HR in one place",
+      "Multi-branch schools with shared reporting",
+      "AI academic insights and teaching support",
     ],
-    cta: {
-      primary: "Book a SchoolHub Demo",
-      contact: "entro12@entroethiopia.com",
-    },
-    colorScheme: {
-      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      textColor: "text-teal-700",
-      borderColor: "border-teal-600",
-      hoverBorder: "hover:border-teal-300",
-      accentColor: "text-cyan-600",
-      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      buttonBorder: "border-teal-600",
-    },
   },
   {
     id: "medicare-ai",
-    icon: "🏥",
+    icon: HeartPulse,
     title: "MediCare AI",
+    category: "Healthcare",
     description:
-      "Intelligent healthcare management platform with AI-powered features. Complete hospital operations management from patient registration to AI-assisted diagnostics.",
+      "Hospital and clinic operations from patient registration through billing, with AI-assisted clinical decision support built in.",
     highlights: [
-      "Centralizes core hospital and clinic operations",
-      "Supports care teams with AI-powered assistance",
-      "Improves patient flow, records, and service coordination",
-      "Helps management monitor healthcare performance",
+      "Records, lab, pharmacy, beds and billing",
+      "AI clinical support and 24/7 patient chatbot",
+      "Performance visibility for management",
     ],
-    cta: {
-      primary: "Request a Demo",
-      contact: "entro12@entroethiopia.com",
-    },
-    colorScheme: {
-      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      textColor: "text-teal-700",
-      borderColor: "border-teal-600",
-      hoverBorder: "hover:border-teal-300",
-      accentColor: "text-cyan-600",
-      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      buttonBorder: "border-teal-600",
-    },
-  },
-  {
-    id: "car-service",
-    icon: "🚗",
-    title: "Car Service Management System",
-    description:
-      "Complete digital solution for auto service centers. Manage customers, vehicles, appointments, inventory, and automated service notifications via SMS and email.",
-    highlights: [
-      "Manages customers, vehicles, and service workflows",
-      "Streamlines appointments and service history tracking",
-      "Improves parts and workshop operation control",
-      "Supports service reminders and performance reporting",
-    ],
-    cta: {
-      primary: "Get Started",
-      contact: "entro12@entroethiopia.com",
-    },
-    colorScheme: {
-      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      textColor: "text-teal-700",
-      borderColor: "border-teal-600",
-      hoverBorder: "hover:border-teal-300",
-      accentColor: "text-cyan-600",
-      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      buttonBorder: "border-teal-600",
-    },
-  },
-  {
-    id: "fitmind-ai",
-    icon: "💪",
-    title: "FitMind AI",
-    description:
-      "Personal fitness and nutrition app that uses AI to generate custom weekly plans, then helps users save and track progress over time.",
-    highlights: [
-      "Creates personalized weekly workout and nutrition plans",
-      "Provides motivation and practical AI fitness guidance",
-      "Lets users save plans and track progress over time",
-      "Supports media-rich usage with audio and downloadable plans",
-    ],
-    cta: {
-      primary: "Explore FitMind AI",
-      contact: "entro12@entroethiopia.com",
-    },
-    colorScheme: {
-      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      textColor: "text-teal-700",
-      borderColor: "border-teal-600",
-      hoverBorder: "hover:border-teal-300",
-      accentColor: "text-cyan-600",
-      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      buttonBorder: "border-teal-600",
-    },
   },
   {
     id: "control-inventory",
-    icon: "📦",
-    title: "Control Inventory Management System",
+    icon: Package,
+    title: "Control Inventory",
+    category: "Operations",
     description:
-      "End-to-end inventory, sales, and reporting platform for branches, warehouses, and retail operations.",
+      "End-to-end inventory, sales and reporting for branches, warehouses and retail operations.",
     highlights: [
-      "Manages inventory and stock movement across locations",
-      "Handles sales workflows and transaction recording",
-      "Provides business reports and profitability visibility",
-      "Improves stock control with smart alerts and tracking",
+      "Stock movement across every location",
+      "Sales workflows and transaction records",
+      "Profitability reporting and smart alerts",
     ],
-    cta: {
-      primary: "Request Inventory Demo",
-      contact: "entro12@entroethiopia.com",
-    },
-    colorScheme: {
-      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      textColor: "text-teal-700",
-      borderColor: "border-teal-600",
-      hoverBorder: "hover:border-teal-300",
-      accentColor: "text-cyan-600",
-      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      buttonBorder: "border-teal-600",
-    },
+  },
+  {
+    id: "car-service",
+    icon: Car,
+    title: "Car Service Management",
+    category: "Mobility",
+    description:
+      "A complete digital workshop: customers, vehicles, appointments, parts inventory and automated service reminders by SMS and email.",
+    highlights: [
+      "Customers, vehicles and service history",
+      "Appointments and parts control",
+      "Mileage-based reminders that drive repeat work",
+    ],
   },
   {
     id: "property-management",
-    icon: "🏢",
-    title: "Property Management System",
+    icon: Building2,
+    title: "Property Management",
+    category: "Real estate",
     description:
-      "Digital property operations platform for managing units, tenants, billing, maintenance, and portfolio reporting.",
+      "Digital property operations for units, tenants, billing, maintenance and portfolio-level reporting.",
     highlights: [
-      "Organizes property, unit, and tenant operations",
-      "Supports billing, rent follow-up, and maintenance workflows",
-      "Provides occupancy and performance visibility",
-      "Automates reminders and routine management tasks",
+      "Units, tenants and lease operations",
+      "Billing, rent follow-up and maintenance",
+      "Occupancy and performance dashboards",
     ],
-    cta: {
-      primary: "Book a Property Demo",
-      contact: "entro12@entroethiopia.com",
-    },
-    colorScheme: {
-      headerBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      textColor: "text-teal-700",
-      borderColor: "border-teal-600",
-      hoverBorder: "hover:border-teal-300",
-      accentColor: "text-cyan-600",
-      buttonBg: "bg-gradient-to-r from-teal-700 to-cyan-700",
-      buttonBorder: "border-teal-600",
-    },
+  },
+  {
+    id: "fitmind-ai",
+    icon: Dumbbell,
+    title: "FitMind AI",
+    category: "Consumer",
+    description:
+      "AI-generated weekly fitness and nutrition plans that members can save, follow and track over time.",
+    highlights: [
+      "Personalized workout and nutrition plans",
+      "Progress tracking and saved programmes",
+      "Downloadable plans and audio guidance",
+    ],
   },
 ];
 
-const ProductCard = ({
-  product,
-  index,
-}: {
-  product: Product;
-  index: number;
-}) => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-  const colors = product.colorScheme;
-
-  // Theme-aware overrides for product colors (preserve brand identity but adapt to dark mode)
-  const cardBg = isDark ? "bg-gray-800" : "bg-white";
-  const highlightTextClass = isDark ? "text-gray-300" : "text-gray-700";
-  const borderTopClass = isDark ? "border-gray-700" : "border-gray-200";
-  const contactTextClass = isDark ? "text-gray-400" : "text-gray-600";
-
+export default function SoftwareProducts() {
   return (
-    <div
-      className={`rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-transparent ${colors.hoverBorder} overflow-hidden ${cardBg}`}
-      style={{
-        animation: `fadeSlideUp 0.6s ease-out forwards ${index * 0.1}s`,
-        opacity: 0,
-        transform: "translateY(20px)",
-      }}
+    <Section
+      id="products"
+      className="relative overflow-hidden bg-ink-950 text-white"
     >
-      {/* Header - uses product's original color scheme */}
-      <div className={`${colors.headerBg} text-white p-6 sm:p-8`}>
-        <div className="flex items-center gap-4 mb-4">
-          <div className="text-5xl">{product.icon}</div>
-          <h3 className="text-2xl sm:text-3xl font-bold">{product.title}</h3>
-        </div>
-        <p className="text-base text-white/90 leading-relaxed">
-          {product.description}
-        </p>
+      <div className="pointer-events-none absolute inset-0" aria-hidden="true">
+        <div className="grid-lines-invert absolute inset-0" />
+        <div className="absolute -top-32 right-1/4 h-96 w-96 rounded-full bg-teal-600/12 blur-[120px]" />
+        <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-cyan-700/12 blur-[120px]" />
       </div>
 
-      {/* Content */}
-      <div className="p-6 sm:p-8">
-        {/* Highlights */}
-        <div className="mb-6">
-          <h4 className={`text-lg font-bold ${colors.textColor} mb-4`}>
-            Key Features
-          </h4>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {product.highlights.map((highlight, idx) => (
-              <div key={idx} className="flex items-start gap-2">
-                <span className={`${colors.accentColor} mt-1`}>✓</span>
-                <span className={`text-sm sm:text-base ${highlightTextClass}`}>
-                  {highlight}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
+      <div className="relative">
+        <SectionHeading
+          tone="dark"
+          eyebrow="Our platforms"
+          title="Products already running real operations"
+          description="Six proven platforms you can deploy in weeks instead of months — each one configurable to your processes, and each one built and maintained by the same team that supports it."
+        />
 
-        {/* Call to Action */}
-        <div className={`pt-6 border-t ${borderTopClass}`}>
-          <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
-            <Link
-              href={`/products/${product.id}`}
-              className={`inline-flex items-center justify-center gap-2 ${colors.buttonBg} text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300 text-center w-full sm:w-auto`}
-            >
-              {product.cta.primary}
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </Link>
-            {product.cta.contact && (
-              <p
-                className={`text-sm ${contactTextClass} text-center sm:text-right`}
-              >
-                Contact:{" "}
-                <a
-                  href={`mailto:${product.cta.contact}`}
-                  className={`${colors.accentColor} hover:underline font-medium`}
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {products.map((product, index) => {
+            const Icon = product.icon;
+            return (
+              <Reveal key={product.id} delay={index * 70} className="h-full">
+                <Link
+                  href={`/products/${product.id}`}
+                  className="ring-gradient group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-7 transition-all duration-500 hover:-translate-y-1.5 hover:bg-white/[0.07]"
                 >
-                  {product.cta.contact}
-                </a>
+                  <div className="flex items-start justify-between gap-4">
+                    <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-gradient-to-br from-teal-500/25 to-cyan-500/10">
+                      <Icon
+                        className="h-5 w-5 text-teal-300"
+                        aria-hidden="true"
+                      />
+                    </span>
+                    <span className="rounded-full border border-white/10 bg-white/[0.05] px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+                      {product.category}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-6 text-xl font-bold text-white">
+                    {product.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-slate-400">
+                    {product.description}
+                  </p>
+
+                  <ul className="mt-6 space-y-2.5 border-t border-white/8 pt-6">
+                    {product.highlights.map((highlight) => (
+                      <li
+                        key={highlight}
+                        className="flex items-start gap-2.5 text-sm text-slate-300"
+                      >
+                        <span
+                          className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-teal-400"
+                          aria-hidden="true"
+                        />
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <span className="mt-auto flex items-center gap-1.5 pt-7 text-sm font-semibold text-teal-300">
+                    View platform
+                    <ArrowUpRight
+                      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                      aria-hidden="true"
+                    />
+                  </span>
+                </Link>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        <Reveal delay={140} className="mt-12">
+          <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/10 bg-gradient-to-r from-white/[0.07] to-white/[0.02] px-7 py-8 sm:px-10 lg:flex-row">
+            <div className="max-w-xl text-center lg:text-left">
+              <h3 className="text-xl font-bold text-white sm:text-2xl">
+                Need something none of these cover?
+              </h3>
+              <p className="mt-2 text-[15px] leading-7 text-slate-400">
+                Most of our work starts as a conversation about a process that
+                is costing you time. We scope it, price it honestly, and build
+                only what earns its place.
               </p>
-            )}
+            </div>
+            <Link
+              href="/contact"
+              className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-ink-950 transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-100"
+            >
+              Scope a custom build
+              <ArrowUpRight
+                className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                aria-hidden="true"
+              />
+            </Link>
           </div>
-        </div>
+        </Reveal>
       </div>
-    </div>
+    </Section>
   );
-};
-
-const SoftwareProducts = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
-
-  // Theme-aware classes
-  const sectionBg = isDark
-    ? "bg-gradient-to-b from-[#05070f] via-[#0a1120] to-[#071019]"
-    : "bg-gradient-to-b from-white via-cyan-50/40 to-teal-50/40";
-  const headingClass = isDark ? "text-white" : "text-gray-900";
-  const subheadingClass = isDark ? "text-teal-400" : "text-teal-700";
-  const descriptionClass = isDark ? "text-gray-300" : "text-gray-700";
-
-  return (
-    <>
-      <style>{`
-        @keyframes fadeSlideUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
-      <section
-        id="products"
-        className={`py-8 transition-colors duration-300 ${sectionBg}`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-12">
-            <h2
-              className={`text-4xl sm:text-5xl md:text-6xl font-bold mb-4 ${headingClass}`}
-            >
-              Our Software Products & Solutions
-            </h2>
-            <h3
-              className={`text-2xl sm:text-3xl font-semibold mb-6 ${subheadingClass}`}
-            >
-              Flagship Platforms Built for Real Operations
-            </h3>
-            <p
-              className={`text-lg sm:text-xl max-w-3xl mx-auto ${descriptionClass}`}
-            >
-              We build sector-ready software for healthcare, education,
-              mobility, inventory, property, and custom business operations.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 mb-10 sm:mb-12">
-            {products.map((product, index) => (
-              <ProductCard key={product.id} product={product} index={index} />
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
-  );
-};
-
-export default SoftwareProducts;
+}
