@@ -143,15 +143,11 @@ export default function SoftwareProducts() {
           description="Six proven platforms you can deploy in weeks instead of months — each one configurable to your processes, and each one built and maintained by the same team that supports it."
         />
 
-        <div className="mt-14 flex flex-row gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-5 lg:overflow-visible">
+        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
           {products.map((product, index) => {
             const Icon = product.icon;
             return (
-              <Reveal
-                key={product.id}
-                delay={index * 70}
-                className="flex h-full w-[min(85vw,20rem)] shrink-0 flex-col sm:w-[18.5rem] lg:w-auto lg:min-w-0 lg:flex-1"
-              >
+              <Reveal key={product.id} delay={index * 70} className="h-full">
                 <Link
                   href={`/products/${product.id}`}
                   className="ring-gradient group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition-all duration-500 hover:-translate-y-1.5 hover:bg-white/[0.07] sm:p-7"

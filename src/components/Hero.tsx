@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -26,6 +27,8 @@ const trustedBy = [
   { name: "Parka", logo: "/Parka.png" },
   { name: "Vallintine", logo: "/vallintine.png" },
 ];
+
+const TRUSTED_PER_PAGE = 2;
 
 const assurances = [
   { icon: ShieldCheck, label: "Security-first builds" },
@@ -164,6 +167,22 @@ function DashboardMock() {
 }
 
 const Hero = () => {
+  const trustedPages = Math.ceil(trustedBy.length / TRUSTED_PER_PAGE);
+  const [trustedPage, setTrustedPage] = useState(0);
+
+  useEffect(() => {
+    if (trustedPages <= 1) return;
+    const id = window.setInterval(() => {
+      setTrustedPage((prev) => (prev + 1) % trustedPages);
+    }, 4000);
+    return () => window.clearInterval(id);
+  }, [trustedPages]);
+
+  const visibleTrusted = trustedBy.slice(
+    trustedPage * TRUSTED_PER_PAGE,
+    trustedPage * TRUSTED_PER_PAGE + TRUSTED_PER_PAGE,
+  );
+
   return (
     <section className="relative isolate overflow-hidden bg-ink-950">
       {/* Ambient background */}
@@ -249,29 +268,50 @@ const Hero = () => {
           ))}
         </div>
 
-        {/* Trust bar — static on small screens (no auto-scroll); marquee from md up */}
+        {/* Trust bar — dotted carousel on small; marquee from md up */}
         <div className="mt-12 sm:mt-14">
           <p className="text-center text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
             Trusted by teams across Ethiopia and abroad
           </p>
 
-          <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 md:hidden">
-            {trustedBy.map((client) => (
-              <div
-                key={client.name}
-                className="flex h-14 items-center justify-center rounded-xl border border-white/10 bg-white/95 px-3"
-              >
-                <span className="relative h-9 w-full">
-                  <Image
-                    src={client.logo}
-                    alt={client.name}
-                    fill
-                    className="object-contain object-center"
-                    sizes="160px"
-                  />
-                </span>
-              </div>
-            ))}
+          <div className="mt-7 md:hidden">
+            <div
+              key={trustedPage}
+              className="animate-fade-in-up grid grid-cols-2 gap-3"
+            >
+              {visibleTrusted.map((client) => (
+                <div
+                  key={client.name}
+                  className="flex h-14 items-center justify-center rounded-xl border border-white/10 bg-white/95 px-3"
+                >
+                  <span className="relative h-9 w-full">
+                    <Image
+                      src={client.logo}
+                      alt={client.name}
+                      fill
+                      className="object-contain object-center"
+                      sizes="160px"
+                    />
+                  </span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-5 flex items-center justify-center gap-2">
+              {Array.from({ length: trustedPages }).map((_, index) => (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => setTrustedPage(index)}
+                  aria-label={`Trusted clients page ${index + 1}`}
+                  aria-current={index === trustedPage ? "true" : undefined}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    index === trustedPage
+                      ? "w-7 bg-teal-400"
+                      : "w-2.5 bg-white/25 hover:bg-white/40"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="mask-fade-x marquee-paused mt-7 hidden overflow-hidden md:block">

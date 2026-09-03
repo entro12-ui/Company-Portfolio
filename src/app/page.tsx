@@ -112,7 +112,7 @@ export default function Home() {
           }
         />
 
-        <div className="mt-12 flex flex-row gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-5 lg:overflow-visible">
+        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
           {blogPosts.map((post, index) => {
             const accents = [
               "text-teal-700 dark:text-teal-400",
@@ -123,11 +123,7 @@ export default function Home() {
             ];
             const accent = accents[index % accents.length];
             return (
-              <Reveal
-                key={post.slug}
-                delay={index * 70}
-                className="flex h-full w-[min(85vw,20rem)] shrink-0 flex-col sm:w-[18.5rem] lg:w-auto lg:min-w-0 lg:flex-1"
-              >
+              <Reveal key={post.slug} delay={index * 70} className="h-full">
                 <Link
                   href={`/blog/${post.slug}`}
                   className="ring-gradient group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lifted)] sm:p-7 dark:border-white/10 dark:bg-white/[0.03]"

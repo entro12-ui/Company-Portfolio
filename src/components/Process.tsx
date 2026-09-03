@@ -80,15 +80,11 @@ export default function Process() {
         description="Most failed software projects fail for the same reasons: unclear scope, invisible progress and no plan for after launch. Here is how we handle each one."
       />
 
-      <div className="mt-14 flex flex-row gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-5 lg:overflow-visible">
+      <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-4">
         {steps.map((step, index) => {
           const Icon = step.icon;
           return (
-            <Reveal
-              key={step.step}
-              delay={index * 90}
-              className="flex w-[min(82vw,18rem)] shrink-0 flex-col sm:w-[17rem] lg:w-auto lg:min-w-0 lg:flex-1"
-            >
+            <Reveal key={step.step} delay={index * 90} className="h-full">
               <div className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-slate-50/70 p-6 transition-colors duration-300 hover:border-teal-300 hover:bg-white dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-teal-400/40">
                 <div className="flex items-start gap-4">
                   <span

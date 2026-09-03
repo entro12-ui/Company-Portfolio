@@ -91,15 +91,11 @@ export default function Services() {
         description="Strategy, design, engineering and support under one roof — so nothing gets lost between vendors and no one has to chase an answer."
       />
 
-      <div className="mt-14 flex flex-row gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-5 lg:overflow-visible">
+      <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-2">
         {services.map((service, index) => {
           const Icon = service.icon;
           return (
-            <Reveal
-              key={service.title}
-              delay={index * 90}
-              className="flex w-[min(85vw,20rem)] shrink-0 flex-col sm:w-[18.5rem] lg:w-auto lg:min-w-0 lg:flex-1"
-            >
+            <Reveal key={service.title} delay={index * 90} className="h-full">
               <Link
                 href={service.href}
                 className="ring-gradient card-hover group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[var(--shadow-soft)] sm:p-7 dark:border-white/10 dark:bg-white/[0.03]"

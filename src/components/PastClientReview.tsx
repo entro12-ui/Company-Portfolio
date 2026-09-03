@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Quote } from "lucide-react";
@@ -25,7 +28,14 @@ const accentColors = [
   { quote: "text-fuchsia-500", soft: "bg-fuchsia-500/10", text: "text-fuchsia-700 dark:text-fuchsia-300" },
 ];
 
-const reviews = [
+type Review = {
+  quote: string;
+  name: string;
+  organization: string;
+  logoSrc?: string;
+};
+
+const reviews: Review[] = [
   {
     quote:
       "Entro Ethiopia delivered our MediCare system for Danat Dental Clinic, with practical workflows, clear usability, and reliable support for day-to-day healthcare operations.",
@@ -125,7 +135,101 @@ const clientProjects = [
   },
 ];
 
+function ReviewCard({
+  review,
+  index,
+}: {
+  review: Review;
+  index: number;
+}) {
+  const accent = accentColors[index % accentColors.length];
+
+  return (
+    <figure className="ring-gradient relative flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-[var(--shadow-soft)] transition-transform duration-300 hover:-translate-y-1 sm:p-7 dark:border-white/10 dark:bg-white/[0.03]">
+      <div className="flex items-start gap-3.5">
+        <span
+          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${accent.soft}`}
+        >
+          <Quote className={`h-5 w-5 ${accent.quote}`} aria-hidden="true" />
+        </span>
+        <blockquote className="min-w-0 text-sm leading-6 text-slate-700 sm:text-[15px] sm:leading-7 dark:text-slate-300">
+          {review.quote}
+        </blockquote>
+      </div>
+      <figcaption className="mt-6 flex items-center gap-3.5 border-t border-slate-100 pt-6 dark:border-white/10">
+        {review.logoSrc ? (
+          <span className="relative h-10 w-20 shrink-0 overflow-hidden rounded-lg border border-slate-200 bg-white p-1 dark:border-white/10">
+            <Image
+              src={review.logoSrc}
+              alt={`${review.organization} logo`}
+              fill
+              className="object-contain object-center"
+              sizes="80px"
+              quality={100}
+            />
+          </span>
+        ) : (
+          <span
+            className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold ${accent.soft} ${accent.text}`}
+          >
+            {getInitials(review.organization)}
+          </span>
+        )}
+        <span className="min-w-0">
+          <span className="block truncate text-sm font-semibold text-slate-900 dark:text-white">
+            {review.name}
+          </span>
+          <span className="block truncate text-xs text-slate-500 dark:text-slate-400">
+            {review.organization}
+          </span>
+        </span>
+      </figcaption>
+    </figure>
+  );
+}
+
+function CarouselDots({
+  total,
+  page,
+  onChange,
+  label,
+}: {
+  total: number;
+  page: number;
+  onChange: (index: number) => void;
+  label: string;
+}) {
+  return (
+    <div className="mt-5 flex items-center justify-center gap-2">
+      {Array.from({ length: total }).map((_, index) => (
+        <button
+          key={index}
+          type="button"
+          onClick={() => onChange(index)}
+          aria-label={`${label} page ${index + 1}`}
+          aria-current={index === page ? "true" : undefined}
+          className={`h-2.5 rounded-full transition-all duration-300 ${
+            index === page
+              ? "w-7 bg-teal-600 dark:bg-teal-400"
+              : "w-2.5 bg-slate-300 hover:bg-slate-400 dark:bg-white/20 dark:hover:bg-white/40"
+          }`}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function PastClientReview() {
+  const [page, setPage] = useState(0);
+  const totalPages = reviews.length;
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setPage((prev) => (prev + 1) % totalPages);
+    }, 4500);
+    return () => window.clearInterval(id);
+  }, [totalPages]);
+
   return (
     <Section
       id="clients"
@@ -150,61 +254,30 @@ export default function PastClientReview() {
         }
       />
 
-      <div className="mt-14 flex flex-row gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-        {reviews.map((review, index) => {
-          const accent = accentColors[index % accentColors.length];
-          return (
-            <Reveal
-              key={`${review.name}-${review.organization}`}
-              delay={index * 60}
-              className="flex h-full w-[min(85vw,20rem)] shrink-0 flex-col sm:w-[19rem]"
-            >
-              <figure className="ring-gradient relative flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-[var(--shadow-soft)] transition-transform duration-300 hover:-translate-y-1 sm:p-7 dark:border-white/10 dark:bg-white/[0.03]">
-                <div className="flex items-start gap-3.5">
-                  <span
-                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${accent.soft}`}
-                  >
-                    <Quote
-                      className={`h-5 w-5 ${accent.quote}`}
-                      aria-hidden="true"
-                    />
-                  </span>
-                  <blockquote className="min-w-0 text-sm leading-6 text-slate-700 sm:text-[15px] sm:leading-7 dark:text-slate-300">
-                    {review.quote}
-                  </blockquote>
-                </div>
-                <figcaption className="mt-6 flex items-center gap-3.5 border-t border-slate-100 pt-6 dark:border-white/10">
-                  {review.logoSrc ? (
-                    <span className="relative h-10 w-20 shrink-0 overflow-hidden rounded-lg border border-slate-200 bg-white p-1 dark:border-white/10">
-                      <Image
-                        src={review.logoSrc}
-                        alt={`${review.organization} logo`}
-                        fill
-                        className="object-contain object-center"
-                        sizes="80px"
-                        quality={100}
-                      />
-                    </span>
-                  ) : (
-                    <span
-                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold ${accent.soft} ${accent.text}`}
-                    >
-                      {getInitials(review.organization)}
-                    </span>
-                  )}
-                  <span className="min-w-0">
-                    <span className="block truncate text-sm font-semibold text-slate-900 dark:text-white">
-                      {review.name}
-                    </span>
-                    <span className="block truncate text-xs text-slate-500 dark:text-slate-400">
-                      {review.organization}
-                    </span>
-                  </span>
-                </figcaption>
-              </figure>
-            </Reveal>
-          );
-        })}
+      {/* Small screen: dotted carousel (1 review per slide) */}
+      <div className="mt-14 md:hidden">
+        <div key={page} className="animate-fade-in-up">
+          <ReviewCard review={reviews[page]} index={page} />
+        </div>
+        <CarouselDots
+          total={totalPages}
+          page={page}
+          onChange={setPage}
+          label="Client review"
+        />
+      </div>
+
+      {/* Medium / large: grid */}
+      <div className="mt-14 hidden gap-5 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+        {reviews.map((review, index) => (
+          <Reveal
+            key={`${review.name}-${review.organization}`}
+            delay={index * 60}
+            className="h-full"
+          >
+            <ReviewCard review={review} index={index} />
+          </Reveal>
+        ))}
       </div>
 
       <div className="mt-16">

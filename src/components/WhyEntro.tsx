@@ -69,14 +69,14 @@ export default function WhyEntro() {
         description="Anyone can promise a system. These are the specific commitments that decide whether it still works — and still gets supported — two years from now."
       />
 
-      <div className="mt-14 flex flex-row gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-5 lg:overflow-visible">
+      <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
         {reasons.map((reason, index) => {
           const Icon = reason.icon;
           return (
             <Reveal
               key={reason.title}
               delay={index * 70}
-              className="group w-[min(85vw,20rem)] shrink-0 sm:w-[18rem] lg:w-auto lg:min-w-0 lg:flex-1"
+              className="group"
             >
               <div className="flex items-start gap-4">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-teal-500/20 bg-white shadow-[var(--shadow-soft)] transition-transform duration-300 group-hover:-translate-y-1 dark:border-teal-400/20 dark:bg-white/[0.05]">

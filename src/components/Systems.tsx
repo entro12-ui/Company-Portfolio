@@ -127,15 +127,11 @@ export default function Industries() {
         description="We have already built for these operating models, which means discovery starts from informed questions instead of a blank page."
       />
 
-      <div className="mt-14 flex flex-row gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-4 lg:overflow-visible">
+      <div className="mt-14 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-5">
         {industries.map((industry, index) => {
           const Icon = industry.icon;
           return (
-            <Reveal
-              key={industry.title}
-              delay={index * 50}
-              className="flex h-full w-[min(72vw,15.5rem)] shrink-0 flex-col sm:w-[14.5rem] lg:w-auto lg:min-w-0 lg:flex-1"
-            >
+            <Reveal key={industry.title} delay={index * 50} className="h-full">
               <Link
                 href={industry.href}
                 className="ring-gradient group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-teal-300 hover:shadow-[var(--shadow-lifted)] sm:p-6 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-teal-400/40"
