@@ -140,24 +140,30 @@ export default function Industries() {
                 href={industry.href}
                 className="ring-gradient group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-teal-300 hover:shadow-[var(--shadow-lifted)] sm:p-6 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-teal-400/40"
               >
-                <span
-                  className={`flex h-11 w-11 items-center justify-center rounded-xl ${industry.iconBg} transition-transform duration-300 group-hover:-translate-y-0.5`}
-                >
-                  <Icon
-                    className={`h-5 w-5 ${industry.iconColor}`}
-                    aria-hidden="true"
-                  />
-                </span>
-                <h3 className="mt-5 text-[15px] font-bold leading-snug text-slate-900 dark:text-white">
-                  {industry.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
-                  {industry.description}
-                </p>
-                <ArrowUpRight
-                  className={`mt-auto h-4 w-4 translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ${industry.iconColor}`}
-                  aria-hidden="true"
-                />
+                <div className="flex items-start gap-3.5">
+                  <span
+                    className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${industry.iconBg} transition-transform duration-300 group-hover:-translate-y-0.5`}
+                  >
+                    <Icon
+                      className={`h-5 w-5 ${industry.iconColor}`}
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="text-[15px] font-bold leading-snug text-slate-900 dark:text-white">
+                        {industry.title}
+                      </h3>
+                      <ArrowUpRight
+                        className={`mt-0.5 h-4 w-4 shrink-0 opacity-0 transition-all duration-300 group-hover:opacity-100 ${industry.iconColor}`}
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                      {industry.description}
+                    </p>
+                  </div>
+                </div>
               </Link>
             </Reveal>
           );

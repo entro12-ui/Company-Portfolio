@@ -90,30 +90,34 @@ export default function Process() {
               className="flex w-[min(82vw,18rem)] shrink-0 flex-col sm:w-[17rem] lg:w-auto lg:min-w-0 lg:flex-1"
             >
               <div className="group flex h-full flex-col rounded-3xl border border-slate-200 bg-slate-50/70 p-6 transition-colors duration-300 hover:border-teal-300 hover:bg-white dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-teal-400/40">
-                <span
-                  className={`flex h-12 w-12 items-center justify-center rounded-2xl border ${step.iconBg}`}
-                >
-                  <Icon
-                    className={`h-5 w-5 ${step.iconColor}`}
-                    aria-hidden="true"
-                  />
-                </span>
-                <div className="mt-5 flex flex-wrap items-center gap-2">
+                <div className="flex items-start gap-4">
                   <span
-                    className={`text-[11px] font-bold tracking-[0.2em] ${step.iconColor}`}
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${step.iconBg}`}
                   >
-                    {step.step}
+                    <Icon
+                      className={`h-5 w-5 ${step.iconColor}`}
+                      aria-hidden="true"
+                    />
                   </span>
-                  <span className="rounded-full bg-white px-2.5 py-0.5 text-[11px] font-medium text-slate-500 dark:bg-white/[0.06] dark:text-slate-400">
-                    {step.timeline}
-                  </span>
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span
+                        className={`text-[11px] font-bold tracking-[0.2em] ${step.iconColor}`}
+                      >
+                        {step.step}
+                      </span>
+                      <span className="rounded-full bg-white px-2.5 py-0.5 text-[11px] font-medium text-slate-500 dark:bg-white/[0.06] dark:text-slate-400">
+                        {step.timeline}
+                      </span>
+                    </div>
+                    <h3 className="mt-2 text-lg font-bold text-slate-900 dark:text-white">
+                      {step.title}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                      {step.description}
+                    </p>
+                  </div>
                 </div>
-                <h3 className="mt-3 text-lg font-bold text-slate-900 dark:text-white">
-                  {step.title}
-                </h3>
-                <p className="mt-2.5 text-sm leading-6 text-slate-600 dark:text-slate-400">
-                  {step.description}
-                </p>
               </div>
             </Reveal>
           );

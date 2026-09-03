@@ -160,17 +160,19 @@ export default function PastClientReview() {
               className="flex h-full w-[min(85vw,20rem)] shrink-0 flex-col sm:w-[19rem]"
             >
               <figure className="ring-gradient relative flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 shadow-[var(--shadow-soft)] transition-transform duration-300 hover:-translate-y-1 sm:p-7 dark:border-white/10 dark:bg-white/[0.03]">
-                <span
-                  className={`flex h-10 w-10 items-center justify-center rounded-xl ${accent.soft}`}
-                >
-                  <Quote
-                    className={`h-5 w-5 ${accent.quote}`}
-                    aria-hidden="true"
-                  />
-                </span>
-                <blockquote className="mt-4 text-sm leading-6 text-slate-700 sm:text-[15px] sm:leading-7 dark:text-slate-300">
-                  {review.quote}
-                </blockquote>
+                <div className="flex items-start gap-3.5">
+                  <span
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${accent.soft}`}
+                  >
+                    <Quote
+                      className={`h-5 w-5 ${accent.quote}`}
+                      aria-hidden="true"
+                    />
+                  </span>
+                  <blockquote className="min-w-0 text-sm leading-6 text-slate-700 sm:text-[15px] sm:leading-7 dark:text-slate-300">
+                    {review.quote}
+                  </blockquote>
+                </div>
                 <figcaption className="mt-6 flex items-center gap-3.5 border-t border-slate-100 pt-6 dark:border-white/10">
                   {review.logoSrc ? (
                     <span className="relative h-10 w-20 shrink-0 overflow-hidden rounded-lg border border-slate-200 bg-white p-1 dark:border-white/10">

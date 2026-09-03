@@ -156,26 +156,29 @@ export default function SoftwareProducts() {
                   href={`/products/${product.id}`}
                   className="ring-gradient group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition-all duration-500 hover:-translate-y-1.5 hover:bg-white/[0.07] sm:p-7"
                 >
-                  <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-start gap-4">
                     <span
-                      className={`flex h-12 w-12 items-center justify-center rounded-2xl border ${product.iconBg}`}
+                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${product.iconBg}`}
                     >
                       <Icon
                         className={`h-5 w-5 ${product.iconColor}`}
                         aria-hidden="true"
                       />
                     </span>
-                    <span className="rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400 sm:px-3 sm:text-[11px]">
-                      {product.category}
-                    </span>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-start justify-between gap-2">
+                        <h3 className="text-lg font-bold text-white sm:text-xl">
+                          {product.title}
+                        </h3>
+                        <span className="shrink-0 rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
+                          {product.category}
+                        </span>
+                      </div>
+                      <p className="mt-2 text-sm leading-6 text-slate-400">
+                        {product.description}
+                      </p>
+                    </div>
                   </div>
-
-                  <h3 className="mt-5 text-lg font-bold text-white sm:mt-6 sm:text-xl">
-                    {product.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-400">
-                    {product.description}
-                  </p>
 
                   <ul className="mt-5 space-y-2.5 border-t border-white/8 pt-5">
                     {product.highlights.map((highlight) => (

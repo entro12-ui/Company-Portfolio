@@ -109,22 +109,25 @@ export default function Services() {
                   aria-hidden="true"
                 />
 
-                <div className="flex items-start justify-between gap-4">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 shadow-[0_12px_28px_-14px_rgba(13,148,136,0.9)] sm:h-14 sm:w-14">
-                    <Icon className="h-5 w-5 text-white sm:h-6 sm:w-6" aria-hidden="true" />
+                <div className="flex items-start gap-4">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 shadow-[0_12px_28px_-14px_rgba(13,148,136,0.9)]">
+                    <Icon className="h-5 w-5 text-white" aria-hidden="true" />
                   </span>
-                  <ArrowUpRight
-                    className="h-5 w-5 shrink-0 text-slate-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-teal-600 dark:text-slate-600 dark:group-hover:text-teal-400"
-                    aria-hidden="true"
-                  />
+                  <div className="min-w-0 flex-1">
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="text-lg font-bold text-slate-900 sm:text-xl dark:text-white">
+                        {service.title}
+                      </h3>
+                      <ArrowUpRight
+                        className="mt-1 h-5 w-5 shrink-0 text-slate-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-teal-600 dark:text-slate-600 dark:group-hover:text-teal-400"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <p className="mt-2 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7 dark:text-slate-400">
+                      {service.description}
+                    </p>
+                  </div>
                 </div>
-
-                <h3 className="mt-5 text-lg font-bold text-slate-900 sm:mt-6 sm:text-xl dark:text-white">
-                  {service.title}
-                </h3>
-                <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7 dark:text-slate-400">
-                  {service.description}
-                </p>
 
                 <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 dark:border-white/10">
                   {service.deliverables.map((item) => (

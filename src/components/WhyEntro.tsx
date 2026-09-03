@@ -76,20 +76,24 @@ export default function WhyEntro() {
             <Reveal
               key={reason.title}
               delay={index * 70}
-              className="group w-[min(78vw,17.5rem)] shrink-0 sm:w-[16rem] lg:w-auto lg:min-w-0 lg:flex-1"
+              className="group w-[min(85vw,20rem)] shrink-0 sm:w-[18rem] lg:w-auto lg:min-w-0 lg:flex-1"
             >
-              <span className="flex h-12 w-12 items-center justify-center rounded-2xl border border-teal-500/20 bg-white shadow-[var(--shadow-soft)] transition-transform duration-300 group-hover:-translate-y-1 dark:border-teal-400/20 dark:bg-white/[0.05]">
-                <Icon
-                  className="h-5 w-5 text-teal-600 dark:text-teal-400"
-                  aria-hidden="true"
-                />
-              </span>
-              <h3 className="mt-5 text-[17px] font-bold text-slate-900 dark:text-white">
-                {reason.title}
-              </h3>
-              <p className="mt-2.5 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7 dark:text-slate-400">
-                {reason.description}
-              </p>
+              <div className="flex items-start gap-4">
+                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-teal-500/20 bg-white shadow-[var(--shadow-soft)] transition-transform duration-300 group-hover:-translate-y-1 dark:border-teal-400/20 dark:bg-white/[0.05]">
+                  <Icon
+                    className="h-5 w-5 text-teal-600 dark:text-teal-400"
+                    aria-hidden="true"
+                  />
+                </span>
+                <div className="min-w-0">
+                  <h3 className="text-[17px] font-bold leading-snug text-slate-900 dark:text-white">
+                    {reason.title}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7 dark:text-slate-400">
+                    {reason.description}
+                  </p>
+                </div>
+              </div>
             </Reveal>
           );
         })}
