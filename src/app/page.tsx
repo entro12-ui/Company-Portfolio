@@ -112,28 +112,44 @@ export default function Home() {
           }
         />
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {blogPosts.map((post, index) => (
-            <Reveal key={post.slug} delay={index * 70} className="h-full">
-              <Link
-                href={`/blog/${post.slug}`}
-                className="ring-gradient group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lifted)] dark:border-white/10 dark:bg-white/[0.03]"
+        <div className="mt-12 flex flex-row gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-5 lg:overflow-visible">
+          {blogPosts.map((post, index) => {
+            const accents = [
+              "text-teal-700 dark:text-teal-400",
+              "text-sky-700 dark:text-sky-400",
+              "text-violet-700 dark:text-violet-400",
+              "text-amber-700 dark:text-amber-400",
+              "text-rose-700 dark:text-rose-400",
+            ];
+            const accent = accents[index % accents.length];
+            return (
+              <Reveal
+                key={post.slug}
+                delay={index * 70}
+                className="flex h-full w-[min(85vw,20rem)] shrink-0 flex-col sm:w-[18.5rem] lg:w-auto lg:min-w-0 lg:flex-1"
               >
-                <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-400">
-                  Article
-                </span>
-                <h3 className="mt-3 line-clamp-2 text-lg font-bold leading-snug text-slate-900 dark:text-white">
-                  {post.title}
-                </h3>
-                <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
-                  {post.description}
-                </p>
-                <span className="mt-auto pt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">
-                  Read article →
-                </span>
-              </Link>
-            </Reveal>
-          ))}
+                <Link
+                  href={`/blog/${post.slug}`}
+                  className="ring-gradient group flex h-full flex-col rounded-3xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lifted)] sm:p-7 dark:border-white/10 dark:bg-white/[0.03]"
+                >
+                  <span
+                    className={`text-[11px] font-semibold uppercase tracking-[0.18em] ${accent}`}
+                  >
+                    Article
+                  </span>
+                  <h3 className="mt-3 line-clamp-2 text-lg font-bold leading-snug text-slate-900 dark:text-white">
+                    {post.title}
+                  </h3>
+                  <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                    {post.description}
+                  </p>
+                  <span className={`mt-auto pt-6 text-sm font-semibold ${accent}`}>
+                    Read article →
+                  </span>
+                </Link>
+              </Reveal>
+            );
+          })}
         </div>
       </Section>
 

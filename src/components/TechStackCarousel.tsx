@@ -65,14 +65,14 @@ export default function TechStackCarousel() {
 
       <div
         key={page}
-        className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5"
+        className="mt-7 flex flex-row gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:overflow-visible"
       >
         {visible.map((tech) => {
           const Icon = tech.Icon;
           return (
             <div
               key={`${tech.name}-${page}`}
-              className="animate-fade-in-up flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 px-3 py-5 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-300 hover:bg-white dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-teal-400/40"
+              className="animate-fade-in-up flex w-[7.5rem] shrink-0 flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-slate-50/80 px-3 py-5 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-300 hover:bg-white sm:w-auto sm:flex-1 dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-teal-400/40"
             >
               <span
                 className={`flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm ring-1 ring-slate-200/80 dark:bg-ink-900 dark:ring-white/10 ${tech.color}`}

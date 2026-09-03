@@ -249,13 +249,33 @@ const Hero = () => {
           ))}
         </div>
 
-        {/* Trust bar */}
+        {/* Trust bar — static on small screens (no auto-scroll); marquee from md up */}
         <div className="mt-12 sm:mt-14">
           <p className="text-center text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
             Trusted by teams across Ethiopia and abroad
           </p>
-          <div className="mask-fade-x marquee-paused mt-7 overflow-hidden">
-            <div className="animate-marquee flex w-max items-center gap-12 sm:gap-16">
+
+          <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-3 md:hidden">
+            {trustedBy.map((client) => (
+              <div
+                key={client.name}
+                className="flex h-14 items-center justify-center rounded-xl border border-white/10 bg-white/95 px-3"
+              >
+                <span className="relative h-9 w-full">
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    fill
+                    className="object-contain object-center"
+                    sizes="160px"
+                  />
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="mask-fade-x marquee-paused mt-7 hidden overflow-hidden md:block">
+            <div className="animate-marquee flex w-max items-center gap-12 lg:gap-16">
               {[...trustedBy, ...trustedBy, ...trustedBy].map((client, index) => (
                 <div
                   key={`${client.name}-${index}`}

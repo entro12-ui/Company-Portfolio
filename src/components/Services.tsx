@@ -91,14 +91,18 @@ export default function Services() {
         description="Strategy, design, engineering and support under one roof — so nothing gets lost between vendors and no one has to chase an answer."
       />
 
-      <div className="mt-14 grid gap-6 md:grid-cols-2">
+      <div className="mt-14 flex flex-row gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-5 lg:overflow-visible">
         {services.map((service, index) => {
           const Icon = service.icon;
           return (
-            <Reveal key={service.title} delay={index * 90}>
+            <Reveal
+              key={service.title}
+              delay={index * 90}
+              className="flex w-[min(85vw,20rem)] shrink-0 flex-col sm:w-[18.5rem] lg:w-auto lg:min-w-0 lg:flex-1"
+            >
               <Link
                 href={service.href}
-                className="ring-gradient card-hover group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-[var(--shadow-soft)] sm:p-9 dark:border-white/10 dark:bg-white/[0.03]"
+                className="ring-gradient card-hover group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[var(--shadow-soft)] sm:p-7 dark:border-white/10 dark:bg-white/[0.03]"
               >
                 <div
                   className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-teal-500/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
@@ -106,8 +110,8 @@ export default function Services() {
                 />
 
                 <div className="flex items-start justify-between gap-4">
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 shadow-[0_12px_28px_-14px_rgba(13,148,136,0.9)]">
-                    <Icon className="h-6 w-6 text-white" aria-hidden="true" />
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 shadow-[0_12px_28px_-14px_rgba(13,148,136,0.9)] sm:h-14 sm:w-14">
+                    <Icon className="h-5 w-5 text-white sm:h-6 sm:w-6" aria-hidden="true" />
                   </span>
                   <ArrowUpRight
                     className="h-5 w-5 shrink-0 text-slate-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-teal-600 dark:text-slate-600 dark:group-hover:text-teal-400"
@@ -115,14 +119,14 @@ export default function Services() {
                   />
                 </div>
 
-                <h3 className="mt-6 text-xl font-bold text-slate-900 sm:text-[1.35rem] dark:text-white">
+                <h3 className="mt-5 text-lg font-bold text-slate-900 sm:mt-6 sm:text-xl dark:text-white">
                   {service.title}
                 </h3>
-                <p className="mt-3 text-[15px] leading-7 text-slate-600 dark:text-slate-400">
+                <p className="mt-3 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7 dark:text-slate-400">
                   {service.description}
                 </p>
 
-                <ul className="mt-6 grid gap-2.5 border-t border-slate-100 pt-6 sm:grid-cols-2 dark:border-white/10">
+                <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 dark:border-white/10">
                   {service.deliverables.map((item) => (
                     <li
                       key={item}
@@ -137,7 +141,7 @@ export default function Services() {
                   ))}
                 </ul>
 
-                <span className="mt-auto pt-7 text-sm font-semibold text-teal-700 dark:text-teal-400">
+                <span className="mt-auto pt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">
                   {service.linkLabel}
                 </span>
               </Link>

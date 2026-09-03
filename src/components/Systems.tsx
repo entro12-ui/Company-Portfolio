@@ -21,6 +21,8 @@ type Industry = {
   title: string;
   description: string;
   href: string;
+  iconBg: string;
+  iconColor: string;
 };
 
 const industries: Industry[] = [
@@ -30,6 +32,8 @@ const industries: Industry[] = [
     description:
       "Admissions, academics, finance and parent communication in one platform.",
     href: "/products/edustack-schoolhub",
+    iconBg: "bg-emerald-500/15",
+    iconColor: "text-emerald-600 dark:text-emerald-400",
   },
   {
     icon: HeartPulse,
@@ -37,6 +41,8 @@ const industries: Industry[] = [
     description:
       "Patient records, appointments, lab, pharmacy and billing with AI support.",
     href: "/solutions-for-clinics",
+    iconBg: "bg-rose-500/15",
+    iconColor: "text-rose-600 dark:text-rose-400",
   },
   {
     icon: Package,
@@ -44,6 +50,8 @@ const industries: Industry[] = [
     description:
       "Stock control across branches and warehouses with real profitability reporting.",
     href: "/products/control-inventory",
+    iconBg: "bg-amber-500/15",
+    iconColor: "text-amber-600 dark:text-amber-400",
   },
   {
     icon: Car,
@@ -51,6 +59,8 @@ const industries: Industry[] = [
     description:
       "Vehicles, service history, parts and automated mileage-based reminders.",
     href: "/products/car-service",
+    iconBg: "bg-sky-500/15",
+    iconColor: "text-sky-600 dark:text-sky-400",
   },
   {
     icon: Building2,
@@ -58,6 +68,8 @@ const industries: Industry[] = [
     description:
       "Units, tenants, rent collection, maintenance and portfolio dashboards.",
     href: "/products/property-management",
+    iconBg: "bg-violet-500/15",
+    iconColor: "text-violet-600 dark:text-violet-400",
   },
   {
     icon: Landmark,
@@ -65,6 +77,8 @@ const industries: Industry[] = [
     description:
       "Program tracking, beneficiary data, document workflows and donor reporting.",
     href: "/solutions-for-government",
+    iconBg: "bg-teal-500/15",
+    iconColor: "text-teal-600 dark:text-teal-400",
   },
   {
     icon: BriefcaseBusiness,
@@ -72,6 +86,8 @@ const industries: Industry[] = [
     description:
       "Replace spreadsheets and manual reporting with systems your team will use.",
     href: "/solutions-for-smes",
+    iconBg: "bg-cyan-500/15",
+    iconColor: "text-cyan-600 dark:text-cyan-400",
   },
   {
     icon: Hotel,
@@ -79,6 +95,8 @@ const industries: Industry[] = [
     description:
       "Bookings, tenant records, billing and day-to-day service workflows.",
     href: "/contact",
+    iconBg: "bg-indigo-500/15",
+    iconColor: "text-indigo-600 dark:text-indigo-400",
   },
   {
     icon: Factory,
@@ -86,6 +104,8 @@ const industries: Industry[] = [
     description:
       "Production planning, inventory visibility and operational reporting.",
     href: "/contact",
+    iconBg: "bg-orange-500/15",
+    iconColor: "text-orange-600 dark:text-orange-400",
   },
   {
     icon: Dumbbell,
@@ -93,6 +113,8 @@ const industries: Industry[] = [
     description:
       "Memberships, class schedules, trainer programmes and progress tracking.",
     href: "/products/fitmind-ai",
+    iconBg: "bg-fuchsia-500/15",
+    iconColor: "text-fuchsia-600 dark:text-fuchsia-400",
   },
 ];
 
@@ -105,18 +127,24 @@ export default function Industries() {
         description="We have already built for these operating models, which means discovery starts from informed questions instead of a blank page."
       />
 
-      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+      <div className="mt-14 flex flex-row gap-4 overflow-x-auto pb-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:gap-4 lg:overflow-visible">
         {industries.map((industry, index) => {
           const Icon = industry.icon;
           return (
-            <Reveal key={industry.title} delay={index * 50} className="h-full">
+            <Reveal
+              key={industry.title}
+              delay={index * 50}
+              className="flex h-full w-[min(72vw,15.5rem)] shrink-0 flex-col sm:w-[14.5rem] lg:w-auto lg:min-w-0 lg:flex-1"
+            >
               <Link
                 href={industry.href}
-                className="ring-gradient group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-teal-300 hover:shadow-[var(--shadow-lifted)] dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-teal-400/40"
+                className="ring-gradient group flex h-full flex-col rounded-2xl border border-slate-200 bg-white p-5 transition-all duration-300 hover:-translate-y-1 hover:border-teal-300 hover:shadow-[var(--shadow-lifted)] sm:p-6 dark:border-white/10 dark:bg-white/[0.03] dark:hover:border-teal-400/40"
               >
-                <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-500/10 transition-colors duration-300 group-hover:bg-teal-500/20">
+                <span
+                  className={`flex h-11 w-11 items-center justify-center rounded-xl ${industry.iconBg} transition-transform duration-300 group-hover:-translate-y-0.5`}
+                >
                   <Icon
-                    className="h-5 w-5 text-teal-600 dark:text-teal-400"
+                    className={`h-5 w-5 ${industry.iconColor}`}
                     aria-hidden="true"
                   />
                 </span>
@@ -127,7 +155,7 @@ export default function Industries() {
                   {industry.description}
                 </p>
                 <ArrowUpRight
-                  className="mt-auto h-4 w-4 translate-y-1 pt-0 text-teal-600 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 dark:text-teal-400"
+                  className={`mt-auto h-4 w-4 translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 ${industry.iconColor}`}
                   aria-hidden="true"
                 />
               </Link>
