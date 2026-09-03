@@ -28,7 +28,7 @@ const trustedBy = [
   { name: "Vallintine", logo: "/vallintine.png" },
 ];
 
-const TRUSTED_PER_PAGE = 2;
+const TRUSTED_PER_PAGE = 1;
 
 const assurances = [
   { icon: ShieldCheck, label: "Security-first builds" },
@@ -275,22 +275,21 @@ const Hero = () => {
           </p>
 
           <div className="mt-7 md:hidden">
-            <div
-              key={trustedPage}
-              className="animate-fade-in-up grid grid-cols-2 gap-3"
-            >
+            <div key={trustedPage} className="animate-fade-in-up">
               {visibleTrusted.map((client) => (
                 <div
                   key={client.name}
-                  className="flex h-14 items-center justify-center rounded-xl border border-white/10 bg-white/95 px-3"
+                  className="mx-auto flex h-24 max-w-xs items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-6 backdrop-blur-md"
                 >
-                  <span className="relative h-9 w-full">
+                  <span className="relative h-16 w-full">
                     <Image
                       src={client.logo}
                       alt={client.name}
                       fill
+                      priority
+                      quality={100}
                       className="object-contain object-center"
-                      sizes="160px"
+                      sizes="280px"
                     />
                   </span>
                 </div>
@@ -315,19 +314,20 @@ const Hero = () => {
           </div>
 
           <div className="mask-fade-x marquee-paused mt-7 hidden overflow-hidden md:block">
-            <div className="animate-marquee flex w-max items-center gap-12 lg:gap-16">
+            <div className="animate-marquee flex w-max items-center gap-10 lg:gap-14">
               {[...trustedBy, ...trustedBy, ...trustedBy].map((client, index) => (
                 <div
                   key={`${client.name}-${index}`}
-                  className="flex h-16 w-40 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-white/95 px-4 opacity-80 transition-all duration-300 hover:-translate-y-0.5 hover:opacity-100"
+                  className="flex h-20 w-48 shrink-0 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-5 backdrop-blur-md transition-transform duration-300 hover:-translate-y-0.5"
                 >
-                  <span className="relative h-10 w-full">
+                  <span className="relative h-12 w-full">
                     <Image
                       src={client.logo}
                       alt={client.name}
                       fill
+                      quality={100}
                       className="object-contain object-center"
-                      sizes="160px"
+                      sizes="192px"
                     />
                   </span>
                 </div>

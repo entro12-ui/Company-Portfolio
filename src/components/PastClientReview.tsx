@@ -158,13 +158,13 @@ function ReviewCard({
       </div>
       <figcaption className="mt-6 flex items-center gap-3.5 border-t border-slate-100 pt-6 dark:border-white/10">
         {review.logoSrc ? (
-          <span className="relative h-10 w-20 shrink-0 overflow-hidden rounded-lg border border-slate-200 bg-white p-1 dark:border-white/10">
+          <span className="relative h-12 w-28 shrink-0 overflow-hidden rounded-xl border border-slate-200/70 bg-transparent p-1.5 dark:border-white/20 dark:bg-white/5">
             <Image
               src={review.logoSrc}
               alt={`${review.organization} logo`}
               fill
               className="object-contain object-center"
-              sizes="80px"
+              sizes="112px"
               quality={100}
             />
           </span>
