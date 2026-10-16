@@ -1,11 +1,8 @@
 import {
   BadgeCheck,
   Handshake,
-  Headset,
   MapPin,
   ShieldCheck,
-  TrendingUp,
-  Users,
   type LucideIcon,
 } from "lucide-react";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -21,39 +18,21 @@ type Reason = {
 const reasons: Reason[] = [
   {
     icon: MapPin,
-    title: "A local team you can actually meet",
+    title: "Local in Addis Ababa",
     description:
-      "We are based in Addis Ababa. We run workshops in your office, train your staff in person, and understand the operating realities you work in.",
-  },
-  {
-    icon: Users,
-    title: "Senior engineers on your project",
-    description:
-      "The people who scope your system are the people who build it. No handoff to a junior team once the contract is signed.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Security and ownership by default",
-    description:
-      "Role-based access, audit trails and encrypted data on every build — and the source code and data belong to you, not to us.",
+      "Meet us in person, train your staff on site, and get support that understands Ethiopian operations.",
   },
   {
     icon: Handshake,
-    title: "Pricing you can plan around",
+    title: "Clear price before we start",
     description:
-      "Fixed scope, fixed price, written down before work starts. If the scope changes, you approve the change and the cost before we proceed.",
+      "Fixed scope and fixed price in writing. Changes only happen when you approve them.",
   },
   {
-    icon: TrendingUp,
-    title: "Built to grow with you",
+    icon: ShieldCheck,
+    title: "You own the system",
     description:
-      "Multi-branch, multi-user and cloud or on-premise from day one, so the system you buy this year still fits three years from now.",
-  },
-  {
-    icon: Headset,
-    title: "Support that answers",
-    description:
-      "A named contact, 24/7 availability for critical issues, and a maintenance plan that keeps the system healthy after go-live.",
+      "Secure builds with role-based access — and the code and data belong to you.",
   },
 ];
 
@@ -64,32 +43,28 @@ export default function WhyEntro() {
       className="border-y border-slate-200/70 bg-slate-50 dark:border-white/10 dark:bg-ink-900"
     >
       <SectionHeading
-        eyebrow="Why teams choose us"
-        title="Software is easy to buy and hard to trust. We build for the trust part."
-        description="Anyone can promise a system. These are the specific commitments that decide whether it still works — and still gets supported — two years from now."
+        eyebrow="Why Entro"
+        title="Easy to trust, easy to work with"
+        description="Three commitments that matter after launch — not just at signing."
       />
 
-      <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
+      <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
         {reasons.map((reason, index) => {
           const Icon = reason.icon;
           return (
-            <Reveal
-              key={reason.title}
-              delay={index * 70}
-              className="group"
-            >
+            <Reveal key={reason.title} delay={index * 70} className="group">
               <div className="flex items-start gap-4">
-                <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-teal-500/20 bg-white shadow-[var(--shadow-soft)] transition-transform duration-300 group-hover:-translate-y-1 dark:border-teal-400/20 dark:bg-white/[0.05]">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-teal-500/20 bg-white shadow-[var(--shadow-soft)] dark:border-teal-400/20 dark:bg-white/[0.05]">
                   <Icon
                     className="h-5 w-5 text-teal-600 dark:text-teal-400"
                     aria-hidden="true"
                   />
                 </span>
                 <div className="min-w-0">
-                  <h3 className="text-[17px] font-bold leading-snug text-slate-900 dark:text-white">
+                  <h3 className="text-base font-bold text-slate-900 dark:text-white">
                     {reason.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7 dark:text-slate-400">
+                  <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                     {reason.description}
                   </p>
                 </div>
@@ -99,8 +74,8 @@ export default function WhyEntro() {
         })}
       </div>
 
-      <Reveal delay={140} className="mt-14">
-        <div className="flex flex-col items-center gap-4 rounded-2xl border border-slate-200 bg-white px-6 py-5 text-center sm:flex-row sm:justify-center sm:gap-8 sm:text-left dark:border-white/10 dark:bg-white/[0.03]">
+      <Reveal delay={120} className="mt-12">
+        <div className="flex flex-col items-center gap-3 rounded-2xl border border-slate-200 bg-white px-6 py-4 text-center sm:flex-row sm:justify-center sm:gap-8 sm:text-left dark:border-white/10 dark:bg-white/[0.03]">
           <span className="flex items-center gap-2.5 text-sm font-semibold text-slate-900 dark:text-white">
             <BadgeCheck
               className="h-5 w-5 text-teal-600 dark:text-teal-400"
@@ -114,7 +89,7 @@ export default function WhyEntro() {
           </span>
           <span className="hidden h-5 w-px bg-slate-200 sm:block dark:bg-white/10" />
           <span className="text-sm text-slate-600 dark:text-slate-400">
-            {company.address}, {company.city}
+            {company.city}
           </span>
         </div>
       </Reveal>

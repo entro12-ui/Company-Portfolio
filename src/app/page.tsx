@@ -4,7 +4,6 @@ import PageShell from "@/components/PageShell";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
 import WhyEntro from "@/components/WhyEntro";
-import Industries from "@/components/Systems";
 import SoftwareProducts from "@/components/SoftwareProducts";
 import Process from "@/components/Process";
 import PastClientReview from "@/components/PastClientReview";
@@ -35,10 +34,13 @@ export const metadata: Metadata = {
   },
 };
 
+const homepageFaqs = faqItems.slice(0, 5);
+const homepagePosts = blogPosts.slice(0, 3);
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  mainEntity: faqItems.map((item) => ({
+  mainEntity: homepageFaqs.map((item) => ({
     "@type": "Question",
     name: item.question,
     acceptedAnswer: {
@@ -56,16 +58,22 @@ export default function Home() {
       <JsonLd data={localBusinessSchema} />
       <JsonLd data={faqSchema} />
       <JsonLd data={buildTestimonialReviewSchema(clientReviews)} />
+
+      {/* 1. Who we are */}
       <Hero />
-      <Services />
-      <WhyEntro />
+      {/* 2. What you can buy */}
       <SoftwareProducts />
-      <Industries />
-      <Process />
+      {/* 3. How we help */}
+      <Services />
+      {/* 4. Why choose us */}
+      <WhyEntro />
+      {/* 5. Proof */}
       <PastClientReview />
+      {/* 6. How it works */}
+      <Process />
+      {/* 7. Talk to us */}
       <CtaBand />
 
-      {/* Insights */}
       <Section
         id="insights"
         className="border-y border-slate-200/70 bg-slate-50 dark:border-white/10 dark:bg-ink-900"
@@ -73,26 +81,24 @@ export default function Home() {
         <SectionHeading
           align="left"
           eyebrow="Insights"
-          title="Practical writing on software, hardware and AI"
-          description="Guides drawn from real projects with Ethiopian businesses and institutions — written for decision makers, not developers."
+          title="Quick reads for decision makers"
+          description="Short guides from real Ethiopian projects."
           action={
             <Link
               href="/blog"
               className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-400 dark:border-white/15 dark:bg-white/[0.05] dark:text-white"
             >
-              Read all articles
+              All articles
             </Link>
           }
         />
 
-        <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-          {blogPosts.map((post, index) => {
+        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
+          {homepagePosts.map((post, index) => {
             const accents = [
               "text-teal-700 dark:text-teal-400",
               "text-sky-700 dark:text-sky-400",
               "text-violet-700 dark:text-violet-400",
-              "text-amber-700 dark:text-amber-400",
-              "text-rose-700 dark:text-rose-400",
             ];
             const accent = accents[index % accents.length];
             return (
@@ -109,11 +115,11 @@ export default function Home() {
                   <h3 className="mt-3 line-clamp-2 text-lg font-bold leading-snug text-slate-900 dark:text-white">
                     {post.title}
                   </h3>
-                  <p className="mt-3 line-clamp-3 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                  <p className="mt-3 line-clamp-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                     {post.description}
                   </p>
-                  <span className={`mt-auto pt-6 text-sm font-semibold ${accent}`}>
-                    Read article →
+                  <span className={`mt-auto pt-5 text-sm font-semibold ${accent}`}>
+                    Read →
                   </span>
                 </Link>
               </Reveal>
@@ -122,7 +128,7 @@ export default function Home() {
         </div>
       </Section>
 
-      <Faq />
+      <Faq items={homepageFaqs} />
     </PageShell>
   );
 }

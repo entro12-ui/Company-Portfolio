@@ -209,11 +209,9 @@ const Hero = () => {
               </span>
             </h1>
 
-            <p className="animate-fade-in-up animation-delay-400 mt-6 max-w-xl text-lg leading-8 text-slate-300">
-              Entro Ethiopia builds web platforms, AI solutions and ERP systems —
-              and installs CCTV, access control, GPS tracking and attendance
-              hardware — for schools, clinics, government and growing businesses
-              in Addis Ababa, with support long after launch.
+            <p className="animate-fade-in-up animation-delay-400 mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+              Custom software, ready platforms, and hardware systems — built in
+              Addis Ababa and supported after launch.
             </p>
 
             <div className="animate-fade-in-up animation-delay-600 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">

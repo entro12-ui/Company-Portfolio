@@ -101,70 +101,46 @@ export default function Services() {
       className="bg-gradient-to-b from-white via-slate-50 to-white dark:from-ink-950 dark:via-ink-900 dark:to-ink-950"
     >
       <SectionHeading
-        eyebrow="What we do"
-        title="Software and hardware, one accountable team"
-        description="Strategy, design, engineering, hardware installation and support under one roof — so nothing gets lost between vendors and no one has to chase an answer."
+        eyebrow="Services"
+        title="Software and hardware under one team"
+        description="Build, install, integrate, and support — without juggling vendors."
       />
 
-      <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
+      <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
         {services.map((service, index) => {
           const Icon = service.icon;
           return (
-            <Reveal key={service.title} delay={index * 90} className="h-full">
+            <Reveal key={service.title} delay={index * 60} className="h-full">
               <Link
                 href={service.href}
-                className="ring-gradient card-hover group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 shadow-[var(--shadow-soft)] sm:p-7 dark:border-white/10 dark:bg-white/[0.03]"
+                className="ring-gradient group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 sm:p-6 dark:border-white/10 dark:bg-white/[0.03]"
               >
-                <div
-                  className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-teal-500/10 opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-100"
-                  aria-hidden="true"
-                />
-
-                <div className="flex items-start gap-4">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 to-cyan-600 shadow-[0_12px_28px_-14px_rgba(13,148,136,0.9)]">
+                <div className="flex items-start gap-3.5">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600">
                     <Icon className="h-5 w-5 text-white" aria-hidden="true" />
                   </span>
                   <div className="min-w-0 flex-1">
                     <div className="flex items-start justify-between gap-2">
-                      <h3 className="text-lg font-bold text-slate-900 sm:text-xl dark:text-white">
+                      <h3 className="text-base font-bold text-slate-900 sm:text-lg dark:text-white">
                         {service.title}
                       </h3>
                       <ArrowUpRight
-                        className="mt-1 h-5 w-5 shrink-0 text-slate-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-teal-600 dark:text-slate-600 dark:group-hover:text-teal-400"
+                        className="mt-0.5 h-4 w-4 shrink-0 text-slate-300 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-teal-600 dark:text-slate-600 dark:group-hover:text-teal-400"
                         aria-hidden="true"
                       />
                     </div>
-                    <p className="mt-2 text-sm leading-6 text-slate-600 sm:text-[15px] sm:leading-7 dark:text-slate-400">
+                    <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                       {service.description}
                     </p>
                   </div>
                 </div>
-
-                <ul className="mt-5 space-y-2.5 border-t border-slate-100 pt-5 dark:border-white/10">
-                  {service.deliverables.map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-start gap-2 text-sm text-slate-600 dark:text-slate-400"
-                    >
-                      <span
-                        className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-teal-500"
-                        aria-hidden="true"
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <span className="mt-auto pt-6 text-sm font-semibold text-teal-700 dark:text-teal-400">
-                  {service.linkLabel}
-                </span>
               </Link>
             </Reveal>
           );
         })}
       </div>
 
-      <Reveal delay={120} className="mt-14">
+      <Reveal delay={100} className="mt-12">
         <TechStackCarousel />
       </Reveal>
     </Section>

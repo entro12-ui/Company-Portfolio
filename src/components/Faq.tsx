@@ -60,20 +60,24 @@ function FaqItem({
   );
 }
 
-const Faq = () => {
+type FaqProps = {
+  items?: typeof faqItems;
+};
+
+const Faq = ({ items = faqItems }: FaqProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
     <Section id="faq" className="bg-white dark:bg-ink-950">
       <SectionHeading
         eyebrow="Questions"
-        title="Everything clients ask before they sign"
-        description="If your question is not here, ask it directly — you will get a straight answer, not a sales call."
+        title="Common questions"
+        description="Need more detail? Ask us directly — you will get a clear answer."
       />
 
-      <div className="mt-14 grid gap-8 lg:grid-cols-[1fr_1.6fr] lg:gap-12">
+      <div className="mt-12 grid gap-8 lg:grid-cols-[1fr_1.6fr] lg:gap-12">
         <Reveal>
-          <div className="sticky top-32 rounded-3xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-8 dark:border-white/10 dark:from-white/[0.06] dark:to-white/[0.02]">
+          <div className="sticky top-32 rounded-3xl border border-slate-200 bg-gradient-to-b from-slate-50 to-white p-7 dark:border-white/10 dark:from-white/[0.06] dark:to-white/[0.02]">
             <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600">
               <MessageSquareQuote
                 className="h-5 w-5 text-white"
@@ -83,9 +87,8 @@ const Faq = () => {
             <h3 className="mt-5 text-xl font-bold text-slate-900 dark:text-white">
               Still deciding?
             </h3>
-            <p className="mt-2.5 text-sm leading-6 text-slate-600 dark:text-slate-400">
-              A 30-minute call is usually enough to know whether we are the
-              right team for your project.
+            <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+              A short call is usually enough to know if we are the right fit.
             </p>
 
             <div className="mt-6 space-y-2.5">
@@ -115,13 +118,13 @@ const Faq = () => {
               href="/contact"
               className="mt-4 flex items-center justify-center rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-6 py-3.5 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
             >
-              Send us a brief
+              Contact us
             </Link>
           </div>
         </Reveal>
 
         <div className="space-y-3">
-          {faqItems.map((item, index) => (
+          {items.map((item, index) => (
             <Reveal key={item.question} delay={index * 40}>
               <FaqItem
                 question={item.question}

@@ -155,23 +155,23 @@ export default function SoftwareProducts() {
       <div className="relative">
         <SectionHeading
           tone="dark"
-          eyebrow="Our platforms"
-          title="Products already running real operations"
-          description="Proven platforms you can deploy in weeks instead of months — each one configurable to your processes, and each one built and maintained by the same team that supports it."
+          eyebrow="Products"
+          title="Ready-to-use platforms"
+          description="Pick a product that fits your business — or ask us to build something custom."
         />
 
-        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
           {products.map((product, index) => {
             const Icon = product.icon;
             return (
-              <Reveal key={product.id} delay={index * 70} className="h-full">
+              <Reveal key={product.id} delay={index * 50} className="h-full">
                 <Link
                   href={`/products/${product.id}`}
-                  className="ring-gradient group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition-all duration-500 hover:-translate-y-1.5 hover:bg-white/[0.07] sm:p-7"
+                  className="ring-gradient group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07] sm:p-6"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-3.5">
                     <span
-                      className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${product.iconBg}`}
+                      className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border ${product.iconBg}`}
                     >
                       <Icon
                         className={`h-5 w-5 ${product.iconColor}`}
@@ -180,41 +180,22 @@ export default function SoftwareProducts() {
                     </span>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-2">
-                        <h3 className="text-lg font-bold text-white sm:text-xl">
+                        <h3 className="text-base font-bold text-white sm:text-lg">
                           {product.title}
                         </h3>
-                        <span className="shrink-0 rounded-full border border-white/10 bg-white/[0.05] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wider text-slate-400">
-                          {product.category}
-                        </span>
+                        <ArrowUpRight
+                          className="mt-0.5 h-4 w-4 shrink-0 text-slate-500 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-teal-300"
+                          aria-hidden="true"
+                        />
                       </div>
-                      <p className="mt-2 text-sm leading-6 text-slate-400">
+                      <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                        {product.category}
+                      </p>
+                      <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-400">
                         {product.description}
                       </p>
                     </div>
                   </div>
-
-                  <ul className="mt-5 space-y-2.5 border-t border-white/8 pt-5">
-                    {product.highlights.map((highlight) => (
-                      <li
-                        key={highlight}
-                        className="flex items-start gap-2.5 text-sm text-slate-300"
-                      >
-                        <span
-                          className={`mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full ${product.bulletColor}`}
-                          aria-hidden="true"
-                        />
-                        {highlight}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <span className="mt-auto flex items-center gap-1.5 pt-6 text-sm font-semibold text-teal-300">
-                    View platform
-                    <ArrowUpRight
-                      className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                      aria-hidden="true"
-                    />
-                  </span>
                 </Link>
               </Reveal>
             );

@@ -172,15 +172,15 @@ export default function PastClientReview() {
     >
       <SectionHeading
         align="left"
-        eyebrow="Client results"
-        title="The work speaks, but our clients say it better"
-        description="Feedback from the organizations we have supported with software systems, from single clinics in Addis Ababa to product teams abroad."
+        eyebrow="Clients"
+        title="What clients say"
+        description="Real feedback from teams we have supported in Ethiopia and abroad."
         action={
           <Link
             href="/portfolio"
             className="group inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-900 transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-400 dark:border-white/15 dark:bg-white/[0.05] dark:text-white"
           >
-            View full portfolio
+            Full portfolio
             <ArrowUpRight
               className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
               aria-hidden="true"
@@ -189,8 +189,8 @@ export default function PastClientReview() {
         }
       />
 
-      {/* Small screen: dotted carousel (1 review per slide) */}
-      <div className="mt-14 md:hidden">
+      {/* Small screen: dotted carousel */}
+      <div className="mt-12 md:hidden">
         <div key={page} className="animate-fade-in-up">
           <ReviewCard review={clientReviews[page]} index={page} />
         </div>
@@ -202,9 +202,9 @@ export default function PastClientReview() {
         />
       </div>
 
-      {/* Medium / large: grid */}
-      <div className="mt-14 hidden gap-5 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-        {clientReviews.map((review, index) => (
+      {/* Desktop: show 3 featured reviews */}
+      <div className="mt-12 hidden gap-5 md:grid md:grid-cols-3 md:gap-6">
+        {clientReviews.slice(0, 3).map((review, index) => (
           <Reveal
             key={`${review.name}-${review.organization}`}
             delay={index * 60}
@@ -215,9 +215,9 @@ export default function PastClientReview() {
         ))}
       </div>
 
-      <div className="mt-16">
+      <div className="mt-12">
         <p className="text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-slate-500">
-          Recent and ongoing projects
+          Recent projects
         </p>
         <div className="mt-7 flex flex-row gap-3 overflow-x-auto pb-1 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mask-fade-x md:overflow-hidden">
           <div className="flex w-max gap-3 md:animate-marquee md:gap-4">
