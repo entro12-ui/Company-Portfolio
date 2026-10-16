@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin, Phone, Star } from "lucide-react";
 import { FaFacebookF, FaInstagram, FaTiktok } from "react-icons/fa6";
 import {
   company,
@@ -124,10 +124,10 @@ const Footer = () => {
             </Link>
 
             <p className="mt-6 max-w-md text-sm leading-7 text-slate-400">
-              We build custom software, web platforms, AI solutions and ERP
-              systems for schools, clinics, NGOs, government institutions and
-              growing businesses across Ethiopia — and support them long after
-              launch.
+              We build custom software, web platforms, AI and ERP systems — and
+              install CCTV, access control, GPS tracking and attendance hardware
+              — for schools, clinics, NGOs, government and growing businesses
+              across Ethiopia.
             </p>
 
             <div className="mt-7 space-y-3">
@@ -156,6 +156,15 @@ const Footer = () => {
                   {company.city} · TIN {company.tin}
                 </span>
               </p>
+              <a
+                href={company.googleBusinessUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-3 text-sm text-slate-300 transition-colors hover:text-white"
+              >
+                <Star className="h-4 w-4 text-teal-400" aria-hidden="true" />
+                Google Business Profile & reviews
+              </a>
             </div>
 
             <div className="mt-7 flex gap-3">

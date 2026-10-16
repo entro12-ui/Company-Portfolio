@@ -64,11 +64,11 @@ const products = {
     ],
     cta: "Book a SchoolHub Demo",
   },
-  "car-service": {
-    title: "Car Service Management System",
-    tagline: "Digital workflow for modern auto service centers",
+  guzo: {
+    title: "ጉዞ · Guzo",
+    tagline: "Automotive service and garage management system",
     description:
-      "Complete digital solution for auto service centers to manage operations from booking to delivery.",
+      "ጉዞ (Guzo) is Entro Ethiopia’s automotive service and garage management platform — from booking to delivery, with customers, vehicles, jobs, parts, and reminders.",
     highlights: [
       "Customer and vehicle management",
       "Service booking and job tracking",
@@ -90,7 +90,35 @@ const products = {
       "Customer Notifications",
       "Workshop Performance Dashboard",
     ],
-    cta: "Get Started",
+    cta: "Request Guzo Demo",
+  },
+  "car-service": {
+    title: "ጉዞ · Guzo",
+    tagline: "Automotive service and garage management system",
+    description:
+      "ጉዞ (Guzo) is Entro Ethiopia’s automotive service and garage management platform — from booking to delivery, with customers, vehicles, jobs, parts, and reminders.",
+    highlights: [
+      "Customer and vehicle management",
+      "Service booking and job tracking",
+      "Parts and inventory workflow management",
+      "SMS and email service notifications",
+    ],
+    useCases: [
+      "Garages handling multiple vehicles per day",
+      "Service centers with recurring maintenance plans",
+      "Workshops tracking mechanic productivity and parts usage",
+    ],
+    modules: [
+      "Job Cards",
+      "Appointments",
+      "Vehicle Service History",
+      "Spare Parts Inventory",
+      "Technician Assignment",
+      "Invoices",
+      "Customer Notifications",
+      "Workshop Performance Dashboard",
+    ],
+    cta: "Request Guzo Demo",
   },
   "fitmind-ai": {
     title: "FitMind AI",
@@ -121,25 +149,25 @@ const products = {
     cta: "Explore FitMind AI",
   },
   "control-inventory": {
-    title: "Control Inventory Management System",
-    tagline: "Accurate stock and sales control across branches",
+    title: "ኢዚስቶክ · EasyStock",
+    tagline: "Inventory and sales system — easy stock control across branches",
     description:
-      "End-to-end inventory, sales, and reporting platform for warehouses, branches, and retail teams.",
+      "ኢዚስቶክ (EasyStock) is Entro Ethiopia’s inventory and sales platform for shops, warehouses, and multi-branch businesses. Track stock, run sales/POS, manage purchases, and see profit clearly.",
     highlights: [
-      "Stock movement and location management",
-      "Sales transaction workflows",
-      "Business and profitability reporting",
-      "Low-stock alerts and smart control tools",
+      "Stock movement and multi-location control",
+      "Sales / POS transaction workflows",
+      "Purchasing and supplier management",
+      "Profit reports and low-stock alerts",
     ],
     useCases: [
-      "Retail chains tracking multi-branch stock levels",
+      "Retail shops and chains tracking multi-branch stock",
       "Warehouses managing incoming and outgoing inventory",
       "Distribution businesses improving replenishment cycles",
     ],
     modules: [
-      "Inventory",
+      "Inventory / ክምችት",
       "Stock Transfer",
-      "Sales POS",
+      "Sales POS / ሽያጭ",
       "Purchasing",
       "Supplier Management",
       "Branch Management",
@@ -147,16 +175,16 @@ const products = {
       "Reporting Dashboard",
       "Notifications",
     ],
-    cta: "Request Inventory Demo",
+    cta: "Request EasyStock Demo",
   },
-  "property-management": {
-    title: "Property Management System",
-    tagline: "Simplified property and tenant operations management",
+  nibret: {
+    title: "ንብረት · Nibret",
+    tagline: "Property and real estate management system",
     description:
-      "Digital property operations platform for units, tenants, billing, maintenance, and portfolio visibility.",
+      "ንብረት (Nibret) is Entro Ethiopia’s property and real estate management platform for units, tenants, rent billing, maintenance, and portfolio visibility — built for how Ethiopian owners and managers actually work.",
     highlights: [
       "Unit and tenant lifecycle management",
-      "Rent, billing, and payment follow-up",
+      "Rent billing and payment follow-up",
       "Maintenance and service request workflows",
       "Occupancy and performance dashboards",
     ],
@@ -166,7 +194,7 @@ const products = {
       "Real estate teams coordinating maintenance at scale",
     ],
     modules: [
-      "Units",
+      "Units / ክፍሎች",
       "Tenant Management",
       "Lease Tracking",
       "Billing & Rent Collection",
@@ -175,7 +203,120 @@ const products = {
       "Occupancy Reports",
       "Dashboards",
     ],
-    cta: "Book a Property Demo",
+    cta: "Book a Nibret Demo",
+  },
+  "property-management": {
+    title: "ንብረት · Nibret",
+    tagline: "Property and real estate management system",
+    description:
+      "ንብረት (Nibret) is Entro Ethiopia’s property and real estate management platform for units, tenants, rent billing, maintenance, and portfolio visibility — built for how Ethiopian owners and managers actually work.",
+    highlights: [
+      "Unit and tenant lifecycle management",
+      "Rent billing and payment follow-up",
+      "Maintenance and service request workflows",
+      "Occupancy and performance dashboards",
+    ],
+    useCases: [
+      "Property owners managing residential portfolios",
+      "Commercial building operators handling tenant billing",
+      "Real estate teams coordinating maintenance at scale",
+    ],
+    modules: [
+      "Units / ክፍሎች",
+      "Tenant Management",
+      "Lease Tracking",
+      "Billing & Rent Collection",
+      "Maintenance Tickets",
+      "Service Provider Management",
+      "Occupancy Reports",
+      "Dashboards",
+    ],
+    cta: "Book a Nibret Demo",
+  },
+  wubet: {
+    title: "ውበት · Wubet",
+    tagline: "Salon, barbershop and spa management system",
+    description:
+      "ውበት (Wubet) is Entro Ethiopia’s salon, barbershop and spa management platform — appointments, staff schedules, services, packages, client history, and payments in one place.",
+    highlights: [
+      "Online and walk-in appointment booking",
+      "Staff, services, packages and memberships",
+      "Client history, reminders and loyalty",
+      "Payments, expenses and daily sales reports",
+    ],
+    useCases: [
+      "Hair salons and barbershops managing busy calendars",
+      "Spas coordinating therapists, rooms and packages",
+      "Beauty chains needing multi-branch booking and sales",
+    ],
+    modules: [
+      "Appointments / ቀጠሮ",
+      "Staff Scheduling",
+      "Services & Packages",
+      "Client Profiles",
+      "Memberships",
+      "Payments & Invoices",
+      "SMS Reminders",
+      "Sales Dashboard",
+    ],
+    cta: "Request Wubet Demo",
+  },
+  brabear: {
+    title: "ውበት · Wubet",
+    tagline: "Salon, barbershop and spa management system",
+    description:
+      "ውበት (Wubet) is Entro Ethiopia’s salon, barbershop and spa management platform — appointments, staff schedules, services, packages, client history, and payments in one place.",
+    highlights: [
+      "Online and walk-in appointment booking",
+      "Staff, services, packages and memberships",
+      "Client history, reminders and loyalty",
+      "Payments, expenses and daily sales reports",
+    ],
+    useCases: [
+      "Hair salons and barbershops managing busy calendars",
+      "Spas coordinating therapists, rooms and packages",
+      "Beauty chains needing multi-branch booking and sales",
+    ],
+    modules: [
+      "Appointments / ቀጠሮ",
+      "Staff Scheduling",
+      "Services & Packages",
+      "Client Profiles",
+      "Memberships",
+      "Payments & Invoices",
+      "SMS Reminders",
+      "Sales Dashboard",
+    ],
+    cta: "Request Wubet Demo",
+  },
+  enku: {
+    title: "እንቁ · Enku",
+    tagline: "Every celebration deserves something special",
+    description:
+      "እንቁ (Enku) helps people and teams plan memorable celebrations — weddings, birthdays, graduations, anniversaries, engagements, and corporate events — with guests, vendors, budgets, and timelines in one place.",
+    highlights: [
+      "Plan weddings, birthdays, graduations and anniversaries",
+      "Engagement parties and corporate event workflows",
+      "Guest lists, vendors, budgets and timelines",
+      "Reminders, packages and celebration-ready checklists",
+    ],
+    useCases: [
+      "Couples and families organizing weddings and engagements",
+      "Hosts planning birthdays, graduations and anniversaries",
+      "Companies running corporate celebrations and staff events",
+      "Event planners coordinating multiple celebrations at once",
+    ],
+    modules: [
+      "Event Types",
+      "Guest Lists",
+      "Vendor Management",
+      "Budget Tracker",
+      "Timelines & Checklists",
+      "Invitations & Reminders",
+      "Packages & Pricing",
+      "Celebration Dashboard",
+    ],
+    cta: "Request Enku Demo",
   },
 } as const;
 

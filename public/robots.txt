@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://www.entroethiopia.com/sitemap.xml
+# AI / LLM discovery
+# https://www.entroethiopia.com/llms.txt

@@ -6,6 +6,10 @@ import Link from "next/link";
 import { ArrowUpRight, Quote } from "lucide-react";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
+import {
+  clientReviews,
+  type ClientReview,
+} from "@/content/clientReviews";
 
 function getInitials(value: string) {
   return value
@@ -26,75 +30,6 @@ const accentColors = [
   { quote: "text-orange-500", soft: "bg-orange-500/10", text: "text-orange-700 dark:text-orange-300" },
   { quote: "text-cyan-500", soft: "bg-cyan-500/10", text: "text-cyan-700 dark:text-cyan-300" },
   { quote: "text-fuchsia-500", soft: "bg-fuchsia-500/10", text: "text-fuchsia-700 dark:text-fuchsia-300" },
-];
-
-type Review = {
-  quote: string;
-  name: string;
-  organization: string;
-  logoSrc?: string;
-};
-
-const reviews: Review[] = [
-  {
-    quote:
-      "Entro Ethiopia delivered our MediCare system for Danat Dental Clinic, with practical workflows, clear usability, and reliable support for day-to-day healthcare operations.",
-    name: "Clinic Administration",
-    organization: "Danat Dental Clinic",
-    logoSrc: "/healthcare-client-logo.png",
-  },
-  {
-    quote:
-      "Entro Ethiopia helped us replace manual reporting with a practical system our staff could use from day one. Our monthly reporting is now faster and more accurate.",
-    name: "Operations Manager",
-    organization: "Media Reporting Agency, California, USA",
-    logoSrc: "/vallintine.png",
-  },
-  {
-    quote:
-      "Entro Ethiopia developed practical tools for student use, including a humanizer workflow and an AI integration system tailored to our platform needs.",
-    name: "Product Team",
-    organization: "duey.ai",
-    logoSrc: "/duey.ai.png",
-  },
-  {
-    quote:
-      "The team understood our workflow quickly and delivered a system that matched how our business actually runs. Support after launch has also been reliable.",
-    name: "General Manager",
-    organization: "SME Client, Iceland",
-    logoSrc: "/Parka.png",
-  },
-  {
-    quote:
-      "Entro Ethiopia built a booking system tailored to our operation flow. It made reservations easier to manage and improved day-to-day coordination.",
-    name: "Operations Team",
-    organization: "Operation Kilimanjaro",
-    logoSrc: "/operation-kilimanjaro-logo.png",
-  },
-  {
-    quote:
-      "Before the new system, reporting took days. Now our team generates clear reports in minutes and management gets faster updates.",
-    name: "Operations Officer",
-    organization: "Distribution Business, Ethiopia",
-  },
-  {
-    quote:
-      "The solution reduced repeated manual work and improved the speed of our internal coordination. The onboarding process was very smooth.",
-    name: "Project Coordinator",
-    organization: "NGO Program Team, Ethiopia",
-  },
-  {
-    quote:
-      "Entro Ethiopia designed a practical web-based workflow that matched our daily operations and worked well for both staff and management.",
-    name: "Managing Director",
-    organization: "Service Company, Addis Ababa",
-  },
-  {
-    quote:
-      "The software rollout was structured and the support team stayed responsive after launch. We saw immediate improvements in data accuracy.",
-    name: "HR Manager",
-    organization: "SME Group, Ethiopia",
-  },
 ];
 
 const projectColors = [
@@ -130,7 +65,7 @@ const clientProjects = [
   { name: "Meey Gold", project: "Digital Solutions", location: "Adama" },
   {
     name: "Hibret Building",
-    project: "Property Management",
+    project: "ንብረት · Nibret",
     location: "Addis Ababa",
   },
 ];
@@ -139,7 +74,7 @@ function ReviewCard({
   review,
   index,
 }: {
-  review: Review;
+  review: ClientReview;
   index: number;
 }) {
   const accent = accentColors[index % accentColors.length];
@@ -221,7 +156,7 @@ function CarouselDots({
 
 export default function PastClientReview() {
   const [page, setPage] = useState(0);
-  const totalPages = reviews.length;
+  const totalPages = clientReviews.length;
 
   useEffect(() => {
     const id = window.setInterval(() => {
@@ -257,7 +192,7 @@ export default function PastClientReview() {
       {/* Small screen: dotted carousel (1 review per slide) */}
       <div className="mt-14 md:hidden">
         <div key={page} className="animate-fade-in-up">
-          <ReviewCard review={reviews[page]} index={page} />
+          <ReviewCard review={clientReviews[page]} index={page} />
         </div>
         <CarouselDots
           total={totalPages}
@@ -269,7 +204,7 @@ export default function PastClientReview() {
 
       {/* Medium / large: grid */}
       <div className="mt-14 hidden gap-5 md:grid md:grid-cols-2 md:gap-6 lg:grid-cols-3">
-        {reviews.map((review, index) => (
+        {clientReviews.map((review, index) => (
           <Reveal
             key={`${review.name}-${review.organization}`}
             delay={index * 60}

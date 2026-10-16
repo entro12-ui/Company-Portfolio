@@ -13,55 +13,26 @@ import Faq from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
+import { clientReviews } from "@/content/clientReviews";
 import { faqItems } from "@/content/faqItems";
 import { blogPosts } from "@/content/blogPosts";
+import {
+  buildTestimonialReviewSchema,
+  companyDescription,
+  localBusinessSchema,
+  organizationSchema,
+  websiteSchema,
+} from "@/content/seo";
 
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
   title:
-    "Software Company Ethiopia | Custom Software, Web & AI Solutions | Entro Ethiopia",
-  description:
-    "Entro Ethiopia is a software company in Ethiopia building custom software, websites, AI solutions, and ERP systems for growing organizations.",
+    "Software & Hardware Company Ethiopia | CCTV, AI, ERP | Entro Ethiopia",
+  description: companyDescription,
   alternates: {
     canonical: "https://www.entroethiopia.com/",
   },
-};
-
-const organizationSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Entro Ethiopia",
-  url: "https://www.entroethiopia.com/",
-  logo: {
-    "@type": "ImageObject",
-    url: "https://www.entroethiopia.com/logo.png",
-    width: 512,
-    height: 512,
-  },
-  description:
-    "Entro Ethiopia builds custom software, websites, AI solutions and ERP systems for SMEs, NGOs, clinics and government in Addis Ababa and Ethiopia.",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Addis Ababa",
-    addressCountry: "ET",
-  },
-  contactPoint: {
-    "@type": "ContactPoint",
-    telephone: "+251 979 113 638",
-    contactType: "sales",
-  },
-  sameAs: [
-    "https://www.facebook.com/profile.php?id=61574279425487",
-    "[LINKEDIN_URL]",
-  ],
-};
-
-const websiteSchema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  name: "Entro Ethiopia",
-  url: "https://www.entroethiopia.com/",
 };
 
 const faqSchema = {
@@ -82,7 +53,9 @@ export default function Home() {
     <PageShell>
       <JsonLd data={websiteSchema} />
       <JsonLd data={organizationSchema} />
+      <JsonLd data={localBusinessSchema} />
       <JsonLd data={faqSchema} />
+      <JsonLd data={buildTestimonialReviewSchema(clientReviews)} />
       <Hero />
       <Services />
       <WhyEntro />
@@ -100,7 +73,7 @@ export default function Home() {
         <SectionHeading
           align="left"
           eyebrow="Insights"
-          title="Practical writing on software, AI and ERP"
+          title="Practical writing on software, hardware and AI"
           description="Guides drawn from real projects with Ethiopian businesses and institutions — written for decision makers, not developers."
           action={
             <Link

@@ -9,7 +9,7 @@ const platformFeatures = [
     title: "Real-Time Monitoring & Automated Alerts",
     subtitle: "Stay Informed, Always",
     description:
-      "Monitor all system activities in real-time across Healthcare Management, Car Service Management, Inventory, and Property platforms. Get instant SMS or email alerts for critical events, service reminders, and system notifications.",
+      "Monitor all system activities in real-time across MediCare AI, ጉዞ (Guzo), ኢዚስቶክ (EasyStock), ንብረት (Nibret), and ውበት (Wubet). Get instant SMS or email alerts for critical events, service reminders, and system notifications.",
     icon: "📊",
   },
   {
@@ -25,7 +25,7 @@ const platformFeatures = [
     title: "AI-Powered Intelligence & Automation",
     subtitle: "Smart Solutions for Modern Businesses",
     description:
-      "Leverage AI capabilities across our platforms: AI Clinical Decision Support in MediCare AI, automated service scheduling in Car Service Management, and predictive analytics. Automated booking integration and appointment scheduling help streamline operations.",
+      "Leverage AI capabilities across our platforms: AI Clinical Decision Support in MediCare AI, automated service scheduling in ጉዞ (Guzo), and predictive analytics. Automated booking integration and appointment scheduling help streamline operations.",
     icon: "🤖",
   },
   {

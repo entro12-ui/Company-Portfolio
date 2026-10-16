@@ -23,11 +23,25 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "./",
   },
-  title: "Entro Ethiopia - Software & AI Solutions",
+  title: {
+    default:
+      "Entro Ethiopia | Software Development PLC in Addis Ababa",
+    template: "%s | Entro Ethiopia",
+  },
   description:
-    "Custom software development, AI solutions, ERP systems, and business automation platforms for organizations in Ethiopia and Africa.",
-  keywords:
-    "custom software, AI solutions, ERP systems, business automation, Ethiopia, Addis Ababa",
+    "Entro Ethiopia Software Development PLC builds custom software, AI, ERP systems, and installs CCTV, access control, GPS tracking, and attendance hardware in Addis Ababa, Ethiopia.",
+  keywords: [
+    "software company Ethiopia",
+    "hardware systems Ethiopia",
+    "custom software Addis Ababa",
+    "CCTV installation Ethiopia",
+    "access control system Addis Ababa",
+    "GPS vehicle tracking Ethiopia",
+    "attendance machine integration",
+    "AI solutions Ethiopia",
+    "ERP systems Ethiopia",
+    "Entro Ethiopia",
+  ],
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     shortcut: "/icon.svg",
@@ -36,18 +50,37 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Entro Ethiopia",
-    title: "Entro Ethiopia — Custom Software, Web & AI Engineering",
+    title: "Entro Ethiopia — Software & Hardware Systems in Ethiopia",
     description:
-      "We design, build and support custom software, web platforms, AI solutions and ERP systems for organizations across Ethiopia and Africa.",
+      "Custom software, web, AI, ERP, plus CCTV, access control, GPS tracking and attendance hardware — engineered and supported in Addis Ababa.",
     url: "https://www.entroethiopia.com/",
-    images: [{ url: "/logo.png", width: 512, height: 512, alt: "Entro Ethiopia" }],
+    images: [
+      {
+        url: "/logo.png",
+        width: 512,
+        height: 512,
+        alt: "Entro Ethiopia Software Development PLC",
+      },
+    ],
+    locale: "en_ET",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Entro Ethiopia — Custom Software, Web & AI Engineering",
+    title: "Entro Ethiopia — Software & Hardware Systems in Ethiopia",
     description:
-      "Custom software, web platforms, AI solutions and ERP systems, engineered locally and supported for the long run.",
+      "Software, AI, ERP, CCTV, access control, GPS and attendance systems — built and supported in Addis Ababa.",
     images: ["/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
   },
 };
 

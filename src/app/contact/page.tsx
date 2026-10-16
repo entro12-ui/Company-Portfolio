@@ -10,9 +10,9 @@ import { company, serviceLinks } from "@/content/company";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "Contact Entro Ethiopia | Get a Quote for Software Development",
+  title: "Contact Entro Ethiopia | Software & Hardware Quote in Addis Ababa",
   description:
-    "Contact Entro Ethiopia in Addis Ababa for custom software, web development, AI and ERP systems. Call, WhatsApp or fill the form.",
+    "Contact Entro Ethiopia Software Development PLC in Megnagna, Addis Ababa for custom software, AI, ERP, CCTV, access control, GPS tracking and attendance systems.",
   alternates: {
     canonical: "https://www.entroethiopia.com/contact",
   },
@@ -104,6 +104,24 @@ export default function ContactPage() {
           <ContactInquiryForm />
 
           <aside className="space-y-6">
+            <section className="rounded-3xl border border-teal-200 bg-teal-50/50 p-7 shadow-[var(--shadow-soft)] dark:border-teal-400/20 dark:bg-teal-500/5">
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+                Google reviews
+              </h2>
+              <p className="mt-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
+                See client feedback on our Google Business Profile, or leave a
+                review after working with us.
+              </p>
+              <a
+                href={company.googleBusinessUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-5 py-2.5 text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
+              >
+                View Google reviews
+              </a>
+            </section>
+
             <section className="rounded-3xl border border-slate-200 bg-white p-7 shadow-[var(--shadow-soft)] dark:border-white/10 dark:bg-white/[0.03]">
               <h2 className="text-lg font-bold text-slate-900 dark:text-white">
                 Reach us directly
@@ -181,17 +199,27 @@ export default function ContactPage() {
         </div>
 
         <div className="mx-auto mt-8 max-w-7xl overflow-hidden rounded-3xl border border-slate-200 dark:border-white/10">
-          <div className="border-b border-slate-200 bg-white px-7 py-5 dark:border-white/10 dark:bg-white/[0.03]">
-            <h2 className="text-lg font-bold text-slate-900 dark:text-white">
-              Find us in Addis Ababa
-            </h2>
-            <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
-              {company.address}, {company.city}
-            </p>
+          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-slate-200 bg-white px-7 py-5 dark:border-white/10 dark:bg-white/[0.03]">
+            <div>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">
+                Find us in Addis Ababa
+              </h2>
+              <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">
+                {company.address}, {company.city}
+              </p>
+            </div>
+            <a
+              href={company.googleBusinessUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="text-sm font-semibold text-teal-700 hover:text-teal-800 dark:text-teal-400 dark:hover:text-teal-300"
+            >
+              Open in Google Maps
+            </a>
           </div>
           <iframe
-            title="Map of Addis Ababa, Ethiopia"
-            src="https://maps.google.com/maps?q=Addis%20Ababa%2C%20Ethiopia&z=13&output=embed"
+            title="Entro Ethiopia office map — Megnagna, Addis Ababa"
+            src={company.mapsEmbedUrl}
             className="h-[360px] w-full border-0"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

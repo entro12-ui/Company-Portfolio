@@ -3,6 +3,7 @@ import {
   ArrowUpRight,
   BrainCircuit,
   CodeXml,
+  Cpu,
   Globe,
   Layers,
   type LucideIcon,
@@ -77,6 +78,20 @@ const services: Service[] = [
       "Executive dashboards",
     ],
   },
+  {
+    icon: Cpu,
+    title: "Hardware Systems & Integration",
+    href: "/hardware-systems",
+    linkLabel: "Explore hardware systems",
+    description:
+      "We install and integrate CCTV, door access, GPS tracking, and attendance hardware — then connect everything to one management platform.",
+    deliverables: [
+      "CCTV camera installation & NVR/DVR setup",
+      "Door access control (RFID, biometric, facial)",
+      "GPS vehicle tracking & fleet dashboards",
+      "Attendance machines + HR/payroll sync",
+    ],
+  },
 ];
 
 export default function Services() {
@@ -87,11 +102,11 @@ export default function Services() {
     >
       <SectionHeading
         eyebrow="What we do"
-        title="Four disciplines, one accountable team"
-        description="Strategy, design, engineering and support under one roof — so nothing gets lost between vendors and no one has to chase an answer."
+        title="Software and hardware, one accountable team"
+        description="Strategy, design, engineering, hardware installation and support under one roof — so nothing gets lost between vendors and no one has to chase an answer."
       />
 
-      <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6 lg:grid-cols-2">
+      <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6">
         {services.map((service, index) => {
           const Icon = service.icon;
           return (

@@ -9,6 +9,7 @@ const serviceOptions = [
   "Web Development",
   "AI Solutions",
   "ERP System",
+  "Hardware Systems",
   "Mobile App",
   "Other",
 ];

@@ -266,7 +266,7 @@ const Navbar = () => {
                 Entro Ethiopia
               </span>
               <span className="block text-[11px] font-medium uppercase tracking-[0.14em] text-teal-700 dark:text-teal-400">
-                Software · Web · AI
+                Software · Hardware · AI
               </span>
             </span>
           </Link>

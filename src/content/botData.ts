@@ -16,7 +16,7 @@ export const WEBSITE_KNOWLEDGE: KnowledgeItem[] = [
       "ethiopian software company",
     ],
     answer:
-      "Entro Ethiopia is a software development company based in Addis Ababa. We design and build custom web applications, mobile apps, AI solutions, and ERP systems for schools, clinics, SMEs, NGOs, and government — engineered for how Ethiopian organizations actually work.",
+      "Entro Ethiopia Software Development PLC is based in Megnagna, Addis Ababa. We design and build custom web applications, mobile apps, AI solutions, and ERP systems — and we also install and integrate CCTV, door access control, GPS tracking, and attendance hardware for schools, clinics, SMEs, NGOs, and government.",
   },
   {
     keywords: [
@@ -30,7 +30,26 @@ export const WEBSITE_KNOWLEDGE: KnowledgeItem[] = [
       "core services",
     ],
     answer:
-      "Our core services are:\n• Custom Software Development\n• Web Development (Next.js, React)\n• Mobile Apps (React Native & Expo)\n• AI Solutions & Automation\n• ERP, Inventory & Property Management platforms\n• UI/UX Design and IT consulting\n\nTell me which one you need and I can go deeper.",
+      "Our core services are:\n• Custom Software Development\n• Web Development (Next.js, React)\n• Mobile Apps (React Native & Expo)\n• AI Solutions & Automation\n• ERP, Inventory & Property Management platforms\n• Hardware Systems (CCTV, access control, GPS, attendance)\n• UI/UX Design and IT consulting\n\nTell me which one you need and I can go deeper.",
+  },
+  {
+    keywords: [
+      "hardware",
+      "cctv",
+      "camera installation",
+      "access control",
+      "door access",
+      "gps tracking",
+      "vehicle tracking",
+      "attendance machine",
+      "biometric",
+      "nvr",
+      "dvr",
+      "fingerprint attendance",
+      "security system",
+    ],
+    answer:
+      "Yes — we provide hardware systems and integration:\n• CCTV camera installation (IP/analog, NVR/DVR, remote monitoring)\n• Door access control (RFID, NFC, PIN, fingerprint, facial recognition)\n• GPS vehicle tracking and fleet dashboards\n• Attendance machine installation and HR/payroll sync\n• Centralized platforms that connect cameras, access, GPS, and attendance in one web app\n\nAsk about a specific system and I’ll explain how we implement it.",
   },
   {
     keywords: [
@@ -87,9 +106,62 @@ export const WEBSITE_KNOWLEDGE: KnowledgeItem[] = [
       "property management",
       "payroll",
       "control inventory",
+      "easystock",
+      "easy stock",
+      "ኢዚስቶክ",
+      "nibret",
+      "ንብረት",
+      "ኪራይ",
     ],
     answer:
-      "We build ERP-style business systems covering inventory, sales, finance/billing, HR/payroll, and property management — with branch-level reporting and dashboards management can actually use. Ask about Control Inventory or Property Management if you want product details.",
+      "We build ERP-style business systems covering inventory, sales, finance/billing, HR/payroll, and property management — with branch-level reporting and dashboards management can actually use.\n\n• ኢዚስቶክ (EasyStock) — inventory & sales\n• ንብረት (Nibret) — property & real estate management\n\nAsk which one you want details on.",
+  },
+  {
+    keywords: [
+      "wubet",
+      "ውበት",
+      "brabear",
+      "salon",
+      "spa",
+      "barbershop",
+      "beauty salon",
+      "salon management",
+      "spa management",
+      "hair salon",
+    ],
+    answer:
+      "ውበት (Wubet) is our salon, barbershop and spa management system: appointment booking, staff schedules, services and packages, client history, memberships, payments, and SMS reminders — built for beauty businesses in Ethiopia.",
+  },
+  {
+    keywords: [
+      "guzo",
+      "ጉዞ",
+      "car service",
+      "garage",
+      "auto service",
+      "workshop",
+      "vehicle service",
+      "mileage reminder",
+    ],
+    answer:
+      "ጉዞ (Guzo) is our automotive service and garage management system: customers, vehicles, appointments, service history, parts inventory, loyalty, and SMS/email reminders when a vehicle reaches the next service mileage.",
+  },
+  {
+    keywords: [
+      "enku",
+      "እንቁ",
+      "wedding",
+      "birthday",
+      "graduation",
+      "anniversary",
+      "engagement",
+      "corporate event",
+      "celebration",
+      "event management",
+      "event planning",
+    ],
+    answer:
+      "እንቁ (Enku) — Every celebration deserves something special. It helps plan weddings, birthdays, graduations, anniversaries, engagements, and corporate events with guests, vendors, budgets, timelines, and reminders in one system.",
   },
   {
     keywords: [
@@ -101,7 +173,7 @@ export const WEBSITE_KNOWLEDGE: KnowledgeItem[] = [
       "portfolio products",
     ],
     answer:
-      "Our flagship platforms:\n1. EduStack SchoolHub — school management for KG–12\n2. MediCare AI — hospital & clinic operations with AI support\n3. Car Service Management — workshops, appointments & reminders\n4. Control Inventory — stock, sales & branch reporting\n5. Property Management — units, tenants, billing & maintenance\n6. FitMind AI — personalized fitness & nutrition plans\n\nWhich one should I explain?",
+      "Our flagship platforms:\n1. EduStack SchoolHub — school management for KG–12\n2. MediCare AI — hospital & clinic operations with AI support\n3. ጉዞ (Guzo) — automotive service & garage management\n4. ኢዚስቶክ (EasyStock) — inventory & sales / stock control\n5. ንብረት (Nibret) — property & real estate management\n6. ውበት (Wubet) — salon, barbershop & spa management\n7. እንቁ (Enku) — celebrations & events (weddings, birthdays, corporate)\n\nWhich one should I explain?",
   },
   {
     keywords: [
@@ -129,18 +201,6 @@ export const WEBSITE_KNOWLEDGE: KnowledgeItem[] = [
     ],
     answer:
       "MediCare AI is our healthcare management platform for hospitals and clinics. It covers patient records, appointments, lab, pharmacy, beds, and billing — plus AI clinical decision support, a 24/7 patient chatbot, and multi-LLM consultation assistance. It is designed to cut admin workload and improve care coordination.",
-  },
-  {
-    keywords: [
-      "car service",
-      "garage",
-      "auto service",
-      "workshop",
-      "vehicle service",
-      "mileage reminder",
-    ],
-    answer:
-      "Our Car Service Management System runs auto workshops end to end: customers, vehicles, appointments, service history, parts inventory, and loyalty. It can send SMS/email reminders when a vehicle reaches the next service mileage.",
   },
   {
     keywords: [
@@ -373,8 +433,8 @@ export function findBestAnswer(question: string): string | null {
 
 export const QUICK_REPLIES = [
   "What services do you offer?",
+  "Do you install CCTV and access control?",
   "Tell me about MediCare AI",
-  "What is your tech stack?",
   "How do I contact you?",
 ];
 

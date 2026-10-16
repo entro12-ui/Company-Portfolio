@@ -84,9 +84,9 @@ const portfolioItemListSchema = {
     },
     {
       "@type": "CreativeWork",
-      name: "AFS Car Service Management System",
+      name: "AFS ጉዞ · Guzo Automotive System",
       description:
-        "Car Service Management System for AFS covering customers, vehicles, appointments, service history, inventory, and automated service alerts.",
+        "Guzo automotive service system for AFS covering customers, vehicles, appointments, service history, inventory, and automated service alerts.",
     },
     {
       "@type": "CreativeWork",
@@ -427,7 +427,7 @@ export default function PortfolioPage() {
                 </h2>
                 <p className="mt-4 max-w-4xl text-lg leading-relaxed text-slate-200 dark:text-gray-300">
                   A complete engagement for AFS: we designed and built their
-                  website, delivered a Car Service Management System for their
+                  website, delivered ጉዞ (Guzo) automotive service management for their
                   auto service operations, and translated their corporate
                   organogram into a structured, responsive, web-friendly layout.
                 </p>
@@ -435,7 +435,7 @@ export default function PortfolioPage() {
               <div className="flex flex-wrap gap-2">
                 {[
                   "Website Design",
-                  "Car Service Management System",
+                  "ጉዞ · Guzo",
                   "Org Structure Design",
                 ].map((tag) => (
                   <span
@@ -459,11 +459,11 @@ export default function PortfolioPage() {
                   cta: "View AFS Gallery",
                 },
                 {
-                  title: "Car Service Management System",
+                  title: "ጉዞ · Guzo",
                   description:
                     "A complete digital system to manage customers, vehicles, appointments, service history, inventory, and automated service alerts.",
                   icon: "🚗",
-                  href: "/products/car-service",
+                  href: "/products/guzo",
                   cta: "View the Product",
                 },
                 {

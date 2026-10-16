@@ -3,10 +3,11 @@ import {
   ArrowUpRight,
   Building2,
   Car,
-  Dumbbell,
   GraduationCap,
   HeartPulse,
   Package,
+  PartyPopper,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -60,26 +61,26 @@ const products: Product[] = [
   {
     id: "control-inventory",
     icon: Package,
-    title: "Control Inventory",
-    category: "Operations",
+    title: "ኢዚስቶክ · EasyStock",
+    category: "Inventory & Sales",
     description:
-      "End-to-end inventory, sales and reporting for branches, warehouses and retail operations.",
+      "Easy inventory and sales system for shops, warehouses and multi-branch businesses — stock, POS, purchases and profit reports in one place.",
     highlights: [
       "Stock movement across every location",
-      "Sales workflows and transaction records",
-      "Profitability reporting and smart alerts",
+      "Sales / POS and purchase workflows",
+      "Profitability reporting and low-stock alerts",
     ],
     iconBg: "bg-amber-500/20 border-amber-400/30",
     iconColor: "text-amber-300",
     bulletColor: "bg-amber-400",
   },
   {
-    id: "car-service",
+    id: "guzo",
     icon: Car,
-    title: "Car Service Management",
-    category: "Mobility",
+    title: "ጉዞ · Guzo",
+    category: "Automotive",
     description:
-      "A complete digital workshop: customers, vehicles, appointments, parts inventory and automated service reminders by SMS and email.",
+      "Automotive service and garage management — customers, vehicles, appointments, parts inventory and automated service reminders by SMS and email.",
     highlights: [
       "Customers, vehicles and service history",
       "Appointments and parts control",
@@ -90,36 +91,52 @@ const products: Product[] = [
     bulletColor: "bg-sky-400",
   },
   {
-    id: "property-management",
+    id: "nibret",
     icon: Building2,
-    title: "Property Management",
-    category: "Real estate",
+    title: "ንብረት · Nibret",
+    category: "Property",
     description:
-      "Digital property operations for units, tenants, billing, maintenance and portfolio-level reporting.",
+      "Property and real estate management for buildings, apartments and commercial units — tenants, rent billing, maintenance and occupancy.",
     highlights: [
       "Units, tenants and lease operations",
-      "Billing, rent follow-up and maintenance",
-      "Occupancy and performance dashboards",
+      "Rent collection and follow-up",
+      "Maintenance tickets and portfolio dashboards",
     ],
     iconBg: "bg-violet-500/20 border-violet-400/30",
     iconColor: "text-violet-300",
     bulletColor: "bg-violet-400",
   },
   {
-    id: "fitmind-ai",
-    icon: Dumbbell,
-    title: "FitMind AI",
-    category: "Consumer",
+    id: "wubet",
+    icon: Sparkles,
+    title: "ውበት · Wubet",
+    category: "Salon · Barbershop · Spa",
     description:
-      "AI-generated weekly fitness and nutrition plans that members can save, follow and track over time.",
+      "Salon, barbershop and spa management — appointments, staff, services, memberships and payments in one simple system.",
     highlights: [
-      "Personalized workout and nutrition plans",
-      "Progress tracking and saved programmes",
-      "Downloadable plans and audio guidance",
+      "Booking for salon, barbershop and spa",
+      "Staff, services, packages and memberships",
+      "Payments, client history and reminders",
     ],
-    iconBg: "bg-orange-500/20 border-orange-400/30",
-    iconColor: "text-orange-300",
-    bulletColor: "bg-orange-400",
+    iconBg: "bg-pink-500/20 border-pink-400/30",
+    iconColor: "text-pink-300",
+    bulletColor: "bg-pink-400",
+  },
+  {
+    id: "enku",
+    icon: PartyPopper,
+    title: "እንቁ · Enku",
+    category: "Celebrations",
+    description:
+      "Every celebration deserves something special — weddings, birthdays, graduations, anniversaries, engagements and corporate events.",
+    highlights: [
+      "Event planning for weddings, birthdays and more",
+      "Vendors, budgets, guests and timelines",
+      "Corporate events and anniversary packages",
+    ],
+    iconBg: "bg-fuchsia-500/20 border-fuchsia-400/30",
+    iconColor: "text-fuchsia-300",
+    bulletColor: "bg-fuchsia-400",
   },
 ];
 
@@ -140,7 +157,7 @@ export default function SoftwareProducts() {
           tone="dark"
           eyebrow="Our platforms"
           title="Products already running real operations"
-          description="Six proven platforms you can deploy in weeks instead of months — each one configurable to your processes, and each one built and maintained by the same team that supports it."
+          description="Proven platforms you can deploy in weeks instead of months — each one configurable to your processes, and each one built and maintained by the same team that supports it."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">

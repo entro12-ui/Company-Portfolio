@@ -75,7 +75,7 @@ const AboutUs = () => {
             </span>{" "}
             is a local tech company providing comprehensive software solutions.
             We develop custom software including Healthcare Management Platforms
-            (MediCare AI), Car Service Management Systems, Inventory and
+            (MediCare AI), ጉዞ (Guzo), Inventory and
             Property platforms, and other business automation solutions. We
             design and build complete systems that help businesses transform
             their operations through technology.
@@ -110,7 +110,7 @@ const AboutUs = () => {
               To deliver smart, secure, and affordable technology solutions that
               empower Ethiopian and African businesses. We provide comprehensive
               software solutions including Healthcare Management Platforms
-              (MediCare AI), Car Service Management Systems, and custom software
+              (MediCare AI), ጉዞ (Guzo), and custom software
               development. Our mission is to transform businesses through
               automation, AI-powered systems, innovation, and intelligent
               management platforms that drive efficiency and growth.
@@ -138,7 +138,7 @@ const AboutUs = () => {
           </h3>
           <p className={`text-lg mb-8 max-w-3xl mx-auto ${bottomCardSubtext}`}>
             We provide comprehensive software solutions including Healthcare
-            Management (MediCare AI), Car Service Management, and Custom
+            Management (MediCare AI), ጉዞ (Guzo), and Custom
             Software Development. Here&apos;s why businesses trust us:
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">

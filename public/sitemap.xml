@@ -46,6 +46,11 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.entroethiopia.com/hardware-systems</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.entroethiopia.com/solutions-for-smes</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -99,5 +104,40 @@
     <loc>https://www.entroethiopia.com/business-card</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/products/control-inventory</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/products/wubet</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/products/guzo</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/products/nibret</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/products/enku</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/products/property-management</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.entroethiopia.com/products/car-service</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
 </urlset>

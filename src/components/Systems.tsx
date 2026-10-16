@@ -4,13 +4,14 @@ import {
   BriefcaseBusiness,
   Building2,
   Car,
-  Dumbbell,
   Factory,
   GraduationCap,
   HeartPulse,
   Hotel,
   Landmark,
   Package,
+  PartyPopper,
+  Sparkles,
   type LucideIcon,
 } from "lucide-react";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -48,7 +49,7 @@ const industries: Industry[] = [
     icon: Package,
     title: "Retail & distribution",
     description:
-      "Stock control across branches and warehouses with real profitability reporting.",
+      "ኢዚስቶክ (EasyStock) — inventory and sales across branches with profit reporting.",
     href: "/products/control-inventory",
     iconBg: "bg-amber-500/15",
     iconColor: "text-amber-600 dark:text-amber-400",
@@ -57,8 +58,8 @@ const industries: Industry[] = [
     icon: Car,
     title: "Auto service & garages",
     description:
-      "Vehicles, service history, parts and automated mileage-based reminders.",
-    href: "/products/car-service",
+      "ጉዞ (Guzo) — vehicles, service history, parts and mileage-based reminders.",
+    href: "/products/guzo",
     iconBg: "bg-sky-500/15",
     iconColor: "text-sky-600 dark:text-sky-400",
   },
@@ -66,8 +67,8 @@ const industries: Industry[] = [
     icon: Building2,
     title: "Property & housing",
     description:
-      "Units, tenants, rent collection, maintenance and portfolio dashboards.",
-    href: "/products/property-management",
+      "ንብረት (Nibret) — units, tenants, rent collection, maintenance and dashboards.",
+    href: "/products/nibret",
     iconBg: "bg-violet-500/15",
     iconColor: "text-violet-600 dark:text-violet-400",
   },
@@ -108,11 +109,20 @@ const industries: Industry[] = [
     iconColor: "text-orange-600 dark:text-orange-400",
   },
   {
-    icon: Dumbbell,
-    title: "Fitness & wellness",
+    icon: Sparkles,
+    title: "Salon, barbershop & spa",
     description:
-      "Memberships, class schedules, trainer programmes and progress tracking.",
-    href: "/products/fitmind-ai",
+      "ውበት (Wubet) — bookings, staff, services, memberships and payments.",
+    href: "/products/wubet",
+    iconBg: "bg-pink-500/15",
+    iconColor: "text-pink-600 dark:text-pink-400",
+  },
+  {
+    icon: PartyPopper,
+    title: "Events & celebrations",
+    description:
+      "እንቁ (Enku) — weddings, birthdays, graduations, anniversaries and corporate events.",
+    href: "/products/enku",
     iconBg: "bg-fuchsia-500/15",
     iconColor: "text-fuchsia-600 dark:text-fuchsia-400",
   },

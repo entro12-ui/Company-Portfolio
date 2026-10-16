@@ -124,7 +124,7 @@ const BusinessCard = () => {
                     Entro Ethiopia
                   </p>
                   <p className={`text-[8px] ${subTextClass}`}>
-                    Software & Hardware Development PLC
+                    Software Development PLC
                   </p>
                 </div>
               </div>
@@ -180,11 +180,11 @@ const BusinessCard = () => {
               <div className="mt-2 grid flex-1 grid-cols-2 gap-1.5">
                 {[
                   "MediCare AI",
-                  "Car Service Management System",
-                  "Custom Software Development",
-                  "Access Control Solutions",
-                  "Property Management",
-                  "Inventory Management System",
+                  "ጉዞ · Guzo",
+                  "ኢዚስቶክ · EasyStock",
+                  "ንብረት · Nibret",
+                  "ውበት · Wubet",
+                  "እንቁ · Enku",
                 ].map((service) => (
                   <div
                     key={service}

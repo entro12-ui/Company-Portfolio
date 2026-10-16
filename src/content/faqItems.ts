@@ -2,7 +2,12 @@ export const faqItems = [
   {
     question: "What software solutions do you provide?",
     answer:
-      "We provide software solutions including EduStack for school management and AI teaching support, MediCare AI for healthcare management, Car Service Management for auto service centers, Inventory and Property Management platforms, and custom software development tailored to your specific business needs.",
+      "We provide software solutions including EduStack for school management, MediCare AI for healthcare, ጉዞ (Guzo) for automotive service and garages, ኢዚስቶክ (EasyStock) for inventory and sales, ንብረት (Nibret) for property and real estate, ውበት (Wubet) for salon, barbershop and spa management, እንቁ (Enku) for celebrations and events (weddings, birthdays, graduations, anniversaries, engagements, corporate events), and custom software development. We also install and integrate hardware systems — CCTV, door access control, GPS tracking, and attendance machines.",
+  },
+  {
+    question: "Do you provide hardware systems like CCTV and access control?",
+    answer:
+      "Yes. Entro Ethiopia supplies, installs, and integrates CCTV cameras, door access control systems, GPS vehicle tracking devices, and biometric attendance machines. We also connect these systems into one centralized management platform for monitoring, permissions, fleet tracking, attendance, reports, and real-time alerts.",
   },
   {
     question: "What is EduStack and who is it for?",
@@ -15,10 +20,9 @@ export const faqItems = [
       "MediCare AI is our intelligent healthcare management platform that combines traditional hospital operations with AI-powered features. It includes patient management, laboratory and pharmacy modules, bed management, billing, and AI features like Clinical Decision Support, Patient Chatbot (24/7), Multi-LLM AI Assistant, and AI Voice Assistant. It helps reduce administrative workload by 60% and improves diagnostic accuracy.",
   },
   {
-    question:
-      "How does the Car Service Management System help auto service centers?",
+    question: "How does ጉዞ (Guzo) help auto service centers?",
     answer:
-      "Our Car Service Management System streamlines all operations for auto service centers. It manages customers, vehicles, appointments, service history, parts inventory, and loyalty programs. The system automatically sends SMS and email notifications to customers when their vehicle reaches the next service mileage requirement, helping you maintain customer relationships and increase repeat business.",
+      "ጉዞ (Guzo) streamlines automotive service and garage operations. It manages customers, vehicles, appointments, service history, parts inventory, and loyalty programs. The system automatically sends SMS and email notifications to customers when their vehicle reaches the next service mileage requirement, helping you maintain customer relationships and increase repeat business.",
   },
   {
     question: "Do your systems support cloud or local deployment?",
@@ -33,7 +37,7 @@ export const faqItems = [
   {
     question: "Can I get automated notifications and alerts?",
     answer:
-      "Absolutely! All our systems support automated notifications and alerts. EduStack supports smart parent communication and school updates, MediCare AI sends appointment reminders and test result notifications, and Car Service Management alerts customers when their vehicle reaches the next service mileage requirement.",
+      "Absolutely! All our systems support automated notifications and alerts. EduStack supports smart parent communication and school updates, MediCare AI sends appointment reminders and test result notifications, and ጉዞ (Guzo) alerts customers when their vehicle reaches the next service mileage requirement.",
   },
   {
     question: "Do you provide installation, training, and support?",
@@ -41,10 +45,9 @@ export const faqItems = [
       "Yes! We provide complete installation services, system configuration, user training, and ongoing technical support for all our solutions. Our local Ethiopian team is available 24/7 to assist with setup, troubleshooting, and maintenance. We ensure your team is fully trained and comfortable using the systems before we consider the implementation complete.",
   },
   {
-    question:
-      "Can the Car Service Management System track service history and send reminders?",
+    question: "Can ጉዞ (Guzo) track service history and send reminders?",
     answer:
-      "Yes! The Car Service Management System maintains complete service history for each vehicle, tracks all service types (Basic, Major, Brake, Tire, AC, General), and automatically calculates when the next service is due based on mileage. The system sends SMS and email notifications to customers when their vehicle reaches the service mileage requirement, ensuring timely maintenance and customer retention.",
+      "Yes! ጉዞ (Guzo) maintains complete service history for each vehicle, tracks all service types (Basic, Major, Brake, Tire, AC, General), and automatically calculates when the next service is due based on mileage. The system sends SMS and email notifications to customers when their vehicle reaches the service mileage requirement, ensuring timely maintenance and customer retention.",
   },
   {
     question:

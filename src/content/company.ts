@@ -1,7 +1,7 @@
 export const company = {
   name: "Entro Ethiopia",
   legalName: "Entro Ethiopia Software Development PLC",
-  tagline: "Software, web and AI engineering",
+  tagline: "Software, hardware, web and AI engineering",
   phone: "+251 979 113 638",
   phoneHref: "tel:+251979113638",
   email: "entro12@entroethiopia.com",
@@ -9,10 +9,24 @@ export const company = {
   address: "Megnagna, Hibret Bldg, Office No. H7-702",
   city: "Addis Ababa, Ethiopia",
   tin: "0095875999",
+  /** Paste your Google Business Profile share link here (maps.app.goo.gl or google.com/maps). */
+  googleBusinessUrl:
+    "https://www.google.com/maps/search/?api=1&query=Entro+Ethiopia+Megnagna+Hibret+Bldg+Addis+Ababa",
+  mapsEmbedUrl:
+    "https://maps.google.com/maps?q=Megnagna%2C%20Hibret%20Bldg%2C%20Office%20No.%20H7-702%2C%20Addis%20Ababa%2C%20Ethiopia&z=16&output=embed",
+  /**
+   * Fill these from your live Google Business Profile (visible stars + review count).
+   * Leave null until you confirm the real numbers — do not invent ratings.
+   */
+  googleRating: {
+    ratingValue: null as number | null,
+    reviewCount: null as number | null,
+  },
   socials: {
     facebook: "https://web.facebook.com/profile.php?id=61574279425487",
     instagram: "https://www.instagram.com/entroethiopia/",
     tiktok: "https://www.tiktok.com/@entroethiopia?_r=1&_t=ZS-95Ofst4pNzh",
+    linkedin: "https://www.linkedin.com/company/entro-ethiopia",
   },
 } as const;
 
@@ -37,6 +51,12 @@ export const serviceLinks = [
     label: "ERP Systems",
     description: "Finance, inventory, HR and operations unified in one platform.",
   },
+  {
+    href: "/hardware-systems",
+    label: "Hardware Systems",
+    description:
+      "CCTV, access control, GPS tracking, attendance devices, and unified platforms.",
+  },
 ] as const;
 
 export const productLinks = [
@@ -51,24 +71,30 @@ export const productLinks = [
     description: "Hospital and clinic operations with AI clinical support.",
   },
   {
-    href: "/products/car-service",
-    label: "Car Service Management",
-    description: "Workshops, appointments, parts and service reminders.",
-  },
-  {
-    href: "/products/fitmind-ai",
-    label: "FitMind AI",
-    description: "Personalized AI fitness and nutrition planning.",
-  },
-  {
     href: "/products/control-inventory",
-    label: "Control Inventory",
-    description: "Stock, sales and branch-level reporting in one place.",
+    label: "ኢዚስቶክ · EasyStock",
+    description: "Inventory and sales system for stock, POS and branch reporting.",
   },
   {
-    href: "/products/property-management",
-    label: "Property Management",
-    description: "Units, tenants, billing, maintenance and portfolio reporting.",
+    href: "/products/wubet",
+    label: "ውበት · Wubet",
+    description: "Salon, barbershop and spa management system.",
+  },
+  {
+    href: "/products/guzo",
+    label: "ጉዞ · Guzo",
+    description: "Automotive service and garage management system.",
+  },
+  {
+    href: "/products/nibret",
+    label: "ንብረት · Nibret",
+    description: "Property and real estate management system.",
+  },
+  {
+    href: "/products/enku",
+    label: "እንቁ · Enku",
+    description:
+      "Every celebration deserves something special — weddings, birthdays, events.",
   },
 ] as const;
 

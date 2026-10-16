@@ -117,7 +117,7 @@ const accessMethods = [
         />
       </svg>
     ),
-    title: "Car Service Management",
+    title: "ጉዞ · Guzo",
     subtitle: "Complete Auto Service Center Solution",
     description:
       "Manage customers, vehicles, appointments, service history, inventory, and loyalty programs. Track all service types with automated mileage-based alerts and comprehensive reporting.",
@@ -322,7 +322,7 @@ const AccessMethods = () => {
               className={`text-lg sm:text-xl max-w-3xl mx-auto ${paragraphColor}`}
             >
               Key features and capabilities across our software solutions - from
-              Healthcare Management to Car Service Management and custom
+              Healthcare Management to ጉዞ (Guzo) and custom
               platforms
             </p>
           </div>

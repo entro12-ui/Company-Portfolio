@@ -1,0 +1,52 @@
+# Entro Ethiopia
+
+> Entro Ethiopia Software Development PLC is a software and hardware systems company in Megnagna, Addis Ababa, Ethiopia.
+
+## Company
+- Legal name: Entro Ethiopia Software Development PLC
+- Brand: Entro Ethiopia
+- Website: https://www.entroethiopia.com/
+- Phone: +251 979 113 638
+- Email: entro12@entroethiopia.com
+- Address: Megnagna, Hibret Bldg, Office No. H7-702, Addis Ababa, Ethiopia
+- TIN: 0095875999
+
+## What we do
+- Custom software development
+- Web development (Next.js, React)
+- AI solutions and automation
+- ERP and business systems
+- Hardware systems: CCTV installation, door access control, GPS vehicle tracking, attendance machines
+- Centralized integration of security, fleet, and workforce systems into web dashboards
+
+## Key pages
+- https://www.entroethiopia.com/
+- https://www.entroethiopia.com/about
+- https://www.entroethiopia.com/contact
+- https://www.entroethiopia.com/custom-software-development
+- https://www.entroethiopia.com/web-development
+- https://www.entroethiopia.com/ai-solutions
+- https://www.entroethiopia.com/erp-systems
+- https://www.entroethiopia.com/hardware-systems
+- https://www.entroethiopia.com/portfolio
+- https://www.entroethiopia.com/blog
+
+## Products
+- EduStack SchoolHub: https://www.entroethiopia.com/products/edustack-schoolhub
+- MediCare AI: https://www.entroethiopia.com/products/medicare-ai
+- ኢዚስቶክ (EasyStock) inventory & sales: https://www.entroethiopia.com/products/control-inventory
+- ውበት (Wubet) salon, barbershop & spa: https://www.entroethiopia.com/products/wubet
+- ጉዞ (Guzo) automotive service & garage: https://www.entroethiopia.com/products/guzo
+- ንብረት (Nibret) property & real estate: https://www.entroethiopia.com/products/nibret
+- እንቁ (Enku) celebrations & events: https://www.entroethiopia.com/products/enku
+- FitMind AI: https://www.entroethiopia.com/products/fitmind-ai
+
+## Industries
+- SMEs and growing businesses
+- NGOs and development organizations
+- Clinics and healthcare
+- Government and public sector
+
+## Contact
+- Contact page: https://www.entroethiopia.com/contact
+- Google Maps / Business Profile: see company.googleBusinessUrl on the live site

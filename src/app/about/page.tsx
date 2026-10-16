@@ -6,9 +6,9 @@ import JsonLd from "@/components/JsonLd";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "About Entro Ethiopia | Local Software Company in Addis Ababa",
+  title: "About Entro Ethiopia | Software & Hardware Company in Addis Ababa",
   description:
-    "Entro Ethiopia is a local software company in Addis Ababa building custom software, websites, AI and ERP systems for SMEs, NGOs, clinics and government.",
+    "Entro Ethiopia Software Development PLC is a local company in Addis Ababa building custom software, AI, ERP systems, and hardware integration for SMEs, NGOs, clinics and government.",
   alternates: {
     canonical: "https://www.entroethiopia.com/about",
   },
@@ -20,7 +20,10 @@ const aboutPageSchema = {
   name: "About Entro Ethiopia",
   url: "https://www.entroethiopia.com/about",
   description:
-    "Learn about Entro Ethiopia, a software development company in Addis Ababa providing custom software, web development, AI solutions and ERP systems.",
+    "Learn about Entro Ethiopia Software Development PLC, a company in Addis Ababa providing custom software, web development, AI, ERP systems, CCTV, access control, GPS tracking and attendance hardware.",
+  mainEntity: {
+    "@id": "https://www.entroethiopia.com/#organization",
+  },
 };
 
 export default function AboutPage() {
@@ -38,10 +41,11 @@ export default function AboutPage() {
               About Entro Ethiopia
             </h1>
             <p className="max-w-4xl text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-              We are a local software company based in Addis Ababa, Ethiopia.
-              Entro Ethiopia designs and builds practical software solutions for
-              organizations that need systems that actually work in local
-              conditions, not imported complexity.
+              Entro Ethiopia Software Development PLC is a local technology
+              company based in Megnagna, Addis Ababa. We design and build
+              practical software solutions — and install security and operations
+              hardware — for organizations that need systems that actually work
+              in local conditions, not imported complexity.
             </p>
           </header>
 
@@ -75,9 +79,9 @@ export default function AboutPage() {
                   Mission
                 </h3>
                 <p className="leading-relaxed text-gray-700 dark:text-gray-300">
-                  To design and deliver custom software, web, AI, and ERP
-                  systems that solve real local challenges, improve operations,
-                  and create measurable impact for our clients.
+                  To design and deliver custom software, web, AI, ERP, and
+                  hardware systems that solve real local challenges, improve
+                  operations, and create measurable impact for our clients.
                 </p>
               </article>
 
@@ -111,6 +115,7 @@ export default function AboutPage() {
                   "Web Development & Web Applications",
                   "AI Solutions (including MediCare AI)",
                   "ERP & Business Management Systems",
+                  "Hardware Systems (CCTV, Access Control, GPS, Attendance)",
                 ].map((item) => (
                   <div
                     key={item}
