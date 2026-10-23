@@ -8,7 +8,7 @@ const serviceOptions = [
   "Custom Software",
   "Web Development",
   "AI Solutions",
-  "ERP System",
+  "Odoo ERP System",
   "Hardware Systems",
   "Mobile App",
   "Other",

@@ -48,8 +48,9 @@ export const serviceLinks = [
   },
   {
     href: "/erp-systems",
-    label: "ERP Systems",
-    description: "Finance, inventory, HR and operations unified in one platform.",
+    label: "Odoo ERP Systems",
+    description:
+      "Odoo-based ERP for finance, inventory, HR and operations — locally configured.",
   },
   {
     href: "/hardware-systems",

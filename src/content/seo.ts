@@ -62,6 +62,7 @@ export const organizationSchema = {
     "Web development",
     "AI solutions",
     "ERP systems",
+    "Odoo ERP implementation",
     "CCTV camera installation",
     "Door access control systems",
     "GPS vehicle tracking",

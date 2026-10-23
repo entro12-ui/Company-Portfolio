@@ -114,7 +114,7 @@ export default function AboutPage() {
                   "Custom Software Development",
                   "Web Development & Web Applications",
                   "AI Solutions (including MediCare AI)",
-                  "ERP & Business Management Systems",
+                  "Odoo-based ERP & Business Management Systems",
                   "Hardware Systems (CCTV, Access Control, GPS, Attendance)",
                 ].map((item) => (
                   <div

@@ -6,9 +6,9 @@ import JsonLd from "@/components/JsonLd";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "ERP Software in Ethiopia | Entro Ethiopia",
+  title: "Odoo ERP & Business Systems in Ethiopia | Entro Ethiopia",
   description:
-    "ERP and business management systems for SMEs, NGOs and government in Ethiopia. Inventory, HR, sales, finance in one system.",
+    "Odoo-based ERP implementation in Ethiopia for SMEs, NGOs and government — inventory, HR, sales, finance, and operations in one system.",
   alternates: {
     canonical: "https://www.entroethiopia.com/erp-systems",
   },
@@ -17,10 +17,10 @@ export const metadata: Metadata = {
 const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  serviceType: "ERP Software",
-  name: "ERP & Business Systems in Ethiopia",
+  serviceType: "Odoo ERP Implementation",
+  name: "Odoo ERP & Business Systems in Ethiopia",
   description:
-    "Entro Ethiopia delivers ERP software in Ethiopia for organizations that need stronger workflows, reporting, approvals, and business control.",
+    "Entro Ethiopia implements and customizes Odoo-based ERP systems in Ethiopia for organizations that need stronger workflows, reporting, approvals, and business control.",
   provider: {
     "@type": "Organization",
     name: "Entro Ethiopia",
@@ -79,20 +79,51 @@ export default function ErpSystemsPage() {
             {/* Header */}
             <header className="mb-12 rounded-3xl bg-gradient-to-br from-slate-50 via-white to-cyan-50 px-6 py-12 shadow-sm transition-colors duration-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 sm:px-10">
               <p className="mb-4 text-sm font-semibold uppercase tracking-[0.2em] text-teal-700 dark:text-teal-400">
-                ERP software Ethiopia
+                Odoo ERP Ethiopia
               </p>
               <h1 className="mb-6 text-4xl font-bold text-gray-900 dark:text-white sm:text-5xl">
-                ERP &amp; Business Systems in Ethiopia
+                Odoo-Based ERP &amp; Business Systems
               </h1>
               <p className="max-w-4xl text-lg leading-relaxed text-gray-700 dark:text-gray-300">
-                One system for your entire operation. Entro Ethiopia builds ERP
-                and business management systems that connect your sales,
-                inventory, HR, finance, and operations, built for Ethiopian
-                businesses.
+                One system for your entire operation. Entro Ethiopia implements
+                and customizes <strong>Odoo-based ERP</strong> systems that
+                connect sales, inventory, HR, finance, and operations — tailored
+                for Ethiopian businesses.
               </p>
             </header>
 
             <div className="grid gap-8 md:grid-cols-2">
+              <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800 md:col-span-2">
+                <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
+                  Odoo ERP we serve
+                </h2>
+                <p className="mb-5 max-w-3xl text-gray-700 dark:text-gray-300">
+                  We help organizations deploy Odoo as their ERP backbone —
+                  from setup and module configuration to local customization,
+                  training, and ongoing support.
+                </p>
+                <ul className="grid gap-3 sm:grid-cols-2 text-gray-700 dark:text-gray-300">
+                  {[
+                    "Odoo implementation & company setup",
+                    "Module configuration (Sales, Inventory, Accounting, HR)",
+                    "Custom Odoo apps and workflow customization",
+                    "Data migration from Excel / legacy systems",
+                    "User training and go-live support",
+                    "Integration with websites, POS, and local tools",
+                  ].map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 leading-relaxed"
+                    >
+                      <span className="mt-1 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-teal-100 text-sm font-bold text-teal-700 dark:bg-teal-900/50 dark:text-teal-400">
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+
               {/* Modules we offer */}
               <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
                 <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
@@ -106,6 +137,7 @@ export default function ErpSystemsPage() {
                     "Finance & Accounting",
                     "Procurement & Purchasing",
                     "Reporting & Dashboards",
+                    "Odoo CRM & Project apps",
                   ].map((item) => (
                     <li
                       key={item}
@@ -123,12 +155,12 @@ export default function ErpSystemsPage() {
               {/* Why local ERP */}
               <section className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-colors duration-300 dark:border-gray-700 dark:bg-gray-800">
                 <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
-                  Why local ERP?
+                  Why Odoo with a local team?
                 </h2>
                 <p className="text-gray-700 dark:text-gray-300">
-                  International ERP is expensive and complex. Our system is
-                  built for local business processes, tax requirements, and user
-                  skills.
+                  Odoo is powerful and modular — and a local Entro Ethiopia
+                  team configures it for Ethiopian business processes, trains
+                  your staff, and supports you after go-live.
                 </p>
               </section>
 
@@ -246,15 +278,15 @@ export default function ErpSystemsPage() {
                 Improve business control with the right system
               </h2>
               <p className="mb-6 max-w-3xl text-white/90">
-                Speak with Entro Ethiopia about ERP software, internal systems,
-                and business process improvements for your organization.
+                Speak with Entro Ethiopia about Odoo-based ERP, internal
+                systems, and business process improvements for your organization.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link
                   href="/contact"
                   className="rounded-xl bg-white px-5 py-3 font-semibold text-teal-700 transition hover:bg-slate-100 dark:bg-gray-800 dark:text-teal-400 dark:hover:bg-gray-700"
                 >
-                  Discuss ERP Requirements
+                  Discuss Odoo ERP
                 </Link>
                 <Link
                   href="/custom-software-development"

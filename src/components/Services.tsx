@@ -68,14 +68,14 @@ const services: Service[] = [
     icon: Layers,
     title: "ERP & Business Systems",
     href: "/erp-systems",
-    linkLabel: "Explore ERP systems",
+    linkLabel: "Explore Odoo ERP",
     description:
-      "One source of truth for finance, inventory, HR and operations — with the reporting management actually needs.",
+      "Odoo-based ERP for finance, inventory, HR and operations — configured and supported by a local team.",
     deliverables: [
+      "Odoo implementation & customization",
       "Inventory and supply chain",
       "Finance and billing workflows",
-      "HR and payroll modules",
-      "Executive dashboards",
+      "HR, payroll and dashboards",
     ],
   },
   {

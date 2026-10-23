@@ -12,6 +12,7 @@ import {
   SiMongodb,
   SiTailwindcss,
   SiOpenai,
+  SiOdoo,
   SiDocker,
   SiExpo,
 } from "react-icons/si";
@@ -36,6 +37,7 @@ const stack: StackItem[] = [
   { name: "Expo", Icon: SiExpo, color: "text-slate-900 dark:text-white" },
   { name: "Tailwind CSS", Icon: SiTailwindcss, color: "text-[#06B6D4]" },
   { name: "OpenAI", Icon: SiOpenai, color: "text-slate-900 dark:text-white" },
+  { name: "Odoo", Icon: SiOdoo, color: "text-[#714B67]" },
   { name: "Docker", Icon: SiDocker, color: "text-[#2496ED]" },
   { name: "Cloud", Icon: Cloud, color: "text-teal-600 dark:text-teal-400" },
   { name: "On-premise", Icon: Server, color: "text-cyan-700 dark:text-cyan-400" },

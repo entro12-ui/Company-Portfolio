@@ -90,15 +90,15 @@ const teamMembers = [
     bio: "Kidist Tafa manages creative content production, brand storytelling, and digital media initiatives. She supports Entro Ethiopia's communication strategy through high-quality media content, ensuring the brand effectively communicates its technology solutions.",
   },
   {
-    name: "Developer / Project Manager",
-    role: "Team profile coming soon",
-    photo: "/team/developer-project-manager.svg",
+    name: "Dawit Kassaw",
+    role: "Senior Developer",
+    photo: "/team/dawit-kassaw.png",
     email: "",
     linkedIn: "",
     upwork: "",
     summary:
-      "Our development and project management team delivers projects on time and aligned with client requirements.",
-    bio: "Our development and project management team works behind the scenes to ensure every software solution is delivered on time, aligned with client requirements, and built to scale.",
+      "Builds and maintains production software systems, including custom platforms and Odoo-based ERP implementations.",
+    bio: "Dawit Kassaw is a Senior Developer at Entro Ethiopia. He designs, builds, and supports scalable software systems for clients — from custom web applications to Odoo-based ERP deployments — with a focus on reliable delivery and clean engineering.",
   },
 ];
 
@@ -174,6 +174,15 @@ const teamOrganizationSchema = {
         name: "Entro Ethiopia",
       },
     },
+    {
+      "@type": "Person",
+      name: "Dawit Kassaw",
+      jobTitle: "Senior Developer",
+      worksFor: {
+        "@type": "Organization",
+        name: "Entro Ethiopia",
+      },
+    },
   ],
 };
 
@@ -206,6 +215,7 @@ export default function OurTeamPage() {
             <div className="mt-6 flex flex-wrap gap-2">
               {[
                 "Software Engineering",
+                "Odoo ERP",
                 "AI Systems",
                 "Digital Strategy",
                 "Content & Marketing",

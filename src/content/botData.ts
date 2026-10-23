@@ -30,7 +30,7 @@ export const WEBSITE_KNOWLEDGE: KnowledgeItem[] = [
       "core services",
     ],
     answer:
-      "Our core services are:\n• Custom Software Development\n• Web Development (Next.js, React)\n• Mobile Apps (React Native & Expo)\n• AI Solutions & Automation\n• ERP, Inventory & Property Management platforms\n• Hardware Systems (CCTV, access control, GPS, attendance)\n• UI/UX Design and IT consulting\n\nTell me which one you need and I can go deeper.",
+      "Our core services are:\n• Custom Software Development\n• Web Development (Next.js, React)\n• Mobile Apps (React Native & Expo)\n• AI Solutions & Automation\n• Odoo-based ERP & business systems\n• Inventory & Property Management platforms\n• Hardware Systems (CCTV, access control, GPS, attendance)\n• UI/UX Design and IT consulting\n\nTell me which one you need and I can go deeper.",
   },
   {
     keywords: [
@@ -114,7 +114,18 @@ export const WEBSITE_KNOWLEDGE: KnowledgeItem[] = [
       "ኪራይ",
     ],
     answer:
-      "We build ERP-style business systems covering inventory, sales, finance/billing, HR/payroll, and property management — with branch-level reporting and dashboards management can actually use.\n\n• ኢዚስቶክ (EasyStock) — inventory & sales\n• ንብረት (Nibret) — property & real estate management\n\nAsk which one you want details on.",
+      "We implement Odoo-based ERP and related business systems covering inventory, sales, finance/billing, HR/payroll, and property management — with branch-level reporting and dashboards management can actually use.\n\n• Odoo ERP — implementation, customization, training & support\n• ኢዚስቶክ (EasyStock) — inventory & sales\n• ንብረት (Nibret) — property & real estate management\n\nAsk which one you want details on.",
+  },
+  {
+    keywords: [
+      "odoo",
+      "odoo erp",
+      "odoo based",
+      "odoo implementation",
+      "open source erp",
+    ],
+    answer:
+      "Yes — we serve Odoo-based ERP systems. That includes Odoo setup and company configuration, Sales/Inventory/Accounting/HR modules, custom workflows, data migration, user training, and post-launch support for Ethiopian organizations.",
   },
   {
     keywords: [
