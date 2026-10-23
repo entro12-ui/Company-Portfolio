@@ -102,13 +102,13 @@ const Footer = () => {
         <div className="grid gap-12 py-14 lg:grid-cols-[1.3fr_2fr] lg:gap-16">
           <div>
             <Link href="/" className="flex items-center gap-3">
-              <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-white/15">
+              <span className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl bg-white p-1.5 ring-1 ring-white/15">
                 <Image
                   src="/logo.png"
                   alt="Entro Ethiopia"
-                  width={48}
-                  height={48}
-                  className="h-10 w-10 object-contain"
+                  width={56}
+                  height={60}
+                  className="h-full w-full object-contain"
                   quality={100}
                   unoptimized
                 />

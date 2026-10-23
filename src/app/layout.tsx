@@ -43,9 +43,12 @@ export const metadata: Metadata = {
     "Entro Ethiopia",
   ],
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
-    shortcut: "/icon.svg",
-    apple: "/icon.svg",
+    icon: [
+      { url: "/logo.png", type: "image/png", sizes: "453x488" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
     type: "website",
@@ -57,8 +60,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/logo.png",
-        width: 512,
-        height: 512,
+        width: 453,
+        height: 488,
         alt: "Entro Ethiopia Software Development PLC",
       },
     ],

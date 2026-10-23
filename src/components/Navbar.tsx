@@ -249,13 +249,13 @@ const Navbar = () => {
       >
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
           <Link href="/" className="flex shrink-0 items-center gap-3">
-            <span className="flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl bg-white ring-1 ring-slate-200 dark:ring-white/15">
+            <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-white p-1 ring-1 ring-slate-200 dark:ring-white/15 sm:h-14 sm:w-14">
               <Image
                 src="/logo.png"
                 alt="Entro Ethiopia"
-                width={44}
-                height={44}
-                className="h-9 w-9 object-contain"
+                width={56}
+                height={60}
+                className="h-full w-full object-contain"
                 quality={100}
                 unoptimized
                 priority
