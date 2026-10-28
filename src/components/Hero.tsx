@@ -9,16 +9,16 @@ import {
   Camera,
   Clock,
   Cpu,
+  MapPin,
   Play,
   ShieldCheck,
-  Sparkles,
 } from "lucide-react";
 
-const stats = [
-  { value: "6+", label: "Flagship products" },
-  { value: "10+", label: "Industries served" },
-  { value: "100%", label: "Locally engineered" },
-  { value: "24/7", label: "Support & care" },
+const capabilities = [
+  { value: "7", label: "Purpose-built products" },
+  { value: "5", label: "Core service lines" },
+  { value: "Addis Ababa", label: "Local engineering team" },
+  { value: "End to end", label: "Build, install & support" },
 ];
 
 const trustedBy = [
@@ -42,7 +42,7 @@ function DashboardMock() {
     <div className="relative">
       {/* Glow behind the panel */}
       <div
-        className="absolute -inset-8 rounded-[3rem] bg-gradient-to-tr from-teal-500/25 via-cyan-500/10 to-transparent blur-3xl"
+        className="absolute -inset-8 rounded-[3rem] bg-gradient-to-tr from-teal-500/25 via-teal-300/10 to-transparent blur-3xl"
         aria-hidden="true"
       />
 
@@ -50,11 +50,11 @@ function DashboardMock() {
         <div className="overflow-hidden rounded-xl border border-white/10 bg-ink-900/90">
           {/* Window chrome */}
           <div className="flex items-center gap-2 border-b border-white/8 px-4 py-3">
-            <span className="h-2.5 w-2.5 rounded-full bg-rose-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
-            <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+            <span className="h-2.5 w-2.5 rounded-full bg-white/25" />
+            <span className="h-2.5 w-2.5 rounded-full bg-teal-400/70" />
             <span className="ml-3 rounded-md bg-white/5 px-2.5 py-1 text-[10px] font-medium tracking-wide text-slate-400">
-              entro · systems console
+              concept preview · connected operations
             </span>
           </div>
 
@@ -62,9 +62,9 @@ function DashboardMock() {
             {/* KPI row */}
             <div className="grid grid-cols-3 gap-3">
               {[
-                { label: "Software", value: "ERP · AI", accent: "text-teal-300" },
-                { label: "Hardware", value: "CCTV+", accent: "text-cyan-300" },
-                { label: "Support", value: "24/7", accent: "text-emerald-300" },
+                { label: "Business systems", value: "ERP · AI", accent: "text-teal-300" },
+                { label: "Connected hardware", value: "CCTV+", accent: "text-teal-200" },
+                { label: "Delivery", value: "Build · Install", accent: "text-teal-100" },
               ].map((kpi) => (
                 <div
                   key={kpi.label}
@@ -84,9 +84,9 @@ function DashboardMock() {
             <div className="rounded-lg border border-white/8 bg-white/[0.03] p-4">
               <div className="mb-3 flex items-center justify-between">
                 <p className="text-xs font-semibold text-slate-300">
-                  Connected systems coverage
+                  One view across your operations
                 </p>
-                <span className="rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] font-semibold text-emerald-300">
+                <span className="rounded-full bg-teal-400/10 px-2 py-0.5 text-[10px] font-semibold text-teal-200">
                   Unified
                 </span>
               </div>
@@ -94,7 +94,7 @@ function DashboardMock() {
                 {[38, 52, 44, 63, 58, 74, 69, 88, 82, 96].map((height, index) => (
                   <div
                     key={index}
-                    className="flex-1 rounded-t bg-gradient-to-t from-teal-500/25 to-teal-400"
+                    className="flex-1 rounded-t bg-gradient-to-t from-teal-700/25 to-teal-400"
                     style={{ height: `${height}%` }}
                   />
                 ))}
@@ -104,9 +104,9 @@ function DashboardMock() {
             {/* Service list */}
             <div className="space-y-2">
               {[
-                { name: "Custom software · Web · ERP", progress: 100, state: "Live" },
-                { name: "CCTV · Access control · GPS", progress: 100, state: "Live" },
-                { name: "Attendance · AI · Integration", progress: 88, state: "Active" },
+                { name: "Business software · ERP", progress: 82, state: "Systems" },
+                { name: "CCTV · Access · GPS", progress: 68, state: "Hardware" },
+                { name: "Web · AI · Integrations", progress: 54, state: "Digital" },
               ].map((item) => (
                 <div
                   key={item.name}
@@ -118,8 +118,8 @@ function DashboardMock() {
                     </p>
                     <span
                       className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-semibold ${
-                        item.state === "Live"
-                          ? "bg-emerald-400/10 text-emerald-300"
+                        item.state === "Systems"
+                          ? "bg-teal-400/10 text-teal-200"
                           : "bg-teal-400/10 text-teal-300"
                       }`}
                     >
@@ -128,7 +128,7 @@ function DashboardMock() {
                   </div>
                   <div className="mt-2 h-1 overflow-hidden rounded-full bg-white/10">
                     <div
-                      className="h-full rounded-full bg-gradient-to-r from-teal-400 to-cyan-400"
+                      className="h-full rounded-full bg-gradient-to-r from-teal-500 to-teal-300"
                       style={{ width: `${item.progress}%` }}
                     />
                   </div>
@@ -154,8 +154,8 @@ function DashboardMock() {
 
       <div className="animate-float animation-delay-2000 absolute -right-3 bottom-10 hidden rounded-xl border border-white/12 bg-ink-800/90 px-3.5 py-2.5 shadow-xl backdrop-blur-xl sm:block">
         <div className="flex items-center gap-2.5">
-          <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-400/15">
-            <Camera className="h-4 w-4 text-emerald-300" aria-hidden="true" />
+            <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-teal-400/15">
+            <Camera className="h-4 w-4 text-teal-200" aria-hidden="true" />
           </span>
           <div>
             <p className="text-[11px] font-semibold text-white">Security systems</p>
@@ -190,7 +190,7 @@ const Hero = () => {
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="grid-lines-invert absolute inset-0" />
         <div className="animate-aurora absolute -top-40 left-1/4 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-teal-500/20 blur-[130px]" />
-        <div className="animate-aurora animation-delay-2000 absolute -bottom-52 right-0 h-[32rem] w-[32rem] rounded-full bg-cyan-600/20 blur-[130px]" />
+        <div className="animate-aurora animation-delay-2000 absolute -bottom-52 right-0 h-[32rem] w-[32rem] rounded-full bg-teal-600/20 blur-[130px]" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pb-24 sm:pt-20 lg:px-8 lg:pb-28 lg:pt-24">
@@ -198,28 +198,29 @@ const Hero = () => {
           {/* Copy */}
           <div className="max-w-2xl">
             <div className="animate-fade-in-up inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold text-teal-200 backdrop-blur sm:text-[13px]">
-              <Sparkles className="h-3.5 w-3.5 text-teal-300" aria-hidden="true" />
-              Software · Hardware · Web · AI · ERP — engineered in Addis Ababa
+              <MapPin className="h-3.5 w-3.5 text-teal-300" aria-hidden="true" />
+              Entro Ethiopia · Software & systems engineering
             </div>
 
             <h1 className="animate-fade-in-up animation-delay-200 mt-7 text-balance text-4xl font-bold leading-[1.07] text-white sm:text-5xl lg:text-[3.5rem]">
-              Software and hardware systems
-              <span className="mt-2 block bg-gradient-to-r from-teal-300 via-teal-200 to-cyan-300 bg-clip-text text-transparent">
-                that move your organization forward
+              Technology that fits the way
+              <span className="mt-2 block bg-gradient-to-r from-teal-300 via-teal-200 to-teal-100 bg-clip-text text-transparent">
+                your organization works.
               </span>
             </h1>
 
             <p className="animate-fade-in-up animation-delay-400 mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
-              Custom software, ready platforms, and hardware systems — built in
-              Addis Ababa and supported after launch.
+              We design and deliver custom software, business platforms and
+              connected hardware for organizations across Ethiopia. One local
+              team takes you from discovery through deployment and support.
             </p>
 
             <div className="animate-fade-in-up animation-delay-600 mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
               <Link
                 href="/contact"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-7 py-4 text-base font-semibold text-white shadow-[0_18px_44px_-18px_rgba(20,184,166,0.95)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_26px_56px_-20px_rgba(20,184,166,1)]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-teal-700 px-7 py-4 text-base font-semibold text-white shadow-[0_18px_44px_-18px_rgba(20,184,166,0.75)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_26px_56px_-20px_rgba(20,184,166,0.9)]"
               >
-                Book a free consultation
+                Discuss your project
                 <ArrowUpRight
                   className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                   aria-hidden="true"
@@ -230,7 +231,7 @@ const Hero = () => {
                 className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-7 py-4 text-base font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-400/40 hover:bg-white/[0.12]"
               >
                 <Play className="h-4 w-4 text-teal-300" aria-hidden="true" />
-                See our work
+                Explore our work
               </Link>
             </div>
 
@@ -253,11 +254,11 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Stats */}
+        {/* Capability snapshot */}
         <div className="animate-fade-in-up animation-delay-1000 mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] sm:mt-20 sm:grid-cols-4">
-          {stats.map((stat) => (
+          {capabilities.map((stat) => (
             <div key={stat.label} className="bg-ink-950/60 px-5 py-6 backdrop-blur">
-              <div className="text-3xl font-bold text-white sm:text-4xl">
+              <div className="text-xl font-bold text-white sm:text-2xl">
                 {stat.value}
               </div>
               <div className="mt-1.5 text-xs font-medium uppercase tracking-[0.12em] text-slate-400 sm:text-[13px]">
@@ -270,7 +271,7 @@ const Hero = () => {
         {/* Trust bar — dotted carousel on small; marquee from md up */}
         <div className="mt-12 sm:mt-14">
           <p className="text-center text-[11px] font-semibold uppercase tracking-[0.24em] text-slate-500">
-            Trusted by teams across Ethiopia and abroad
+            Selected teams we have worked with
           </p>
 
           <div className="mt-7 md:hidden">

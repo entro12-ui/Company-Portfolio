@@ -1,8 +1,8 @@
 import {
   FileText,
   Headset,
-  Rocket,
   Search,
+  Wrench,
   type LucideIcon,
 } from "lucide-react";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -24,32 +24,32 @@ const steps: Step[] = [
     step: "01",
     title: "Discover",
     description: "We map your current process and find where time is lost.",
-    iconBg: "bg-sky-500/15 border-sky-400/30",
-    iconColor: "text-sky-600 dark:text-sky-400",
+    iconBg: "bg-teal-50 border-teal-200 dark:bg-teal-500/15 dark:border-teal-300/25",
+    iconColor: "text-teal-700 dark:text-teal-300",
   },
   {
     icon: FileText,
     step: "02",
     title: "Scope & price",
     description: "You get a clear written scope and fixed price before build.",
-    iconBg: "bg-violet-500/15 border-violet-400/30",
-    iconColor: "text-violet-600 dark:text-violet-400",
+    iconBg: "bg-teal-50 border-teal-200 dark:bg-teal-500/15 dark:border-teal-300/25",
+    iconColor: "text-teal-700 dark:text-teal-300",
   },
   {
-    icon: Rocket,
+    icon: Wrench,
     step: "03",
     title: "Build",
     description: "We ship in short cycles so you can review working software.",
-    iconBg: "bg-amber-500/15 border-amber-400/30",
-    iconColor: "text-amber-600 dark:text-amber-400",
+    iconBg: "bg-teal-50 border-teal-200 dark:bg-teal-500/15 dark:border-teal-300/25",
+    iconColor: "text-teal-700 dark:text-teal-300",
   },
   {
     icon: Headset,
     step: "04",
     title: "Launch & support",
     description: "Training, handover, and ongoing support after go-live.",
-    iconBg: "bg-emerald-500/15 border-emerald-400/30",
-    iconColor: "text-emerald-600 dark:text-emerald-400",
+    iconBg: "bg-teal-50 border-teal-200 dark:bg-teal-500/15 dark:border-teal-300/25",
+    iconColor: "text-teal-700 dark:text-teal-300",
   },
 ];
 

@@ -21,26 +21,11 @@ function getInitials(value: string) {
 }
 
 const accentColors = [
-  { quote: "text-rose-500", soft: "bg-rose-500/10", text: "text-rose-700 dark:text-rose-300" },
-  { quote: "text-teal-500", soft: "bg-teal-500/10", text: "text-teal-700 dark:text-teal-300" },
-  { quote: "text-sky-500", soft: "bg-sky-500/10", text: "text-sky-700 dark:text-sky-300" },
-  { quote: "text-amber-500", soft: "bg-amber-500/10", text: "text-amber-700 dark:text-amber-300" },
-  { quote: "text-violet-500", soft: "bg-violet-500/10", text: "text-violet-700 dark:text-violet-300" },
-  { quote: "text-emerald-500", soft: "bg-emerald-500/10", text: "text-emerald-700 dark:text-emerald-300" },
-  { quote: "text-orange-500", soft: "bg-orange-500/10", text: "text-orange-700 dark:text-orange-300" },
-  { quote: "text-cyan-500", soft: "bg-cyan-500/10", text: "text-cyan-700 dark:text-cyan-300" },
-  { quote: "text-fuchsia-500", soft: "bg-fuchsia-500/10", text: "text-fuchsia-700 dark:text-fuchsia-300" },
+  { quote: "text-teal-600 dark:text-teal-300", soft: "bg-teal-500/10", text: "text-teal-800 dark:text-teal-300" },
 ];
 
 const projectColors = [
-  { badge: "bg-rose-500/15 text-rose-700 dark:text-rose-300", label: "text-rose-700 dark:text-rose-300" },
-  { badge: "bg-teal-500/15 text-teal-700 dark:text-teal-300", label: "text-teal-700 dark:text-teal-300" },
-  { badge: "bg-sky-500/15 text-sky-700 dark:text-sky-300", label: "text-sky-700 dark:text-sky-300" },
-  { badge: "bg-amber-500/15 text-amber-700 dark:text-amber-300", label: "text-amber-700 dark:text-amber-300" },
-  { badge: "bg-violet-500/15 text-violet-700 dark:text-violet-300", label: "text-violet-700 dark:text-violet-300" },
-  { badge: "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300", label: "text-emerald-700 dark:text-emerald-300" },
-  { badge: "bg-orange-500/15 text-orange-700 dark:text-orange-300", label: "text-orange-700 dark:text-orange-300" },
-  { badge: "bg-cyan-500/15 text-cyan-700 dark:text-cyan-300", label: "text-cyan-700 dark:text-cyan-300" },
+  { badge: "bg-teal-500/10 text-teal-800 dark:text-teal-300", label: "text-teal-800 dark:text-teal-300" },
 ];
 
 const clientProjects = [

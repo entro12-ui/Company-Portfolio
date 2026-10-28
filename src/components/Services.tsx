@@ -1,11 +1,11 @@
 import Link from "next/link";
 import {
   ArrowUpRight,
-  BrainCircuit,
   CodeXml,
   Cpu,
   Globe,
   Layers,
+  Workflow,
   type LucideIcon,
 } from "lucide-react";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -51,7 +51,7 @@ const services: Service[] = [
     ],
   },
   {
-    icon: BrainCircuit,
+    icon: Workflow,
     title: "AI Solutions",
     href: "/ai-solutions",
     linkLabel: "See our AI capabilities",
@@ -116,7 +116,7 @@ export default function Services() {
                 className="ring-gradient group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 sm:p-6 dark:border-white/10 dark:bg-white/[0.03]"
               >
                 <div className="flex items-start gap-3.5">
-                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-500 to-cyan-600">
+                  <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-teal-600 to-teal-800">
                     <Icon className="h-5 w-5 text-white" aria-hidden="true" />
                   </span>
                   <div className="min-w-0 flex-1">

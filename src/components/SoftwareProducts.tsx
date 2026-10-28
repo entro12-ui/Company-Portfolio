@@ -3,11 +3,11 @@ import {
   ArrowUpRight,
   Building2,
   Car,
+  CalendarDays,
   GraduationCap,
   HeartPulse,
   Package,
-  PartyPopper,
-  Sparkles,
+  Scissors,
   type LucideIcon,
 } from "lucide-react";
 import { Section, SectionHeading } from "@/components/ui/Section";
@@ -38,9 +38,9 @@ const products: Product[] = [
       "Multi-branch schools with shared reporting",
       "AI academic insights and teaching support",
     ],
-    iconBg: "bg-emerald-500/20 border-emerald-400/30",
-    iconColor: "text-emerald-300",
-    bulletColor: "bg-emerald-400",
+    iconBg: "bg-teal-50 border-teal-200 dark:bg-teal-500/15 dark:border-teal-300/25",
+    iconColor: "text-teal-700 dark:text-teal-300",
+    bulletColor: "bg-teal-500",
   },
   {
     id: "medicare-ai",
@@ -54,9 +54,9 @@ const products: Product[] = [
       "AI clinical support and 24/7 patient chatbot",
       "Performance visibility for management",
     ],
-    iconBg: "bg-rose-500/20 border-rose-400/30",
-    iconColor: "text-rose-300",
-    bulletColor: "bg-rose-400",
+    iconBg: "bg-teal-50 border-teal-200 dark:bg-teal-500/15 dark:border-teal-300/25",
+    iconColor: "text-teal-700 dark:text-teal-300",
+    bulletColor: "bg-teal-500",
   },
   {
     id: "control-inventory",
@@ -70,9 +70,9 @@ const products: Product[] = [
       "Sales / POS and purchase workflows",
       "Profitability reporting and low-stock alerts",
     ],
-    iconBg: "bg-amber-500/20 border-amber-400/30",
-    iconColor: "text-amber-300",
-    bulletColor: "bg-amber-400",
+    iconBg: "bg-teal-50 border-teal-200 dark:bg-teal-500/15 dark:border-teal-300/25",
+    iconColor: "text-teal-700 dark:text-teal-300",
+    bulletColor: "bg-teal-500",
   },
   {
     id: "guzo",
@@ -86,9 +86,9 @@ const products: Product[] = [
       "Appointments and parts control",
       "Mileage-based reminders that drive repeat work",
     ],
-    iconBg: "bg-sky-500/20 border-sky-400/30",
-    iconColor: "text-sky-300",
-    bulletColor: "bg-sky-400",
+    iconBg: "bg-teal-50 border-teal-200 dark:bg-teal-500/15 dark:border-teal-300/25",
+    iconColor: "text-teal-700 dark:text-teal-300",
+    bulletColor: "bg-teal-500",
   },
   {
     id: "nibret",
@@ -102,13 +102,13 @@ const products: Product[] = [
       "Rent collection and follow-up",
       "Maintenance tickets and portfolio dashboards",
     ],
-    iconBg: "bg-violet-500/20 border-violet-400/30",
-    iconColor: "text-violet-300",
-    bulletColor: "bg-violet-400",
+    iconBg: "bg-teal-50 border-teal-200 dark:bg-teal-500/15 dark:border-teal-300/25",
+    iconColor: "text-teal-700 dark:text-teal-300",
+    bulletColor: "bg-teal-500",
   },
   {
     id: "wubet",
-    icon: Sparkles,
+    icon: Scissors,
     title: "ውበት · Wubet",
     category: "Salon · Barbershop · Spa",
     description:
@@ -118,13 +118,13 @@ const products: Product[] = [
       "Staff, services, packages and memberships",
       "Payments, client history and reminders",
     ],
-    iconBg: "bg-pink-500/20 border-pink-400/30",
-    iconColor: "text-pink-300",
-    bulletColor: "bg-pink-400",
+    iconBg: "bg-teal-50 border-teal-200 dark:bg-teal-500/15 dark:border-teal-300/25",
+    iconColor: "text-teal-700 dark:text-teal-300",
+    bulletColor: "bg-teal-500",
   },
   {
     id: "enku",
-    icon: PartyPopper,
+    icon: CalendarDays,
     title: "እንቁ · Enku",
     category: "Celebrations",
     description:
@@ -134,9 +134,9 @@ const products: Product[] = [
       "Vendors, budgets, guests and timelines",
       "Corporate events and anniversary packages",
     ],
-    iconBg: "bg-fuchsia-500/20 border-fuchsia-400/30",
-    iconColor: "text-fuchsia-300",
-    bulletColor: "bg-fuchsia-400",
+    iconBg: "bg-teal-50 border-teal-200 dark:bg-teal-500/15 dark:border-teal-300/25",
+    iconColor: "text-teal-700 dark:text-teal-300",
+    bulletColor: "bg-teal-500",
   },
 ];
 
@@ -144,20 +144,18 @@ export default function SoftwareProducts() {
   return (
     <Section
       id="products"
-      className="relative overflow-hidden bg-ink-950 text-white"
+      className="relative overflow-hidden bg-[#f4f8f7] text-slate-900 dark:bg-ink-950 dark:text-white"
     >
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="grid-lines-invert absolute inset-0" />
-        <div className="absolute -top-32 right-1/4 h-96 w-96 rounded-full bg-teal-600/12 blur-[120px]" />
-        <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-cyan-700/12 blur-[120px]" />
+        <div className="absolute -top-32 right-1/4 h-96 w-96 rounded-full bg-teal-600/8 blur-[120px] dark:bg-teal-600/12" />
+        <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-teal-700/5 blur-[120px] dark:bg-teal-700/12" />
       </div>
 
       <div className="relative">
         <SectionHeading
-          tone="dark"
           eyebrow="Products"
-          title="Ready-to-use platforms"
-          description="Pick a product that fits your business — or ask us to build something custom."
+          title="Purpose-built platforms for everyday work"
+          description="Explore our ready-to-use systems for education, healthcare, retail and service businesses. Each one can be configured to fit your workflow."
         />
 
         <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
@@ -167,7 +165,7 @@ export default function SoftwareProducts() {
               <Reveal key={product.id} delay={index * 50} className="h-full">
                 <Link
                   href={`/products/${product.id}`}
-                  className="ring-gradient group relative flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.07] sm:p-6"
+                  className="ring-gradient group relative flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[var(--shadow-soft)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-lifted)] sm:p-6 dark:border-white/10 dark:bg-white/[0.035] dark:hover:bg-white/[0.07]"
                 >
                   <div className="flex items-start gap-3.5">
                     <span
@@ -180,22 +178,30 @@ export default function SoftwareProducts() {
                     </span>
                     <div className="min-w-0 flex-1">
                       <div className="flex items-start justify-between gap-2">
-                        <h3 className="text-base font-bold text-white sm:text-lg">
+                        <h3 className="text-base font-bold text-slate-900 sm:text-lg dark:text-white">
                           {product.title}
                         </h3>
                         <ArrowUpRight
-                          className="mt-0.5 h-4 w-4 shrink-0 text-slate-500 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-teal-300"
+                          className="mt-0.5 h-4 w-4 shrink-0 text-slate-400 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-teal-600 dark:text-slate-500 dark:group-hover:text-teal-300"
                           aria-hidden="true"
                         />
                       </div>
-                      <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-slate-500">
+                      <p className="mt-1 text-[11px] font-semibold uppercase tracking-wider text-teal-700 dark:text-teal-400">
                         {product.category}
                       </p>
-                      <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-400">
+                      <p className="mt-2 line-clamp-2 text-sm leading-6 text-slate-600 dark:text-slate-400">
                         {product.description}
                       </p>
                     </div>
                   </div>
+                  <ul className="mt-5 space-y-2 border-t border-slate-100 pt-4 dark:border-white/10">
+                    {product.highlights.slice(0, 2).map((highlight) => (
+                      <li key={highlight} className="flex items-start gap-2.5 text-xs leading-5 text-slate-600 dark:text-slate-400">
+                        <span className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${product.bulletColor}`} aria-hidden="true" />
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
                 </Link>
               </Reveal>
             );
@@ -203,12 +209,12 @@ export default function SoftwareProducts() {
         </div>
 
         <Reveal delay={140} className="mt-12">
-          <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-white/10 bg-gradient-to-r from-white/[0.07] to-white/[0.02] px-7 py-8 sm:px-10 lg:flex-row">
+          <div className="flex flex-col items-center justify-between gap-6 rounded-3xl border border-teal-900/10 bg-[#e7f2ef] px-7 py-8 sm:px-10 lg:flex-row dark:border-white/10 dark:bg-white/[0.05]">
             <div className="max-w-xl text-center lg:text-left">
-              <h3 className="text-xl font-bold text-white sm:text-2xl">
+              <h3 className="text-xl font-bold text-slate-900 sm:text-2xl dark:text-white">
                 Need something none of these cover?
               </h3>
-              <p className="mt-2 text-[15px] leading-7 text-slate-400">
+              <p className="mt-2 text-[15px] leading-7 text-slate-600 dark:text-slate-400">
                 Most of our work starts as a conversation about a process that
                 is costing you time. We scope it, price it honestly, and build
                 only what earns its place.
@@ -216,7 +222,7 @@ export default function SoftwareProducts() {
             </div>
             <Link
               href="/contact"
-              className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-ink-950 transition-all duration-300 hover:-translate-y-0.5 hover:bg-slate-100"
+              className="group inline-flex shrink-0 items-center gap-2 rounded-full bg-teal-800 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-teal-900"
             >
               Scope a custom build
               <ArrowUpRight

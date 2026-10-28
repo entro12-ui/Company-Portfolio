@@ -15,7 +15,7 @@ export default function CtaBand() {
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
         <div className="grid-lines-invert absolute inset-0" />
         <div className="animate-aurora absolute -top-40 left-1/3 h-[30rem] w-[30rem] rounded-full bg-teal-500/22 blur-[130px]" />
-        <div className="animate-aurora animation-delay-2000 absolute -bottom-40 right-1/4 h-[26rem] w-[26rem] rounded-full bg-cyan-600/20 blur-[130px]" />
+        <div className="animate-aurora animation-delay-2000 absolute -bottom-40 right-1/4 h-[26rem] w-[26rem] rounded-full bg-teal-600/20 blur-[130px]" />
       </div>
 
       <div className="relative mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
@@ -27,7 +27,7 @@ export default function CtaBand() {
 
           <h2 className="mt-6 text-balance text-3xl font-bold leading-[1.12] text-white sm:text-4xl lg:text-[2.75rem]">
             Tell us what is slowing your team down.
-            <span className="block bg-gradient-to-r from-teal-300 to-cyan-300 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-teal-300 to-teal-100 bg-clip-text text-transparent">
               We will tell you what it takes to fix it.
             </span>
           </h2>
@@ -62,7 +62,7 @@ export default function CtaBand() {
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-500 to-cyan-600 px-7 py-4 text-base font-semibold text-white shadow-[0_18px_44px_-18px_rgba(20,184,166,0.95)] transition-all duration-300 hover:-translate-y-0.5"
+              className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-teal-700 px-7 py-4 text-base font-semibold text-white shadow-[0_18px_44px_-18px_rgba(20,184,166,0.75)] transition-all duration-300 hover:-translate-y-0.5"
             >
               Book your consultation
               <ArrowUpRight
@@ -80,7 +80,8 @@ export default function CtaBand() {
           </div>
 
           <p className="mt-5 text-sm text-slate-500">
-            Typical reply time under two hours during working days.
+            Share the challenge, the people it affects, and what a better
+            outcome would look like. We will help you shape the next step.
           </p>
         </Reveal>
 
@@ -155,7 +156,7 @@ export default function CtaBand() {
                     Support
                   </span>
                   <span className="block text-sm font-semibold text-white">
-                    24/7 for existing clients
+                    Ongoing support for existing clients
                   </span>
                 </span>
               </div>
