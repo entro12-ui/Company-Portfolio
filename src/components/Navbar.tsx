@@ -248,26 +248,30 @@ const Navbar = () => {
         }`}
       >
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-20 lg:px-8">
-          <Link href="/" className="flex shrink-0 items-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-white p-1 ring-1 ring-slate-200 dark:ring-white/15 sm:h-14 sm:w-14">
+          <Link href="/" className="flex shrink-0 items-center">
+            {/* Small screens: compact icon */}
+            <span className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-xl bg-white p-1 ring-1 ring-slate-200 dark:ring-white/15 sm:hidden">
               <Image
-                src="/logo.png"
+                src="/entro-icon.webp"
                 alt="Entro Ethiopia"
-                width={56}
-                height={60}
+                width={1254}
+                height={1254}
                 className="h-full w-full object-contain"
-                quality={100}
-                unoptimized
                 priority
+                unoptimized
               />
             </span>
-            <span className="hidden sm:block">
-              <span className="block text-[15px] font-bold leading-tight tracking-tight text-slate-900 dark:text-white">
-                Entro Ethiopia
-              </span>
-              <span className="block text-[11px] font-medium uppercase tracking-[0.14em] text-teal-700 dark:text-teal-400">
-                Software · Hardware · AI
-              </span>
+            {/* Larger screens: full logo (white backing keeps the navy wordmark readable in dark mode) */}
+            <span className="hidden items-center rounded-xl bg-white px-3 py-1.5 ring-1 ring-slate-200 dark:ring-white/15 sm:flex">
+              <Image
+                src="/entro-logo.webp"
+                alt="Entro Ethiopia — Software & Hardware Development PLC"
+                width={2000}
+                height={650}
+                className="h-9 w-auto lg:h-11"
+                priority
+                unoptimized
+              />
             </span>
           </Link>
 

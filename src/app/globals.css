@@ -335,6 +335,20 @@
   box-shadow: var(--shadow-lifted);
 }
 
+/* Home hero: clean white base with a soft mesh glow in the Entro logo colours
+   (#008D85 teal, #04C975 green, #007C78 deep teal), fading to Apple-style #f5f7f7. */
+.hero-mesh {
+  background:
+    radial-gradient(55% 60% at 88% 8%, rgba(4, 201, 117, 0.16) 0%, transparent 70%),
+    radial-gradient(50% 55% at 6% 0%, rgba(0, 141, 133, 0.14) 0%, transparent 70%),
+    radial-gradient(45% 40% at 55% 100%, rgba(0, 124, 120, 0.09) 0%, transparent 72%),
+    linear-gradient(180deg, #ffffff 0%, #fbfcfc 55%, #f5f7f7 100%);
+}
+
+.dark .hero-mesh {
+  background: var(--ink-950);
+}
+
 /* Subtle blueprint grid used behind hero / CTA bands */
 .grid-lines {
   background-image: linear-gradient(

@@ -101,25 +101,28 @@ const Footer = () => {
         {/* Main footer */}
         <div className="grid gap-12 py-14 lg:grid-cols-[1.3fr_2fr] lg:gap-16">
           <div>
-            <Link href="/" className="flex items-center gap-3">
-              <span className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl bg-white p-1.5 ring-1 ring-white/15">
+            <Link href="/" className="inline-flex items-center">
+              {/* Small screens: compact icon */}
+              <span className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-xl bg-white p-1.5 ring-1 ring-white/15 sm:hidden">
                 <Image
-                  src="/logo.png"
+                  src="/entro-icon.webp"
                   alt="Entro Ethiopia"
-                  width={56}
-                  height={60}
+                  width={1254}
+                  height={1254}
                   className="h-full w-full object-contain"
-                  quality={100}
                   unoptimized
                 />
               </span>
-              <span>
-                <span className="block text-lg font-bold leading-tight text-white">
-                  {company.name}
-                </span>
-                <span className="block text-[11px] font-medium uppercase tracking-[0.14em] text-teal-400">
-                  Software Development PLC
-                </span>
+              {/* Larger screens: full logo, white backing keeps the navy wordmark readable on the dark footer */}
+              <span className="hidden rounded-xl bg-white px-4 py-2 ring-1 ring-white/15 sm:block">
+                <Image
+                  src="/entro-logo.webp"
+                  alt="Entro Ethiopia — Software & Hardware Development PLC"
+                  width={2000}
+                  height={667}
+                  className="block h-12 w-auto lg:h-14"
+                  unoptimized
+                />
               </span>
             </Link>
 

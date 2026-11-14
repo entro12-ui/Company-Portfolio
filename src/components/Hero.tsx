@@ -21,12 +21,15 @@ const capabilities = [
   { value: "End to end", label: "Build, install & support" },
 ];
 
+// width/height are each logo's native pixel size, so logos are never upscaled (which blurs them).
 const trustedBy = [
-  { name: "duey.ai", logo: "/duey.ai.png" },
-  { name: "Danat Dental Clinic", logo: "/healthcare-client-logo.png" },
-  { name: "Operation Kilimanjaro", logo: "/operation-kilimanjaro-logo.png" },
-  { name: "Parka", logo: "/Parka.png" },
-  { name: "Vallintine", logo: "/vallintine.png" },
+  { name: "duey.ai", logo: "/duey.ai.png", width: 199, height: 53 },
+  { name: "Danat Dental Clinic", logo: "/healthcare-client-logo.png", width: 945, height: 362 },
+  { name: "Operation Kilimanjaro", logo: "/operation-kilimanjaro-logo.png", width: 270, height: 90 },
+  { name: "Parka", logo: "/Parka.png", width: 90, height: 88 },
+  { name: "Vallintine", logo: "/vallintine.png", width: 119, height: 91 },
+  { name: "New Generation Human Resource & Logistics", logo: "/new-generation-hr-logistics.png", width: 86, height: 90 },
+  { name: "Sharja Trading", logo: "/sharja-trading-logo.png", width: 198, height: 68 },
 ];
 
 const TRUSTED_PER_PAGE = 1;
@@ -185,31 +188,31 @@ const Hero = () => {
   );
 
   return (
-    <section className="relative isolate overflow-hidden bg-ink-950">
-      {/* Ambient background */}
+    <section className="hero-mesh relative isolate overflow-hidden dark:bg-ink-950 dark:bg-none">
+      {/* Ambient background: clean brand mesh in light mode; grid + aurora in dark mode */}
       <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-        <div className="grid-lines-invert absolute inset-0" />
-        <div className="animate-aurora absolute -top-40 left-1/4 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-teal-500/20 blur-[130px]" />
-        <div className="animate-aurora animation-delay-2000 absolute -bottom-52 right-0 h-[32rem] w-[32rem] rounded-full bg-teal-600/20 blur-[130px]" />
+        <div className="grid-lines-invert absolute inset-0 hidden dark:block" />
+        <div className="animate-aurora absolute -top-40 left-1/4 hidden h-[36rem] w-[36rem] -translate-x-1/2 rounded-full bg-teal-500/20 blur-[130px] dark:block" />
+        <div className="animate-aurora animation-delay-2000 absolute -bottom-52 right-0 hidden h-[32rem] w-[32rem] rounded-full bg-teal-600/20 blur-[130px] dark:block" />
       </div>
 
       <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pb-24 sm:pt-20 lg:px-8 lg:pb-28 lg:pt-24">
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           {/* Copy */}
           <div className="max-w-2xl">
-            <div className="animate-fade-in-up inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-4 py-1.5 text-xs font-semibold text-teal-200 backdrop-blur sm:text-[13px]">
-              <MapPin className="h-3.5 w-3.5 text-teal-300" aria-hidden="true" />
+            <div className="animate-fade-in-up inline-flex items-center gap-2 rounded-full border border-teal-200 bg-white px-4 py-1.5 text-xs font-semibold text-teal-800 shadow-sm backdrop-blur sm:text-[13px] dark:border-white/15 dark:bg-white/[0.06] dark:text-teal-200">
+              <MapPin className="h-3.5 w-3.5 text-teal-600 dark:text-teal-300" aria-hidden="true" />
               Entro Ethiopia · Software & systems engineering
             </div>
 
-            <h1 className="animate-fade-in-up animation-delay-200 mt-7 text-balance text-4xl font-bold leading-[1.07] text-white sm:text-5xl lg:text-[3.5rem]">
+            <h1 className="animate-fade-in-up animation-delay-200 mt-7 text-balance text-4xl font-bold leading-[1.07] text-slate-900 sm:text-5xl lg:text-[3.5rem] dark:text-white">
               Technology that fits the way
-              <span className="mt-2 block bg-gradient-to-r from-teal-300 via-teal-200 to-teal-100 bg-clip-text text-transparent">
+              <span className="mt-2 block bg-gradient-to-r from-teal-600 via-teal-500 to-cyan-600 bg-clip-text text-transparent dark:from-teal-300 dark:via-teal-200 dark:to-teal-100">
                 your organization works.
               </span>
             </h1>
 
-            <p className="animate-fade-in-up animation-delay-400 mt-6 max-w-xl text-base leading-7 text-slate-300 sm:text-lg sm:leading-8">
+            <p className="animate-fade-in-up animation-delay-400 mt-6 max-w-xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8 dark:text-slate-300">
               We design and deliver custom software, business platforms and
               connected hardware for organizations across Ethiopia. One local
               team takes you from discovery through deployment and support.
@@ -228,9 +231,9 @@ const Hero = () => {
               </Link>
               <Link
                 href="/portfolio"
-                className="group inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-7 py-4 text-base font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-400/40 hover:bg-white/[0.12]"
+                className="group inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-7 py-4 text-base font-semibold text-slate-800 shadow-sm backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:border-teal-400 hover:text-teal-700 dark:border-white/15 dark:bg-white/[0.06] dark:text-white dark:hover:border-teal-400/40 dark:hover:bg-white/[0.12]"
               >
-                <Play className="h-4 w-4 text-teal-300" aria-hidden="true" />
+                <Play className="h-4 w-4 text-teal-600 dark:text-teal-300" aria-hidden="true" />
                 Explore our work
               </Link>
             </div>
@@ -239,9 +242,9 @@ const Hero = () => {
               {assurances.map(({ icon: Icon, label }) => (
                 <li
                   key={label}
-                  className="flex items-center gap-2 text-sm text-slate-400"
+                  className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400"
                 >
-                  <Icon className="h-4 w-4 text-teal-400" aria-hidden="true" />
+                  <Icon className="h-4 w-4 text-teal-600 dark:text-teal-400" aria-hidden="true" />
                   {label}
                 </li>
               ))}
@@ -255,13 +258,13 @@ const Hero = () => {
         </div>
 
         {/* Capability snapshot */}
-        <div className="animate-fade-in-up animation-delay-1000 mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/[0.06] sm:mt-20 sm:grid-cols-4">
+        <div className="animate-fade-in-up animation-delay-1000 mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 shadow-sm sm:mt-20 sm:grid-cols-4 dark:border-white/10 dark:bg-white/[0.06]">
           {capabilities.map((stat) => (
-            <div key={stat.label} className="bg-ink-950/60 px-5 py-6 backdrop-blur">
-              <div className="text-xl font-bold text-white sm:text-2xl">
+            <div key={stat.label} className="bg-white/90 px-5 py-6 backdrop-blur dark:bg-ink-950/60">
+              <div className="text-xl font-bold text-slate-900 sm:text-2xl dark:text-white">
                 {stat.value}
               </div>
-              <div className="mt-1.5 text-xs font-medium uppercase tracking-[0.12em] text-slate-400 sm:text-[13px]">
+              <div className="mt-1.5 text-xs font-medium uppercase tracking-[0.12em] text-slate-500 sm:text-[13px] dark:text-slate-400">
                 {stat.label}
               </div>
             </div>
@@ -279,19 +282,17 @@ const Hero = () => {
               {visibleTrusted.map((client) => (
                 <div
                   key={client.name}
-                  className="mx-auto flex h-24 max-w-xs items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-6 backdrop-blur-md"
+                  className="mx-auto flex h-28 max-w-xs items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 shadow-sm dark:border-white/10"
                 >
-                  <span className="relative h-16 w-full">
-                    <Image
-                      src={client.logo}
-                      alt={client.name}
-                      fill
-                      priority
-                      quality={100}
-                      className="object-contain object-center"
-                      sizes="280px"
-                    />
-                  </span>
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    width={client.width}
+                    height={client.height}
+                    priority
+                    unoptimized
+                    className="h-auto max-h-20 w-auto max-w-full object-contain"
+                  />
                 </div>
               ))}
             </div>
@@ -305,8 +306,8 @@ const Hero = () => {
                   aria-current={index === trustedPage ? "true" : undefined}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     index === trustedPage
-                      ? "w-7 bg-teal-400"
-                      : "w-2.5 bg-white/25 hover:bg-white/40"
+                      ? "w-7 bg-teal-500 dark:bg-teal-400"
+                      : "w-2.5 bg-slate-300 hover:bg-slate-400 dark:bg-white/25 dark:hover:bg-white/40"
                   }`}
                 />
               ))}
@@ -314,22 +315,20 @@ const Hero = () => {
           </div>
 
           <div className="mask-fade-x marquee-paused mt-7 hidden overflow-hidden md:block">
-            <div className="animate-marquee flex w-max items-center gap-10 lg:gap-14">
+            <div className="animate-marquee flex w-max items-center gap-6 [will-change:transform] lg:gap-8">
               {[...trustedBy, ...trustedBy, ...trustedBy].map((client, index) => (
                 <div
                   key={`${client.name}-${index}`}
-                  className="flex h-20 w-48 shrink-0 items-center justify-center rounded-2xl border border-white/20 bg-white/10 px-5 backdrop-blur-md transition-transform duration-300 hover:-translate-y-0.5"
+                  className="flex h-24 w-56 shrink-0 items-center justify-center rounded-2xl border border-slate-200 bg-white px-6 shadow-sm transition-shadow duration-300 hover:shadow-md dark:border-white/10"
                 >
-                  <span className="relative h-12 w-full">
-                    <Image
-                      src={client.logo}
-                      alt={client.name}
-                      fill
-                      quality={100}
-                      className="object-contain object-center"
-                      sizes="192px"
-                    />
-                  </span>
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    width={client.width}
+                    height={client.height}
+                    unoptimized
+                    className="h-auto max-h-16 w-auto max-w-full object-contain"
+                  />
                 </div>
               ))}
             </div>
